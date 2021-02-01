@@ -19,9 +19,9 @@ will attempt to realise in my library.
 
 ### Fundamental Methods
 - Transpose
+- Scalar Multiplication
 - [Addition/Subtraction](addition_subtraction.md)
 - u' * u = dot product
-- Scalar Multiplication
 - Matrix Multiplication 
 
 ### Secondary Methods 

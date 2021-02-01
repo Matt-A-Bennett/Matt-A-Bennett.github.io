@@ -6,8 +6,8 @@ suit of methods to do all the needed operations.
 Below is what I've come up with as an initial implementation for adding one
 matrix to another. The method is called from an initial matrix, with the second
 matrix supplied as an argument. Then I simply loop over the rows of each
-matrix, each time looping of the elements of those rows (i.e. the columns),
-summing them and appending them to a added_rows variable.
+matrix, each time looping over the elements of those rows (i.e. the columns),
+summing them and appending them to an added_rows variable.
 </div>
 
 {% highlight python %}
@@ -51,5 +51,5 @@ the loops I have here.
 {% endhighlight %}
 
 
-[back to project overview](./numpy_from_scratch.md)\
+[back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
