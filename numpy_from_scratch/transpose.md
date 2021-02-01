@@ -10,15 +10,6 @@ transposed matrix is built up gradually with a set of new rows (each row being
 the values found in the corresponding column.
 </div>
 
-$$
-A =
-  \begin{bmatrix}
-    1 & 3 & 2 \\
-    2 & 0 & 1 \\
-    5 & 2 & 2
-  \end{bmatrix}
-$$
-
 {% highlight python %}
 
 class Mat:
