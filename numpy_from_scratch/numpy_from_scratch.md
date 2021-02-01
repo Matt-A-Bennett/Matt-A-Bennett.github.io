@@ -18,7 +18,7 @@ will attempt to realise in my library.
 </div><br/>
 
 ### Fundamental Methods
-- Transpose
+- [Transpose](transpose.md)
 - Scalar Multiplication
 - [Addition/Subtraction](addition_subtraction.md)
 - u' * u = dot product
