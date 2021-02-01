@@ -1,3 +1,7 @@
+layout: page
+title: "PAGE TITLE"
+permalink: /URL-PATH/
+
 [back to home](README.md)
 # Building a Python 3 numpy-like module from scratch
 
