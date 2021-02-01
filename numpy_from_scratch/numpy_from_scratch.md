@@ -9,8 +9,7 @@ to consolidate my recent studies of linear algebra. I will attempt to implement
 all the linear algebra operations, methods and algorithms covered in Gilbert
 Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
-</div>
-<br/>
+</div><br/>
 
 ## Methods to implement
 <div style="text-align: justify">
@@ -39,19 +38,6 @@ will attempt to realise in my library.
 - Orthogonalisation
 - Orthonormal basis
 - Eigenvalues and Eigenvectors
-
-# Testing things
-
-Code snippet:
-{% highlight python %}
-def print_hi(name)
-    print(f"Hi, {name}")
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-$$E=mc^2$$
 
 [back to home](../README.md)
 
