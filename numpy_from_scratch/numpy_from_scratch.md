@@ -11,15 +11,16 @@ Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
 </div>
 <br/>
+
 ## Methods to implement
 <div style="text-align: justify">
 Below is a list of the topics I've covered in my studies so far, and which I
 will attempt to realise in my library.
-</div>\
+</div><br/>
 
 ### Fundamental Methods
-- [Addition/Subtraction](addition_subtraction.md)
 - Transpose
+- [Addition/Subtraction](addition_subtraction.md)
 - u' * u = dot product
 - Scalar Multiplication
 - Matrix Multiplication 
