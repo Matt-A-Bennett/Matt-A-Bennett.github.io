@@ -48,5 +48,5 @@ the loops I have here.
 {% endhighlight %}
 
 
-[back to project overview](./numpy_from_scratch.md)
+[back to project overview](./numpy_from_scratch.md)\
 [back to home](../README.md)
