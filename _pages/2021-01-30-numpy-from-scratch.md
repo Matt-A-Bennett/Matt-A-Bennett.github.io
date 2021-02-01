@@ -1,5 +1,5 @@
 ---
-title: Please
+title: {{ page.title }}
 ---
 
 [back to home](README.md)
