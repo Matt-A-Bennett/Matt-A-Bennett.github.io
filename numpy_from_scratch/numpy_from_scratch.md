@@ -9,7 +9,6 @@ to consolidate my recent studies of linear algebra. I will attempt to implement
 all the linear algebra operations, methods and algorithms covered in Gilbert
 Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
-</div>
 
 ## Methods to implement
 Below is a list of the topics I've covered in my studies so far, and which I
@@ -50,5 +49,6 @@ print_hi('Tom')
 
 $$E=mc^2$$
 
+</div>
 [back to home](../README.md)
 
