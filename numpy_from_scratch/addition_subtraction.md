@@ -44,6 +44,7 @@ def subtract(self, new_mat):
 {% endhighlight %}
 
 
-[< Transpose](./transpose.md)<br/>
+[< Transpose](./transpose.md)
+
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
