@@ -1,6 +1,5 @@
-<div style="text-align: justify">
 # Addition/Subtraction
-
+<div style="text-align: justify">
 First off, we need a class 'Mat' (as in 'matrix'). We will gradually build up a
 suit of methods to do all the needed operations. 
 
@@ -9,6 +8,7 @@ matrix to another. The method is called from an initial matrix, with the second
 matrix supplied as an argument. Then I simply loop over the rows of each
 matrix, each time looping of the elements of those rows (i.e. the columns),
 summing them and appending them to a added_rows variable.
+</div>
 
 {% highlight python %}
 
@@ -27,11 +27,13 @@ class Mat:
 
 {% endhighlight %}
 
+<div style="text-align: justify">
 In the case of the subtraction, I simply reverse the signs for the second
 matrix and the call the add method, thus achieving a subtraction. Now that I
 look at it, I realise that once I have a method for scalar multiplication of a
 matrix I can simply use that method to achieve the sign reversal, rather than
 the loops I have here.
+</div>
 
 {% highlight python %}
 
@@ -51,4 +53,3 @@ the loops I have here.
 
 [back to project overview](./numpy_from_scratch.md)\
 [back to home](../README.md)
-</div>
