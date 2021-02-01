@@ -1,3 +1,4 @@
+<div style="text-align: justify">
 # Addition/Subtraction
 
 First off, we need a class 'Mat' (as in 'matrix'). We will gradually build up a
@@ -50,3 +51,4 @@ the loops I have here.
 
 [back to project overview](./numpy_from_scratch.md)\
 [back to home](../README.md)
+</div>

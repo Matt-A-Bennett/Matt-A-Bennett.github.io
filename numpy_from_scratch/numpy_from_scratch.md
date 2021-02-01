@@ -1,5 +1,5 @@
-# Building a Python 3 Numpy-like module from scratch
 <div style="text-align: justify">
+# Building a Python 3 Numpy-like module from scratch
 I want to improve my knowledge of classes, objects, functions and methods in
 Python 3 and to gain a better understanding of the 'standard practices'
 associated with writing them. So I've decided to try and build a Python library
@@ -49,6 +49,6 @@ print_hi('Tom')
 
 $$E=mc^2$$
 
-</div>
 [back to home](../README.md)
+</div>
 
