@@ -11,11 +11,12 @@ Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
 </div>
 
+
 ## Methods to implement
 <div style="text-align: justify">
 Below is a list of the topics I've covered in my studies so far, and which I
 will attempt to realise in my library.
-</div>
+</div>/
 
 ### Fundamental Methods
 - Transpose
