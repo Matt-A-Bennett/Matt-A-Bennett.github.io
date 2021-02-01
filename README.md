@@ -5,5 +5,7 @@
 
 Adding things
 
+$$E=mc^2$$
+
 
 
