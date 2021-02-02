@@ -1,7 +1,7 @@
 # Scalar Multiplication
 <div style="text-align: justify">
 Scalar multiplication is a simple matter of taking some matrix (or vector) and
-multiplying all it's elements by some number (the scalar). To do this we
+multiplying all of its elements by some number (the scalar). To do this we
 iterate over the subscript indices of the matrix and apply the multiplication
 to each element.
 </div><br/>
