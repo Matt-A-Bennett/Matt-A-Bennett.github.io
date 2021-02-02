@@ -3,22 +3,24 @@
 <div style="text-align: justify">
 The dot product is only valid for two vectors (with the same number of
 entries). You simply match up each element between the vectors, multiply them
-and add the results. The current implementation will only work for two row
-vectors.
+and add the results. We make both vectors row vectors and then carry out the
+multiplication and sum operations.
 </div><br/>
 
 {% highlight python %}
 
 def dot(self, new_mat):
-    # only works for 2 row vectors at the moment...
-    if len(self.data) != 1 and len(new_mat.data) != 1:
-        print('error: dot product is only valid for 2 vectors')
-    else:
-        dotted = []
-        for cols in zip(self.data[0], new_mat.data[0]):
-            dotted.append(cols[0]*cols[1])
-        dotted = sum(dotted)
-        return Mat(dotted)
+    # make both vectors rows with transpose
+    if len(self.data) != 1:
+        self.transpose()
+    if len(new_mat.data) != 1:
+        new_mat.transpose()
+    # compute dot product
+    dot_prod = []
+    for cols in zip(self.data[0], new_mat.data[0]):
+        dot_prod.append(cols[0]*cols[1])
+    dot_prod = sum(dot_prod)
+    return dot_prod
 
 {% endhighlight %}
 

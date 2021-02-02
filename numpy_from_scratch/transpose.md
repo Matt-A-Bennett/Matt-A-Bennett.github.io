@@ -26,7 +26,8 @@ class Mat:
                 else:
                     # append to newly created rows
                     transposed[col_idx].append(col)
-        return Mat(transposed)
+            self.data = transposed
+        return self
 
 {% endhighlight %}
 
