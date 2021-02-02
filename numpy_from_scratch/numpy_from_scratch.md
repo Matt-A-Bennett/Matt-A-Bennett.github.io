@@ -18,11 +18,11 @@ will attempt to realise in my library.
 </div><br/>
 
 ### Fundamental Methods
-- [Transpose](transpose.md)
+- [Transpose](./transpose.md)
 - Scalar Multiplication
-- [Addition/Subtraction](addition_subtraction.md)
-- u' * u = dot product
-- Matrix Multiplication 
+- [Addition/Subtraction](./addition_subtraction.md)
+- [u' * u = dot product](./dot_prod_and_mat_multiply.md)
+- [Matrix Multiplication](./dot_prod_and_mat_multiply.md)
 
 ### Secondary Methods 
 - EA = U
