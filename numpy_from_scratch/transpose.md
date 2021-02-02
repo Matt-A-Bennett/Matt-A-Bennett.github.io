@@ -30,7 +30,7 @@ class Mat:
 
 {% endhighlight %}
 
-[Addition/Subtraction >](./addition_subtraction.md)
+[Scalar Multiplication >](./scalar_multiplication.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
