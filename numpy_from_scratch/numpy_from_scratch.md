@@ -39,7 +39,5 @@ will attempt to realise in my library.
 - Orthonormal basis
 - Eigenvalues and Eigenvectors
 
-[Transpose >](./transpose.md)
-
 [back to home](../README.md)
 
