@@ -43,8 +43,8 @@ def subtract(self, new_mat):
 
 {% endhighlight %}
 
-
-[< Transpose](./transpose.md)
+[< Transpose](./transpose.md) 
+[Dot Product and Matrix Multiplication >](./dot_and_mat_multiply.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
