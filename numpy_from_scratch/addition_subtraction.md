@@ -21,29 +21,22 @@ def add(self, new_mat):
 {% endhighlight %}
 
 <div style="text-align: justify">
-In the case of the subtraction, I simply reverse the signs for the second
-matrix and the call the add method, thus achieving a subtraction. Now that I
-look at it, I realise that once I have a method for scalar multiplication of a
-matrix I can simply use that method to achieve the sign reversal, rather than
-the loops I have here.
+In the case of the subtraction, we can simply reverse the signs for the second
+matrix by applying a scalar multiplication with -1 and then call the add
+method, thus achieving a subtraction. 
 </div>
 
 {% highlight python %}
 
 def subtract(self, new_mat):
     # reverse sign of second matrix
-    tmp = []
-    for row in new_mat.data:
-        tmp_col = []
-        for col in row:
-            tmp_col.append(-col)
-        tmp.append(tmp_col)
-    # use add method
-    return self.add(Mat(tmp))
+    new_mat.scale(-1)
+    # use add function
+    return self.add(new_mat)
 
 {% endhighlight %}
 
-[< Transpose](./transpose.md)\
+[< Scalar Multiplication](./scalar_multiplication.md)\
 [Dot Product and Matrix Multiplication >](./dot_prod_and_mat_multiply.md)
 
 [back to project main page](./numpy_from_scratch.md)\

@@ -19,7 +19,7 @@ will attempt to realise in my library.
 
 ### Fundamental Methods
 - [Transpose](./transpose.md)
-- Scalar Multiplication
+- [Scalar Multiplication](./scalar_multiplication.md)
 - [Addition/Subtraction](./addition_subtraction.md)
 - [u' * u = dot product](./dot_prod_and_mat_multiply.md)
 - [Matrix Multiplication](./dot_prod_and_mat_multiply.md)
