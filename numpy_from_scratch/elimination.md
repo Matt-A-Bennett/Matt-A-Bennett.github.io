@@ -3,11 +3,11 @@
 Solving a set of simultaneous equations (when there is an unique solution) can
 be done by subtracting multiples of one from another such that an unknown is
 'eliminated'. By repeating this procedure, we can eliminate all but one unknown
-from an equation, leaving a trivially easy solution of the value of the
-remaining unknown. Having found the value of that unknown, we can move to
-trivially solving any equation involving two unknown provided one of them is
-the one we have previously solved. Continuing this procedure of 'back
-substitution' will systematically deliver all the unknowns. 
+from an equation, leaving a trivially easy solution of the remaining unknown.
+Having found the value of that unknown, we can move to trivially solving any
+equation involving two unknown provided one of them is the one we have
+previously solved. Continuing this procedure of 'back substitution' will
+systematically deliver all the unknowns.\
 
 In linear algebra, the procedure of elimination can be carried out with by
 multiplying a matrix A of coefficients with and elimination matrix E. The
