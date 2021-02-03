@@ -7,11 +7,12 @@ from an equation, leaving a trivially easy solution of the remaining unknown.
 Having found the value of that unknown, we can move to trivially solving any
 equation involving two unknown provided one of them is the one we have
 previously solved. Continuing this procedure of 'back substitution' will
-systematically deliver all the unknowns.\
+systematically deliver all the unknowns. \
 
 In linear algebra, the procedure of elimination can be carried out by
 multiplying a matrix A of coefficients with an elimination matrix E. The result
 of is an upper triangular matrix U.
+</div><br/>
 
 For example, the equations:
 
@@ -75,9 +76,9 @@ Ux = EAx = Eb = E%
   \end{bmatrix}
 $$
 
+<div style="text-align: justify">
 What we would like to do is encode the results of each elimination step in the
 matrix E.
-
 </div><br/>
 
 {% highlight python %}
