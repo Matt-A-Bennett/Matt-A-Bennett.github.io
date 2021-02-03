@@ -59,8 +59,9 @@ $$
 The elimination procedure looks like:
 
 $$
-Ux = EAx = Eb \\
+Ux = EAx = Eb
 $$
+
 $$
 = Ux = E%
   \begin{bmatrix}

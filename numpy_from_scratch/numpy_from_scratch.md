@@ -43,7 +43,7 @@ def gen_mat(size, value=0):
         generated_mat.append([value for j in range(size[1])])
     return Mat(generated_mat)
 
-{% endhighlight %}<b/>
+{% endhighlight %}
 
 ## Methods to implement
 <div style="text-align: justify">
