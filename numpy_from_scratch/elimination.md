@@ -8,11 +8,6 @@ Having found the value of that unknown, we can move to trivially solving any
 equation involving two unknown provided one of them is the one we have
 previously solved. Continuing this procedure of 'back substitution' will
 systematically deliver all the unknowns.
-</div><br/>
-<div style="text-align: justify">
-In linear algebra, the procedure of elimination can be carried out by
-multiplying a matrix A of coefficients with an elimination matrix E. The result
-of is an upper triangular matrix U.
 </div>
 
 For example, the equations:
@@ -31,7 +26,13 @@ x + 2y + 3z = 0 \\
 0 + 0 - 6z = 8
 $$
 
-The same procedure in matrix looks like this:
+<div style="text-align: justify">
+In linear algebra, the procedure of elimination can be carried out by
+multiplying a matrix A of coefficients with an elimination matrix E. The result
+of is an upper triangular matrix U:
+</div>
+
+The initial problem looks like:
 
 $$
 Ax = b =%
@@ -54,6 +55,8 @@ Ax = b =%
     5
   \end{bmatrix}
 $$
+
+The elimination procedure looks like:
 
 $$
 Ux = EAx = Eb \\
