@@ -8,8 +8,7 @@ Having found the value of that unknown, we can move to trivially solving any
 equation involving two unknown provided one of them is the one we have
 previously solved. Continuing this procedure of 'back substitution' will
 systematically deliver all the unknowns.
-</div>
-
+</div><br/>
 <div style="text-align: justify">
 In linear algebra, the procedure of elimination can be carried out by
 multiplying a matrix A of coefficients with an elimination matrix E. The result
