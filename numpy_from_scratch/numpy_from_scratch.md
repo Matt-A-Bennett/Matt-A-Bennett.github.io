@@ -44,6 +44,7 @@ def gen_mat(size, value=0):
     return Mat(generated_mat)
 
 {% endhighlight %}
+<b/>
 
 ## Methods to implement
 <div style="text-align: justify">
