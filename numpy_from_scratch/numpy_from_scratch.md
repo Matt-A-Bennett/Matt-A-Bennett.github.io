@@ -13,8 +13,10 @@ Python's standard library.
 
 ## The Mat(rix) class and standalone functions
 <div style="text-align: justify">
-First off, we need a class 'Mat' (as in 'matrix'). We will gradually build up a
-suit of methods to do all the needed operations. 
+First off, we need a class 'Mat' (as in 'matrix'). Matrix like data will be
+passed to the Mat class in the form of lists of lists, with each sub-list
+acting as a row. We will gradually build up a suit of methods to do all the
+needed operations. 
 </div>
 
 {% highlight python %}
@@ -22,6 +24,9 @@ suit of methods to do all the needed operations.
 class Mat:
     def __init__(self, data):
         self.data = data
+
+# define a 2x3 matrix
+Mat([[1, 2, 3], [4, 5, 6]])
 
 {% endhighlight %}
 
