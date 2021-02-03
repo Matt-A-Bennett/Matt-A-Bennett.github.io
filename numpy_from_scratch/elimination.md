@@ -9,9 +9,9 @@ equation involving two unknown provided one of them is the one we have
 previously solved. Continuing this procedure of 'back substitution' will
 systematically deliver all the unknowns.\
 
-In linear algebra, the procedure of elimination can be carried out with by
-multiplying a matrix A of coefficients with and elimination matrix E. The
-result of the multiplication is an upper triangular matrix U.
+In linear algebra, the procedure of elimination can be carried out by
+multiplying a matrix A of coefficients with an elimination matrix E. The result
+of is an upper triangular matrix U.
 
 For example, the equations:
 
@@ -54,7 +54,7 @@ Ax = b =%
 $$
 
 $$
-EAx = Eb = E%
+Ux = EAx = Eb = E%
   \begin{bmatrix}
     1 & 2 & 3 \\
     0 & -2 & 0 \\
