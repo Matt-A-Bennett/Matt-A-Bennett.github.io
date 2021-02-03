@@ -1,11 +1,11 @@
 # Page Title
 <div style="text-align: justify">
-Solving a set of simultaneous equations (when there is a unique solution) can
-be done by subtracting multiples of one from another such that one variable is
-'eliminated'. By repeating this procedure, we can eliminate all but one
-variable from an equation, leaving a trivially easy solution of the value of
-the remaining variable. Having found the value of that variable, we can move to
-trivially solving any equation involving two variables provided one of them is
+Solving a set of simultaneous equations (when there is an unique solution) can
+be done by subtracting multiples of one from another such that an unknown is
+'eliminated'. By repeating this procedure, we can eliminate all but one unknown
+from an equation, leaving a trivially easy solution of the value of the
+remaining unknown. Having found the value of that unknown, we can move to
+trivially solving any equation involving two unknown provided one of them is
 the one we have previously solved. Continuing this procedure of 'back
 substitution' will systematically deliver all the unknowns. 
 
@@ -75,8 +75,8 @@ EAx = Eb = E%
   \end{bmatrix}
 $$
 
-What we would like to do is encode the results of each elimination step in a
-the matrix E.
+What we would like to do is encode the results of each elimination step in the
+matrix E.
 
 </div><br/>
 
