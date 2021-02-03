@@ -7,8 +7,10 @@ from an equation, leaving a trivially easy solution of the remaining unknown.
 Having found the value of that unknown, we can move to trivially solving any
 equation involving two unknown provided one of them is the one we have
 previously solved. Continuing this procedure of 'back substitution' will
-systematically deliver all the unknowns. For example, the equations:
-</div>
+systematically deliver all the unknowns.
+</div><br/>
+
+For example, the equations:
 
 $$
 x + 2y + 3z = 0 \\
@@ -27,8 +29,10 @@ $$
 <div style="text-align: justify">
 In linear algebra, the procedure of elimination can be carried out by
 multiplying a matrix A of coefficients with an elimination matrix E. The result
-of is an upper triangular matrix U. The initial problem looks like:
+of is an upper triangular matrix U.
 </div><br/>
+
+The initial problem looks like:
 
 $$
 Ax = b =%
