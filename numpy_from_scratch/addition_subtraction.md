@@ -15,7 +15,8 @@ def add(self, new_mat):
         for cols in zip(rows[0],rows[1]):
             added_cols.append(sum(list(cols)))
         added_rows.append(added_cols)
-    return Mat(added_rows)
+        self.data = added_rows
+    return self
 
 {% endhighlight %}
 
