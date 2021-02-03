@@ -5,7 +5,7 @@ be done by subtracting multiples of one from another such that an unknown is
 'eliminated'. By repeating this procedure, we can eliminate all but one unknown
 from an equation, leaving a trivially easy solution of the remaining unknown.
 Having found the value of that unknown, we can move to trivially solving any
-equation involving two unknown provided one of them is the one we have
+equation involving two unknowns provided one of them is the one we have
 previously solved. Continuing this procedure of 'back substitution' will
 systematically deliver all the unknowns.
 </div><br/>
