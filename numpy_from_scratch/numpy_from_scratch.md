@@ -12,6 +12,33 @@ Python's standard library.
 </div><br/>
 
 ## The Mat(rix) class and standalone functions
+<div style="text-align: justify">
+First off, we need a class 'Mat' (as in 'matrix'). We will gradually build up a
+suit of methods to do all the needed operations. 
+</div><br/>
+
+{% highlight python %}
+
+class Mat:
+    def __init__(self, data):
+        self.data = data
+
+{% endhighlight %}
+
+<div style="text-align: justify">
+We also define a function to generate a matrix of a given size and uniformly
+populated with a particular value (if supplied)
+</div><br/>
+
+{% highlight python %}
+
+def gen_mat(size, value=0):
+    generated_mat = []
+    for i in range(size[0]):
+        generated_mat.append([value for j in range(size[1])])
+    return Mat(generated_mat)
+
+{% endhighlight %}
 
 ## Methods to implement
 <div style="text-align: justify">
