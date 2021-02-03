@@ -60,6 +60,8 @@ The elimination procedure looks like:
 
 $$
 Ux = EAx = Eb \\
+$$
+$$
 = Ux = E%
   \begin{bmatrix}
     1 & 2 & 3 \\
