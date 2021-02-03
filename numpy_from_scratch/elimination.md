@@ -1,4 +1,4 @@
-# Page Title
+# EA = U
 <div style="text-align: justify">
 Solving a set of simultaneous equations (when there is an unique solution) can
 be done by subtracting multiples of one from another such that an unknown is
