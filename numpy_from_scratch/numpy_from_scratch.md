@@ -9,9 +9,9 @@ to consolidate my recent studies of linear algebra. I will attempt to implement
 all the linear algebra operations, methods and algorithms covered in Gilbert
 Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
+</div><br/>
 
 The full code I've written so far can be found [here](./full_code.md).
-</div><br/>
 
 ## The Mat(rix) class and standalone functions
 <div style="text-align: justify">
