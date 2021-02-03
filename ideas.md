@@ -7,6 +7,9 @@ How to add an image
 How to wrap latex equations (surround with $$ eq. $$)
 $$E=mc^2$$
 
+Online real time editor for trying out mathjax
+https://stackedit.io/app#
+
 How to do a matrix in mathjax
 
 $$
