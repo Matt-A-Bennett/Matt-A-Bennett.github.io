@@ -9,18 +9,18 @@ being the values found in the corresponding column.
 
 {% highlight python %}
 
-    def transpose(self):
-        transposed = []
-        for row_idx, row in enumerate(self.data):
-            for col_idx, col in enumerate(row):
-                # first time through, make new row for each old column
-                if row_idx == 0:
-                    transposed.append([col])
-                else:
-                    # append to newly created rows
-                    transposed[col_idx].append(col)
-            self.data = transposed
-        return self
+def transpose(self):
+    transposed = []
+    for row_idx, row in enumerate(self.data):
+        for col_idx, col in enumerate(row):
+            # first time through, make new row for each old column
+            if row_idx == 0:
+                transposed.append([col])
+            else:
+                # append to newly created rows
+                transposed[col_idx].append(col)
+        self.data = transposed
+    return self
 
 {% endhighlight %}
 
