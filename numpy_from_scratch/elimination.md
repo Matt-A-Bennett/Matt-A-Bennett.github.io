@@ -58,7 +58,7 @@ $$
 
 $$
 Ux = EAx = Eb \\
-= E%
+= Ux = E%
   \begin{bmatrix}
     1 & 2 & 3 \\
     0 & -2 & 0 \\
