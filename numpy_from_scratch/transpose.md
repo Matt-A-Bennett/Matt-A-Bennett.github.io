@@ -1,8 +1,5 @@
 # Transpose
 <div style="text-align: justify">
-First off, we need a class 'Mat' (as in 'matrix'). We will gradually build up a
-suit of methods to do all the needed operations. 
-
 To transpose a matrix, we need a new matrix in which the rows are the former
 columns and the columns are the former rows. I loop over the rows and columns
 of the input matrix, keeping a record of the row and column subscript indices.
@@ -11,10 +8,6 @@ being the values found in the corresponding column.
 </div>
 
 {% highlight python %}
-
-class Mat:
-    def __init__(self, data):
-        self.data = data
 
     def transpose(self):
         transposed = []
