@@ -57,7 +57,8 @@ def multiply(self, new_mat):
 
 {% endhighlight %}
 
-[< Addition/Subtraction](./addition_subtraction.md)
+[< Addition/Subtraction](./addition_subtraction.md)\
+[EA = U >](./elimination.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)

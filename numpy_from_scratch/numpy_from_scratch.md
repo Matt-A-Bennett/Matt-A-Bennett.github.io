@@ -11,6 +11,8 @@ Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
 </div><br/>
 
+## The Mat(rix) class and standalone functions
+
 ## Methods to implement
 <div style="text-align: justify">
 Below is a list of the topics I've covered in my studies so far, and which I
@@ -25,7 +27,7 @@ will attempt to realise in my library.
 - [Matrix Multiplication](./dot_prod_and_mat_multiply.md)
 
 ### Secondary Methods 
-- EA = U
+- [EA = U](./elimination.md)
 - A = LU
 - A = QR
 - Rank
