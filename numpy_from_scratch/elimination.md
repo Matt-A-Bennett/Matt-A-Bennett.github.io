@@ -84,7 +84,7 @@ $$
 <div style="text-align: justify">
 What we would like to do is encode the results of each elimination step in the
 matrix E.
-</div><br/>
+</div>
 
 {% highlight python %}
 
