@@ -25,7 +25,7 @@ alias ufc='cat ~/ufc/ufc_database.txt | fzf | sort'
 I can easily whittle down the results to a specific fighter:
 ![FZF searcher in action](./images/fzf_search.png)
 
-The selected results are sorted and sent toe stdout:
+The selected results are sorted and sent to STDOUT:
 ![final result](./images/fzf_output.png)
 
 ## The Plan
