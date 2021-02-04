@@ -14,14 +14,14 @@ Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
 </div><br/>
 
-## Classes, Methods and functions to implement
+## Classes, Methods and Functions to implement
 
 <div style="text-align: justify">
 Below is a list of the topics I've covered in my studies so far, and which I
 will attempt to realise in my library.
 </div><br/>
 
-### Classes and standalone functions
+### Classes and Standalone Functions
 - [Mat(rix) Class](./class_and_standalone_functions.md)
 - [Funtion to generate matrix](./class_and_standalone_functions.md)
 
