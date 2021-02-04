@@ -74,11 +74,11 @@ f() {
 
 <div style="text-align: justify">
 <p>The command typed into the terminal could for example be 'f vlc'. The
-function will expand that into 'vlc file1.mp3 file2.mp3 &' and We want _that_
-command to show up in our bash history, rather than just seeing 'f vlc'. So we
-first write the shell's active history to the ~/.bash_history file, then later
-we'll add this 'f vlc'vlc file1.mp3 file2.mp3 & command to the end of
-~/.bash_history. Once we're all done, we'll load the ~/.bash_history file as
+function will expand that into 'vlc file1.mp3 file2.mp3 &' and We want
+<i>that</i> command to show up in our bash history, rather than just seeing 'f
+vlc'. So we first write the shell's active history to the ~/.bash_history file,
+then later we'll add this 'f vlc'vlc file1.mp3 file2.mp3 & command to the end
+of ~/.bash_history. Once we're all done, we'll load the ~/.bash_history file as
 our active history.</p> 
 </div>
 
