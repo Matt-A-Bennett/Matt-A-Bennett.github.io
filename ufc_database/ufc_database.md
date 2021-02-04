@@ -58,7 +58,6 @@ the database. The goal is the following txt file (containing 1175 fights):</p>
 
 ## The Code Implementation
 <p>After importing the modules we initialise a table:</p>
-</div>
 
 {% highlight python %}
 
