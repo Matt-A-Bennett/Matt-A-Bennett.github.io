@@ -10,6 +10,7 @@ useful when fzf is configured to always search a set of default directories
 scattered around the file system, described in the previous post (coming
 soon!).</p>
 
+## The Goal
 <p>Here I create a bash function to automate this procedure. The function is
 called with the command or program as an argument. The function launches fzf,
 you select your file(s) and hit enter. The selected files are passed to the
@@ -46,11 +47,13 @@ file system: </p>
 ![The history looks good](./images/fzf_cd_history.png)
 
 <div style="text-align: justify">
-<p>The usage is like this:
-f cd (hit enter, choose path)\
-f cat (hit enter, choose files)\
-f vim (hit enter, choose files)\
+<p>The usage is like this:<br/>
+f cd (hit enter, choose path)<br/>
+f cat (hit enter, choose files)<br/>
+f vim (hit enter, choose files)<br/>
 f vlc (hit enter, choose files)</p>
+
+## The Code Implementation
 
 <p>First we launch fzf with the possibility of selecting multiple items and
 pass the 2nd argument to f(). This makes sense because the 1st argument to f()
