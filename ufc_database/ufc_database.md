@@ -176,6 +176,7 @@ f.write(str(t.get_string(sortby=('Event'))))
 
 {% endhighlight %}
 
+</div>
 The full code I've written so far can be found [here](./full_code.md)
 
 [back to home](../README.md)
