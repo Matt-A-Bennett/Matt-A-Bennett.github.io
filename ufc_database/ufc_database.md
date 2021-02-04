@@ -26,7 +26,7 @@ I can easily whittle down the results to a specific fighter:
 ![FZF searcher in action](./images/fzf_search.png)
 
 The selected results are sorted and sent toe stdout:
-![finial result](./images/fzf_output.png)
+![final result](./images/fzf_output.png)
 
 ## The Plan
 <div style="text-align: justify">
