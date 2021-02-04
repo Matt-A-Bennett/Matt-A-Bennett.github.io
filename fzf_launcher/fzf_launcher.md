@@ -20,8 +20,9 @@ The full command that was run will appear in your history just like any other:
 </div>
 
 <div style="text-align: justify">
-<p>Here we load a couple of python files, from two separate directories, and
-neither of which is in the current working directory:</p>
+<p>Here we load a couple of python files (the two marked with red circles),
+from two separate directories, and neither of which is in the current working
+directory:</p>
 </div>
 ![Loading multiple files in vim](./images/fzf_search_multi_demo.png)
 
