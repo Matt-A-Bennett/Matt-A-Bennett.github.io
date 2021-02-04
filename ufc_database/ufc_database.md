@@ -7,7 +7,8 @@ The full code
 I'm a fan of the UFC, and often I want to watch an old fight of a particular
 fighter but I don't remember all their previous opponents or which UFC events
 they performed in.
-
+<div style="text-align: justify">
+</div><br/>
 I decided to create a simple database in containing a row for each fight in
 each UFC event, the weight category and fighter names. Then I can simply pipe
 the file contents into fzf and I would have an interactive searcher which would
@@ -34,13 +35,15 @@ about each event. On these individual event pages there is a table containing
 information I want. So what I want is to have a python script that can go to
 the list of event page, follow up each link to individual event pages, and pull
 the correct table.
-
+<div style="text-align: justify">
+</div><br/>
 We'll get the link urls using BeautifulSoup. Handily, there is a dedicated
 module just for accessing the html for of any Wikipedia page. Once we have the
 html, we can use the pandas module to read the table of interest into a
 dataframe object. Then it's a matter of cleaning the data and entering it into
 the database. 
-
+<div style="text-align: justify">
+</div><br/>
 After importing the modules we initialise a table:
 </div>
 
@@ -109,7 +112,8 @@ with open("~/videos/ufc/ufc_database.txt", "a") as f:
 Next we put a zero padded UFC event number - this will allow us to sort the
 database chronologically when we're done. After re-indexing the dataframe we
 extract the data we want and label the columns. 
-
+<div style="text-align: justify">
+</div><br/>
 Then we extract the section of the table that lists fights that appeared on the
 main card (skipping the preliminary fights) and convert data to comma
 separated string:
@@ -171,8 +175,6 @@ the data to a txt file:
 f.write(str(t.get_string(sortby=('Event'))))
 
 {% endhighlight %}
-
-</div>
 
 The full code I've written so far can be found [here](./full_code.md)
 
