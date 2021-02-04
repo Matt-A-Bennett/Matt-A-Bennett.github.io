@@ -172,6 +172,8 @@ f.write(str(t.get_string(sortby=('Event'))))
 
 {% endhighlight %}
 
-The full code I've written so far can be found <a href="./full_code.md">here</a><br/>
+</div>
+
+The full code I've written so far can be found [here](./full_code.md)
 
 [back to home](../README.md)
