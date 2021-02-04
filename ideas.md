@@ -4,11 +4,14 @@ https://matt-a-bennett.github.io
 How to add an image
 ![worm](./images/worm.jpg)
 
-How to wrap latex equations (surround with $$ eq. $$)
-$$E=mc^2$$
+Online real time editor for trying out html
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml_formatting_intro
 
 Online real time editor for trying out mathjax
 https://stackedit.io/app#
+
+How to wrap latex equations (surround with $$ eq. $$)
+$$E=mc^2$$
 
 How to do a matrix in mathjax
 
