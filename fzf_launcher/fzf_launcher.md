@@ -38,7 +38,9 @@ file system: </p>
 </div>
 ![changing to a far away directory](./images/fzf_cd_demo.png)
 
-Again, the command is found in our history in a way we could re-execute:
+<div style="text-align: justify">
+<p>Again, the command is found in our history in a way we could re-execute:</p>
+</div>
 ![The history looks good](./images/fzf_cd_history.png)
 
 <div style="text-align: justify">
