@@ -11,20 +11,8 @@ they performed in.</p>
 each UFC event, the weight category and fighter names. Then I can simply pipe
 the file contents into fzf and I have an interactive searcher which quickly
 shows me all the UFC cards on which that fighter had fought and who their
-opponent was. The following txt file contains 1175 fights:</p>
+opponent was.</p>
 </div>
-
-{% highlight shell %}
-
- Event     Weight                  Fighter1                        Fighter2                       
- UFC_0020  Heavyweight             Bas Rutten                      Kevin Randleman                
- UFC_0020  Heavyweight             Pedro Rizzo                     Tra Telligman                  
- UFC_0020  Heavyweight             Pete Williams                   Travis Fulton                  
-    .          .                        .                               .
-    .          .                        .                               .
-    .          .                        .                               .
-
-{% endhighlight %}
 
 With the following alias in my .bashrc file:
 
@@ -35,10 +23,10 @@ alias ufc='cat ~/ufc/ufc_database.txt | fzf | sort'
 {% endhighlight %}
 
 I can easily whittle down the results to a specific fighter:
-[FZF searcher in action](!./images/fzf_search.png)
+![FZF searcher in action](./images/fzf_search.png)
 
 The selected results are sorted and sent toe stdout:
-[finial result](!./images/fzf_output.png)
+![finial result](./images/fzf_output.png)
 
 ## The Plan
 <div style="text-align: justify">
@@ -53,7 +41,20 @@ the correct table.</p>
 module just for accessing the html for of any Wikipedia page. Once we have the
 html, we can use the pandas module to read the table of interest into a
 dataframe object. Then it's a matter of cleaning the data and entering it into
-the database.</p>
+the database. The goal is the following txt file (containing 1175 fights):</p>
+</div>
+
+{% highlight shell %}
+
+ Event     Weight                  Fighter1                        Fighter2                       
+ UFC_0020  Heavyweight             Bas Rutten                      Kevin Randleman                
+ UFC_0020  Heavyweight             Pedro Rizzo                     Tra Telligman                  
+ UFC_0020  Heavyweight             Pete Williams                   Travis Fulton                  
+    .          .                        .                               .
+    .          .                        .                               .
+    .          .                        .                               .
+
+{% endhighlight %}
 
 ## The Code Implementation
 <p>After importing the modules we initialise a table:</p>
