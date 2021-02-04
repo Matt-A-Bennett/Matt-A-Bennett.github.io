@@ -14,25 +14,25 @@ Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
 </div><br/>
 
-## Classes, Methods and Functions to implement
+## Classes, methods and functions to implement
 
 <div style="text-align: justify">
 Below is a list of the topics I've covered in my studies so far, and which I
 will attempt to realise in my library.
 </div><br/>
 
-### Classes and Standalone Functions
+### Classes and standalone functions
 - [Mat(rix) Class](./class_and_standalone_functions.md)
 - [Funtion to generate matrix](./class_and_standalone_functions.md)
 
-### Fundamental Methods
+### Fundamental methods
 - [Transpose](./transpose.md)
 - [Scalar Multiplication](./scalar_multiplication.md)
 - [Addition/Subtraction](./addition_subtraction.md)
 - [u' * u = dot product](./dot_prod_and_mat_multiply.md)
 - [Matrix Multiplication](./dot_prod_and_mat_multiply.md)
 
-### Secondary Methods 
+### Secondary methods 
 - [EA = U](./elimination.md)
 - A = LU
 - A = QR

@@ -1,7 +1,7 @@
 # Page Title
 <div style="text-align: justify">
-Paragraph
-</div><br/>
+<p>Paragraph</p>
+</div>
 
 {% highlight python %}
 

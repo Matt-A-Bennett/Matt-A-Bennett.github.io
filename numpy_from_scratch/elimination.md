@@ -63,7 +63,7 @@ Ux = EAx = Eb
 $$
 
 $$
-= Ux = E%
+= Ux = %
   \begin{bmatrix}
     1 & 2 & 3 \\
     0 & -2 & 0 \\
