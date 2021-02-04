@@ -1,9 +1,9 @@
 ## The Mat(rix) Class and Standalone Functions
 <div style="text-align: justify">
-First off, we need a class 'Mat' (as in 'matrix'). Matrix like data will be
+<p>First off, we need a class 'Mat' (as in 'matrix'). Matrix like data will be
 passed to the Mat class in the form of a list of lists, with each sub-list
 acting as a row. We will gradually build up a suit of methods to do all the
-needed operations. 
+needed operations.</p> 
 </div>
 
 {% highlight python %}
@@ -18,8 +18,8 @@ Mat([[1, 2, 3], [4, 5, 6]])
 {% endhighlight %}
 
 <div style="text-align: justify">
-We also define a standalone function to generate a matrix of a given size and
-uniformly populated with a particular value (if supplied)
+<p>We also define a standalone function to generate a matrix of a given size and
+uniformly populated with a particular value (if supplied)</p>:
 </div>
 
 {% highlight python %}

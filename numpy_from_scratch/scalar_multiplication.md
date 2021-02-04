@@ -1,9 +1,9 @@
 # Scalar Multiplication
 <div style="text-align: justify">
-Scalar multiplication is a simple matter of taking some matrix (or vector) and
+<p>Scalar multiplication is a simple matter of taking some matrix (or vector) and
 multiplying all of its elements by some number (the scalar). To do this we
 iterate over the subscript indices of the matrix and apply the multiplication
-to each element.
+to each element.</p>
 </div><br/>
 
 {% highlight python %}

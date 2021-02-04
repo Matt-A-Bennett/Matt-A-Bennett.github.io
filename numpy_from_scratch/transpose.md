@@ -1,10 +1,10 @@
 # Transpose
 <div style="text-align: justify">
-To transpose a matrix, we need a new matrix in which the rows are the former
+<p>To transpose a matrix, we need a new matrix in which the rows are the former
 columns and the columns are the former rows. I loop over the rows and columns
 of the input matrix, keeping a record of the row and column subscript indices.
 The transposed matrix is built up gradually with a set of new rows (each row
-being the values found in the corresponding column).
+being the values found in the corresponding column).</p>
 </div>
 
 {% highlight python %}

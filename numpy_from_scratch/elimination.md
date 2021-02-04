@@ -1,14 +1,14 @@
 # EA = U
 <div style="text-align: justify">
-Solving a set of simultaneous equations (when there is an unique solution) can
+<p>Solving a set of simultaneous equations (when there is an unique solution) can
 be done by subtracting multiples of one from another such that an unknown is
 'eliminated'. By repeating this procedure, we can eliminate all but one unknown
 from an equation, leaving a trivially easy solution of the remaining unknown.
 Having found the value of that unknown, we can move to trivially solving any
 equation involving two unknowns provided one of them is the one we have
 previously solved. Continuing this procedure of 'back substitution' will
-systematically solve for all the unknowns.
-</div><br/>
+systematically solve for all the unknowns.</p>
+</div>
 
 For example, the equations:
 
@@ -27,10 +27,10 @@ x + 2y + 3z = 0 \\
 $$
 
 <div style="text-align: justify">
-In linear algebra, the procedure of elimination can be carried out by
+<p>In linear algebra, the procedure of elimination can be carried out by
 multiplying a matrix A of coefficients with an elimination matrix E. The result
-of is an upper triangular matrix U.
-</div><br/>
+of is an upper triangular matrix U.</p>
+</div>
 
 The initial problem looks like:
 
@@ -85,8 +85,8 @@ $$
 $$
 
 <div style="text-align: justify">
-What we would like to do is encode the results of each elimination step in the
-matrix E.
+<p>What we would like to do is encode the results of each elimination step in the
+matrix E.</p>
 </div>
 
 {% highlight python %}

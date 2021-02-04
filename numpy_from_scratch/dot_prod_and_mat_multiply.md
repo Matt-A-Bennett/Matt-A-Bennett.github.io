@@ -1,11 +1,11 @@
 # Dot Product and Matrix Multiplication
 ## Dot Product
 <div style="text-align: justify">
-The dot product is only valid for two vectors (with the same number of
+<p>The dot product is only valid for two vectors (with the same number of
 entries). You simply match up each element between the vectors, multiply them
 and add the results. We make both vectors row vectors and then carry out the
-multiplication and sum operations.
-</div><br/>
+multiplication and sum operations.</p>
+</div>
 
 {% highlight python %}
 
@@ -26,15 +26,15 @@ def dot(self, new_mat):
 
 ## Matrix Multiplication
 <div style="text-align: justify">
-At a low level, matrix multiplication can be seen as a series of dot products
+<p>At a low level, matrix multiplication can be seen as a series of dot products
 between the rows of one matrix and the columns of another. For example, the
 (2,3) entry of a matrix C produced through the multiplication of two other
 matrices A and B, would be the dot product of the 2nd row of A with the 3rd row
 of B. To do this we can make use of the transpose and dot product methods we
 already defined: We transpose the second matrix, then for each row of the first
 matrix we take the dot product with every 'row' of the transposed second matrix
-(the rows in the transposed matrix were formerly columns).
-</div><br/>
+(the rows in the transposed matrix were formerly columns).</p>
+</div>
 
 {% highlight python %}
 

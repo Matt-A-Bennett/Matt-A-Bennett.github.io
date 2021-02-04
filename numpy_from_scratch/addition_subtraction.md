@@ -1,9 +1,9 @@
 # Addition/Subtraction
 <div style="text-align: justify">
-Here, the method is called from an initial matrix, with the second
+<p>Here, the method is called from an initial matrix, with the second
 matrix supplied as an argument. Then I simply loop over the rows of each
 matrix, each time looping over the elements of those rows (i.e. the columns),
-summing them and appending them to an added_rows variable.
+summing them and appending them to an added_rows variable.</p>
 </div>
 
 {% highlight python %}
@@ -21,9 +21,9 @@ def add(self, new_mat):
 {% endhighlight %}
 
 <div style="text-align: justify">
-In the case of the subtraction, we can simply reverse the signs for the second
+<p>In the case of the subtraction, we can simply reverse the signs for the second
 matrix by applying a scalar multiplication with -1 and then call the add
-method, thus achieving a subtraction. 
+method, thus achieving a subtraction.</p>
 </div>
 
 {% highlight python %}
