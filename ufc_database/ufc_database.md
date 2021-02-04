@@ -78,7 +78,7 @@ soup = bs(res.text, "html.parser")
 The main body of the script is a loop where we scan through each link on the
 list of events page and determine if it is a link to an individual UFC event.
 This is done with a simple regular expression whereby we search each link for
-the string 'UFC\_<some digit>'. There can be more than one link to the same
+the string 'UFC\_\<some digit\>'. There can be more than one link to the same
 page, and so we make sure not to retry the same link twice. If we find the
 string, and we've not yet tried the link we go ahead and read the page html and
 pull the 3rd table, which contains the information we want, into a pandas
@@ -172,8 +172,8 @@ the data to a txt file.
 
 {% endhighlight %}
 
-<a href="./full_code.md">here</a>
 
-The full code I've written so far can be found [here](./full_code.md).
 
-[back to home](../README.md)
+The full code I've written so far can be found <a href="./full_code.md">here</a>
+
+<a href="../README.md">back to home</a>
