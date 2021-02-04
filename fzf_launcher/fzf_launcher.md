@@ -11,8 +11,8 @@ scattered around the file system, described in the previous post (coming
 soon!).</p>
 </div>
 
-<div style="text-align: justify">
 ## The Goal
+<div style="text-align: justify">
 <p>Here I create a bash function to automate this procedure. The function is
 called with the command or program as an argument. The function launches fzf,
 you select your file(s) and hit enter. The selected files are passed to the
