@@ -3,16 +3,14 @@
 The full code I've written so far can be found [here](./full_code.md).
 
 <div style="text-align: justify">
-I'm a fan of the UFC, and often I want to watch an old fight of a particular
+<p>I'm a fan of the UFC, and often I want to watch an old fight of a particular
 fighter but I don't remember all their previous opponents or which UFC events
-they performed in.
-</div><br/>
-<div style="text-align: justify">
-I decided to create a simple database in containing a row for each fight in
+they performed in.</p>
+<p>I decided to create a simple database in containing a row for each fight in
 each UFC event, the weight category and fighter names. Then I can simply pipe
 the file contents into fzf and I would have an interactive searcher which would
 quickly show me all the UFC cards on which that fighter had fought and who
-their opponent was. Something like the following:
+their opponent was. Something like the following:</p>
 </div>
 
 {% highlight shell %}
@@ -33,16 +31,15 @@ listing all UFC events</a> and features a table containing links to a page
 about each event. On these individual event pages there is a table containing
 information I want. So what I want is to have a python script that can go to
 the list of event page, follow up each link to individual event pages, and pull
-the correct table.</p>
-<p>
-We'll get the link urls using BeautifulSoup. Handily, there is a dedicated
+the correct table.<\p>
+
+<p>We'll get the link urls using BeautifulSoup. Handily, there is a dedicated
 module just for accessing the html for of any Wikipedia page. Once we have the
 html, we can use the pandas module to read the table of interest into a
 dataframe object. Then it's a matter of cleaning the data and entering it into
-the database.</p>
-</div><br/>
-<div style="text-align: justify">
-After importing the modules we initialise a table:
+the database.<\p>
+
+<p>After importing the modules we initialise a table:<\p>
 </div>
 
 {% highlight python %}
@@ -84,6 +81,7 @@ link to the same page, and so we make sure not to retry the same link twice. If
 we find the string, and we've not yet tried the link we go ahead and read the
 page html and pull the 3rd table, which contains the information we want, into
 a pandas dataframe:
+</div>
 
 {% highlight python %}
 
@@ -107,14 +105,13 @@ with open("~/videos/ufc/ufc_database.txt", "a") as f:
 {% endhighlight %}
 
 <div style="text-align: justify">
-Next we put a zero padded UFC event number - this will allow us to sort the
+<p>Next we put a zero padded UFC event number - this will allow us to sort the
 database chronologically when we're done. After re-indexing the dataframe we
-extract the data we want and label the columns. 
-</div><br/>
-<div style="text-align: justify">
-Then we extract the section of the table that lists fights that appeared on the
+extract the data we want and label the columns.</p>
+
+<p>Then we extract the section of the table that lists fights that appeared on the
 main card (skipping the preliminary fights) and convert data to comma
-separated string:
+separated string:</p>
 </div>
 
 {% highlight python %}
@@ -174,7 +171,6 @@ f.write(str(t.get_string(sortby=('Event'))))
 
 {% endhighlight %}
 
-</div>
 The full code I've written so far can be found [here](./full_code.md)
 
 [back to home](../README.md)
