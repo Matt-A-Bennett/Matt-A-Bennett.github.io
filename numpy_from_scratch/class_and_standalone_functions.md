@@ -19,7 +19,7 @@ Mat([[1, 2, 3], [4, 5, 6]])
 
 <div style="text-align: justify">
 <p>We also define a standalone function to generate a matrix of a given size and
-uniformly populated with a particular value (if supplied)</p>:
+uniformly populated with a particular value (if supplied):</p>
 </div>
 
 {% highlight python %}

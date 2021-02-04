@@ -4,7 +4,7 @@
 multiplying all of its elements by some number (the scalar). To do this we
 iterate over the subscript indices of the matrix and apply the multiplication
 to each element.</p>
-</div><br/>
+</div>
 
 {% highlight python %}
 
@@ -15,7 +15,6 @@ def scale(self, scalar):
     return self
 
 {% endhighlight %}
-
 
 [< Transpose](./transpose.md)\
 [Addition/Subtraction >](./addition_subtraction.md)
