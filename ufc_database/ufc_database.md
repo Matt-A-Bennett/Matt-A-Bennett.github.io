@@ -1,16 +1,17 @@
-# Creating a searchable database of UFC contests in Python 3
+# Creating a searchable database of UFC contests using Python 3
 
 The full code I've written so far can be found [here](./full_code.md).
 
+## The Goal
 <div style="text-align: justify">
 <p>I'm a fan of the UFC, and often I want to watch an old fight of a particular
 fighter but I don't remember all their previous opponents or which UFC events
 they performed in.</p>
-<p>I decided to create a simple database in containing a row for each fight in
+<p>I decided to create a simple database containing a row for each fight in
 each UFC event, the weight category and fighter names. Then I can simply pipe
-the file contents into fzf and I would have an interactive searcher which would
-quickly show me all the UFC cards on which that fighter had fought and who
-their opponent was. Something like the following:</p>
+the file contents into fzf and I have an interactive searcher which quickly
+shows me all the UFC cards on which that fighter had fought and who their
+opponent was. The following txt file contains 1175 fights:</p>
 </div>
 
 {% highlight shell %}
@@ -25,6 +26,21 @@ their opponent was. Something like the following:</p>
 
 {% endhighlight %}
 
+With the following alias in my .bashrc file:
+
+{% highlight shell %}
+
+alias ufc='cat ~/ufc/ufc_database.txt | fzf | sort'
+
+{% endhighlight %}
+
+I can easily whittle down the results to a specific fighter:
+[FZF searcher in action](!./images/fzf_search.png)
+
+The selected results are sorted and sent toe stdout:
+[finial result](!./images/fzf_output.png)
+
+## The Plan
 <div style="text-align: justify">
 <p>Wikipedia has a <a href="https://en.wikipedia.org/wiki/List_of_UFC_events">page
 listing all UFC events</a> and features a table containing links to a page
@@ -39,6 +55,7 @@ html, we can use the pandas module to read the table of interest into a
 dataframe object. Then it's a matter of cleaning the data and entering it into
 the database.</p>
 
+## The Code Implementation
 <p>After importing the modules we initialise a table:</p>
 </div>
 
