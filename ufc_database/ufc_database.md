@@ -174,4 +174,4 @@ f.write(str(t.get_string(sortby=('Event'))))
 
 The full code I've written so far can be found <a href="./full_code.md">here</a><br/>
 
-<a href="../README.md">back to home</a>
+[back to home](../README.md)
