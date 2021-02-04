@@ -1,4 +1,7 @@
 # Building a Python 3 Numpy-like module from scratch
+
+The full code I've written so far can be found [here](./full_code.md).
+
 <div style="text-align: justify">
 I want to improve my knowledge of classes, objects, functions and methods in
 Python 3 and to gain a better understanding of the 'standard practices'
@@ -10,8 +13,6 @@ all the linear algebra operations, methods and algorithms covered in Gilbert
 Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
 </div><br/>
-
-The full code I've written so far can be found [here](./full_code.md).
 
 ## The Mat(rix) class and standalone functions
 <div style="text-align: justify">
