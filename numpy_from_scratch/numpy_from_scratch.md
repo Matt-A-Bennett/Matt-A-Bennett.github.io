@@ -14,45 +14,16 @@ Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.
 </div><br/>
 
-## The Mat(rix) class and standalone functions
-<div style="text-align: justify">
-First off, we need a class 'Mat' (as in 'matrix'). Matrix like data will be
-passed to the Mat class in the form of a list of lists, with each sub-list
-acting as a row. We will gradually build up a suit of methods to do all the
-needed operations. 
-</div>
+## Classes, Methods and functions to implement
 
-{% highlight python %}
-
-class Mat:
-    def __init__(self, data):
-        self.data = data
-
-# define a 2x3 matrix
-Mat([[1, 2, 3], [4, 5, 6]])
-
-{% endhighlight %}
-
-<div style="text-align: justify">
-We also define a standalone function to generate a matrix of a given size and
-uniformly populated with a particular value (if supplied)
-</div>
-
-{% highlight python %}
-
-def gen_mat(size, value=0):
-    generated_mat = []
-    for i in range(size[0]):
-        generated_mat.append([value for j in range(size[1])])
-    return Mat(generated_mat)
-
-{% endhighlight %}
-
-## Methods to implement
 <div style="text-align: justify">
 Below is a list of the topics I've covered in my studies so far, and which I
 will attempt to realise in my library.
 </div><br/>
+
+### Classes and standalone functions
+- [Mat(rix) Class](./class_and_standalone_functions.md)
+- [Funtion to generate matrix](./class_and_standalone_functions.md)
 
 ### Fundamental Methods
 - [Transpose](./transpose.md)
