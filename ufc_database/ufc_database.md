@@ -157,7 +157,7 @@ for line in data:
 <div style="text-align: justify">
 Last, I note that a couple of links give me an error, so in those cases we just
 move on to the next link. Then I sort the list by the event number and write
-the data to a txt file.
+the data to a txt file:
 </div>
 
 {% highlight python %}
