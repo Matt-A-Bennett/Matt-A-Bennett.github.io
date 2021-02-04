@@ -162,13 +162,13 @@ the data to a txt file.
 
 {% highlight python %}
 
-        # just move on from any errors
-        except:
-            print('error')
-            pass
+    # just move on from any errors
+    except:
+        print('error')
+        pass
 
-    # sort into chronological order and save
-    f.write(str(t.get_string(sortby=('Event'))))
+# sort into chronological order and save
+f.write(str(t.get_string(sortby=('Event'))))
 
 {% endhighlight %}
 
