@@ -31,15 +31,15 @@ listing all UFC events</a> and features a table containing links to a page
 about each event. On these individual event pages there is a table containing
 information I want. So what I want is to have a python script that can go to
 the list of event page, follow up each link to individual event pages, and pull
-the correct table.<\p>
+the correct table.</p>
 
 <p>We'll get the link urls using BeautifulSoup. Handily, there is a dedicated
 module just for accessing the html for of any Wikipedia page. Once we have the
 html, we can use the pandas module to read the table of interest into a
 dataframe object. Then it's a matter of cleaning the data and entering it into
-the database.<\p>
+the database.</p>
 
-<p>After importing the modules we initialise a table:<\p>
+<p>After importing the modules we initialise a table:</p>
 </div>
 
 {% highlight python %}
@@ -170,7 +170,7 @@ the data to a txt file:
 f.write(str(t.get_string(sortby=('Event'))))
 
 {% endhighlight %}
-
+</div>
 The full code I've written so far can be found [here](./full_code.md)
 
 [back to home](../README.md)
