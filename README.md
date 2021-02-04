@@ -9,9 +9,9 @@ and find useful to have on my pc.</p>
 
 ## About me
 <div style="text-align: justify">
-<p>I earned my PhD in neuroscience at the University of Glasgow and I currently
-work as a postdoc at UCLouvain, Belgium. I work with fmri data and neural
-networks. I mainly use python and matlab programming languages.</p>
+<p>I earned my PhD in cognitive neuroscience at the University of Glasgow and I
+currently work as a postdoc at UCLouvain, Belgium. I work with fmri data and
+neural networks. I mainly use python and matlab programming languages.</p>
 </div>
 
 ## Projects
