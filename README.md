@@ -6,8 +6,10 @@ spare time. The projects are focused on coding in Python 3 and Bash. The
 reasons for doing a given project falls into two categories: Either I'm trying
 to learn more about some area of coding, or I am sharing something that I made
 and find useful to have on my pc.</p>
+</div>
 
 ## About me
+<div style="text-align: justify">
 <p>I earned my PhD in neuroscience at the University of Glasgow and I current
 work as a postdoc at UCLouvain, Belgium. I work with fmri data and neural
 networks. I mainly use python and matlab programming languages.</p>
