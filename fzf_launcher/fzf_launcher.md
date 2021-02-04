@@ -17,21 +17,27 @@ command/program. Apart from being a little easier to type than 'vlc $(fzf)',
 the function returns control of the terminal to user (e.g. when opening GUIs).
 The full command that was run will appear in your history just like any other:
 </p>
+</div>
 
+<div style="text-align: justify">
 <p>Here we load a couple of python files, from two separate directories, and
 neither of which is in the current working directory:</p>
+</div>
 ![Loading multiple files in vim](./images/fzf_search_multi_demo.png)
 
-<p>The command is found in our history in a way we could re-execute:</p>
+The command is found in our history in a way we could re-execute:
 ![The history looks good](./images/fzf_multi_history.png)
 
+<div style="text-align: justify">
 <p>A really useful case is to change directory to somewhere far away in the
 file system: </p>
+</div>
 ![changing to a far away directory](./images/fzf_cd_demo.png)
 
-<p>Again, the command is found in our history in a way we could re-execute:</p>
+Again, the command is found in our history in a way we could re-execute:
 ![The history looks good](./images/fzf_cd_history.png)
 
+<div style="text-align: justify">
 <p>The usage is like this:
 f cd (hit enter, choose path)
 f cat (hit enter, choose files)
