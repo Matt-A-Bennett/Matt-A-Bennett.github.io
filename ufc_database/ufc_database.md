@@ -3,7 +3,6 @@
 The full code I've written so far can be found [here](./full_code.md).
 
 <div style="text-align: justify">
-The full code
 I'm a fan of the UFC, and often I want to watch an old fight of a particular
 fighter but I don't remember all their previous opponents or which UFC events
 they performed in.
