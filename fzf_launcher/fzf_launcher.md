@@ -25,7 +25,11 @@ neither of which is in the current working directory:</p>
 </div>
 ![Loading multiple files in vim](./images/fzf_search_multi_demo.png)
 
-The command is found in our history in a way we could re-execute:
+<div style="text-align: justify">
+<p>The command is found in our history in a way we could re-execute (note that
+I wrapped the lines here so it would fit in the image, in reality the command
+appears as a single line:</p>
+</div>
 ![The history looks good](./images/fzf_multi_history.png)
 
 <div style="text-align: justify">
