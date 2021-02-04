@@ -3,19 +3,34 @@
 The full code I've written so far can be found [here](./full_code.md).
 
 <div style="text-align: justify">
-<p>I use [fzf](https://github.com/junegunn/fzf) all the time in the terminal.
-One very useful feature is to search for and select files to be passed to some
-command (e.g. cat) or program. This is especially useful when fzf is configured
-to always search a set of default directories, described in the previous
-post (coming soon!).</p>
+<p>I use <a href="https://github.com/junegunn/fzf">fzf</a> all the time in the
+terminal. One very useful feature is to search for and select files to be
+passed to some command (e.g. cat) or program (e.g. vlc). This is especially
+useful when fzf is configured to always search a set of default directories
+scattered around the file system, described in the previous post (coming
+soon!).</p>
 
 <p>Here I create a bash function to automate this procedure. The function is
-called with the command or program as an argument. fzf is launched, you select
-your file(s) and hit enter. The selected files are passed to the
+called with the command or program as an argument. The function launches fzf,
+you select your file(s) and hit enter. The selected files are passed to the
 command/program. Apart from being a little easier to type than 'vlc $(fzf)',
 the function returns control of the terminal to user (e.g. when opening GUIs).
-The full command that was run will appear in your history just like any
-other </p>
+The full command that was run will appear in your history just like any other:
+</p>
+
+<p>Here we load a couple of python files, from two separate directories, and
+neither of which is in the current working directory:</p>
+![Loading multiple files in vim](./images/fzf_search_multi_demo.png)
+
+<p>The command is found in our history in a way we could re-execute:</p>
+![The history looks good](./images/fzf_multi_history.png)
+
+<p>A really useful case is to change directory to somewhere far away in the
+file system: </p>
+![changing to a far away directory](./images/fzf_cd_demo.png)
+
+<p>Again, the command is found in our history in a way we could re-execute:</p>
+![The history looks good](./images/fzf_cd_history.png)
 
 <p>The usage is like this:
 f cd (hit enter, choose path)
@@ -29,7 +44,7 @@ is the command/program. Everything coming after that is what's being submitted
 to fzf. The files that are selected are stored in a variable.</p>
 </div>
 
-{% highlight python %}
+{% highlight bash %}
 
 #!/bin/bash
 
@@ -54,7 +69,7 @@ we'll add this 'f vlc'vlc file1.mp3 file2.mp3 & command to the end of
 our active history.</p> 
 </div>
 
-{% highlight python %}
+{% highlight bash %}
 
 history -w
 
@@ -70,7 +85,7 @@ background, and doesn't show up as a job the can be brought to the foreground.
 So we make sure not to add a '&' in this case.</p>
 </div>
 
-{% highlight python %}
+{% highlight bash %}
 
 if ! [[ $1 =~ ^(cd)$ ]]; then
     $1 "${arguments[@]}" &
@@ -98,7 +113,7 @@ the end of the command we find in our history. So append that to the sanitised
 history command.</p>
 </div>
 
-{% highlight python %}
+{% highlight bash %}
 
 : > /tmp/fzf_tmp
 for file in ${arguments[@]}; do
@@ -119,7 +134,7 @@ fi
 history. Finally, we can delete the we temporary file created.</p>
 </div>
 
-{% highlight python %}
+{% highlight bash %}
 
 arguments=$(cat /tmp/fzf_tmp)
 
