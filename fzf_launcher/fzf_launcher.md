@@ -20,9 +20,10 @@ The full command that was run will appear in your history just like any other:
 </div>
 
 <div style="text-align: justify">
-<p>Here we load a couple of python files (the two marked with red circles),
-from two separate directories, and neither of which is in the current working
-directory:</p>
+<p>Here we open a couple of python files in vim (the two marked with red
+circles), from two separate directories, and neither of which is in the current
+working directory. Note how few characters is needed to locate the files with
+fzf:</p>
 </div>
 ![Loading multiple files in vim](./images/fzf_search_multi_demo.png)
 
@@ -46,9 +47,9 @@ file system: </p>
 
 <div style="text-align: justify">
 <p>The usage is like this:
-f cd (hit enter, choose path)
-f cat (hit enter, choose files)
-f vim (hit enter, choose files)
+f cd (hit enter, choose path)/
+f cat (hit enter, choose files)/
+f vim (hit enter, choose files)/
 f vlc (hit enter, choose files</p>
 
 <p>First we launch fzf with the possibility of selecting multiple items and
