@@ -84,8 +84,8 @@ f() {
 function will expand that into 'vlc file1.mp3 file2.mp3 &' and We want
 <i>that</i> command to show up in our bash history, rather than just seeing 'f
 vlc'. So we first write the shell's active history to the ~/.bash_history file,
-then later we'll add this 'f vlc'vlc file1.mp3 file2.mp3 & command to the end
-of ~/.bash_history. Once we're all done, we'll load the ~/.bash_history file as
+then later we'll add this 'vlc file1.mp3 file2.mp3 & command to the end of
+~/.bash_history. Once we're all done, we'll load the ~/.bash_history file as
 our active history.</p> 
 </div>
 
@@ -97,12 +97,13 @@ history -w
 
 <div style="text-align: justify">
 <p>In general, we want to launch programs as background jobs so that we can
-still enter other commands into the terminal as they run. Non-GUI commands
-such as 'vim', 'cat', 'head' etc should be run as foreground jobs. In these
-cases, we can bring those jobs to the foreground later in the function. The one
-exception I've found is the 'cd' command - this one no effect when run as
-background, and doesn't show up as a job the can be brought to the foreground.
-So we make sure not to add a '&' in this case.</p>
+still enter other commands into the terminal as they run. Non-GUI commands that
+run in the terminal such as 'vim', 'cat', 'head' etc should be run as
+foreground jobs (otherwise we won't see them). In these cases, we can bring
+those jobs to the foreground later in the function. The one exception I've
+found is the 'cd' command - this one has no effect when run as background, and
+doesn't show up as a job that can be brought to the foreground. So we make sure
+not to add a '&' in this case.</p>
 </div>
 
 {% highlight bash %}
@@ -120,17 +121,16 @@ fi
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Here we store the arguments passed to our program in a temporary file for
+<p>Next we store the arguments passed to our program in a temporary file for
 sanitising before being entered into ~/.bash_history. Then we use sed to put
 all input arguments on one line and sanitise the command by putting single
-quotes around all the arguments, also first put an extra single quote next to
-any pre-existing single quotes in the raw argument (i.e. badly named files).
-This has the effect that the quote in the argument itself is respected as
-such.</p>
+quotes around all the arguments, also we put an extra single quote next to any
+pre-existing single quotes in the raw argument (e.g. badly named files). This
+has the effect that the quote in the argument itself is respected as such.</p>
 
 <p>If the program is on the list of GUI programs, we want to have the '&' on
-the end of the command we find in our history. So append that to the sanitised
-history command.</p>
+the end of the command we find in our history. So we append that to the
+sanitised history command.</p>
 </div>
 
 {% highlight bash %}
@@ -149,9 +149,9 @@ fi
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Now we just load the sanitised command and append them to the
+<p>Now we just load the sanitised commands and append them to the
 ~/.bash_history, then reload the contents of the ~/.bash_history as our active
-history. Finally, we can delete the we temporary file created.</p>
+history. Finally, we can delete the temporary file we created.</p>
 </div>
 
 {% highlight bash %}
