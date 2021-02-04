@@ -32,7 +32,7 @@ def gen_mat(size, value=0):
 
 {% endhighlight %}
 
-[Transpose >](./transpose.md)\
+[Transpose >](./transpose.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
