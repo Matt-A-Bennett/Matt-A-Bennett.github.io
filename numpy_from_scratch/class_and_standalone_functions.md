@@ -1,4 +1,4 @@
-## The Mat(rix) Class and Standalone Functions
+## The Mat(rix) Class and standalone functions
 <div style="text-align: justify">
 <p>First off, we need a class 'Mat' (as in 'matrix'). Matrix like data will be
 passed to the Mat class in the form of a list of lists, with each sub-list
