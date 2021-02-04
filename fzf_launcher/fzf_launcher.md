@@ -47,10 +47,10 @@ file system: </p>
 
 <div style="text-align: justify">
 <p>The usage is like this:
-f cd (hit enter, choose path)/
-f cat (hit enter, choose files)/
-f vim (hit enter, choose files)/
-f vlc (hit enter, choose files</p>
+f cd (hit enter, choose path)\
+f cat (hit enter, choose files)\
+f vim (hit enter, choose files)\
+f vlc (hit enter, choose files)</p>
 
 <p>First we launch fzf with the possibility of selecting multiple items and
 pass the 2nd argument to f(). This makes sense because the 1st argument to f()
