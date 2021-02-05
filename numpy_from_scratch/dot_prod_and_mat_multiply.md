@@ -38,22 +38,19 @@ matrix we take the dot product with every 'row' of the transposed second matrix
 
 {% highlight python %}
 
-def multiply(self, new_mat):
-    multiplied = []
-    # transpose one matrix, take a bunch of dot products
-    transposed = new_mat.transpose()
-    for row_idx, row in enumerate(self.data):
-        tmp_row = Mat([row])
-        for col_idx, col in enumerate(transposed.data):
-            tmp_col = Mat([col])
-            tmp_dot = tmp_row.dot(tmp_col)
-            # first time through, make new row for each old column
-            if row_idx == 0:
-                multiplied.append([tmp_dot.data])
-            else:
-                # append to newly created rows
-                multiplied[col_idx].append(tmp_dot.data)
-    return Mat(multiplied)
+    def multiply(self, new_mat):
+        # preallocate empty matrix
+        multiplied = gen_mat([len(self.data), len(new_mat.data[0])])
+        # transpose one matrix, take a bunch of dot products
+        transposed = new_mat.transpose()
+        for row_idx, row in enumerate(self.data):
+            tmp_row = Mat([row])
+            for col_idx, col in enumerate(transposed.data):
+                tmp_col = Mat([col])
+                tmp_dot = tmp_row.dot(tmp_col)
+                # enter the dot product into our final matrix
+                multiplied.data[row_idx][col_idx] = tmp_dot
+        return multiplied
 
 {% endhighlight %}
 
