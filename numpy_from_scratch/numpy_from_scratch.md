@@ -34,11 +34,11 @@ will attempt to realise in my library.</p>
 
 ### Secondary methods 
 - [EA = U](./elimination.md)
+- [Inverse](./inverse.md)
 - A = LU
 - A = QR
 - Rank
 - Pivot Columns
-- Inverse
 - Four fundamental subspaces
 - Bases for fundamental subspaces
 - Determinant

@@ -131,16 +131,16 @@ class Mat:
         augmented = Mat([rows[0]+rows[1]  for rows in zip(self.data, I.data)])
 
         # perform elimination to get to [U ~inv]
-        E, A, U = augmented.elimination()
+        _, _, U = augmented.elimination()
+
+        # seperate augmented into U and ~inv
+        tmp_fU = Mat([Urow[0:size[1]] for Urow in U.data])
+        tmp_inv = Mat([Urow[size[1]:] for Urow in U.data])
 
         # creae anti-diag I
         antiI = gen_mat(size)
         for i, j in enumerate(reversed(range(size[1]))):
             antiI.data[i][j] = 1
-
-        # seperate augmented into U and ~inv
-        tmp_fU = Mat([Urow[0:size[1]] for Urow in U.data])
-        tmp_inv = Mat([Urow[size[1]:] for Urow in U.data])
 
         # multiply U and ~inv on both sides by anti-diag I
         fU = antiI.multiply(tmp_fU)
