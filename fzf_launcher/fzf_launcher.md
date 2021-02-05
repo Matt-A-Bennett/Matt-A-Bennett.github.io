@@ -7,7 +7,8 @@ The full code I've written so far can be found [here](./full_code.md).
 terminal. One very useful feature is to search for and select files to be
 passed to some command (e.g. cat) or program (e.g. vlc). This is especially
 useful when fzf is configured to always search a set of default directories
-scattered around the file system, described in the previous post.</p>
+scattered around the file system, described in the <a
+href="../fzf_search_dirs/fzf_search_dirs.html">previous post</a>.</p>
 </div>
 
 ## The Goal

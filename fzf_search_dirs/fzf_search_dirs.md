@@ -37,8 +37,8 @@ tools <i>respect .gitignore files</i>. This means that fzf will skip any files
 <b>or directories</b> listed in a .gitignore file. We can turn this feature to
 our advantage.</p>
 
-<p>First, we install fd [fd](https://github.com/sharkdp/fd#benchmark). If you
-run Ubuntu 19.04 (Disco Dingo) or newer, you can install the officially
+<p>First, we install <a href="https://github.com/sharkdp/fd#benchmark">fd</a>.
+If you run Ubuntu 19.04 (Disco Dingo) or newer, you can install the officially
 maintained package:</p>
 </div>
 
