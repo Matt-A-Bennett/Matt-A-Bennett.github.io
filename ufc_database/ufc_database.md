@@ -1,4 +1,4 @@
-# Creating a searchable database contests using web-scraping in Python 3
+# Creating a searchable database of UFC contests using web-scraping in Python 3
 
 The full code I've written so far can be found [here](./full_code.md).
 
