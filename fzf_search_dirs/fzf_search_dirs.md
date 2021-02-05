@@ -142,7 +142,7 @@ precisely it was named.</p>
 <p>N.B. You may be wondering "What if I find myself in an usual directory not
 on the list, and want to use fzf?". I had the same concern so I put a couple of
 aliases in my .bashrc that can toggle the above configuration on and off at
-will:</p>
+will(be sure to use 'fd-find' for Ubuntu 19.10+, as disused above):</p>
 </div>
 
 {% highlight bash %}
