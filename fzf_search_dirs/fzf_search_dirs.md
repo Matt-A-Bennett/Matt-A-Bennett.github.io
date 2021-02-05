@@ -179,9 +179,6 @@ the list and entering the following command:</p>
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Now you can just copy the directories that you do want to search, and place
-them <i>below</i> with a '!' preceding them.</p>
-
 <p>Similar to above, insert the '!' before each one by putting the cursor on
 the first directory in the list and entering the following command:</p>
 </div>
