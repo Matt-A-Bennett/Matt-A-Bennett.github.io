@@ -1,4 +1,4 @@
-# Configuring FZF to search useful directories beyond the current working directory
+# Configuring FZF to search useful directories beyond the working directory
 <div style="text-align: justify">
 <p>I use <a href="https://github.com/junegunn/fzf">fzf</a> both as a command
 line tool and from within Vim using the <a

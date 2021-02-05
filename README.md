@@ -19,6 +19,6 @@ and find useful to have on my pc.</p>
 
 [Creating a searchable database of UFC contests using web-scraping in Python 3](./ufc_database/ufc_database.md)
 
-[Configuring FZF to search useful directories beyond the current working directory](./fzf_search_dirs/fzf_search_dirs.md)
+[Configuring FZF to search useful directories beyond the working directory](./fzf_search_dirs/fzf_search_dirs.md)
 
 [Using FZF to select files for any program or command](./fzf_launcher/fzf_launcher.md)
