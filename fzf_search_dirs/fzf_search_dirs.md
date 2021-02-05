@@ -1,14 +1,14 @@
 # Configuring FZF to search useful directories beyond the current working directory
 <div style="text-align: justify">
-<p>I use [fzf](https://github.com/junegunn/fzf) both as a command line tool and
-from within Vim using the [fzf.vim
-plugin](https://github.com/junegunn/fzf.vim). It makes finding (and opening)
-files intuitive, fast, and frees you from needing to remember their location or
-exact name. By default, fzf searches recursively within the current directory,
-which is often just what you want. If you need to search for a file in some
-directory beyond the current working directory you need to specify that path as
-an argument to fzf, after which it's business as usual (fzf will recursively
-search the specified directory).</p> 
+<p>I use <a href="https://github.com/junegunn/fzf">fzf</a> both as a command
+line tool and from within Vim using the <a
+href="https://github.com/junegunn/fzf.vim">fzf.vim</a>. It makes finding (and
+opening) files intuitive, fast, and frees you from needing to remember their
+location or exact name. By default, fzf searches recursively within the current
+directory, which is often just what you want. If you need to search for a file
+in some directory beyond the current working directory you need to specify that
+path as an argument to fzf, after which it's business as usual (fzf will
+recursively search the specified directory).</p> 
 </div>
 
 ## The Problem
@@ -163,7 +163,6 @@ the first directory in the list and entering the following command:</p>
 :.,$ norm I!
 {% endhighlight %}
 
-[Using FZF to select files for any program or command
->](../fzf_launcher/fzf_launcher.md)
+[Using FZF to select files for any program or command >](../fzf_launcher/fzf_launcher.md)
 
 [back to home](../README.md)
