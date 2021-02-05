@@ -154,9 +154,6 @@ alias fzf-="export FZF_DEFAULT_COMMAND='fd . $HOME'"
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Now you can temporarily turn go to the usual behaviour of fzf to do
-something and switch back after</p>
-
 <p>N.B. I have noticed that, for some reason, a couple of subdirectories were
 not showing up in the fzf search, and so I explicitly created some
 '!path/to/missed/directory/' lines in this section...</p>
