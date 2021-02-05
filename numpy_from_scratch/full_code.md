@@ -5,7 +5,6 @@ Below is all the code that we have written to date.
 [back to home](../README.md)
 
 {% highlight python %}
-
 import copy
 
 def gen_mat(size, value=0):
@@ -13,6 +12,17 @@ def gen_mat(size, value=0):
     for i in range(size[0]):
         generated_mat.append([value for j in range(size[1])])
     return Mat(generated_mat)
+
+def eye(size):
+    eye = gen_mat(size)
+    for i in range(size[0]):
+        eye.data[i][i] = 1
+    return eye
+
+def print_mat(self):
+    for row in self.data:
+        print(row)
+    print()
 
 class Mat:
     def __init__(self, data):
@@ -67,7 +77,8 @@ class Mat:
         return dot_prod
 
     def multiply(self, new_mat):
-        multiplied = []
+        # preallocate empty matrix
+        multiplied = gen_mat([len(self.data), len(new_mat.data[0])])
         # transpose one matrix, take a bunch of dot products
         transposed = new_mat.transpose()
         for row_idx, row in enumerate(self.data):
@@ -75,14 +86,9 @@ class Mat:
             for col_idx, col in enumerate(transposed.data):
                 tmp_col = Mat([col])
                 tmp_dot = tmp_row.dot(tmp_col)
-
-                # first time through, make new row for each old column
-                if row_idx == 0:
-                    multiplied.append([tmp_dot])
-                else:
-                    # append to newly created rows
-                    multiplied[col_idx].append(tmp_dot)
-        return Mat(multiplied).transpose()
+                # enter the dot product into our final matrix
+                multiplied.data[row_idx][col_idx] = tmp_dot
+        return multiplied
 
     def elimination(self):
         # need to handle cases where a zero is already below the pivot
@@ -117,6 +123,48 @@ class Mat:
             pivot_count += 1
         return currentE, self, U
 
+    def inverse(self):
+        size = [len(self.data), len(self.data[0])]
+
+        # create [A I]
+        I = eye(size)
+        augmented = Mat([rows[0]+rows[1]  for rows in zip(self.data, I.data)])
+
+        # perform elimination to get to [U ~inv]
+        E, A, U = augmented.elimination()
+
+        # creae anti-diag I
+        antiI = gen_mat(size)
+        for i, j in enumerate(reversed(range(size[1]))):
+            antiI.data[i][j] = 1
+
+        # seperate augmented into U and ~inv
+        tmp_fU = Mat([Urow[0:size[1]] for Urow in U.data])
+        tmp_inv = Mat([Urow[size[1]:] for Urow in U.data])
+
+        # multiply U and ~inv on both sides by anti-diag I
+        fU = antiI.multiply(tmp_fU)
+        fU = fU.multiply(antiI)
+        f_tmp_inv = antiI.multiply(tmp_inv)
+        f_tmp_inv.multiply(antiI)
+
+        # put fU back into [fU  f~inv]
+        augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
+
+        # perform elimination again to get to [cI cA^-1]
+        _, _, U = augmented.elimination()
+
+        # divide each row by c to get [I A^-1]
+        div = gen_mat(size)
+        for i in range(size[0]):
+            div.data[i][i] = 1/U.data[i][i]
+        inv = div.multiply(U)
+
+        # flip back
+        inv = antiI.multiply(inv)
+        for i in range(size[1]):
+            inv.data[i] = inv.data[i][size[1]:]
+        return inv
 {% endhighlight %}
 
 [back to project main page](./numpy_from_scratch.md)\

@@ -127,7 +127,8 @@ def elimination(self):
 {% endhighlight %}
 
 
-[< Matrix Multiplication](./dot_prod_and_mat_multiply.md)
+[< Matrix Multiplication](./dot_prod_and_mat_multiply.md)\
+[Inverse >](./inverse.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
