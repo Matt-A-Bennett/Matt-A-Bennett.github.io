@@ -28,7 +28,7 @@ def inverse(self):
 
     # create [A I]
     I = eye(size)
-    augmented = Mat([rows[0]+rows[1]  for rows in zip(self.data, I.data)])
+    augmented = Mat([rows[0]+rows[1] for rows in zip(self.data, I.data)])
 
     # perform elimination to get to [U ~inv]
     _, _, U, singular, _ = augmented.elimination()
