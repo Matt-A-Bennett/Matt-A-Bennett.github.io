@@ -165,7 +165,6 @@ class Mat:
         _, _, U, _, _ = self.elimination()
         # extract the non-zeros on the diagonal
         diag_vals = U.diag()
-        print_mat(U)
         pivot_info = [(i, val) for i, val in enumerate(diag_vals) if val]
         return pivot_info
 
