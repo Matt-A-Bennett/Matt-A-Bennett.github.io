@@ -19,8 +19,8 @@ def pivots(self):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>The rank of a matrix tells us a huge amount about a matrix, and is simply
-the number of pivots:</p>
+<p>The rank of a matrix tells us a huge amount, and is simply the number of
+pivots:</p>
 </div>
 
 {% highlight python %}
@@ -32,7 +32,7 @@ def rank(self):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>The matrix is singular if during elimination, row exchanges can't avoid a
+<p>The matrix is singular if during elimination row exchanges can't avoid a
 zero in a pivot postilion. Our elimination method already returns a variable
 indicating singularity, and so this next method just provides a cleaner way of
 accessing that variable:</p>
@@ -49,7 +49,7 @@ def is_singular(self):
 <div style="text-align: justify">
 <p>The determinant of a matrix is simply the product of the pivots, with a
 negative sign if there were an odd number of row exchanges. Here we don't use
-the pivot function, as we also need the number of row exchanges as well:</p>
+the pivot function, as we also need the number of row exchanges:</p>
 </div>
 
 {% highlight python %}
