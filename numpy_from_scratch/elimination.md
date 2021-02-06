@@ -89,8 +89,9 @@ $$
 eliminate, we can exchange the row with the zero with some row below that
 doesn't have a zero in that column.</p>
 
-<p>What we would like to do is encode the results of each elimination step in the
-matrix E.</p>
+<p>What we would like to do is encode the results of each elimination step in
+the matrix E and to have the result U coming from the Multiplication of E with
+A.</p>
 </div>
 
 {% highlight python %}
