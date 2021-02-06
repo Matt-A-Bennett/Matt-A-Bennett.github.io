@@ -1,4 +1,4 @@
-# The Mat(rix) Class and standalone functions
+# Classes, miscellaneous methods and standalone functions
 ## The Mat(rix) Class
 <div style="text-align: justify">
 <p>First off, we need a class 'Mat' (as in 'matrix'). Matrix like data will be
@@ -18,8 +18,25 @@ Mat([[1, 2, 3], [4, 5, 6]])
 
 {% endhighlight %}
 
-## Standalone functions
+## Miscellaneous methods
+### Get the diagonal of a matrix
+<div style="text-align: justify">
+<p>Here is a function to print a matrix, one row beneath the other. This is
+helpful for debugging.</p>
+</div>
 
+{% highlight python %}
+
+def diag(self):
+    diag_vals = []
+    for i in range(len(self.data)):
+        diag_vals.append(self.data[i][i])
+    return diag_vals
+
+{% endhighlight %}
+
+## Standalone functions
+### Generate matrices
 <div style="text-align: justify">
 <p>We make a method to generate a matrix of a given size, uniformly populated
 with a particular value (default 0):</p>
@@ -50,6 +67,7 @@ def eye(size):
 
 {% endhighlight %}
 
+### Printing matrices
 <div style="text-align: justify">
 <p>Here is a function to print a matrix, one row beneath the other. This is
 helpful for debugging.</p>

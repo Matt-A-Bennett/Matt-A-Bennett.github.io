@@ -17,7 +17,8 @@ each row at the end.</p>
 
 <p>We take in the matrix A to invert and 'augment' it by concatenating the
 identity matrix I to it's right side and run the elimination procedure to take A
-to U, and apply the same steps to I:</p>
+to U, and apply the same steps to I. If elimination produces a zero row, A is
+singular and has no inverse.:</p>
 </div>
 
 {% highlight python %}
@@ -30,7 +31,11 @@ def inverse(self):
     augmented = Mat([rows[0]+rows[1]  for rows in zip(self.data, I.data)])
 
     # perform elimination to get to [U ~inv]
-    _, _, U = augmented.elimination()
+    _, _, U, singular, _ = augmented.elimination()
+
+    if singular:
+        print('Matrix is singular!')
+        return None
 
 {% endhighlight %}
 
@@ -75,7 +80,7 @@ matrix on the left half and a full matrix on the right:</p>
 augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
 
 # perform elimination again to get to [cI cA^-1]
-_, _, U = augmented.elimination()
+_, _, U, singular, _ = augmented.elimination()
 
 {% endhighlight %}
 
@@ -101,7 +106,7 @@ return inv
 
 {% endhighlight %}
 
-[< EA = U](./elimination.md)
+[< Rank, pivots, singularity, determinants](./rank_piv_sing_det.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)

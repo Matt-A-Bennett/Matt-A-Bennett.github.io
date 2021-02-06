@@ -5,6 +5,7 @@ Below is all the code that we have written to date.
 [back to home](../README.md)
 
 {% highlight python %}
+
 import copy
 
 def gen_mat(size, value=0):
@@ -90,25 +91,61 @@ class Mat:
                 multiplied.data[row_idx][col_idx] = tmp_dot
         return multiplied
 
+    def diag(self):
+        diag_vals = []
+        for i in range(len(self.data)):
+            diag_vals.append(self.data[i][i])
+        return diag_vals
+
     def elimination(self):
-        # need to handle cases where a zero is already below the pivot
         # should do some row exchanges for numerical stability...
+
+        # we assume the matrix is invertible
+        singular = 0
 
         # create identity matrix which we'll turn into an E matrix
         tmpE = gen_mat([len(self.data),len(self.data[0])])
         for row_idx in range(len(tmpE.data)):
             tmpE.data[row_idx][row_idx] = 1
 
+        # create a permutation matrix for row exchanges
+        P = gen_mat([len(self.data),len(self.data)])
+        for row_idx in range(len(tmpE.data)):
+            P.data[row_idx][row_idx] = 1
+
         currentE = copy.deepcopy(tmpE)
         U = copy.deepcopy(self)
         pivot_count = 0
+        row_exchange_count = 0
         for row_idx in range(len(U.data)-1):
             for sub_row in range(row_idx+1, len(U.data)):
                 # create elimination mat
                 nextE = copy.deepcopy(tmpE)
+
+                # handle a zero in the pivot position
+                if U.data[row_idx][pivot_count] == 0:
+                    row_exchange_count += 1
+                    # look for a non-zero value to use as the pivot
+                    options = [row[pivot_count] for row in U.data[sub_row:]]
+                    exchange = sub_row + options.index(max(options, key=abs))
+
+                    # build and apply a purmutation matrix
+                    P = copy.deepcopy(P)
+                    P.data[row_idx][pivot_count] = 0
+                    P.data[row_idx][exchange] = 1
+                    P.data[exchange][exchange] = 0
+                    P.data[exchange][pivot_count] = 1
+                    U = P.multiply(U)
+
                 # get copies of the rows
                 row_above = copy.deepcopy(Mat([U.data[row_idx]]))
                 row_below = copy.deepcopy(Mat([U.data[sub_row]]))
+
+                # check if the permutation avoided a zero in the pivot position
+                if U.data[sub_row][sub_row] == 0:
+                    singular = 1
+                    return currentE, self, U, singular, row_exchange_count
+
                 # determine how much to subtract to create a zero
                 ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
                 # do the subtraction
@@ -121,7 +158,37 @@ class Mat:
                 # update the overall E
                 currentE = nextE.multiply(currentE)
             pivot_count += 1
-        return currentE, self, U
+        return currentE, self, U, singular, row_exchange_count
+
+    def pivots(self):
+        # find U
+        _, _, U, _, _ = self.elimination()
+        # extract the non-zeros on the diagonal
+        diag_vals = U.diag()
+        print_mat(U)
+        pivot_info = [(i, val) for i, val in enumerate(diag_vals) if val]
+        return pivot_info
+
+    def rank(self):
+        pivot_info = self.elimination()
+        return len(pivot_info)
+
+    def is_singular(self):
+        _, _, _, singular, _ = self.elimination()
+        return singular
+
+    def determinant(self):
+        # find U
+        _, _, U, _, row_exchange_count = self.elimination()
+        # muliply the pivots
+        det = 1
+        diag_vals = U.diag()
+        for val in diag_vals:
+            det *= val
+        # if an odd number of row exchanges, multiply determinant by minus one
+        if row_exchange_count % 2:
+            det *= -1
+        return det
 
     def inverse(self):
         size = [len(self.data), len(self.data[0])]
@@ -131,7 +198,11 @@ class Mat:
         augmented = Mat([rows[0]+rows[1]  for rows in zip(self.data, I.data)])
 
         # perform elimination to get to [U ~inv]
-        _, _, U = augmented.elimination()
+        _, _, U, singular, _ = augmented.elimination()
+
+        if singular:
+            print('Matrix is singular!')
+            return None
 
         # seperate augmented into U and ~inv
         tmp_fU = Mat([Urow[0:size[1]] for Urow in U.data])
@@ -152,7 +223,7 @@ class Mat:
         augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
 
         # perform elimination again to get to [cI cA^-1]
-        _, _, U = augmented.elimination()
+        _, _, U, singular, _ = augmented.elimination()
 
         # divide each row by c to get [I A^-1]
         div = gen_mat(size)
@@ -165,6 +236,7 @@ class Mat:
         for i in range(size[1]):
             inv.data[i] = inv.data[i][size[1]:]
         return inv
+
 {% endhighlight %}
 
 [back to project main page](./numpy_from_scratch.md)\

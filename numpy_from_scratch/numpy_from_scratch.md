@@ -21,9 +21,11 @@ Python's standard library.</p>
 will attempt to realise in my library.</p>
 </div>
 
-### Classes and standalone functions
+### Classes, miscellaneous methods and standalone functions
 - [Mat(rix) Class](./class_and_standalone_functions.md)
-- [Funtion to generate matrix](./class_and_standalone_functions.md)
+- [Get the diagonal of a matrix](./class_and_standalone_functions.md)
+- [Generate matrices](./class_and_standalone_functions.md)
+- [Printing matrices](./class_and_standalone_functions.md)
 
 ### Fundamental methods
 - [Transpose](./transpose.md)
@@ -34,14 +36,12 @@ will attempt to realise in my library.</p>
 
 ### Secondary methods 
 - [EA = U](./elimination.md)
+- [Rank, pivots, singularity, determinant](./rank_piv_sing_det.md)
 - [Inverse](./inverse.md)
 - A = LU
 - A = QR
-- Rank
-- Pivot Columns
 - Four fundamental subspaces
 - Bases for fundamental subspaces
-- Determinant
 - Projection
 - Orthogonalisation
 - Orthonormal basis
