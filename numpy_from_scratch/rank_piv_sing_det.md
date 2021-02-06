@@ -2,7 +2,8 @@
 <div style="text-align: justify">
 <p>Now that we have the method of elimination, we can get a lot of information
 about a matrix easily. The pivots of a matrix are the non-zero numbers sitting
-along the diagonal of U after elimination:</p>
+along the diagonal of U after elimination. Here we return those pivots along
+with the columns in which they were found:</p>
 </div>
 
 {% highlight python %}
