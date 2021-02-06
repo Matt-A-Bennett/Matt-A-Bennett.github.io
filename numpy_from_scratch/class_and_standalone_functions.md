@@ -21,15 +21,15 @@ Mat([[1, 2, 3], [4, 5, 6]])
 ## Miscellaneous methods
 ### Get the diagonal of a matrix
 <div style="text-align: justify">
-<p>Here is a function to print a matrix, one row beneath the other. This is
-helpful for debugging.</p>
+<p>This function works along the diagonal of the matrix, starting in the top
+left and stopping after running out of rows or columns.</p>
 </div>
 
 {% highlight python %}
 
 def diag(self):
     diag_vals = []
-    for i in range(len(self.data)):
+    for i in range(min(len(self.data), len(self.data[0]))):
         diag_vals.append(self.data[i][i])
     return diag_vals
 

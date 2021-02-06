@@ -93,7 +93,7 @@ class Mat:
 
     def diag(self):
         diag_vals = []
-        for i in range(len(self.data)):
+        for i in range(min(len(self.data), len(self.data[0]))):
             diag_vals.append(self.data[i][i])
         return diag_vals
 
