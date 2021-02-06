@@ -26,7 +26,7 @@ pivots:</p>
 {% highlight python %}
 
 def rank(self):
-    pivot_info = self.elimination()
+    pivot_info = self.pivots()
     return len(pivot_info)
 
 {% endhighlight %}
