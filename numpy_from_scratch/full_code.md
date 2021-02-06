@@ -169,7 +169,7 @@ class Mat:
         return pivot_info
 
     def rank(self):
-        pivot_info = self.elimination()
+        pivot_info = self.pivots()
         return len(pivot_info)
 
     def is_singular(self):
