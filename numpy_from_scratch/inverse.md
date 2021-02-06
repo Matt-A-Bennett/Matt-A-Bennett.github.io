@@ -18,7 +18,7 @@ each row at the end.</p>
 <p>We take in the matrix A to invert and 'augment' it by concatenating the
 identity matrix I to it's right side and run the elimination procedure to take A
 to U, and apply the same steps to I. If elimination produces a zero row, A is
-singular and has no inverse.:</p>
+singular and has no inverse:</p>
 </div>
 
 {% highlight python %}
