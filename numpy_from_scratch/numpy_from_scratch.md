@@ -33,7 +33,7 @@ will attempt to realise in my library.</p>
 - [Scalar Multiplication](./scalar_multiplication.md)
 - [Addition/Subtraction](./addition_subtraction.md)
 - [Dot Product](./dot_prod_and_mat_multiply.md)
-- [Matrix Multiplication](./dot_prod_and_mat_multiply.md#matrix-multiplication.md)
+- [Matrix Multiplication](./dot_prod_and_mat_multiply.md#matrix-multiplication)
 
 ### Secondary methods 
 - [EA = U](./elimination.md)
