@@ -1,4 +1,4 @@
-# Classes, miscellaneous methods and standalone functions
+# Classes, standalone functions and miscellaneous methods 
 ## The Mat(rix) Class
 <div style="text-align: justify">
 <p>First off, we need a class 'Mat' (as in 'matrix'). Matrix like data will be
@@ -15,23 +15,6 @@ class Mat:
 
 # define a 2x3 matrix
 Mat([[1, 2, 3], [4, 5, 6]])
-
-{% endhighlight %}
-
-## Miscellaneous methods
-### Get the diagonal of a matrix
-<div style="text-align: justify">
-<p>This function works along the diagonal of the matrix, starting in the top
-left and stopping after running out of rows or columns.</p>
-</div>
-
-{% highlight python %}
-
-def diag(self):
-    diag_vals = []
-    for i in range(min(len(self.data), len(self.data[0]))):
-        diag_vals.append(self.data[i][i])
-    return diag_vals
 
 {% endhighlight %}
 
@@ -97,6 +80,23 @@ def print_mat(self):
     for row in self.data:
         print(row)
     print()
+
+{% endhighlight %}
+
+## Miscellaneous methods
+### Get the diagonal of a matrix
+<div style="text-align: justify">
+<p>This function works along the diagonal of the matrix, starting in the top
+left and stopping after running out of rows or columns.</p>
+</div>
+
+{% highlight python %}
+
+def diag(self):
+    diag_vals = []
+    for i in range(min(len(self.data), len(self.data[0]))):
+        diag_vals.append(self.data[i][i])
+    return diag_vals
 
 {% endhighlight %}
 

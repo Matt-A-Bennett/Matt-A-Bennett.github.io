@@ -21,12 +21,12 @@ Python's standard library.</p>
 will attempt to realise in my library.</p>
 </div>
 
-### Classes, miscellaneous methods and standalone functions
+### Classes, standalone functions and miscellaneous methods 
 - [Mat(rix) Class](./class_and_standalone_functions.md)
-- [Get the diagonal of a matrix](./class_and_standalone_functions.md#get-the-diagonal-of-a-matrix)
 - [Generate matrices](./class_and_standalone_functions.md#generate-matrices)
 - [Combining matrices](./class_and_standalone_functions.md#combining-matrices)
 - [Printing matrices](./class_and_standalone_functions.md#printing-matrices)
+- [Get the diagonal of a matrix](./class_and_standalone_functions.md#get-the-diagonal-of-a-matrix)
 
 ### Fundamental methods
 - [Transpose](./transpose.md)
