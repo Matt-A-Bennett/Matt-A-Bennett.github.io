@@ -5,7 +5,7 @@ side) to give the identity matrix. Not all matrices have inverses. A good way
 to find the inverse of a matrix is through elimination. Once we have reached EA
 = U, we carry on eliminating the upper triangular region of U to get to a
 diagonal matrix. This diagonal matrix is more similar to I, and by dividing
-each row appropriately it <i>is</i> I. That means that there were some sequence
+each row appropriately it <i>is</i> I. That means that there was some sequence
 of elimination steps which brought A to I. If we had applied those steps to I
 we would have ended up at the inverse of A!</p>
 
@@ -28,7 +28,7 @@ def inverse(self):
 
     # create [A I]
     I = eye(size)
-    augmented = Mat([rows[0]+rows[1] for rows in zip(self.data, I.data)])
+    augmented = cat(self, I)
 
     # perform elimination to get to [U ~inv]
     _, _, U, singular, _ = augmented.elimination()
@@ -77,7 +77,7 @@ matrix on the left half and a full matrix on the right:</p>
 {% highlight python %}
 
 # put fU back into [fU  f~inv]
-augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
+augmented = cat(fU, f_tmp_inv)
 
 # perform elimination again to get to [cI cA^-1]
 _, _, U, singular, _ = augmented.elimination()

@@ -204,7 +204,6 @@ class Mat:
 
         # create [A I]
         I = eye(size)
-        # augmented = Mat([rows[0]+rows[1] for rows in zip(self.data, I.data)])
         augmented = cat(self, I)
 
         # perform elimination to get to [U ~inv]
@@ -230,7 +229,6 @@ class Mat:
         f_tmp_inv.multiply(antiI)
 
         # put fU back into [fU  f~inv]
-        # augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
         augmented = cat(fU, f_tmp_inv)
 
         # perform elimination again to get to [cI cA^-1]
