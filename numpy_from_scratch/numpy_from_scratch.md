@@ -23,10 +23,10 @@ will attempt to realise in my library.</p>
 
 ### Classes, miscellaneous methods and standalone functions
 - [Mat(rix) Class](./class_and_standalone_functions.md)
-- [Get the diagonal of a matrix](./class_and_standalone_functions.md)
-- [Generate matrices](./class_and_standalone_functions.md)
-- [Combining matrices](./class_and_standalone_functions.md)
-- [Printing matrices](./class_and_standalone_functions.md)
+- [Get the diagonal of a matrix](./class_and_standalone_functions.md#get-the-diagonal-of-a-matrix)
+- [Generate matrices](./class_and_standalone_functions.md#generate-matrices)
+- [Combining matrices](./class_and_standalone_functions.md#combining-matrices)
+- [Printing matrices](./class_and_standalone_functions.md#printing-matrices)
 
 ### Fundamental methods
 - [Transpose](./transpose.md)
