@@ -232,7 +232,7 @@ class Mat:
         augmented = cat(fU, f_tmp_inv)
 
         # perform elimination again to get to [cI cA^-1]
-        _, _, _, U, singular, _ = augmented.elimination()
+        _, _, _, U, _, _ = augmented.elimination()
 
         # divide each row by c to get [I A^-1]
         div = gen_mat(size)

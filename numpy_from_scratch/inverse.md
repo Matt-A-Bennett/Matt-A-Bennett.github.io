@@ -77,10 +77,10 @@ matrix on the left half and a full matrix on the right:</p>
 {% highlight python %}
 
 # put fU back into [fU  f~inv]
-augmented = cat(fU, f_tmp_inv)
+augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
 
 # perform elimination again to get to [cI cA^-1]
-_, _, U, singular, _ = augmented.elimination()
+_, _, U, _, _ = augmented.elimination()
 
 {% endhighlight %}
 
