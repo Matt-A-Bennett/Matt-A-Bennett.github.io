@@ -16,9 +16,17 @@ def gen_mat(size, value=0):
 
 def eye(size):
     eye = gen_mat(size)
-    for i in range(size[0]):
+    for i in range(min(size)):
         eye.data[i][i] = 1
     return eye
+
+def cat(A, B, axis=0):
+    if axis == 0:
+        concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
+    if axis == 1:
+        print(A, B)
+        concatenated = Mat(A.data + B.data)
+    return concatenated
 
 def print_mat(self):
     for row in self.data:
@@ -104,16 +112,13 @@ class Mat:
         singular = 0
 
         # create identity matrix which we'll turn into an E matrix
-        tmpE = gen_mat([len(self.data),len(self.data[0])])
-        for row_idx in range(len(tmpE.data)):
-            tmpE.data[row_idx][row_idx] = 1
+        tmpE = eye([len(self.data),len(self.data[0])])
 
         # create a permutation matrix for row exchanges
-        P = gen_mat([len(self.data),len(self.data)])
-        for row_idx in range(len(tmpE.data)):
-            P.data[row_idx][row_idx] = 1
+        tmpP = eye([len(self.data),len(self.data)])
 
-        currentE = copy.deepcopy(tmpE)
+        E = copy.deepcopy(tmpE)
+        P = copy.deepcopy(tmpP)
         U = copy.deepcopy(self)
         pivot_count = 0
         row_exchange_count = 0
@@ -121,6 +126,7 @@ class Mat:
             for sub_row in range(row_idx+1, len(U.data)):
                 # create elimination mat
                 nextE = copy.deepcopy(tmpE)
+                nextP = copy.deepcopy(tmpP)
 
                 # handle a zero in the pivot position
                 if U.data[row_idx][pivot_count] == 0:
@@ -130,21 +136,21 @@ class Mat:
                     exchange = sub_row + options.index(max(options, key=abs))
 
                     # build and apply a purmutation matrix
-                    P = copy.deepcopy(P)
-                    P.data[row_idx][pivot_count] = 0
-                    P.data[row_idx][exchange] = 1
-                    P.data[exchange][exchange] = 0
-                    P.data[exchange][pivot_count] = 1
-                    U = P.multiply(U)
+                    nextP.data[row_idx][pivot_count] = 0
+                    nextP.data[row_idx][exchange] = 1
+                    nextP.data[exchange][exchange] = 0
+                    nextP.data[exchange][pivot_count] = 1
+                    U = nextP.multiply(U)
+                    P = nextP.multiply(P)
 
                 # get copies of the rows
                 row_above = copy.deepcopy(Mat([U.data[row_idx]]))
                 row_below = copy.deepcopy(Mat([U.data[sub_row]]))
 
                 # check if the permutation avoided a zero in the pivot position
-                if U.data[sub_row][sub_row] == 0:
+                if U.data[row_idx][row_idx] == 0:
                     singular = 1
-                    return currentE, self, U, singular, row_exchange_count
+                    return P, E, self, U, singular, row_exchange_count
 
                 # determine how much to subtract to create a zero
                 ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
@@ -155,14 +161,20 @@ class Mat:
                 nextE.data[sub_row][row_idx] = -ratio
                 # add to our U
                 U.data[sub_row] = row_below.data[0]
+
                 # update the overall E
-                currentE = nextE.multiply(currentE)
+                E = nextE.multiply(E)
             pivot_count += 1
-        return currentE, self, U, singular, row_exchange_count
+
+        # check if the permutation avoided a zero in the pivot position
+        if U.data[row_idx+1][row_idx+1] == 0:
+            singular = 1
+
+        return P, E, self, U, singular, row_exchange_count
 
     def pivots(self):
         # find U
-        _, _, U, _, _ = self.elimination()
+        _, _, _, U, _, _ = self.elimination()
         # extract the non-zeros on the diagonal
         diag_vals = U.diag()
         pivot_info = [(i, val) for i, val in enumerate(diag_vals) if val]
@@ -173,12 +185,12 @@ class Mat:
         return len(pivot_info)
 
     def is_singular(self):
-        _, _, _, singular, _ = self.elimination()
+        _, _, _, _, singular, _ = self.elimination()
         return singular
 
     def determinant(self):
         # find U
-        _, _, U, _, row_exchange_count = self.elimination()
+        _, _, _, U, _, row_exchange_count = self.elimination()
         # muliply the pivots
         det = 1
         diag_vals = U.diag()
@@ -194,10 +206,11 @@ class Mat:
 
         # create [A I]
         I = eye(size)
-        augmented = Mat([rows[0]+rows[1] for rows in zip(self.data, I.data)])
+        # augmented = Mat([rows[0]+rows[1] for rows in zip(self.data, I.data)])
+        augmented = cat(self, I)
 
         # perform elimination to get to [U ~inv]
-        _, _, U, singular, _ = augmented.elimination()
+        _, _, _, U, singular, _ = augmented.elimination()
 
         if singular:
             print('Matrix is singular!')
@@ -219,10 +232,11 @@ class Mat:
         f_tmp_inv.multiply(antiI)
 
         # put fU back into [fU  f~inv]
-        augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
+        # augmented = Mat([rows[0]+rows[1] for rows in zip(fU.data, f_tmp_inv.data)])
+        augmented = cat(fU, f_tmp_inv)
 
         # perform elimination again to get to [cI cA^-1]
-        _, _, U, singular, _ = augmented.elimination()
+        _, _, _, U, singular, _ = augmented.elimination()
 
         # divide each row by c to get [I A^-1]
         div = gen_mat(size)
@@ -235,6 +249,13 @@ class Mat:
         for i in range(size[1]):
             inv.data[i] = inv.data[i][size[1]:]
         return inv
+
+    def lu(self):
+        P, E, self, U, _, _ = self.elimination()
+        L = E.inverse()
+        P.transpose()
+        L = P.multiply(L)
+        return P, self, L, U
 
 {% endhighlight %}
 

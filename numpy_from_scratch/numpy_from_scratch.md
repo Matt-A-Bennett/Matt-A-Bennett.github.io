@@ -25,6 +25,7 @@ will attempt to realise in my library.</p>
 - [Mat(rix) Class](./class_and_standalone_functions.md)
 - [Get the diagonal of a matrix](./class_and_standalone_functions.md)
 - [Generate matrices](./class_and_standalone_functions.md)
+- [Combining matrices](./class_and_standalone_functions.md)
 - [Printing matrices](./class_and_standalone_functions.md)
 
 ### Fundamental methods
@@ -38,7 +39,7 @@ will attempt to realise in my library.</p>
 - [EA = U](./elimination.md)
 - [Rank, pivots, singularity, determinant](./rank_piv_sing_det.md)
 - [Inverse](./inverse.md)
-- A = LU
+- [A = LU](./lu_factorisation.md)
 - A = QR
 - Four fundamental subspaces
 - Bases for fundamental subspaces

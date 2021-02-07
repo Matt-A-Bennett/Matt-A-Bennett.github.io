@@ -106,7 +106,8 @@ return inv
 
 {% endhighlight %}
 
-[< Rank, pivots, singularity, determinants](./rank_piv_sing_det.md)
+[< Rank, pivots, singularity, determinants](./rank_piv_sing_det.md)\
+[A = LU >](./lu_factorisation.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)

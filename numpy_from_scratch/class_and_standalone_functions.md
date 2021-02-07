@@ -67,6 +67,24 @@ def eye(size):
 
 {% endhighlight %}
 
+### Combining matrices
+
+{% highlight python %}
+
+<div style="text-align: justify">
+<p>This method concatenates two matrices along a dimension.</p>
+</div>
+
+def cat(A, B, axis=0):
+    if axis == 0:
+        concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
+    if axis == 1:
+        print(A, B)
+        concatenated = Mat(A.data + B.data)
+    return concatenated
+
+{% endhighlight %}
+
 ### Printing matrices
 <div style="text-align: justify">
 <p>Here is a function to print a matrix, one row beneath the other. This is

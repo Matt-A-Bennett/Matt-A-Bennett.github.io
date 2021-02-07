@@ -92,72 +92,94 @@ doesn't have a zero in that column.</p>
 <p>What we would like to do is encode the results of each elimination step in
 the matrix E and to have the result U coming from the Multiplication of E with
 A.</p>
+
+<p>First we create a few matrices which we'll use later on. The first is the
+identity matrix I, which will become our matrix E, but which could have more
+columns than rows (this allows us to find the inverse, described in a later
+post. The second is a permutation matrix P, which allows us to exchange the
+rows of a matrix through multiplication:</p>
 </div>
 
 {% highlight python %}
 
-    def elimination(self):
-        # should do some row exchanges for numerical stability...
+def elimination(self):
+    # should do some row exchanges for numerical stability...
 
-        # we assume the matrix is invertible
-        singular = 0
+    # we assume the matrix is invertible
+    singular = 0
 
-        # create identity matrix which we'll turn into an E matrix
-        tmpE = gen_mat([len(self.data),len(self.data[0])])
-        for row_idx in range(len(tmpE.data)):
-            tmpE.data[row_idx][row_idx] = 1
+    # create identity matrix which we'll turn into an E matrix
+    tmpE = eye([len(self.data),len(self.data[0])])
 
-        # create a permutation matrix for row exchanges
-        P = gen_mat([len(self.data),len(self.data)])
-        for row_idx in range(len(tmpE.data)):
-            P.data[row_idx][row_idx] = 1
+    # create a permutation matrix for row exchanges
+    tmpP = eye([len(self.data),len(self.data)])
 
-        currentE = copy.deepcopy(tmpE)
-        U = copy.deepcopy(self)
-        pivot_count = 0
-        row_exchange_count = 0
-        for row_idx in range(len(U.data)-1):
-            for sub_row in range(row_idx+1, len(U.data)):
-                # create elimination mat
-                nextE = copy.deepcopy(tmpE)
+{% endhighlight %}
 
-                # handle a zero in the pivot position
-                if U.data[row_idx][pivot_count] == 0:
-                    row_exchange_count += 1
-                    # look for a non-zero value to use as the pivot
-                    options = [row[pivot_count] for row in U.data[sub_row:]]
-                    exchange = sub_row + options.index(max(options, key=abs))
+<div style="text-align: justify">
+<p>Each iteration of elimination will produce an E matrix for that step. We
+continually multiply those E's together to keep track of the overall E. The
+input matrix is copied to U, and will become the upper triangular matrix.</p>
 
-                    # build and apply a purmutation matrix
-                    P = copy.deepcopy(P)
-                    P.data[row_idx][pivot_count] = 0
-                    P.data[row_idx][exchange] = 1
-                    P.data[exchange][exchange] = 0
-                    P.data[exchange][pivot_count] = 1
-                    U = P.multiply(U)
+<p>Then we loop over </p>
+</div>
 
-                # get copies of the rows
-                row_above = copy.deepcopy(Mat([U.data[row_idx]]))
-                row_below = copy.deepcopy(Mat([U.data[sub_row]]))
+{% highlight python %}
 
-                # check if the permutation avoided a zero in the pivot position
-                if U.data[sub_row][sub_row] == 0:
-                    singular = 1
-                    return currentE, self, U, singular, row_exchange_count
+E = copy.deepcopy(tmpE)
+P = copy.deepcopy(tmpP)
+U = copy.deepcopy(self)
+pivot_count = 0
+row_exchange_count = 0
+for row_idx in range(len(U.data)-1):
+    for sub_row in range(row_idx+1, len(U.data)):
+        # create elimination mat
+        nextE = copy.deepcopy(tmpE)
+        nextP = copy.deepcopy(tmpP)
 
-                # determine how much to subtract to create a zero
-                ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
-                # do the subtraction
-                row_above.scale(ratio)
-                row_below = row_below.subtract(row_above)
-                # add to our E
-                nextE.data[sub_row][row_idx] = -ratio
-                # add to our U
-                U.data[sub_row] = row_below.data[0]
-                # update the overall E
-                currentE = nextE.multiply(currentE)
-            pivot_count += 1
-        return currentE, self, U, singular, row_exchange_count
+        # handle a zero in the pivot position
+        if U.data[row_idx][pivot_count] == 0:
+            row_exchange_count += 1
+            # look for a non-zero value to use as the pivot
+            options = [row[pivot_count] for row in U.data[sub_row:]]
+            exchange = sub_row + options.index(max(options, key=abs))
+
+            # build and apply a purmutation matrix
+            nextP.data[row_idx][pivot_count] = 0
+            nextP.data[row_idx][exchange] = 1
+            nextP.data[exchange][exchange] = 0
+            nextP.data[exchange][pivot_count] = 1
+            U = nextP.multiply(U)
+            P = nextP.multiply(P)
+
+        # get copies of the rows
+        row_above = copy.deepcopy(Mat([U.data[row_idx]]))
+        row_below = copy.deepcopy(Mat([U.data[sub_row]]))
+
+        # check if the permutation avoided a zero in the pivot position
+        if U.data[row_idx][row_idx] == 0:
+            singular = 1
+            return P, E, self, U, singular, row_exchange_count
+
+        # determine how much to subtract to create a zero
+        ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
+        # do the subtraction
+        row_above.scale(ratio)
+        row_below = row_below.subtract(row_above)
+        # add to our E
+        nextE.data[sub_row][row_idx] = -ratio
+        # add to our U
+        U.data[sub_row] = row_below.data[0]
+
+        # update the overall E
+        E = nextE.multiply(E)
+    pivot_count += 1
+
+# check if the permutation avoided a zero in the pivot position
+if U.data[row_idx+1][row_idx+1] == 0:
+    singular = 1
+
+return P, E, self, U, singular, row_exchange_count
 
 {% endhighlight %}
 
