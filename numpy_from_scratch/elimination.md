@@ -90,13 +90,13 @@ eliminate, we can exchange the row with the zero with some row below that
 doesn't have a zero in that column.</p>
 
 <p>What we would like to do is encode the results of each elimination step in
-the matrix E and to have the result U coming from the Multiplication of E with
+the matrix E and to have the result U coming from the multiplication of E with
 A.</p>
 
 <p>First we create a few matrices which we'll use later on. The first is the
 identity matrix I, which will become our matrix E, but which could have more
 columns than rows (this allows us to find the inverse, described in a later
-post. The second is a permutation matrix P, which allows us to exchange the
+post). The second is a permutation matrix P, which allows us to exchange the
 rows of a matrix through multiplication:</p>
 </div>
 
@@ -157,12 +157,12 @@ for row_idx in range(len(U.data)-1):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>If after a possible row exchange we have a zero in the pivot position the
-then matrix is singular and we return our results and a flag indicating
+<p>If after a possible row exchange we have a zero in the pivot position then
+the matrix is singular and we return our results and a flag indicating
 singularity. Otherwise, we copy the two rows we're doing elimination on and
-determine what multiple of the higher row to subtract from the lower so as to
-eliminate the unknown. After carrying out the subtraction we update U with the
-eliminated row:</p>
+determine what multiple of the higher row to subtract from the lower row so as
+to eliminate the unknown. After carrying out the subtraction we update U with
+the eliminated row:</p>
 </div>
 
 {% highlight python %}
