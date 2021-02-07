@@ -69,11 +69,11 @@ def eye(size):
 
 ### Combining matrices
 
-{% highlight python %}
-
 <div style="text-align: justify">
 <p>This method concatenates two matrices along a dimension.</p>
 </div>
+
+{% highlight python %}
 
 def cat(A, B, axis=0):
     if axis == 0:
