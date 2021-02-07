@@ -119,9 +119,11 @@ def elimination(self):
 <div style="text-align: justify">
 <p>Each iteration of elimination will produce an E matrix for that step. We
 continually multiply those E's together to keep track of the overall E. The
-input matrix is copied to U, and will become the upper triangular matrix.</p>
+input matrix is copied to U, and will become the upper triangular matrix. We
+also produce a permutation matrix P, that encodes any row exchanges needed.</p>
 
-<p>Then we loop over </p>
+<p>For each entry on the diagonal of the matrix (the 'pivot positions'), we
+carry out a row exchange if we find a zero:</p>
 </div>
 
 {% highlight python %}
@@ -152,28 +154,59 @@ for row_idx in range(len(U.data)-1):
             U = nextP.multiply(U)
             P = nextP.multiply(P)
 
-        # get copies of the rows
-        row_above = copy.deepcopy(Mat([U.data[row_idx]]))
-        row_below = copy.deepcopy(Mat([U.data[sub_row]]))
+{% endhighlight %}
 
-        # check if the permutation avoided a zero in the pivot position
-        if U.data[row_idx][row_idx] == 0:
-            singular = 1
-            return P, E, self, U, singular, row_exchange_count
+<div style="text-align: justify">
+<p>If after a possible row exchange we have a zero in the pivot position the
+then matrix is singular and we return our results and a flag indicating
+singularity. Otherwise, we copy the two rows we're doing elimination on and
+determine what multiple of the higher row to subtract from the lower so as to
+eliminate the unknown. After carrying out the subtraction we update U with the
+eliminated row:</p>
+</div>
 
-        # determine how much to subtract to create a zero
-        ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
-        # do the subtraction
-        row_above.scale(ratio)
-        row_below = row_below.subtract(row_above)
-        # add to our E
-        nextE.data[sub_row][row_idx] = -ratio
-        # add to our U
-        U.data[sub_row] = row_below.data[0]
+{% highlight python %}
 
-        # update the overall E
-        E = nextE.multiply(E)
-    pivot_count += 1
+# check if the permutation avoided a zero in the pivot position
+if U.data[row_idx][row_idx] == 0:
+    singular = 1
+    return P, E, self, U, singular, row_exchange_count
+
+# get copies of the rows
+row_above = copy.deepcopy(Mat([U.data[row_idx]]))
+row_below = copy.deepcopy(Mat([U.data[sub_row]]))
+
+# determine how much to subtract to create a zero
+ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
+# do the subtraction
+row_above.scale(ratio)
+row_below = row_below.subtract(row_above)
+# add to our U
+U.data[sub_row] = row_below.data[0]
+
+{% endhighlight %}
+
+<div style="text-align: justify">
+<p>We create a nextE matrix for the previous step and update the overall E by
+multiplying it:</p>
+</div>
+
+{% highlight python %}
+
+    # add to our E
+    nextE.data[sub_row][row_idx] = -ratio
+    # update the overall E
+    E = nextE.multiply(E)
+pivot_count += 1
+
+{% endhighlight %}
+
+<div style="text-align: justify">
+<p>After the final pivot has been placed into U, we just check if it was zero,
+and if so indicate that with a flag on returning the results:</p>
+</div>
+
+{% highlight python %}
 
 # check if the permutation avoided a zero in the pivot position
 if U.data[row_idx+1][row_idx+1] == 0:

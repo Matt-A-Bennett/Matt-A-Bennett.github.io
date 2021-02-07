@@ -143,25 +143,24 @@ class Mat:
                     U = nextP.multiply(U)
                     P = nextP.multiply(P)
 
-                # get copies of the rows
-                row_above = copy.deepcopy(Mat([U.data[row_idx]]))
-                row_below = copy.deepcopy(Mat([U.data[sub_row]]))
-
                 # check if the permutation avoided a zero in the pivot position
                 if U.data[row_idx][row_idx] == 0:
                     singular = 1
                     return P, E, self, U, singular, row_exchange_count
+
+                # get copies of the rows
+                row_above = copy.deepcopy(Mat([U.data[row_idx]]))
+                row_below = copy.deepcopy(Mat([U.data[sub_row]]))
 
                 # determine how much to subtract to create a zero
                 ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
                 # do the subtraction
                 row_above.scale(ratio)
                 row_below = row_below.subtract(row_above)
-                # add to our E
-                nextE.data[sub_row][row_idx] = -ratio
                 # add to our U
                 U.data[sub_row] = row_below.data[0]
-
+                # add to our E
+                nextE.data[sub_row][row_idx] = -ratio
                 # update the overall E
                 E = nextE.multiply(E)
             pivot_count += 1
