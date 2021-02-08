@@ -93,6 +93,7 @@ doesn't have a zero in that column.</p>
 the matrix E and to have the result U coming from the multiplication of E with
 A.</p>
 
+## Code implementation
 <p>First we create a few matrices which we'll use later on. The first is the
 identity matrix I, which will become our matrix E, but which could have more
 columns than rows (this allows us to find the inverse, described in a later
@@ -215,7 +216,6 @@ if U.data[row_idx+1][row_idx+1] == 0:
 return P, E, self, U, singular, row_exchange_count
 
 {% endhighlight %}
-
 
 [< Matrix Multiplication](./dot_prod_and_mat_multiply.md)\
 [Rank, pivots, singularity, determinant >](./rank_piv_sing_det.md)
