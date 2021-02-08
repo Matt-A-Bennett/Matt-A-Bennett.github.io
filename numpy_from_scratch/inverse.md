@@ -53,8 +53,8 @@ to $I$. If we had applied those steps to $I$ we would have ended up at the
 inverse of $A$!</p>
 
 <p>So to compute the inverse of $A$, we do elimination on $A$, but we 'augment'
-the matrix with $I$. This means all row operations applied on the basis of the
-$A$ part of the matrix will also be done to the $I$ side:</p>
+the matrix with $I$. This means that all row operations applied based on the
+$A$ side of the matrix will also be applied to the $I$ side:</p>
 </div>
 
 $$ \left[
