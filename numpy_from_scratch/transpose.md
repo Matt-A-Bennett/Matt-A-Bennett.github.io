@@ -11,7 +11,7 @@ A =%
     4 & 5 & 6
   \end{bmatrix};
    
-  A^T =%
+A^T =%
   \begin{bmatrix}
     1 & 4 \\
     2 & 5 \\

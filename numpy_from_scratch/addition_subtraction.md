@@ -17,7 +17,7 @@ A + B = C =%
   \end{bmatrix}=%
 
   \begin{bmatrix}
-    3 & 2 & 7 \\
+    3 & 3 & 7 \\
     4 & 8 & 7
   \end{bmatrix}
 $$
