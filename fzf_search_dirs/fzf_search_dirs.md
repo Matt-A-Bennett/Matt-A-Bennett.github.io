@@ -188,6 +188,7 @@ the first directory in the list and entering the following command:</p>
 
 [back to home](../index.md)
 
+---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
         issue-term="https://matt-a-bennett.github.io/fzf_search_dirs/fzf_search_dirs.html"

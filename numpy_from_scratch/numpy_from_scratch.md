@@ -50,6 +50,7 @@ will attempt to realise in my library.</p>
 
 [back to home](../index.md)
 
+---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
         issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/numpy_from_scratch.html"
