@@ -23,8 +23,8 @@ $$
 
 ### Code implementation
 <div style="text-align: justify">
-<p>We make both vectors row vectors and then carry out the multiplication and sum
-operations.</p>
+<p>We make both vectors row vectors and then carry out the multiplication and
+sum operations.</p>
 </div>
 
 {% highlight python %}
@@ -46,11 +46,11 @@ def dot(self, new_mat):
 
 ## Matrix Multiplication
 <div style="text-align: justify">
-<p>At a low level, matrix multiplication can be seen as a series of dot products
-between the rows of one matrix and the columns of another. For example, the
-(2,3) entry of a matrix C produced through the multiplication of two other
-matrices A and B, would be the dot product of the 2nd row of A with the 3rd row
-of B:</p>
+<p>At a low level, matrix multiplication can be seen as a series of dot
+products between the rows of one matrix and the columns of another. For
+example, the (2,3) entry of a matrix $C$ produced through the multiplication of
+two other matrices $A$ and $B$, would be the dot product of the 2nd row of $A$
+with the 3rd row of $B$:</p>
 </div>
 
 $$

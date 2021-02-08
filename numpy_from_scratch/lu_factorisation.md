@@ -1,13 +1,15 @@
 # A = LU
 <div style="text-align: justify">
-<p>Having the inverse method allows to revisit EA = U and move to a better
-formulation of the same idea: A = LU. The matrix L is lower triangular and
-takes U back to A by applying the elimination steps in the reverse order. The
-improvement of this formulation is that the elimination steps <i>don't mix</i>.
+<p>Having the inverse method allows to revisit $EA = U$ and move to a better
+formulation of the same idea: $A = LU$. The matrix L is lower triangular and
+takes $U$ back to $A$ by applying the elimination steps in the reverse order.
+The improvement of this formulation is that the elimination steps <i>don't
+mix</i>.
 </p>
 
-<p>L is just the inverse of E (hence why it reverses the elimination steps). We
-also have to reverse any row exchanges that we made in creating E:</p>
+<p>$L$ is just the inverse of $E$ (hence why it reverses the elimination
+steps). We also have to reverse any row exchanges that we made in creating
+$E$:</p>
 </div>
 
 $$
@@ -120,9 +122,9 @@ $$
 
 ## Code implementation
 <div style="text-align: justify">
-<p>This is achieved by accounting for row exchanges by multiplying E with P
-(i.e. the permutation matrix), then taking the inverse of E to get L.
-Similarly, we ensure L is lower triangular using P:</p>
+<p>This is achieved by accounting for row exchanges by multiplying $E$ with $P$
+(i.e. the permutation matrix), then taking the inverse of $E$ to get $L$.
+Similarly, we ensure $L$ is lower triangular using $P$:</p>
 </div>
 
 {% highlight python %}

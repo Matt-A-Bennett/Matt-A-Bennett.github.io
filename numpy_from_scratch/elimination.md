@@ -1,12 +1,12 @@
 # EA = U
 <div style="text-align: justify">
-<p>Solving a set of simultaneous equations (when there is an unique solution) can
-be done by subtracting multiples of one from another such that an unknown is
-'eliminated'. By repeating this procedure, we can eliminate all but one unknown
-from an equation, leaving a trivially easy solution of the remaining unknown.
-Having found the value of that unknown, we can move to trivially solving any
-equation involving two unknowns provided one of them is the one we have
-previously solved. Continuing this procedure of 'back substitution' will
+<p>Solving a set of simultaneous equations (when there is an unique solution)
+can be done by subtracting multiples of one from another such that an unknown
+is 'eliminated'. By repeating this procedure, we can eliminate all but one
+unknown from an equation, leaving a trivially easy solution of the remaining
+unknown. Having found the value of that unknown, we can move to trivially
+solving any equation involving two unknowns provided one of them is the one we
+have previously solved. Continuing this procedure of 'back substitution' will
 systematically solve for all the unknowns.</p>
 </div>
 
@@ -28,8 +28,8 @@ $$
 
 <div style="text-align: justify">
 <p>In linear algebra, the procedure of elimination can be carried out by
-multiplying a matrix A of coefficients with an elimination matrix E. The result
-of is an upper triangular matrix U.</p>
+multiplying a matrix $A$ of coefficients with an elimination matrix $E$. The
+result of is an upper triangular matrix $U$.</p>
 </div>
 
 The initial problem looks like:
@@ -85,22 +85,22 @@ $$
 $$
 
 <div style="text-align: justify">
-<p>In the case that we find a zero sitting in a column above an unknown that we want to
-eliminate, we can exchange the row with the zero with some row below that
-doesn't have a zero in that column.</p>
+<p>In the case that we find a zero sitting in a column above an unknown that we
+want to eliminate, we can exchange the row with the zero with some row below
+that doesn't have a zero in that column.</p>
 
 <p>What we would like to do is encode the results of each elimination step in
-the matrix E and to have the result U coming from the multiplication of E with
-A.</p>
+the matrix $E$ and to have the result $U$ coming from the multiplication of $E$
+with $A$.</p>
 </div>
 
 ## Code implementation
 <div style="text-align: justify">
 <p>First we create a few matrices which we'll use later on. The first is the
-identity matrix I, which will become our matrix E, but which could have more
-columns than rows (this allows us to find the inverse, described in a later
-post). The second is a permutation matrix P, which allows us to exchange the
-rows of a matrix through multiplication:</p>
+identity matrix $I$, which will become our matrix $E$, but which could have
+more columns than rows (this allows us to find the inverse, described in a
+later post). The second is a permutation matrix P, which allows us to exchange
+the rows of a matrix through multiplication:</p>
 </div>
 
 {% highlight python %}
@@ -120,9 +120,9 @@ def elimination(self):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Each iteration of elimination will produce an E matrix for that step. We
-continually multiply those E's together to keep track of the overall E. The
-input matrix is copied to U, and will become the upper triangular matrix. We
+<p>Each iteration of elimination will produce an $E$ matrix for that step. We
+continually multiply those $E$'s together to keep track of the overall $E$. The
+input matrix is copied to $U$, and will become the upper triangular matrix. We
 also produce a permutation matrix P, that encodes any row exchanges needed.</p>
 
 <p>For each entry on the diagonal of the matrix (the 'pivot positions'), we
@@ -183,7 +183,7 @@ if U.data[row_idx][row_idx] == 0:
 <p>If we have avoided a zero pivot, we copy the two rows we're doing
 elimination on and determine what multiple of the higher row to subtract from
 the lower row so as to eliminate the unknown. After carrying out the
-subtraction we update U with the eliminated row:</p>
+subtraction we update $U$ with the eliminated row:</p>
 </div>
 
 {% highlight python %}
@@ -202,7 +202,7 @@ U.data[sub_row] = row_below.data[0]
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>We create a nextE matrix for the previous step and update the overall E by
+<p>We create a nextE matrix for the previous step and update the overall $E$ by
 multiplying it:</p>
 </div>
 
@@ -217,8 +217,8 @@ pivot_count += 1
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>After the final pivot has been placed into U, we just check if it was zero,
-and if so indicate that with a flag on returning the results:</p>
+<p>After the final pivot has been placed into $U$, we just check if it was
+zero, and if so indicate that with a flag on returning the results:</p>
 </div>
 
 {% highlight python %}
