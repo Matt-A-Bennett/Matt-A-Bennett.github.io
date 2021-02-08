@@ -43,23 +43,83 @@ $$
 $$
 
 $$
-A = E^{-1}P^TPV
+PEA = U
 $$
 
 $$
-A = E^{-1}P^TU
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    -2 & 1 & 0 \\
+    -4 & 0 & 1
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 4 & 5 \\
+    4 & 5 & 6
+  \end{bmatrix} =%
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 0 \\
+    0 & 0 & -1
+  \end{bmatrix}
 $$
 
 $$
-A = (E^{-1}P^T)^TU
+A = (PE)^{-1}U
 $$
 
 $$
-A = (E^{-1}P^T)^TU
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 4 & 5 \\
+    4 & 5 & 6
+  \end{bmatrix} =%
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 0 & 1 \\
+    4 & 1 & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 0 \\
+    0 & 0 & -1
+  \end{bmatrix}
 $$
 
 $$
-A = LU
+A = DU
+$$
+
+$$
+A = PLU
+$$
+
+$$
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 4 & 5 \\
+    4 & 5 & 6
+  \end{bmatrix} =%
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    4 & 1 & 0 \\
+    2 & 0 & 1
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 0 \\
+    0 & 0 & -1
+  \end{bmatrix}
 $$
 
 ## Code implementation
