@@ -5,6 +5,7 @@ Below is all the code that we have written to date.
 [back to home](../README.md)
 
 {% highlight python %}
+
 import copy
 
 def gen_mat(size, value=0):
@@ -140,7 +141,6 @@ class Mat:
                     nextP.data[exchange][pivot_count] = 1
                     U = nextP.multiply(U)
                     P = nextP.multiply(P)
-                    E = nextP.multiply(E)
 
                 # check if the permutation avoided a zero in the pivot position
                 if U.data[row_idx][row_idx] == 0:
@@ -149,7 +149,6 @@ class Mat:
                     nextP = nextP.transpose()
                     U = nextP.multiply(U)
                     P = nextP.multiply(P)
-                    E = nextP.multiply(E)
                     # move on to the next column
                     break
 
@@ -254,6 +253,7 @@ class Mat:
 
     def lu(self):
         P, E, self, U, _, _ = self.elimination()
+        E = P.multiply(E)
         L = E.inverse()
         L = P.multiply(L)
         return self, P, L, U

@@ -156,7 +156,6 @@ for row_idx in range(len(U.data)-1):
             nextP.data[exchange][pivot_count] = 1
             U = nextP.multiply(U)
             P = nextP.multiply(P)
-            E = nextP.multiply(E)
 
 {% endhighlight %}
 
@@ -175,7 +174,6 @@ if U.data[row_idx][row_idx] == 0:
     nextP = nextP.transpose()
     U = nextP.multiply(U)
     P = nextP.multiply(P)
-    E = nextP.multiply(E)
     # move on to the next column
     break
 

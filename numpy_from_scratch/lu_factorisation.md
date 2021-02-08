@@ -120,15 +120,16 @@ $$
 
 ## Code implementation
 <div style="text-align: justify">
-<p>This is achieved by taking the inverse of E to get L, and ensuring L is
-lower triangular by accounting for row exchanges via a multiplication with P
-(i.e. the permutation matrix):</p>
+<p>This is achieved by accounting for row exchanges by multiplying E with P
+(i.e. the permutation matrix), then taking the inverse of E to get L.
+Similarly, we ensure L is lower triangular using P:</p>
 </div>
 
 {% highlight python %}
 
 def lu(self):
     P, E, self, U, _, _ = self.elimination()
+    E = P.multiply(E)
     L = E.inverse()
     L = P.multiply(L)
     return self, P, L, U
