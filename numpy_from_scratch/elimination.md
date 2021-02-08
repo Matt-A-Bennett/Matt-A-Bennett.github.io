@@ -162,8 +162,8 @@ for row_idx in range(len(U.data)-1):
 
 <div style="text-align: justify">
 <p>If after a possible row exchange we have a zero in the pivot position then
-the matrix is singular and we flag that fact and carry on. We also undo the
-failed permutation and carry on with elimination in the next column.</p>
+the matrix is singular and we flag that fact. We also undo the failed
+permutation and carry on with elimination in the next column.</p>
 </div>
 
 {% highlight python %}
