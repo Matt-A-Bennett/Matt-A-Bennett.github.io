@@ -58,18 +58,18 @@ $A$ part of the matrix will also be done to the $I$ side:</p>
 </div>
 
 $$ \left[
-  \begin{bmatrix}{ccc|ccc}
+  \begin{array}{ccc|ccc}
     1 & 2 & 3 1 & 0 & 0 \\
     2 & 5 & 4 0 & 1 & 0 \\
     3 & 8 & 9 0 & 0 & 1  
-  \end{bmatrix} 
+  \end{array} 
   \right] \to%
   \left[
-  \begin{bmatrix}{ccc|ccc}
+  \begin{array}{ccc|ccc}
     1 & 0 & 0 3.25 & 1.5 & -1.75 \\
     0 & 1 & 0 -1.5 & 0 & 0.5 \\
     0 & 0 & 1 0.25 -0.5 0.25
-  \end{bmatrix} 
+  \end{array} 
   \right]
 $$
 
