@@ -172,7 +172,7 @@ $$
 <div style="text-align: justify">
 <p>The method I use here is needlessly inefficient since we call the
 elimination method 3 times (since our inverse method calls it twice!), when it
-is easy to simply inject the multiplying values into L as we do a single pass
+is easy to simply inject the multiplying values into $L$ as we do a single pass
 of elimination. However, at the moment this project is only about learning how
 to write classes and methods and secondarily to solidify my grasp of linear
 algebra. In the code we account for row exchanges by multiplying $E$ with $P$
