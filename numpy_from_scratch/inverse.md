@@ -52,6 +52,11 @@ $$
 to $I$. If we had applied those steps to $I$ we would have ended up at the
 inverse of $A$!</p>
 
+<p>So to compute the inverse of $A$, we do elimination on $A$, but we 'augment'
+the matrix with $I$. This means all row operations applied on the basis of the
+$A$ part of the matrix will also be done to the $I$ side:</p>
+</div>
+
 $$ \left[
   \begin{bmatrix}{ccc|ccc}
     1 & 2 & 3 1 & 0 & 0 \\
@@ -67,16 +72,12 @@ $$ \left[
   \end{bmatrix} 
   \right]
 $$
-<p>So to compute the inverse of $A$, we do elimination on $A$, but we 'augment'
-the matrix with $I$ like so:</p>
-</div>
 
+## Code implementation
 <div style="text-align: justify">
-apply the
-operations to the matrix $I$. We already have a library method for doing
-elimination, so we will call that method twice (to clear out the lower, and the
-upper triangular regions of $A$). Beyond that we only need to do some division
-of each row at the end.</p>
+We already have a library method for doing elimination, so we will call that
+method twice (to clear out the lower, and the upper triangular regions of $A$).
+Beyond that we only need to do some division of each row at the end.</p>
 
 <p>We take in the matrix $A$ to invert and 'augment' it by concatenating the
 identity matrix $I$ to it's right side and run the elimination procedure to
