@@ -13,7 +13,7 @@ $$
 have reached EA = U, we do a second round of elimination but 'upwards' to clear
 out the upper triangular region of U, reaching a diagonal matrix. This diagonal
 matrix is more similar to I, and by dividing each row appropriately (using a
-matrix \hat D) it <i>is</i> $I$:</p>
+matrix \\hat D) it <i>is</i> \$I\$:</p>
 </div>
 
 $$ 
@@ -26,23 +26,23 @@ $I$:</p>
 </div>
 $$
   \begin{bmatrix}
-    1 & 2 & 3 \
-    2 & 5 & 4 \
+    1 & 2 & 3 \\
+    2 & 5 & 4 \\
     3 & 8 & 9
   \end{bmatrix} \to %
   \begin{bmatrix}
-    1 & 2 & 3 \
-    0 & 1 & -2 \
+    1 & 2 & 3 \\
+    0 & 1 & -2 \\
     0 & 0 & -2
   \end{bmatrix} \to %
   \begin{bmatrix}
-    1 & 0 & 0 \
-    0 & 1 & 0 \
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
     0 & 0 & -2
   \end{bmatrix} \to %
   \begin{bmatrix}
-    1 & 0 & 0 \
-    0 & 1 & 0 \
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
     0 & 0 & 1
   \end{bmatrix}
 $$
