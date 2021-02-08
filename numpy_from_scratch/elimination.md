@@ -1,6 +1,3 @@
----
-layout: post
----
 # EA = U
 <div style="text-align: justify">
 <p>Solving a set of simultaneous equations (when there is an unique solution) can
@@ -239,3 +236,12 @@ return P, E, self, U, singular, row_exchange_count
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
+
+<script src="https://utteranc.es/client.js"
+        repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
+        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/elimination.html"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
