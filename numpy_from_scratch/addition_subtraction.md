@@ -1,5 +1,29 @@
 # Addition/Subtraction
 <div style="text-align: justify">
+<p>Addition and subtraction is valid between two same-shaped matrices and is
+done element-wise:</p>
+</div>
+
+$$
+A + B = C =%
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6
+  \end{bmatrix}+%
+
+  \begin{bmatrix}
+    2 & 1 & 4 \\
+    0 & 3 & 1
+  \end{bmatrix}=%
+
+  \begin{bmatrix}
+    3 & 2 & 7 \\
+    4 & 8 & 7
+  \end{bmatrix}
+$$
+   
+## Code implementation
+<div style="text-align: justify">
 <p>Here, the method is called from an initial matrix, with the second
 matrix supplied as an argument. Then I simply loop over the rows of each
 matrix, each time looping over the elements of those rows (i.e. the columns),

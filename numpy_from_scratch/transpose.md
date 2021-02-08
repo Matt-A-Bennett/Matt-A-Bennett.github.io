@@ -8,15 +8,14 @@ $$
 A =%
   \begin{bmatrix}
     1 & 2 & 3 \\
-    2 & 2 & 6 \\
     4 & 5 & 6
   \end{bmatrix};
    
-A^T =%
+  A^T =%
   \begin{bmatrix}
-    1 & 2 & 4 \\
-    2 & 2 & 5 \\
-    3 & 6 & 6
+    1 & 4 \\
+    2 & 5 \\
+    3 & 6
   \end{bmatrix}
 $$
 
