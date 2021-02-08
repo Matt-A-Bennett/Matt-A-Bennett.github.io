@@ -1,4 +1,5 @@
 theme: jekyll-theme-minimal
 markdown: kramdown
 title: Matthew Bennett
+logo: ./logo.png
 description: Machine Learning, Data Science, Coding, Linux
