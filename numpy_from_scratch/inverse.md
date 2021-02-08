@@ -52,7 +52,27 @@ $$
 to $I$. If we had applied those steps to $I$ we would have ended up at the
 inverse of $A$!</p>
 
-<p>So to compute the inverse of $A$, we do elimination, but we apply the
+$$ \left[
+  \begin{bmatrix}{ccc|ccc}
+    1 & 2 & 3 1 & 0 & 0 \\
+    2 & 5 & 4 0 & 1 & 0 \\
+    3 & 8 & 9 0 & 0 & 1  
+  \end{bmatrix} 
+  \right] \to%
+  \left[
+  \begin{bmatrix}{ccc|ccc}
+    1 & 0 & 0 3.25 & 1.5 & -1.75 \\
+    0 & 1 & 0 -1.5 & 0 & 0.5 \\
+    0 & 0 & 1 0.25 -0.5 0.25
+  \end{bmatrix} 
+  \right]
+$$
+<p>So to compute the inverse of $A$, we do elimination on $A$, but we 'augment'
+the matrix with $I$ like so:</p>
+</div>
+
+<div style="text-align: justify">
+apply the
 operations to the matrix $I$. We already have a library method for doing
 elimination, so we will call that method twice (to clear out the lower, and the
 upper triangular regions of $A$). Beyond that we only need to do some division
