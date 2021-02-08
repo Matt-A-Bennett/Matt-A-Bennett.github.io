@@ -37,8 +37,8 @@ PEA = PV%
     0 & 0 & -1 \\
     0 & 1 & 0
   \end{bmatrix}%
-A = E^-1P^-1PV%
-A = E^-1P^-1U%
+A = E^-1 P^-1 PV%
+A = E^-1 P^-1 U%
 A = LU%
 $$
 
