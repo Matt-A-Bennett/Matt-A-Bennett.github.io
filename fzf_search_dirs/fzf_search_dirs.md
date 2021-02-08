@@ -186,7 +186,7 @@ the first directory in the list and entering the following command:</p>
 
 [Using FZF to select files for any program or command >](../fzf_launcher/fzf_launcher.md)
 
-[back to home](../README.md)
+[back to home](../index.md)
 
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"

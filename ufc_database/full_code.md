@@ -2,7 +2,7 @@
 Below is all the code that we have written to date.
 
 [back to project main page](./ufc_database.md)\
-[back to home](../README.md)
+[back to home](../index.md)
 
 {% highlight python %}
 
@@ -75,7 +75,7 @@ with open("~/videos/ufc/ufc_database.txt", "a") as f:
 {% endhighlight %}
 
 [back to project main page](./ufc_database.md)\
-[back to home](../README.md)
+[back to home](../index.md)
 
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"

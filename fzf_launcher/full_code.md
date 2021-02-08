@@ -2,7 +2,7 @@
 Below is all the code that we have written to date.
 
 [back to project main page](./fzf_launcher.md)\
-[back to home](../README.md)
+[back to home](../index.md)
 
 {% highlight bash %}
 
@@ -85,7 +85,7 @@ f() {
 {% endhighlight %}
 
 [back to project main page](./fzf_launcher.md)\
-[back to home](../README.md)
+[back to home](../index.md)
 
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"

@@ -13,7 +13,7 @@ print('some python code')
 [< Previous_page](./previous_page_filename.md)
 
 [back to project main page](./numpy_from_scratch.md)\
-[back to home](../README.md)
+[back to home](../index.md)
 
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"

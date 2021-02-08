@@ -14,8 +14,6 @@ to learn more about some area of coding, or I am sharing something that I made
 and find useful to have on my pc.</p>
 </div>
 
-Test
-
 ## Projects
 [Building Numpy from scratch](./numpy_from_scratch/numpy_from_scratch.md)
 

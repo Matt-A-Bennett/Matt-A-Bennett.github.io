@@ -48,7 +48,7 @@ will attempt to realise in my library.</p>
 - Orthonormal basis
 - Eigenvalues and Eigenvectors
 
-[back to home](../README.md)
+[back to home](../index.md)
 
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
