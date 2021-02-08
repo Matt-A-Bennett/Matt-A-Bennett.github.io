@@ -7,11 +7,14 @@ improvement of this formulation is that the elimination steps <i>don't mix</i>.
 </p>
 
 <p>L is just the inverse of E (hence why it reverses the elimination steps). We
-also have to reverse any row exchanges that we made in creating E.</p>
+also have to reverse any row exchanges that we made in creating E:</p>
 </div>
 
 $$
-PEA = PV%
+PEA = PV
+$$
+
+$$
   \begin{bmatrix}
     1 & 0 & 0 \\
     0 & 0 & 1 \\
@@ -36,10 +39,19 @@ PEA = PV%
     1 & 2 & 3 \\
     0 & 0 & -1 \\
     0 & 1 & 0
-  \end{bmatrix}%
-A = E^-1 P^-1 PV%
-A = E^-1 P^-1 U%
-A = LU%
+  \end{bmatrix}
+$$
+
+$$
+A = E^-1 P^-1 PV
+$$
+
+$$
+A = E^-1 P^-1 U
+$$
+
+$$
+A = LU
 $$
 
 ## Code implementation
