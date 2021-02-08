@@ -4,8 +4,7 @@
 formulation of the same idea: $A = LU$. The matrix $L$ is lower triangular and
 takes $U$ back to $A$ by applying the elimination steps in the reverse order.
 The improvement of this formulation is that the elimination steps <i>don't
-mix</i>. In $EA = U$ we see that a $-10$ sitting in the (3,1) position of
-$E$:</p>
+mix</i>. In $EA = U$ we see a $-10$ sitting in the (3,1) position of $E$:</p>
 </div>
 
 $$

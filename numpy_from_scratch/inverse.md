@@ -76,7 +76,7 @@ $$
 ## Code implementation
 <div style="text-align: justify">
 <p>We already have a library method for doing elimination, so we will call that
-method twice (to clear out the lower, and the upper triangular regions of $A$).
+method twice (to clear out the lower and upper triangular regions of $A$).
 Beyond that we only need to do some division of each row at the end.</p>
 
 <p>We take in the matrix $A$ to invert and 'augment' it by concatenating the
