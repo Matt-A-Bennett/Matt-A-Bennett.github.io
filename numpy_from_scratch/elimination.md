@@ -1,3 +1,6 @@
+---
+layout: post
+---
 # EA = U
 <div style="text-align: justify">
 <p>Solving a set of simultaneous equations (when there is an unique solution) can
