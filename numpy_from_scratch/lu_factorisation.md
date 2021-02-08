@@ -12,7 +12,6 @@ also have to reverse any row exchanges that we made in creating E.</p>
 
 $$
 PEA = PV%
-
   \begin{bmatrix}
     1 & 0 & 0 \\
     0 & 0 & 1 \\
@@ -38,7 +37,6 @@ PEA = PV%
     0 & 0 & -1 \\
     0 & 1 & 0
   \end{bmatrix}%
-
 A = E^-1P^-1PV%
 A = E^-1P^-1U%
 A = LU%

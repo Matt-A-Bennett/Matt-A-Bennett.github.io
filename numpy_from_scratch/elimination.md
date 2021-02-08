@@ -92,8 +92,10 @@ doesn't have a zero in that column.</p>
 <p>What we would like to do is encode the results of each elimination step in
 the matrix E and to have the result U coming from the multiplication of E with
 A.</p>
+</div>
 
 ## Code implementation
+<div style="text-align: justify">
 <p>First we create a few matrices which we'll use later on. The first is the
 identity matrix I, which will become our matrix E, but which could have more
 columns than rows (this allows us to find the inverse, described in a later
