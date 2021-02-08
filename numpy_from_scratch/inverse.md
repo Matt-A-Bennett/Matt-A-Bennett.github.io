@@ -1,7 +1,7 @@
 # Inverse
 <div style="text-align: justify">
 <p>The inverse of a square matrix $A$ is that matrix which multiples $A$ (on
-either side) to give the identity matrix (Not all matrices have inverses):<p>
+either side) to give the identity matrix (Not all matrices have inverses):</p>
 </div>
 
 $$
@@ -48,9 +48,9 @@ $$
 $$
 
 <div style="text-align: justify">
-<p>This means that there was some sequence of elimination which brought $A$ to
-$I$. If we had applied those steps to $I$ we would have ended up at the inverse
-of $A$!</p>
+<p>This means that there was some sequence of elimination steps which took $A$
+to $I$. If we had applied those steps to $I$ we would have ended up at the
+inverse of $A$!</p>
 
 <p>So to compute the inverse of $A$, we do elimination, but we apply the
 operations to the matrix $I$. We already have a library method for doing
@@ -61,7 +61,7 @@ of each row at the end.</p>
 <p>We take in the matrix $A$ to invert and 'augment' it by concatenating the
 identity matrix $I$ to it's right side and run the elimination procedure to
 take $A$ to $U$, and apply the same steps to $I$. If elimination produces a
-zero row, $A$ is singular and has no inverse:</p>
+zero row, then $A$ is singular and has no inverse:</p>
 </div>
 
 {% highlight python %}
