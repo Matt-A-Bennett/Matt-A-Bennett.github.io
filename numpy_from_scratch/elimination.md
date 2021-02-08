@@ -63,7 +63,7 @@ Ux = EAx = Eb
 $$
 
 $$
-= Ux = %
+Ux = %
   \begin{bmatrix}
     1 & 2 & 3 \\
     0 & -2 & 0 \\
@@ -99,8 +99,8 @@ with $A$.</p>
 <p>First we create a few matrices which we'll use later on. The first is the
 identity matrix $I$, which will become our matrix $E$, but which could have
 more columns than rows (this allows us to find the inverse, described in a
-later post). The second is a permutation matrix P, which allows us to exchange
-the rows of a matrix through multiplication:</p>
+later post). The second is a permutation matrix $P$, which allows us to
+exchange the rows of a matrix through multiplication:</p>
 </div>
 
 {% highlight python %}
