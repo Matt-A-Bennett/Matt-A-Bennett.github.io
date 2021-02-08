@@ -72,6 +72,7 @@ AB = C =%
   \end{bmatrix}
 $$
 
+### Code implementation
 <div style="text-align: justify">
 <p>To do this we can make use of the transpose and dot product methods we
 already defined: We transpose the second matrix, then for each row of the first
