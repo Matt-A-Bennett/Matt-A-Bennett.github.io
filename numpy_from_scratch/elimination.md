@@ -156,16 +156,14 @@ for row_idx in range(len(U.data)-1):
             nextP.data[exchange][pivot_count] = 1
             U = nextP.multiply(U)
             P = nextP.multiply(P)
+            E = nextP.multiply(E)
 
 {% endhighlight %}
 
 <div style="text-align: justify">
 <p>If after a possible row exchange we have a zero in the pivot position then
-the matrix is singular and we return our results and a flag indicating
-singularity. Otherwise, we copy the two rows we're doing elimination on and
-determine what multiple of the higher row to subtract from the lower row so as
-to eliminate the unknown. After carrying out the subtraction we update U with
-the eliminated row:</p>
+the matrix is singular and we flag that fact and carry on. We also undo the
+failed permutation and carry on with elimination in the next column.</p>
 </div>
 
 {% highlight python %}
@@ -173,8 +171,24 @@ the eliminated row:</p>
 # check if the permutation avoided a zero in the pivot position
 if U.data[row_idx][row_idx] == 0:
     singular = 1
-    return P, E, self, U, singular, row_exchange_count
+    # undo the row exchanges that failed
+    nextP = nextP.transpose()
+    U = nextP.multiply(U)
+    P = nextP.multiply(P)
+    E = nextP.multiply(E)
+    # move on to the next column
+    break
 
+{% endhighlight %}
+
+<div style="text-align: justify">
+<p>If we have avoided a zero pivot, we copy the two rows we're doing
+elimination on and determine what multiple of the higher row to subtract from
+the lower row so as to eliminate the unknown. After carrying out the
+subtraction we update U with the eliminated row:</p>
+</div>
+
+{% highlight python %}
 # get copies of the rows
 row_above = copy.deepcopy(Mat([U.data[row_idx]]))
 row_below = copy.deepcopy(Mat([U.data[sub_row]]))

@@ -124,8 +124,9 @@ $$
 
 ## Code implementation
 <div style="text-align: justify">
-<p>This is achieved by multiplying L by the inverse of P (i.e. the permutation
-matrix):</p>
+<p>This is achieved by taking the inverse of E to get L, and ensuring L is
+lower triangular by accounting for row exchanges via a multiplication with P
+(i.e. the permutation matrix):</p>
 </div>
 
 {% highlight python %}
@@ -133,9 +134,8 @@ matrix):</p>
 def lu(self):
     P, E, self, U, _, _ = self.elimination()
     L = E.inverse()
-    P.transpose()
     L = P.multiply(L)
-    return P, self, L, U
+    return self, P, L, U
 
 {% endhighlight %}
 

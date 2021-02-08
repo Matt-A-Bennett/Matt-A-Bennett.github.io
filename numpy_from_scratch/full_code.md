@@ -5,7 +5,6 @@ Below is all the code that we have written to date.
 [back to home](../README.md)
 
 {% highlight python %}
-
 import copy
 
 def gen_mat(size, value=0):
@@ -141,11 +140,18 @@ class Mat:
                     nextP.data[exchange][pivot_count] = 1
                     U = nextP.multiply(U)
                     P = nextP.multiply(P)
+                    E = nextP.multiply(E)
 
                 # check if the permutation avoided a zero in the pivot position
                 if U.data[row_idx][row_idx] == 0:
                     singular = 1
-                    return P, E, self, U, singular, row_exchange_count
+                    # undo the row exchanges that failed
+                    nextP = nextP.transpose()
+                    U = nextP.multiply(U)
+                    P = nextP.multiply(P)
+                    E = nextP.multiply(E)
+                    # move on to the next column
+                    break
 
                 # get copies of the rows
                 row_above = copy.deepcopy(Mat([U.data[row_idx]]))
@@ -249,9 +255,8 @@ class Mat:
     def lu(self):
         P, E, self, U, _, _ = self.elimination()
         L = E.inverse()
-        P.transpose()
         L = P.multiply(L)
-        return P, self, L, U
+        return self, P, L, U
 
 {% endhighlight %}
 
