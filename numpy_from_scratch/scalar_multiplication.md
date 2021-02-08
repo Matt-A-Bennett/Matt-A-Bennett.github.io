@@ -40,3 +40,12 @@ def scale(self, scalar):
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../README.md)
+
+<script src="https://utteranc.es/client.js"
+        repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
+        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/scalar_multiplication.html"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
