@@ -59,9 +59,9 @@ $A$ part of the matrix will also be done to the $I$ side:</p>
 
 $$ \left[
   \begin{array}{ccc|ccc}
-    1 & 2 & 3 1 & 0 & 0 \\
-    2 & 5 & 4 0 & 1 & 0 \\
-    3 & 8 & 9 0 & 0 & 1  
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    2 & 5 & 4 & 0 & 1 & 0 \\
+    3 & 8 & 9 & 0 & 0 & 1  
   \end{array} 
   \right] \to%
   \left[
