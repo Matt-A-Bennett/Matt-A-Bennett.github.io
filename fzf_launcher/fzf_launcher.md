@@ -169,6 +169,15 @@ rm /tmp/fzf_tmp
 
 The full code I've written so far can be found [here](./full_code.md).
 
-[< Configuring FZF to search useful directories beyond the working directory](../fzf_search_dirs/fzf_search_dirs.md)
+[< Configuring FZF to search useful directories beyond the current working directory](../fzf_search_dirs/fzf_search_dirs.md)
 
 [back to home](../README.md)
+
+<script src="https://utteranc.es/client.js"
+        repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
+        issue-term="https://matt-a-bennett.github.io/fzf_launcher/fzf_launcher.html"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+

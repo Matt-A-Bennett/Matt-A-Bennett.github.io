@@ -191,3 +191,12 @@ f.write(str(t.get_string(sortby=('Event'))))
 The full code I've written so far can be found [here](./full_code.md)
 
 [back to home](../README.md)
+
+<script src="https://utteranc.es/client.js"
+        repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
+        issue-term="https://matt-a-bennett.github.io/ufc_database/ufc_database.html"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+

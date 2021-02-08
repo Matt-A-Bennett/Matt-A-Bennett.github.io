@@ -187,3 +187,12 @@ the first directory in the list and entering the following command:</p>
 [Using FZF to select files for any program or command >](../fzf_launcher/fzf_launcher.md)
 
 [back to home](../README.md)
+
+<script src="https://utteranc.es/client.js"
+        repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
+        issue-term="https://matt-a-bennett.github.io/fzf_search_dirs/fzf_search_dirs.html"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
