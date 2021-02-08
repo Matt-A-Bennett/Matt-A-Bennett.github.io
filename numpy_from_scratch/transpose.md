@@ -1,10 +1,30 @@
 # Transpose
 <div style="text-align: justify">
 <p>To transpose a matrix, we need a new matrix in which the rows are the former
-columns and the columns are the former rows. I loop over the rows and columns
-of the input matrix, keeping a record of the row and column subscript indices.
-The transposed matrix is built up gradually with a set of new rows (each row
-being the values found in the corresponding column).</p>
+columns and the columns are the former rows:</p>
+</div>
+$$
+A =%
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 2 & 6 \\
+    4 & 5 & 6
+  \end{bmatrix}
+   
+A^T =%
+  \begin{bmatrix}
+    1 & 2 & 4 \\
+    2 & 2 & 5 \\
+    3 & 6 & 6
+  \end{bmatrix}
+$$
+
+## Code implementation
+<div style="text-align: justify">
+<p>I loop over the rows and columns of the input matrix, keeping a record of
+the row and column subscript indices. The transposed matrix is built up
+gradually with a set of new rows (each row being the values found in the
+corresponding column):</p>
 </div>
 
 {% highlight python %}

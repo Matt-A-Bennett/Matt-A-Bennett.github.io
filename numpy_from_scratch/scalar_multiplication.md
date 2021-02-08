@@ -1,9 +1,28 @@
 # Scalar Multiplication
 <div style="text-align: justify">
 <p>Scalar multiplication is a simple matter of taking some matrix (or vector) and
-multiplying all of its elements by some number (the scalar). To do this we
-iterate over the subscript indices of the matrix and apply the multiplication
-to each element.</p>
+multiplying all of its element: by some number (the scalar):</p>
+</div>
+
+$$
+2A = 2
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 2 & 6 \\
+    4 & 5 & 6
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    2 & 4 & 6 \\
+    4 & 4 & 12 \\
+    8 & 10 & 12
+  \end{bmatrix}
+$$
+
+## Code implementation
+<div style="text-align: justify">
+<p>To do this we iterate over the subscript indices of the matrix and apply the
+multiplication to each element:</p>
 </div>
 
 {% highlight python %}
