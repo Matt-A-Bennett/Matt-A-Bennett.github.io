@@ -31,8 +31,8 @@ $$
 3rd, and subtracted 2 of 1st row from the 2nd, then added 3 of this <i>new 2nd
 row</i> (effectively subtracting 6 of the 2nd row) from the 3rd: so overall $3
 \times -2 -4 = -10$. When we reverse the order of those steps, applying them to
-$U$ to get back to $A$, there is no such interaction with of the 1st and 3rd
-rows:</p>
+$U$ to get back to $A$, there is no such interference - all the multiples we
+used during elimination show up in $L$:</p>
 <p></p>
 </div>
 
@@ -170,7 +170,12 @@ $$
 
 ## Code implementation
 <div style="text-align: justify">
-<p>This is achieved by accounting for row exchanges by multiplying $E$ with $P$
+<p>The method I use here is needlessly inefficient since we call the
+elimination method 3 times (since our inverse method calls it twice!), when it
+is easy to simply inject the multiplying values into L as we do a single pass
+of elimination. However, at the moment this project is only about learning how
+to write classes and methods and secondarily to solidify my grasp of linear
+algebra. In the code we account for row exchanges by multiplying $E$ with $P$
 (i.e. the permutation matrix), then taking the inverse of $E$ to get $L$.
 Similarly, we ensure $L$ is lower triangular using $P$:</p>
 </div>
