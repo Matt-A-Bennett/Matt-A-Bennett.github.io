@@ -5,7 +5,7 @@ done element-wise:</p>
 </div>
 
 $$
-A + B = C =%
+A + B =%
   \begin{bmatrix}
     1 & 2 & 3 \\
     4 & 5 & 6

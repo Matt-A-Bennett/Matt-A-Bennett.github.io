@@ -7,7 +7,7 @@ and add the results:</p>
 </div>
 
 $$
-u \cdot v = a =%
+u \cdot v =%
   \begin{bmatrix}
     1 \\
     2 \\
@@ -54,7 +54,7 @@ of B:</p>
 </div>
 
 $$
-AB = C =%
+AB =%
   \begin{bmatrix}
     1 & 2 & 3 \\
     4 & 5 & 6
