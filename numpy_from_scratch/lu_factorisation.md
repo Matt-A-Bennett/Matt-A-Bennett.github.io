@@ -7,8 +7,46 @@ improvement of this formulation is that the elimination steps <i>don't mix</i>.
 </p>
 
 <p>L is just the inverse of E (hence why it reverses the elimination steps). We
-also have to reverse any row exchanges that we made in creating E. This is
-achieved by multiplying L by the inverse of P (i.e. the permutation
+also have to reverse any row exchanges that we made in creating E.</p>
+</div>
+
+$$
+PEA = PV%
+
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    -2 & 1 & 0 \\
+    -4 & 0 & 1
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & 4 & 5 \\
+    4 & 5 & 6
+  \end{bmatrix} =%
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 0 & -1 \\
+    0 & 1 & 0
+  \end{bmatrix}%
+
+A = E^-1P^-1PV%
+A = E^-1P^-1U%
+A = LU%
+$$
+
+## Code implementation
+<div style="text-align: justify">
+<p>This is achieved by multiplying L by the inverse of P (i.e. the permutation
 matrix):</p>
 </div>
 
