@@ -10,7 +10,7 @@ A =%
     1 & 2 & 3 \\
     2 & 2 & 6 \\
     4 & 5 & 6
-  \end{bmatrix}
+  \end{bmatrix};
    
 A^T =%
   \begin{bmatrix}
