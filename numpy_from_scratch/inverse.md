@@ -1,7 +1,7 @@
 # Inverse
 <div style="text-align: justify">
 <p>The inverse of a square matrix $A$ is that matrix which multiples $A$ (on
-either side) to give the identity matrix (Not all matrices have inverses):</p>
+either side) to give the identity matrix (not all matrices have inverses):</p>
 </div>
 
 $$

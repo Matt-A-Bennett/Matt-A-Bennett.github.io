@@ -171,6 +171,7 @@ permutation and carry on with elimination in the next column.</p>
 if U.data[row_idx][row_idx] == 0:
     singular = 1
     # undo the row exchanges that failed
+    row_exchange_count -= 1
     nextP = nextP.transpose()
     U = nextP.multiply(U)
     P = nextP.multiply(P)
