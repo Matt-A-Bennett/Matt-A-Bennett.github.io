@@ -139,9 +139,7 @@ plt.show()
 
 {% endhighlight %}
 
-_*
-
-![regression plot)(./images/regression.png)
+![regression plot](./images/regression.png)
 
 [< A = LU](./lu_factorisation.md)
 
