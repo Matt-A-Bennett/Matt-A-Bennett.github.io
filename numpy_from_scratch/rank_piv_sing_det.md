@@ -1,4 +1,5 @@
-# Rank, pivots, singularity, determinant
+# Pivots, rank, singularity, determinant
+## Pivots
 <div style="text-align: justify">
 <p>Now that we have the method of elimination, we can get a lot of information
 about a matrix easily. The pivots of a matrix are the non-zero numbers sitting
@@ -18,8 +19,7 @@ def pivots(self):
 
 {% endhighlight %}
 
-## Demo
-
+### Demo
 <div style="text-align: justify">
 <p>We create two matrices, call the pivots method and print the results:</p>
 </div>
@@ -56,6 +56,7 @@ Outputs:
 
 {% endhighlight %}
 
+## Rank
 <div style="text-align: justify">
 <p>The rank of a matrix tells us a huge amount, and is simply the number of
 pivots:</p>
@@ -69,8 +70,7 @@ def rank(self):
 
 {% endhighlight %}
 
-## Demo
-
+### Demo
 <div style="text-align: justify">
 <p>We create two matrices, call the rank method and print the results:</p>
 </div>
@@ -107,6 +107,7 @@ Outputs:
 
 {% endhighlight %}
 
+### Singularity
 <div style="text-align: justify">
 <p>The matrix is singular if during elimination row exchanges can't avoid a
 zero in a pivot position. Our elimination method already returns a variable
@@ -122,8 +123,7 @@ def is_singular(self):
 
 {% endhighlight %}
 
-## Demo
-
+### Demo
 <div style="text-align: justify">
 <p>We create two matrices, call the is_singular method and print the results:</p>
 </div>
@@ -157,6 +157,7 @@ Outputs:
 >>> print(B_sing)
 1
 
+### Determinant
 {% endhighlight %}
 <div style="text-align: justify">
 <p>The determinant of a matrix is simply the product of the pivots, with a
@@ -181,8 +182,7 @@ def determinant(self):
 
 {% endhighlight %}
 
-## Demo
-
+### Demo
 <div style="text-align: justify">
 <p>We create two matrices, call the determinant method and print the results:</p>
 </div>

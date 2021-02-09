@@ -259,7 +259,7 @@ print_mat(U)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight %}
 
 >>> print(singular)
 0

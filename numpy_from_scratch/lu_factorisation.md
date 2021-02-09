@@ -203,8 +203,8 @@ A = Mat([[1, 2, 3],
         [7, 8, 9]])
 
 A, P, L, U = A.lu()
-print_mat(P)
 print_mat(A)
+print_mat(P)
 print_mat(L)
 print_mat(U)
 PL = P.multiply(L)
@@ -216,17 +216,17 @@ print_mat(PLU)
 
 Outputs:
 
-{% highlight shell %}
-
->>> print_mat(P)
-[1, 0, 0]
-[0, 0, 1]
-[0, 1, 0]
+{% highlight bash %}
 
 >>> print_mat(A)
 [1, 2, 3]
 [4, 8, 6]
 [7, 8, 9]
+
+>>> print_mat(P)
+[1, 0, 0]
+[0, 0, 1]
+[0, 1, 0]
 
 >>> print_mat(L)
 [1.0, 0.0, 0.0]
