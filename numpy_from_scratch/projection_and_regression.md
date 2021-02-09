@@ -1,10 +1,11 @@
 # Projection and regression
 <div style="text-align: justify">
 <p>Often there is no solution to $Ax = b$. Usually in practical applications we
-have a large set data points $b$ that we want to fit with a model - the columns
-of $A$ - with only a few parameters - stored in $x$ - much fewer parameters than
-we have data points. Our model matrix $A$ is tall and thin, and so has no
-inverse! $x = A^{-1}b$ is not an option to find the parameters in $x$.</p>
+have a large set of data points $b$ that we want to fit with a model - the
+columns of $A$ - with only a few parameters - stored in $x$ - much fewer
+parameters than we have data points. Our model matrix $A$ is tall and thin, and
+so has no inverse! $x = A^{-1}b$ is not an option to find the parameters in
+$x$.</p>
 
 <p>The data points contain some measurement error or 'noise' and we don't want
 our model to fit this noise. We want our model to capture informative trends,
