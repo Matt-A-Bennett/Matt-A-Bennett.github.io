@@ -40,7 +40,7 @@ will attempt to realise in my library.</p>
 - [Rank, pivots, singularity, determinant](./rank_piv_sing_det.md)
 - [Inverse](./inverse.md)
 - [A = LU](./lu_factorisation.md)
-- [Projection, least squares and regression](./projection_least_squares_regression.md)
+- [Projection and regression](./projection_and_regression.md)
 - A = QR
 - Four fundamental subspaces
 - Bases for fundamental subspaces
