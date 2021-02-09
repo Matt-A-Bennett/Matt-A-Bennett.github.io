@@ -44,10 +44,6 @@ def transpose(self):
 
 {% endhighlight %}
 
-
-[< The Mat(rix) Class and standalone functions](./class_and_standalone_functions.md)\
-[Scalar Multiplication >](./scalar_multiplication.md)
-
 ## Demo
 
 <div style="text-align: justify">
@@ -76,7 +72,8 @@ Outputs:
 
 {% endhighlight %}
 
-[Scalar Multiplication > ](./scalar_multiplication.md)
+[< The Mat(rix) Class and standalone functions](./class_and_standalone_functions.md)\
+[Scalar Multiplication >](./scalar_multiplication.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
