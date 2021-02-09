@@ -7,11 +7,10 @@ we have data points. Our model matrix $A$ is tall and thin, and so has no
 inverse! $x = A^{-1}b$ is not an option to find the parameters in $x$.</p>
 
 <p>The data points contain some measurement error or 'noise' and we don't want
-our model to fit this noise. We want out model to capture informative trends,
-that will generalise to new data with different that will generalise to new
-data with different noise. Therefore we have to accept some discrepancy between
-our fitted model and the data. We want to minimise this 'model error' when we
-fit.</p>
+our model to fit this noise. We want our model to capture informative trends,
+that will generalise to new data with different noise. Therefore we have to
+accept some discrepancy between our fitted model and the data. We want to
+minimise this 'model error' when we fit.</p>
 
 <p>Since we can't find an $x$ that satisfies $Ax = b$, we look for a 'best $x$'
 that comes close: \(\hat x\). The $b$ doesn't fall into the column space of $A$
