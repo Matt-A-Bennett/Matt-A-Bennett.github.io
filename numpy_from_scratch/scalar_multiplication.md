@@ -35,6 +35,33 @@ def scale(self, scalar):
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create a matrix, call the scale method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6]])
+
+scaled = A.scale(2)
+
+print_mat(scaled)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print_mat(scaled)
+[2, 4, 6]
+[8, 10, 12]
+
+{% endhighlight %}
+
 [< Transpose](./transpose.md)\
 [Addition/Subtraction >](./addition_subtraction.md)
 

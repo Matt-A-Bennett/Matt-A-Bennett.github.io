@@ -232,6 +232,61 @@ return P, E, self, U, singular, row_exchange_count
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create a matrix, call the transpose method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 8, 6],
+        [7, 8, 9]])
+
+P, E, A, U, singular, row_exchange_count = A.elimination()
+
+print(singular)
+print()
+print(row_exchange_count)
+print()
+print_mat(P)
+print_mat(E)
+print_mat(A)
+print_mat(U)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(singular)
+0
+>>> print(row_exchange_count)
+1
+>>> print_mat(P)
+[1, 0, 0]
+[0, 0, 1]
+[0, 1, 0]
+
+>>> print_mat(E)
+[1.0, 0.0, 0.0]
+[-4.0, 1.0, 0.0]
+[-7.0, 0.0, 1.0]
+
+>>> print_mat(A)
+[1, 2, 3]
+[4, 8, 6]
+[7, 8, 9]
+
+>>> print_mat(U)
+[1.0, 2.0, 3.0]
+[0.0, -6.0, -12.0]
+[0.0, 0.0, -6.0]
+
+{% endhighlight %}
+
 [< Matrix Multiplication](./dot_prod_and_mat_multiply.md)\
 [Rank, pivots, singularity, determinant >](./rank_piv_sing_det.md)
 

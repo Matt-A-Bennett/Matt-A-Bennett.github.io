@@ -60,6 +60,36 @@ def subtract(self, new_mat):
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create two matrices, call the add method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6]])
+
+B = Mat([[0, 2, 1],
+        [3, 6, -1]])
+
+C = A.add(B)
+
+print_mat(C)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print_mat(C)
+[1, 4, 4]
+[7, 11, 5]
+
+{% endhighlight %}
+
 [< Scalar Multiplication](./scalar_multiplication.md)\
 [Dot Product and Matrix Multiplication >](./dot_prod_and_mat_multiply.md)
 

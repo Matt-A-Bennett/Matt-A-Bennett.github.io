@@ -44,8 +44,39 @@ def transpose(self):
 
 {% endhighlight %}
 
+
 [< The Mat(rix) Class and standalone functions](./class_and_standalone_functions.md)\
 [Scalar Multiplication >](./scalar_multiplication.md)
+
+## Demo
+
+<div style="text-align: justify">
+<p>We create a matrix, call the transpose method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6]])
+
+transposed = A.transpose()
+
+print_mat(transposed)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print_mat(transposed)
+[1, 4]
+[2, 5]
+[3, 6]
+
+{% endhighlight %}
+
+[Scalar Multiplication > ](./scalar_multiplication.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

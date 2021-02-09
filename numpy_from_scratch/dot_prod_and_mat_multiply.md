@@ -44,6 +44,33 @@ def dot(self, new_mat):
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create two vectors, call the dot method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+v = Mat([[1, 2, 2]])
+
+u = Mat([[1, 1, 3]])
+
+dot = v.dot(u)
+
+print(dot)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(dot)
+9
+
+{% endhighlight %}
+
 ## Matrix Multiplication
 <div style="text-align: justify">
 <p>At a low level, matrix multiplication can be seen as a series of dot
@@ -95,6 +122,37 @@ def multiply(self, new_mat):
             # enter the dot product into our final matrix
             multiplied.data[row_idx][col_idx] = tmp_dot
     return multiplied
+
+{% endhighlight %}
+
+## Demo
+
+<div style="text-align: justify">
+<p>We create two matrices, call the multiply method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 1, 3],
+        [2, 5, 4]])
+
+B = Mat([[1, 1],
+        [1, 3],
+        [-1, 3]])
+
+C = A.multiply(B)
+
+print_mat(C)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print_mat(C)
+[-1, 13]
+[3, 29]
 
 {% endhighlight %}
 

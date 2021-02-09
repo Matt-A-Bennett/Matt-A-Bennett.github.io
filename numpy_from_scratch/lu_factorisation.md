@@ -190,6 +190,66 @@ def lu(self):
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create a matrix, call the transpose method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 8, 6],
+        [7, 8, 9]])
+
+A, P, L, U = A.lu()
+print_mat(P)
+print_mat(A)
+print_mat(L)
+print_mat(U)
+PL = P.multiply(L)
+PLU = PL.multiply(U)
+print_mat(PL)
+print_mat(PLU)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print_mat(P)
+[1, 0, 0]
+[0, 0, 1]
+[0, 1, 0]
+
+>>> print_mat(A)
+[1, 2, 3]
+[4, 8, 6]
+[7, 8, 9]
+
+>>> print_mat(L)
+[1.0, 0.0, 0.0]
+[7.0, 1.0, 0.0]
+[4.0, 0.0, 1.0]
+
+>>> print_mat(U)
+[1.0, 2.0, 3.0]
+[0.0, -6.0, -12.0]
+[0.0, 0.0, -6.0]
+
+>>> print_mat(PL)
+[1.0, 0.0, 0.0]
+[4.0, 0.0, 1.0]
+[7.0, 1.0, 0.0]
+
+>>> print_mat(PLU)
+[1.0, 2.0, 3.0]
+[4.0, 8.0, 6.0]
+[7.0, 8.0, 9.0]
+
+{% endhighlight %}
+
 [< Inverse](./inverse.md)\
 [Projection and regression >](./projection_and_regression.md)
 

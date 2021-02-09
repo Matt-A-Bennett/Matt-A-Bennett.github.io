@@ -18,6 +18,44 @@ def pivots(self):
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create two matrices, call the pivots method and print the results:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 8, 9]])
+
+B = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 7, 9]])
+
+A_pivots = A.pivots()
+
+B_pivots = B.pivots()
+
+print(A_pivots)
+print()
+print(B_pivots)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(A_pivots)
+[(0, 1), (1, -3.0), (2, -2.0)]
+
+>>> print(B_pivots)
+[(0, 1), (1, -3.0)]
+
+{% endhighlight %}
+
 <div style="text-align: justify">
 <p>The rank of a matrix tells us a huge amount, and is simply the number of
 pivots:</p>
@@ -28,6 +66,44 @@ pivots:</p>
 def rank(self):
     pivot_info = self.pivots()
     return len(pivot_info)
+
+{% endhighlight %}
+
+## Demo
+
+<div style="text-align: justify">
+<p>We create two matrices, call the rank method and print the results:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 8, 9]])
+
+B = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 7, 9]])
+
+A_rank = A.rank()
+
+B_rank = B.rank()
+
+print(A_rank)
+print()
+print(B_rank)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(A_rank)
+3
+
+>>> print(B_rank)
+2
 
 {% endhighlight %}
 
@@ -46,6 +122,42 @@ def is_singular(self):
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create two matrices, call the is_singular method and print the results:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 8, 9]])
+
+B = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 7, 9]])
+
+A_sing = A.is_singular()
+
+B_sing = B.is_singular()
+
+print(A_sing)
+print()
+print(B_sing)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(A_sing)
+0
+>>> print(B_sing)
+1
+
+{% endhighlight %}
 <div style="text-align: justify">
 <p>The determinant of a matrix is simply the product of the pivots, with a
 negative sign if there were an odd number of row exchanges. Here we don't use
@@ -66,6 +178,44 @@ def determinant(self):
     if row_exchange_count % 2:
         det *= -1
     return det
+
+{% endhighlight %}
+
+## Demo
+
+<div style="text-align: justify">
+<p>We create two matrices, call the determinant method and print the results:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 8, 9]])
+
+B = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [5, 7, 9]])
+
+A_determinant = A.determinant()
+
+B_determinant = B.determinant()
+
+print(A_determinant)
+print()
+print(B_determinant)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(A_determinant)
+6.0
+
+>>> print(B_determinant)
+-0.0
 
 {% endhighlight %}
 
