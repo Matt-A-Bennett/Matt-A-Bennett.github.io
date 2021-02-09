@@ -33,16 +33,24 @@ A^T(b - A\hat x) = 0
 $$
 
 <div style="text-align: justify">
-<p>The equation can be rearranged to:</p>
+<p>The equation can be expanded to:</p>
 </div>
 
 $$
-A^Tb - A^TA\hat x = 0\\
-= A^TA\hat x = A^Tb
+A^Tb - A^TA\hat x = 0
+$$
+
+
+<div style="text-align: justify">
+<p>Rearranging::</p>
+</div>
+
+$$
+A^TA\hat x = A^Tb
 $$
 
 <div style="text-align: justify">
-<p>This our best estimate of the parameters of the models:</p>
+<p>Therefore, our best estimate of the parameters of the model is:</p>
 </div>
 
 $$
