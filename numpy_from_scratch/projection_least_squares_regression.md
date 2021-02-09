@@ -133,7 +133,6 @@ b = b.transpose()
 
 fit = b.linfit()
 
-import matplotlib.pyplot as plt
 Xs = [i for i in range(len(b.data[0]))]
 plt.plot([-1, Xs[-1]+1], [b.data[0][0], b.data[0][-1]], '-r')
 plt.plot(Xs, b.data[0], '.k')
