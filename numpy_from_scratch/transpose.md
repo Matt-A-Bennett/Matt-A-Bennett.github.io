@@ -67,7 +67,7 @@ print_mat(transposed)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print_mat(transposed)
 [1, 4]

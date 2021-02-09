@@ -64,7 +64,7 @@ print(dot)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print(dot)
 9
@@ -148,7 +148,7 @@ print_mat(C)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print_mat(C)
 [-1, 13]

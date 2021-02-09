@@ -54,7 +54,7 @@ print_mat(scaled)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print_mat(scaled)
 [2, 4, 6]

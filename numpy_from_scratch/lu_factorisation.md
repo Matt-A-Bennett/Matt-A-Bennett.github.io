@@ -216,7 +216,7 @@ print_mat(PLU)
 
 Outputs:
 
-{% highlight bash %}
+{% highlight console %}
 
 >>> print_mat(A)
 [1, 2, 3]

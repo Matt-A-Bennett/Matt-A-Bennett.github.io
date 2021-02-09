@@ -46,7 +46,7 @@ print(B_pivots)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print(A_pivots)
 [(0, 1), (1, -3.0), (2, -2.0)]
@@ -97,7 +97,7 @@ print(B_rank)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print(A_rank)
 3
@@ -150,7 +150,7 @@ print(B_sing)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print(A_sing)
 0
@@ -209,7 +209,7 @@ print(B_determinant)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print(A_determinant)
 6.0

@@ -202,7 +202,7 @@ if B_inverse:
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 Inverting matrix A...
 [-0.5, 1.0, -0.5]

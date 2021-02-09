@@ -82,7 +82,7 @@ print_mat(C)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print_mat(C)
 [1, 4, 4]
