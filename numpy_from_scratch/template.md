@@ -9,6 +9,36 @@ print('some python code')
 
 {% endhighlight %}
 
+## Demo
+
+<div style="text-align: justify">
+<p>We create a matrix, call the <METHOD> method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]])
+
+A = Mat([[1, 2, 3],
+        [4, 5, 6]])
+
+A = Mat([[1, 2],
+        [3, 4],
+        [5, 6]])
+
+<METHODED> = A.<METHOD>()
+
+print_mat(<METHOD>)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+{% endhighlight %}
 
 [< Previous_page](./previous_page_filename.md)
 
