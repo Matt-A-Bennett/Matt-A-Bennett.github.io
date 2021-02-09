@@ -259,7 +259,7 @@ print_mat(U)
 
 Outputs:
 
-{% highlight %}
+{% highlight console %}
 
 >>> print(singular)
 0
