@@ -134,8 +134,6 @@ b = b.transpose()
 
 fit = b.linfit()
 
-print_mat(fit)
-
 x = np.linspace(min(b.data[0])-2,len(b.data[0])+1,100)
 y = fit.data[1]*x+fit.data[0]
 plt.plot(x, y, '-r')
