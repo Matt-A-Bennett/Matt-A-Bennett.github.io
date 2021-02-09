@@ -127,17 +127,15 @@ def linfit(self):
 {% highlight python %}
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 b = Mat([[1,3,3,5,6,3,4,6,7,5,7,8,9]])
 b = b.transpose()
 
 fit = b.linfit()
 
-x = np.linspace(min(b.data[0])-2,len(b.data[0])+1,100)
-y = fit.data[1]*x+fit.data[0]
-plt.plot(x, y, '-r')
+import matplotlib.pyplot as plt
 Xs = [i for i in range(len(b.data[0]))]
+plt.plot([-1, Xs[-1]+1], [b.data[0][0], b.data[0][-1]], '-r')
 plt.plot(Xs, b.data[0], '.k')
 plt.xlim([min(b.data[0])-2,len(b.data[0])])
 plt.show()
