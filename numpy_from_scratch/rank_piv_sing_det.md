@@ -157,8 +157,9 @@ Outputs:
 >>> print(B_sing)
 1
 
-### Determinant
 {% endhighlight %}
+
+### Determinant
 <div style="text-align: justify">
 <p>The determinant of a matrix is simply the product of the pivots, with a
 negative sign if there were an odd number of row exchanges. Here we don't use
