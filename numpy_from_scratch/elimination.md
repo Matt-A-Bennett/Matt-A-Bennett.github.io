@@ -235,7 +235,7 @@ return P, E, self, U, singular, row_exchange_count
 ## Demo
 
 <div style="text-align: justify">
-<p>We create a matrix, call the transpose method and print the result:</p>
+<p>We create a matrix, call the elimination method and print the result:</p>
 </div>
 
 {% highlight python %}
