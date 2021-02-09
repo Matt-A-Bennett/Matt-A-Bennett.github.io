@@ -134,11 +134,11 @@ def multiply(self, new_mat):
 {% highlight python %}
 
 A = Mat([[1, 1, 3],
-        [2, 5, 4]])
+         [2, 5, 4]])
 
 B = Mat([[1, 1],
-        [1, 3],
-        [-1, 3]])
+         [1, 3],
+         [-1, 3]])
 
 C = A.multiply(B)
 

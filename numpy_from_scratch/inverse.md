@@ -179,12 +179,12 @@ return inv
 {% highlight python %}
 
 A = Mat([[1, 2, 3],
-        [4, 5, 6],
-        [5, 8, 9]])
+         [4, 5, 6],
+         [5, 8, 9]])
 
 B = Mat([[1, 2, 3],
-        [4, 5, 6],
-        [5, 7, 9]])
+         [4, 5, 6],
+         [5, 7, 9]])
 
 print('Inverting matrix A...')
 A_inverse = A.inverse()

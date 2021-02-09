@@ -199,8 +199,8 @@ def lu(self):
 {% highlight python %}
 
 A = Mat([[1, 2, 3],
-        [4, 8, 6],
-        [7, 8, 9]])
+         [4, 8, 6],
+         [7, 8, 9]])
 
 A, P, L, U = A.lu()
 print_mat(A)
