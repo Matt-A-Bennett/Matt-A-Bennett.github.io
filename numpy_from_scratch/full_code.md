@@ -259,6 +259,27 @@ class Mat:
         L = P.multiply(L)
         return self, P, L, U
 
+    def projection(self):
+        # P = A((A'A)^-1)A'
+        A = copy.deepcopy(self)
+        At = self.transpose()
+        AtA = At.multiply(A)
+        AtAinv = AtA.inverse()
+        AtAinvAt = AtAinv.multiply(At)
+        for_x = copy.deepcopy(AtAinvAt)
+        Projection = A.multiply(AtAinvAt)
+        return Projection, for_x
+
+    def linfit(self):
+        # create a model
+        A = gen_mat([len(self.data), 1])
+        for i in range(len(self.data)):
+            A.data[i] = [1, i]
+        # project self onto model with least squares
+        _, for_x = A.projection()
+        fit = for_x.multiply(self)
+        return fit
+
 {% endhighlight %}
 
 [back to project main page](./numpy_from_scratch.md)\

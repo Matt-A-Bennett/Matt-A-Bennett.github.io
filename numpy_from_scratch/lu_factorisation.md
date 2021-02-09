@@ -190,7 +190,8 @@ def lu(self):
 
 {% endhighlight %}
 
-[< Inverse](./inverse.md)
+[< Inverse](./inverse.md)\
+[Projection, least squares and regression](./projection_least_squares_regression.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
