@@ -87,7 +87,7 @@ and the matrix that multiplies $b$ to give \(\hat x\):</p>
 def projection(self):
     # P = A((A'A)^-1)A'
     A = copy.deepcopy(self)
-    At = self.transpose()
+    At = A.transpose()
     AtA = At.multiply(A)
     AtAinv = AtA.inverse()
     AtAinvAt = AtAinv.multiply(At)
@@ -108,13 +108,14 @@ slope:</p>
 {% highlight python %}
 
 def linfit(self):
+    b = copy.deepcopy(self)
     # create a model
-    A = gen_mat([len(self.data), 1])
-    for i in range(len(self.data)):
+    A = gen_mat([len(b.data), 1])
+    for i in range(len(b.data)):
         A.data[i] = [1, i]
-    # project self onto model with least squares
+    # project A onto model with least squares
     _, for_x = A.projection()
-    fit = for_x.multiply(self)
+    fit = for_x.multiply(b)
     return fit
 
 {% endhighlight %}
@@ -134,6 +135,7 @@ b = b.transpose()
 
 fit = b.linfit()
 
+b = b.transpose()
 Xs = [i for i in range(len(b.data[0]))]
 plt.plot([-1, Xs[-1]+1], [b.data[0][0], b.data[0][-1]], '-r')
 plt.plot(Xs, b.data[0], '.k')
@@ -144,7 +146,8 @@ plt.show()
 
 ![regression plot](./images/regression.png)
 
-[< A = LU](./lu_factorisation.md)
+[< A = LU](./lu_factorisation.md)\
+[A = QR >](./qr_factorisation.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

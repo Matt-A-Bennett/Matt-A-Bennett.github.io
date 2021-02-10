@@ -10,12 +10,14 @@ with the columns in which they were found:</p>
 {% highlight python %}
 
 def pivots(self):
+    A = copy.deepcopy(self)
     # find U
-    _, _, U, _, _ = self.elimination()
+    _, _, _, U, _, _ = A.elimination()
     # extract the non-zeros on the diagonal
     diag_vals = U.diag()
     pivot_info = [(i, val) for i, val in enumerate(diag_vals) if val]
     return pivot_info
+
 
 {% endhighlight %}
 
@@ -65,7 +67,8 @@ pivots:</p>
 {% highlight python %}
 
 def rank(self):
-    pivot_info = self.pivots()
+    A = copy.deepcopy(self)
+    pivot_info = A.pivots()
     return len(pivot_info)
 
 {% endhighlight %}
@@ -118,7 +121,8 @@ accessing that variable:</p>
 {% highlight python %}
 
 def is_singular(self):
-    _, _, _, singular, _ = self.elimination()
+    A = copy.deepcopy(self)
+    _, _, _, _, singular, _ = A.elimination()
     return singular
 
 {% endhighlight %}
@@ -169,8 +173,9 @@ the pivot method we wrote, as we also need the number of row exchanges:</p>
 {% highlight python %}
 
 def determinant(self):
+    A = copy.deepcopy(self)
     # find U
-    _, _, U, _, row_exchange_count = self.elimination()
+    _, _, _, U, _, row_exchange_count = A.elimination()
     # muliply the pivots
     det = 1
     diag_vals = U.diag()

@@ -106,16 +106,17 @@ exchange the rows of a matrix through multiplication:</p>
 {% highlight python %}
 
 def elimination(self):
+    A = copy.deepcopy(self)
     # should do some row exchanges for numerical stability...
 
     # we assume the matrix is invertible
     singular = 0
 
     # create identity matrix which we'll turn into an E matrix
-    tmpE = eye([len(self.data),len(self.data[0])])
+    tmpE = eye([len(A.data),len(A.data[0])])
 
     # create a permutation matrix for row exchanges
-    tmpP = eye([len(self.data),len(self.data)])
+    tmpP = eye([len(A.data),len(A.data)])
 
 {% endhighlight %}
 
@@ -133,7 +134,7 @@ carry out a row exchange if we find a zero:</p>
 
 E = copy.deepcopy(tmpE)
 P = copy.deepcopy(tmpP)
-U = copy.deepcopy(self)
+U = copy.deepcopy(A)
 pivot_count = 0
 row_exchange_count = 0
 for row_idx in range(len(U.data)-1):
@@ -181,51 +182,49 @@ if U.data[row_idx][row_idx] == 0:
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>If we have avoided a zero pivot, we copy the two rows we're doing
-elimination on and determine what multiple of the higher row to subtract from
-the lower row so as to eliminate the unknown. After carrying out the
-subtraction we update $U$ with the eliminated row:</p>
+<p>If we have avoided a zero pivot, we determine what multiple of the higher
+row to subtract from the lower row so as to eliminate the unknown. This
+multiple goes into our nextE matrix and is applied to $U$:</p>
 </div>
 
 {% highlight python %}
-# get copies of the rows
-row_above = copy.deepcopy(Mat([U.data[row_idx]]))
-row_below = copy.deepcopy(Mat([U.data[sub_row]]))
 
 # determine how much to subtract to create a zero
-ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
-# do the subtraction
-row_above.scale(ratio)
-row_below = row_below.subtract(row_above)
-# add to our U
-U.data[sub_row] = row_below.data[0]
+ratio = U.data[sub_row][pivot_count]/U.data[row_idx][pivot_count]
+# create the elimination matrix for this step
+nextE.data[sub_row][row_idx] = -ratio
+# apply the elimination step to U
+U = nextE.multiply(U)
 
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>We create a nextE matrix for the previous step and update the overall $E$ by
-multiplying it:</p>
+<p>We update the overall $E$ by multiplying it with nextE:</p>
 </div>
 
 {% highlight python %}
 
-    # add to our E
-    nextE.data[sub_row][row_idx] = -ratio
     # update the overall E
     E = nextE.multiply(E)
 pivot_count += 1
-
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>After the final pivot has been placed into $U$, we just check if it was
-zero, and if so indicate that with a flag on returning the results:</p>
+<p>In the case of a 1x1 matrix, the loops in the code above won't happen, and
+we just take the reciprocal of the number, if it's not zero, to be the pivot.
+After the final pivot has been placed into $U$, we just check if it was zero,
+and if so indicate that with a flag on returning the results:</p>
 </div>
 
 {% highlight python %}
 
+# Deal with 1x1 matrix by taking the reciprocal of the number if possible:
+if len(U.data) == 1 and len(U.data[0]) == 2:
+    if U.data[0][0] != 0:
+        U.data[0] = [1/U.data[0][0], 1]
+
 # check if the permutation avoided a zero in the pivot position
-if U.data[row_idx+1][row_idx+1] == 0:
+elif U.data[row_idx+1][row_idx+1] == 0:
     singular = 1
 
 return P, E, self, U, singular, row_exchange_count
@@ -287,7 +286,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Matrix Multiplication](./dot_prod_and_mat_multiply.md)\
+[< Dot product, length and matrix multiplication](./dot_prod_length_and_mat_multiply.md)\
 [Rank, pivots, singularity, determinant >](./rank_piv_sing_det.md)
 
 [back to project main page](./numpy_from_scratch.md)\

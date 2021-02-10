@@ -7,6 +7,7 @@ Below is all the code that we have written to date.
 {% highlight python %}
 
 import copy
+from math import sqrt
 
 def gen_mat(size, value=0):
     generated_mat = []
@@ -27,9 +28,11 @@ def cat(A, B, axis=0):
         concatenated = Mat(A.data + B.data)
     return concatenated
 
-def print_mat(self):
-    for row in self.data:
-        print(row)
+def print_mat(self, round_dp=99):
+    A = copy.deepcopy(self)
+    for row in A.data:
+        rounded = [round(i,round_dp) for i in row]
+        print(rounded)
     print()
 
 class Mat:
@@ -37,8 +40,9 @@ class Mat:
         self.data = data
 
     def transpose(self):
+        A = copy.deepcopy(self)
         transposed = []
-        for row_idx, row in enumerate(self.data):
+        for row_idx, row in enumerate(A.data):
             for col_idx, col in enumerate(row):
                 # first time through, make new row for each old column
                 if row_idx == 0:
@@ -46,52 +50,68 @@ class Mat:
                 else:
                     # append to newly created rows
                     transposed[col_idx].append(col)
-            self.data = transposed
-        return self
+            A.data = transposed
+        return A
 
     def scale(self, scalar):
-        for row_idx, row in enumerate(self.data):
+        A = copy.deepcopy(self)
+        for row_idx, row in enumerate(A.data):
             for col_idx in range(len(row)):
-                self.data[row_idx][col_idx] *= scalar
-        return self
+                A.data[row_idx][col_idx] *= scalar
+        return A
 
     def add(self, new_mat):
+        A = copy.deepcopy(self)
+        B = copy.deepcopy(new_mat)
         added_rows = []
-        for rows in zip(self.data, new_mat.data):
+        for rows in zip(A.data, B.data):
             added_cols = []
             for cols in zip(rows[0],rows[1]):
                 added_cols.append(sum(list(cols)))
             added_rows.append(added_cols)
-        self.data = added_rows
-        return self
+        A.data = added_rows
+        return A
 
     def subtract(self, new_mat):
+        A = copy.deepcopy(self)
+        B = copy.deepcopy(new_mat)
         # reverse sign of second matrix
-        new_mat.scale(-1)
+        B = B.scale(-1)
         # use add function
-        return self.add(new_mat)
+        A = A.add(B)
+        return A
 
     def dot(self, new_mat):
+        A = copy.deepcopy(self)
+        B = copy.deepcopy(new_mat)
         # make both vectors rows with transpose
-        if len(self.data) != 1:
-            self.transpose()
-        if len(new_mat.data) != 1:
-            new_mat.transpose()
+        if len(A.data) != 1:
+            A = A.transpose()
+        if len(B.data) != 1:
+            B = B.transpose()
         # compute dot product
         dot_prod = []
-        for cols in zip(self.data[0], new_mat.data[0]):
+        for cols in zip(A.data[0], B.data[0]):
             dot_prod.append(cols[0]*cols[1])
         dot_prod = sum(dot_prod)
         return dot_prod
 
+    def length(self):
+        A = copy.deepcopy(self)
+        dotted = A.dot(A)
+        v_length = sqrt(dotted)
+        return v_length
+
     def multiply(self, new_mat):
+        A = copy.deepcopy(self)
+        B = copy.deepcopy(new_mat)
         # preallocate empty matrix
-        multiplied = gen_mat([len(self.data), len(new_mat.data[0])])
+        multiplied = gen_mat([len(A.data), len(B.data[0])])
         # transpose one matrix, take a bunch of dot products
-        transposed = new_mat.transpose()
-        for row_idx, row in enumerate(self.data):
+        B = B.transpose()
+        for row_idx, row in enumerate(A.data):
             tmp_row = Mat([row])
-            for col_idx, col in enumerate(transposed.data):
+            for col_idx, col in enumerate(B.data):
                 tmp_col = Mat([col])
                 tmp_dot = tmp_row.dot(tmp_col)
                 # enter the dot product into our final matrix
@@ -99,26 +119,28 @@ class Mat:
         return multiplied
 
     def diag(self):
+        A = copy.deepcopy(self)
         diag_vals = []
-        for i in range(min(len(self.data), len(self.data[0]))):
-            diag_vals.append(self.data[i][i])
+        for i in range(min(len(A.data), len(A.data[0]))):
+            diag_vals.append(A.data[i][i])
         return diag_vals
 
     def elimination(self):
+        A = copy.deepcopy(self)
         # should do some row exchanges for numerical stability...
 
         # we assume the matrix is invertible
         singular = 0
 
         # create identity matrix which we'll turn into an E matrix
-        tmpE = eye([len(self.data),len(self.data[0])])
+        tmpE = eye([len(A.data),len(A.data[0])])
 
         # create a permutation matrix for row exchanges
-        tmpP = eye([len(self.data),len(self.data)])
+        tmpP = eye([len(A.data),len(A.data)])
 
         E = copy.deepcopy(tmpE)
         P = copy.deepcopy(tmpP)
-        U = copy.deepcopy(self)
+        U = copy.deepcopy(A)
         pivot_count = 0
         row_exchange_count = 0
         for row_idx in range(len(U.data)-1):
@@ -153,48 +175,52 @@ class Mat:
                     # move on to the next column
                     break
 
-                # get copies of the rows
-                row_above = copy.deepcopy(Mat([U.data[row_idx]]))
-                row_below = copy.deepcopy(Mat([U.data[sub_row]]))
-
                 # determine how much to subtract to create a zero
-                ratio = row_below.data[0][pivot_count]/row_above.data[0][pivot_count]
-                # do the subtraction
-                row_above.scale(ratio)
-                row_below = row_below.subtract(row_above)
-                # add to our U
-                U.data[sub_row] = row_below.data[0]
-                # add to our E
+                ratio = U.data[sub_row][pivot_count]/U.data[row_idx][pivot_count]
+                # create the elimination matrix for this step
                 nextE.data[sub_row][row_idx] = -ratio
+                # apply the elimination step to U
+                U = nextE.multiply(U)
                 # update the overall E
                 E = nextE.multiply(E)
             pivot_count += 1
+
+        # If A was a 1x1 matrix, the above loops didn't happen. Take the
+        # reciprocal of the number:
+        if len(U.data) == 1 and len(U.data[0]) == 2:
+            if U.data[0][0] != 0:
+                U.data[0] = [1/U.data[0][0], 1]
+            row_idx = -1
 
         # check if the permutation avoided a zero in the pivot position
         if U.data[row_idx+1][row_idx+1] == 0:
             singular = 1
 
-        return P, E, self, U, singular, row_exchange_count
+        return P, E, A, U, singular, row_exchange_count
 
     def pivots(self):
+        A = copy.deepcopy(self)
         # find U
-        _, _, _, U, _, _ = self.elimination()
+        _, _, _, U, _, _ = A.elimination()
         # extract the non-zeros on the diagonal
         diag_vals = U.diag()
         pivot_info = [(i, val) for i, val in enumerate(diag_vals) if val]
         return pivot_info
 
     def rank(self):
-        pivot_info = self.pivots()
+        A = copy.deepcopy(self)
+        pivot_info = A.pivots()
         return len(pivot_info)
 
     def is_singular(self):
-        _, _, _, _, singular, _ = self.elimination()
+        A = copy.deepcopy(self)
+        _, _, _, _, singular, _ = A.elimination()
         return singular
 
     def determinant(self):
+        A = copy.deepcopy(self)
         # find U
-        _, _, _, U, _, row_exchange_count = self.elimination()
+        _, _, _, U, _, row_exchange_count = A.elimination()
         # muliply the pivots
         det = 1
         diag_vals = U.diag()
@@ -206,11 +232,12 @@ class Mat:
         return det
 
     def inverse(self):
-        size = [len(self.data), len(self.data[0])]
+        A = copy.deepcopy(self)
+        size = [len(A.data), len(A.data[0])]
 
         # create [A I]
         I = eye(size)
-        augmented = cat(self, I)
+        augmented = cat(A, I)
 
         # perform elimination to get to [U ~inv]
         _, _, _, U, singular, _ = augmented.elimination()
@@ -232,7 +259,7 @@ class Mat:
         fU = antiI.multiply(tmp_fU)
         fU = fU.multiply(antiI)
         f_tmp_inv = antiI.multiply(tmp_inv)
-        f_tmp_inv.multiply(antiI)
+        f_tmp_inv = f_tmp_inv.multiply(antiI)
 
         # put fU back into [fU  f~inv]
         augmented = cat(fU, f_tmp_inv)
@@ -250,19 +277,22 @@ class Mat:
         inv = antiI.multiply(inv)
         for i in range(size[1]):
             inv.data[i] = inv.data[i][size[1]:]
+        inv = inv.multiply(antiI)
+
         return inv
 
     def lu(self):
-        P, E, self, U, _, _ = self.elimination()
+        A = copy.deepcopy(self)
+        P, E, A, U, _, _ = A.elimination()
         E = P.multiply(E)
         L = E.inverse()
         L = P.multiply(L)
-        return self, P, L, U
+        return A, P, L, U
 
     def projection(self):
         # P = A((A'A)^-1)A'
         A = copy.deepcopy(self)
-        At = self.transpose()
+        At = A.transpose()
         AtA = At.multiply(A)
         AtAinv = AtA.inverse()
         AtAinvAt = AtAinv.multiply(At)
@@ -271,14 +301,55 @@ class Mat:
         return Projection, for_x
 
     def linfit(self):
+        b = copy.deepcopy(self)
         # create a model
-        A = gen_mat([len(self.data), 1])
-        for i in range(len(self.data)):
+        A = gen_mat([len(b.data), 1])
+        for i in range(len(b.data)):
             A.data[i] = [1, i]
-        # project self onto model with least squares
+        # project A onto model with least squares
         _, for_x = A.projection()
-        fit = for_x.multiply(self)
+        fit = for_x.multiply(b)
         return fit
+
+    def qr(self):
+        A = copy.deepcopy(self)
+
+        if A.is_singular():
+            print('Matrix is singular!')
+            return A, None, None
+
+        A = A.transpose()
+        Q = copy.deepcopy(A)
+        I = eye([len(A.data),len(A.data[0])])
+        # projection orthogonal to column
+        for col in range(len(Q.data)-1):
+            Col = copy.deepcopy(Q.data[col])
+            Col = Mat([Col])
+            Col = Col.transpose()
+            P, _ = Col.projection()
+            P = I.subtract(P)
+            # project and put into matrix Q
+            for col2 in range(col+1, len(Q.data)):
+                Col = copy.deepcopy(Q.data[col2])
+                Col = Mat([Col])
+                Col = Col.transpose()
+                q = P.multiply(Col)
+                q = q.transpose()
+                Q.data[col2] = q.data[0]
+
+        # normalise to unit length
+            for x, q in enumerate(Q.data):
+                q = Mat([q])
+                qn = q.length()
+                q = q.scale(1/qn)
+                Q.data[x] = q.data[0]
+
+        A = A.transpose()
+        R = Q.multiply(A)
+        Q = Q.transpose()
+        A = Q.multiply(R)
+
+        return A, Q, R
 
 {% endhighlight %}
 

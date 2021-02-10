@@ -1,5 +1,5 @@
-# Dot Product and Matrix Multiplication
-## Dot Product
+# Dot product, length and matrix multiplication
+## Dot product
 <div style="text-align: justify">
 <p>The dot product is only valid for pairs of vectors (with the same number of
 entries). You simply match up each element between the vectors, multiply them
@@ -30,14 +30,16 @@ sum operations.</p>
 {% highlight python %}
 
 def dot(self, new_mat):
+    A = copy.deepcopy(self)
+    B = copy.deepcopy(new_mat)
     # make both vectors rows with transpose
-    if len(self.data) != 1:
-        self.transpose()
-    if len(new_mat.data) != 1:
-        new_mat.transpose()
+    if len(A.data) != 1:
+        A = A.transpose()
+    if len(B.data) != 1:
+        B = B.transpose()
     # compute dot product
     dot_prod = []
-    for cols in zip(self.data[0], new_mat.data[0]):
+    for cols in zip(A.data[0], B.data[0]):
         dot_prod.append(cols[0]*cols[1])
     dot_prod = sum(dot_prod)
     return dot_prod
@@ -52,13 +54,13 @@ def dot(self, new_mat):
 
 {% highlight python %}
 
-v = Mat([[1, 2, 2]])
+u = Mat([[1, 2, 2]])
 
-u = Mat([[1, 1, 3]])
+v = Mat([[1, 1, 3]])
 
-dot = v.dot(u)
+dotted = u.dot(v)
 
-print(dot)
+print(dotted)
 
 {% endhighlight %}
 
@@ -66,12 +68,52 @@ Outputs:
 
 {% highlight console %}
 
->>> print(dot)
+>>> print(dotted)
 9
 
 {% endhighlight %}
 
-## Matrix Multiplication
+## Length
+<div style="text-align: justify">
+<p>The length of a vector $u$ is defined as the square root of the dot product
+of the vector with itself: \(\sqrt{u \cdot u}\(:</p>
+</div>
+
+{% highlight python %}
+
+def length(self):
+    A = copy.deepcopy(self)
+    dotted = A.dot(A)
+    v_length = sqrt(dotted)
+    return v_length
+
+{% endhighlight %}
+
+## Demo
+<div style="text-align: justify">
+<p>We create a matrix, call the transpose method and print the result:</p>
+</div>
+
+{% highlight python %}
+
+u = Mat([[1, 1, 3]])
+
+u_length = u.length()
+
+print(u_length)
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(u_length)
+11
+
+{% endhighlight %}
+
+## Matrix multiplication
 <div style="text-align: justify">
 <p>At a low level, matrix multiplication can be seen as a series of dot
 products between the rows of one matrix and the columns of another. For
@@ -110,13 +152,15 @@ matrix we take the dot product with every 'row' of the transposed second matrix
 {% highlight python %}
 
 def multiply(self, new_mat):
+    A = copy.deepcopy(self)
+    B = copy.deepcopy(new_mat)
     # preallocate empty matrix
-    multiplied = gen_mat([len(self.data), len(new_mat.data[0])])
+    multiplied = gen_mat([len(A.data), len(B.data[0])])
     # transpose one matrix, take a bunch of dot products
-    transposed = new_mat.transpose()
-    for row_idx, row in enumerate(self.data):
+    B = B.transpose()
+    for row_idx, row in enumerate(A.data):
         tmp_row = Mat([row])
-        for col_idx, col in enumerate(transposed.data):
+        for col_idx, col in enumerate(B.data):
             tmp_col = Mat([col])
             tmp_dot = tmp_row.dot(tmp_col)
             # enter the dot product into our final matrix

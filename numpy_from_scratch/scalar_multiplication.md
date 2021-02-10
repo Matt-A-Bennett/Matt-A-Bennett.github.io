@@ -28,10 +28,11 @@ multiplication to each element:</p>
 {% highlight python %}
 
 def scale(self, scalar):
-    for row_idx, row in enumerate(self.data):
+    A = copy.deepcopy(self)
+    for row_idx, row in enumerate(A.data):
         for col_idx in range(len(row)):
-            self.data[row_idx][col_idx] *= scalar
-    return self
+            A.data[row_idx][col_idx] *= scalar
+    return A
 
 {% endhighlight %}
 

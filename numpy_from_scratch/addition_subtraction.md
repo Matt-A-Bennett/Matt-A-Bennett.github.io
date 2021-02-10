@@ -33,14 +33,16 @@ summing them and appending them to an added_rows variable.</p>
 {% highlight python %}
 
 def add(self, new_mat):
+    A = copy.deepcopy(self)
+    B = copy.deepcopy(new_mat)
     added_rows = []
-    for rows in zip(self.data, new_mat.data):
+    for rows in zip(A.data, B.data):
         added_cols = []
         for cols in zip(rows[0],rows[1]):
             added_cols.append(sum(list(cols)))
         added_rows.append(added_cols)
-        self.data = added_rows
-    return self
+    A.data = added_rows
+    return A
 
 {% endhighlight %}
 
@@ -53,10 +55,13 @@ method, thus achieving a subtraction.</p>
 {% highlight python %}
 
 def subtract(self, new_mat):
+    A = copy.deepcopy(self)
+    B = copy.deepcopy(new_mat)
     # reverse sign of second matrix
-    new_mat.scale(-1)
+    B = B.scale(-1)
     # use add function
-    return self.add(new_mat)
+    A = A.add(B)
+    return A
 
 {% endhighlight %}
 
@@ -91,7 +96,7 @@ Outputs:
 {% endhighlight %}
 
 [< Scalar Multiplication](./scalar_multiplication.md)\
-[Dot Product and Matrix Multiplication >](./dot_prod_and_mat_multiply.md)
+[Dot Product and Matrix Multiplication >](./dot_prod_length_and_mat_multiply.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

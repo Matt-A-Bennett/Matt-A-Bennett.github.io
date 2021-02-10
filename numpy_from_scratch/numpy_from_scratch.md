@@ -32,8 +32,9 @@ will attempt to realise in my library.</p>
 - [Transpose](./transpose.md)
 - [Scalar Multiplication](./scalar_multiplication.md)
 - [Addition/Subtraction](./addition_subtraction.md)
-- [Dot Product](./dot_prod_and_mat_multiply.md)
-- [Matrix Multiplication](./dot_prod_and_mat_multiply.md#matrix-multiplication)
+- [Dot Product](./dot_prod_length_and_mat_multiply.md)
+- [Length](./dot_prod_length_and_mat_multiply.md#length)
+- [Matrix Multiplication](./dot_prod_length_and_mat_multiply.md#matrix-multiplication)
 
 ### Secondary methods 
 - [EA = U](./elimination.md)
@@ -42,7 +43,6 @@ will attempt to realise in my library.</p>
 - [A = LU](./lu_factorisation.md)
 - [Projection and regression](./projection_and_regression.md)
 - A = QR
-- Orthonormal basis
 - Eigenvalues and Eigenvectors
 
 [back to home](../index.md)

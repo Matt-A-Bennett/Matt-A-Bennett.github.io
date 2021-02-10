@@ -21,7 +21,7 @@ $$
 
 ## Code implementation
 <div style="text-align: justify">
-<p>I loop over the rows and columns of the input matrix, keeping a record of
+<p>We loop over the rows and columns of the input matrix, keeping a record of
 the row and column subscript indices. The transposed matrix is built up
 gradually with a set of new rows (each row being the values found in the
 corresponding column):</p>
@@ -30,8 +30,9 @@ corresponding column):</p>
 {% highlight python %}
 
 def transpose(self):
+    A = copy.deepcopy(self)
     transposed = []
-    for row_idx, row in enumerate(self.data):
+    for row_idx, row in enumerate(A.data):
         for col_idx, col in enumerate(row):
             # first time through, make new row for each old column
             if row_idx == 0:
@@ -39,8 +40,8 @@ def transpose(self):
             else:
                 # append to newly created rows
                 transposed[col_idx].append(col)
-        self.data = transposed
-    return self
+        A.data = transposed
+    return A
 
 {% endhighlight %}
 

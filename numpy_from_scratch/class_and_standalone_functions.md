@@ -70,14 +70,18 @@ def cat(A, B, axis=0):
 ### Printing matrices
 <div style="text-align: justify">
 <p>Here is a function to print a matrix, one row beneath the other. This is
-helpful for debugging.</p>
+helpful for debugging. We also include an option to round the values to a
+specified precision, which is useful to ignore very tiny rounding errors on
+what would otherwise be integer numbers:</p>
 </div>
 
 {% highlight python %}
 
-def print_mat(self):
-    for row in self.data:
-        print(row)
+def print_mat(self, round_dp=99):
+    A = copy.deepcopy(self)
+    for row in A.data:
+        rounded = [round(i,round_dp) for i in row]
+        print(rounded)
     print()
 
 {% endhighlight %}

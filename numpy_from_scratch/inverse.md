@@ -88,14 +88,15 @@ zero row, then $A$ is singular and has no inverse:</p>
 {% highlight python %}
 
 def inverse(self):
-     size = [len(self.data), len(self.data[0])]
+    A = copy.deepcopy(self)
+    size = [len(A.data), len(A.data[0])]
 
     # create [A I]
     I = eye(size)
-    augmented = cat(self, I)
+    augmented = cat(A, I)
 
     # perform elimination to get to [U ~inv]
-    _, _, U, singular, _ = augmented.elimination()
+    _, _, _, U, singular, _ = augmented.elimination()
 
     if singular:
         print('Matrix is singular!')
@@ -129,7 +130,7 @@ for i, j in enumerate(reversed(range(size[1]))):
 fU = antiI.multiply(tmp_fU)
 fU = fU.multiply(antiI)
 f_tmp_inv = antiI.multiply(tmp_inv)
-f_tmp_inv.multiply(antiI)
+f_tmp_inv = f_tmp_inv.multiply(antiI)
 
 {% endhighlight %}
 
@@ -166,6 +167,8 @@ inv = div.multiply(U)
 inv = antiI.multiply(inv)
 for i in range(size[1]):
     inv.data[i] = inv.data[i][size[1]:]
+inv = inv.multiply(antiI)
+
 return inv
 
 {% endhighlight %}

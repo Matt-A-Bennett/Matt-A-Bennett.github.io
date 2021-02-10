@@ -182,11 +182,12 @@ Similarly, we ensure $L$ is lower triangular using $P$:</p>
 {% highlight python %}
 
 def lu(self):
-    P, E, self, U, _, _ = self.elimination()
+    A = copy.deepcopy(self)
+    P, E, A, U, _, _ = A.elimination()
     E = P.multiply(E)
     L = E.inverse()
     L = P.multiply(L)
-    return self, P, L, U
+    return A, P, L, U
 
 {% endhighlight %}
 
