@@ -36,11 +36,11 @@ $$
 b(I - P)
 $$
 
-<p>So to project one column of $A$ onto the nullspace of another column of $A$,
-we use the projection matrix $I - P$. We start by projecting the 2nd column
-onto the nullspace of the 1st. This new vector is orthogonal, which is what we
-want. We do the same with the rest of the columns, so that now the 1st column
-is orthogonal to every other column.</p>
+<p>So to project onto the nullspace of another column of $A$, we use the
+projection matrix $I - P$. We start by projecting the 2nd column onto the
+nullspace of the 1st. This new vector is orthogonal, which is what we want. We
+do the same with the rest of the columns, so that now the 1st column is
+orthogonal to every other column.</p>
 
 <p>Next we repeat the procedure with our partially orthogonalised matrix,
 aiming to make the 3rd, 4th... nth columns orthogonal to the <i>2nd column</i>
