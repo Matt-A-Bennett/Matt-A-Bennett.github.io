@@ -42,7 +42,7 @@ will attempt to realise in my library.</p>
 - [Inverse](./inverse.md)
 - [A = LU](./lu_factorisation.md)
 - [Projection and regression](./projection_and_regression.md)
-- A = QR
+- [A = QR](./qr_factorisation.md)
 - Eigenvalues and Eigenvectors
 
 [back to home](../index.md)
