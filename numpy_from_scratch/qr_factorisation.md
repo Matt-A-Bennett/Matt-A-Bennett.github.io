@@ -55,13 +55,11 @@ to provide the combining weights. Since $A = QR$, we can recover $R = Q^TA$
 (since $Q^{-1} = Q^T$) at the end of the Gram-Schmidt procedure.</p>
 </div>
 
-## Code implementation
-<div style="text-align: justify">
-<p>We already have the method to give us a projection matrix. So here we take
-$I - P$ as our projection matrix. After transposing $A$ (to make accessing the
-columns easier) we loop over each columns and make the others orthogonal. Then
-we move onto the next column and repeat:</p>
-</div>
+## Code implementation <div style="text-align: justify"> <p>We already have the
+method to give us a projection matrix. So here we take $I - P$ as our
+projection matrix. After transposing $A$ (to make accessing the columns easier)
+we loop over each column and make the others columns orthogonal. Then we move
+onto the next column and repeat:</p> </div>
 
 {% highlight python %}
 
@@ -70,7 +68,7 @@ def qr(self):
 
     if A.is_singular():
         print('Matrix is singular!')
-        return None
+        return A, None, None
 
     A = A.transpose()
     Q = copy.deepcopy(A)
@@ -110,7 +108,7 @@ dividing by it's current length:</p>
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>The last step is transpose $A$ back to how it was originally, and to
+<p>The last step is to transpose $A$ back to how it was originally, and to
 generate $R$ by multiplying $Q^TA$. Note that because we worked from $A^T$ from
 the beginning, our $Q$ is already transposed, so we just multiply this with $A$
 and then transpose $Q$ before returning:</p>
