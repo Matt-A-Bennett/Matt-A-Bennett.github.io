@@ -49,10 +49,10 @@ onwards until every column is orthogonal to every other.</p>
 
 <p>The matrix that reassembles $A$ from $Q$ is upper triangular and denoted
 $R$. The reason for $R$ being upper triangular is that the more rightward
-columns of $A$ have undergone more projections and so are represented by a
-combination of more columns of $Q$ and so need more non-zero rows of $R$ to
-provide the combining weights. Since $A = QR$, we can recover $R = Q^TA$ (since
-$Q^{-1} = Q^T$ at the end of the Gram-Schmidt procedure.</p>
+columns of $A$ have undergone more projections. This means they are represented
+by a combination of more columns of $Q$ and so need more non-zero rows of $R$
+to provide the combining weights. Since $A = QR$, we can recover $R = Q^TA$
+(since $Q^{-1} = Q^T$ at the end of the Gram-Schmidt procedure.</p>
 </div>
 
 ## Code implementation
