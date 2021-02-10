@@ -46,7 +46,7 @@ def dot(self, new_mat):
 
 {% endhighlight %}
 
-## Demo
+### Demo
 
 <div style="text-align: justify">
 <p>We create two vectors, call the dot method and print the result:</p>
@@ -76,8 +76,10 @@ Outputs:
 ## Length
 <div style="text-align: justify">
 <p>The length of a vector $u$ is defined as the square root of the dot product
-of the vector with itself: \(\sqrt{u \cdot u}\):</p>
+of the vector with itself: \(\sqrt{u \cdot u}\).</p>
 </div>
+
+### Code implementation
 
 {% highlight python %}
 
@@ -89,7 +91,7 @@ def length(self):
 
 {% endhighlight %}
 
-## Demo
+### Demo
 <div style="text-align: justify">
 <p>We create a matrix, call the length method and print the result:</p>
 </div>
@@ -119,7 +121,7 @@ Outputs:
 products between the rows of one matrix and the columns of another. For
 example, the (2,3) entry of a matrix $C$ produced through the multiplication of
 two other matrices $A$ and $B$, would be the dot product of the 2nd row of $A$
-with the 3rd row of $B$:</p>
+with the 3rd row of $B$</p>
 </div>
 
 $$
@@ -169,7 +171,7 @@ def multiply(self, new_mat):
 
 {% endhighlight %}
 
-## Demo
+### Demo
 
 <div style="text-align: justify">
 <p>We create two matrices, call the multiply method and print the result:</p>
