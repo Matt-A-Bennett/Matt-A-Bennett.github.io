@@ -16,7 +16,7 @@ $A$.</p>
 
 <p>Projecting onto $N(A^T)$, will yield a vector that we called the 'error' in
 the last post. It was the difference between an initial vector $b$ and the
-projection (\(A\hat x\)), encoded in the projection matrix $P$) onto $C(A)$:
+projection (\(A\hat x\)), encoded in the projection matrix $P$ onto $C(A)$:
 </p>
 </div>
 
