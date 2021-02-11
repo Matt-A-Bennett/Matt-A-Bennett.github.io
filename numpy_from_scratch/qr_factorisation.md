@@ -36,6 +36,7 @@ $$
 b(I - P)
 $$
 
+<div style="text-align: justify">
 <p>So to project onto the nullspace, we use the projection matrix $I - P$. We
 start by projecting the 2nd column onto the nullspace of the 1st. This new
 vector is orthogonal to the 1st, which is what we want. We do the same with the
@@ -55,11 +56,13 @@ to provide the combining weights. Since $A = QR$, we can recover $R = Q^TA$
 (since $Q^{-1} = Q^T$) at the end of the Gram-Schmidt procedure.</p>
 </div>
 
-## Code implementation <div style="text-align: justify"> <p>We already have the
+## Code implementation 
+<div style="text-align: justify"> <p>We already have the
 method to give us a projection matrix. So here we take $I - P$ as our
 projection matrix. After transposing $A$ (to make accessing the columns easier)
 we loop over each column and make the others columns orthogonal. Then we move
-onto the next column and repeat:</p> </div>
+onto the next column and repeat:</p> 
+</div>
 
 {% highlight python %}
 
