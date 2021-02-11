@@ -145,7 +145,7 @@ A, Q, R = A.qr()
 print_mat(Q, 2)
 print_mat(R, 2)
 print_mat(A, 13)
-print_mat(A, 16)
+print_mat(A, 20)
 
 {% endhighlight %}
 
