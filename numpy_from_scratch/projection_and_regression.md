@@ -15,9 +15,9 @@ minimise this 'model error' when we fit.</p>
 
 <p>Since we can't find an $x$ that satisfies $Ax = b$, we look for a 'best $x$'
 that comes close: \(\hat x\). The $b$ doesn't fall into the column space of $A$
-(henceforth $C(A)$) so we project $b$ to the closest point in that space. This
-implies that the 'error' is the shortest vector $e$ needed to 'bridge the gap'
-from $b$ to $C(A)$:</p>
+(henceforth $C(A)$) whereas \(A\hat x\) does, so we project $b$ to the closest
+point in $C(A)$. This implies that the 'error' is the shortest vector $e$
+needed to 'bridge the gap' from $b$ to $C(A)$:</p>
 </div>
 
 $$
