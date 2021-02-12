@@ -136,7 +136,7 @@ def linfit(self):
 ## Demo
 <div style="text-align: justify">
 <p>Below, we define a helper function and try this method out on a small
-sample. We fit a straight line, and 2nd degree polynomial, and a 7th degree
+sample. We fit a straight line, a 2nd degree polynomial, and a 7th degree
 polynomial:</p>
 </div>
 
