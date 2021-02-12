@@ -298,9 +298,6 @@ class Mat:
         Projection = A.multiply(for_x)
         return Projection, for_x
 
-    def linfit(self):
-        return self.polyfit()
-
     def polyfit(self, order=1):
         b = copy.deepcopy(self)
         # create a model
@@ -310,10 +307,13 @@ class Mat:
             for exponent in range(order+1):
                 orders.append(i**exponent)
             A.data[i] = orders
-        # project A onto model with least squares
+        # fit model to b
         _, for_x = A.projection()
         fit = for_x.multiply(b)
         return fit
+
+    def linfit(self):
+        return self.polyfit()
 
     def qr(self):
             A = copy.deepcopy(self)

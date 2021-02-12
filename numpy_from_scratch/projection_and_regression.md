@@ -114,7 +114,7 @@ def polyfit(self, order=1):
         for exponent in range(order+1):
             orders.append(i**exponent)
         A.data[i] = orders
-    # project A onto model with least squares
+    # fit model to b
     _, for_x = A.projection()
     fit = for_x.multiply(b)
     return fit
