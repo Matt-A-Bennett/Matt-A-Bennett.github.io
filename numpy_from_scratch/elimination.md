@@ -29,7 +29,7 @@ $$
 <div style="text-align: justify">
 <p>In linear algebra, the procedure of elimination can be carried out by
 multiplying a matrix $A$ of coefficients with an elimination matrix $E$. The
-result of is an upper triangular matrix $U$.</p>
+result is an upper triangular matrix $U$.</p>
 </div>
 
 The initial problem looks like:
