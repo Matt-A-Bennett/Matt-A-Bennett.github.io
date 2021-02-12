@@ -122,7 +122,7 @@ def polyfit(self, order=1):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>The we define a method to do fit a straight line. This is the default of the
+<p>The we define a method to fit a straight line. This is the default of the
 polyfit method, but fitting a straight line is so common that it's nice to have
 a more descriptive method to call:</p>
 </div>
