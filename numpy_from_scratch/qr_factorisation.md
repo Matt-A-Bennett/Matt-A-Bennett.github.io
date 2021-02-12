@@ -78,18 +78,13 @@ def qr(self):
     I = eye(size(A))
     # projection orthogonal to column
     for col in range(size(Q)[0]-1):
-        Col = copy.deepcopy(Q.data[col])
-        Col = Mat([Col])
-        Col = Col.transpose()
-        P, _ = Col.projection()
+        Col = copy.deepcopy(Mat([Q.data[col]]))
+        P, _ = Col.transpose().projection()
         P = I.subtract(P)
         # project and put into matrix Q
         for col2 in range(col+1, size(Q)[0]):
-            Col = copy.deepcopy(Q.data[col2])
-            Col = Mat([Col])
-            Col = Col.transpose()
-            q = P.multiply(Col)
-            q = q.transpose()
+            Col = copy.deepcopy(Mat([Q.data[col2]]))
+            q = P.multiply(Col.transpose()).transpose()
             Q.data[col2] = q.data[0]
 
 {% endhighlight %}
@@ -104,7 +99,6 @@ dividing by it's current length:</p>
 # normalise to unit length
 for x, q in enumerate(Q.data):
     q = Mat([q])
-    qn = q.length()
     q = q.norm()
     Q.data[x] = q.data[0]
 

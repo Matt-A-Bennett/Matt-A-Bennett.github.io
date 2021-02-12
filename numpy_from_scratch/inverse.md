@@ -127,10 +127,8 @@ for i, j in enumerate(reversed(range(size[1]))):
     antiI.data[i][j] = 1
 
 # multiply U and ~inv on both sides by anti-diag I
-fU = antiI.multiply(tmp_fU)
-fU = fU.multiply(antiI)
-f_tmp_inv = antiI.multiply(tmp_inv)
-f_tmp_inv = f_tmp_inv.multiply(antiI)
+fU = antiI.multiply(tmp_fU).multiply(antiI)
+f_tmp_inv = antiI.multiply(tmp_inv).multiply(antiI)
 
 {% endhighlight %}
 

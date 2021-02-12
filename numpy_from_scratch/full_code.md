@@ -102,14 +102,12 @@ class Mat:
 
     def length(self):
         A = copy.deepcopy(self)
-        dotted = A.dot(A)
-        v_length = sqrt(dotted)
+        v_length = sqrt(A.dot(A))
         return v_length
 
     def norm(self):
         A = copy.deepcopy(self)
-        A_len = A.length()
-        A_norm = A.scale(1/A_len)
+        A_norm = A.scale(1/A.length())
         return A_norm
 
     def multiply(self, new_mat):
@@ -122,10 +120,8 @@ class Mat:
         for row_idx, row in enumerate(A.data):
             tmp_row = Mat([row])
             for col_idx, col in enumerate(B.data):
-                tmp_col = Mat([col])
-                tmp_dot = tmp_row.dot(tmp_col)
                 # enter the dot product into our final matrix
-                multiplied.data[row_idx][col_idx] = tmp_dot
+                multiplied.data[row_idx][col_idx] = tmp_row.dot(Mat([col]))
         return multiplied
 
     def diag(self):
@@ -179,9 +175,8 @@ class Mat:
                     singular = 1
                     # undo the row exchanges that failed
                     row_exchange_count -= 1
-                    nextP = nextP.transpose()
-                    U = nextP.multiply(U)
-                    P = nextP.multiply(P)
+                    U = nextP.transpose().multiply(U)
+                    P = nextP.transpose().multiply(P)
                     # move on to the next column
                     break
 
@@ -219,8 +214,7 @@ class Mat:
 
     def rank(self):
         A = copy.deepcopy(self)
-        pivot_info = A.pivots()
-        return len(pivot_info)
+        return len(A.pivots())
 
     def is_singular(self):
         A = copy.deepcopy(self)
@@ -266,10 +260,8 @@ class Mat:
             antiI.data[i][j] = 1
 
         # multiply U and ~inv on both sides by anti-diag I
-        fU = antiI.multiply(tmp_fU)
-        fU = fU.multiply(antiI)
-        f_tmp_inv = antiI.multiply(tmp_inv)
-        f_tmp_inv = f_tmp_inv.multiply(antiI)
+        fU = antiI.multiply(tmp_fU).multiply(antiI)
+        f_tmp_inv = antiI.multiply(tmp_inv).multiply(antiI)
 
         # put fU back into [fU  f~inv]
         augmented = cat(fU, f_tmp_inv)
@@ -302,19 +294,13 @@ class Mat:
     def projection(self):
         # P = A((A'A)^-1)A'
         A = copy.deepcopy(self)
-        At = A.transpose()
-        AtA = At.multiply(A)
-        AtAinv = AtA.inverse()
-        AtAinvAt = AtAinv.multiply(At)
-        for_x = copy.deepcopy(AtAinvAt)
-        Projection = A.multiply(AtAinvAt)
+        AtAinv = (A.transpose().multiply(A)).inverse()
+        for_x = AtAinv.multiply(A.transpose())
+        Projection = A.multiply(for_x)
         return Projection, for_x
 
     def linfit(self):
-        b = copy.deepcopy(self)
-        # create a model
-        fit = b.polyfit()
-        return fit
+        return self.polyfit()
 
     def polyfit(self, order=1):
         b = copy.deepcopy(self)
@@ -331,44 +317,38 @@ class Mat:
         return fit
 
     def qr(self):
-        A = copy.deepcopy(self)
+            A = copy.deepcopy(self)
 
-        if A.is_singular():
-            print('Matrix is singular!')
-            return A, None, None
+            if A.is_singular():
+                print('Matrix is singular!')
+                return A, None, None
 
-        A = A.transpose()
-        Q = copy.deepcopy(A)
-        I = eye(size(A))
-        # projection orthogonal to column
-        for col in range(size(Q)[0]-1):
-            Col = copy.deepcopy(Q.data[col])
-            Col = Mat([Col])
-            Col = Col.transpose()
-            P, _ = Col.projection()
-            P = I.subtract(P)
-            # project and put into matrix Q
-            for col2 in range(col+1, size(Q)[0]):
-                Col = copy.deepcopy(Q.data[col2])
-                Col = Mat([Col])
-                Col = Col.transpose()
-                q = P.multiply(Col)
-                q = q.transpose()
-                Q.data[col2] = q.data[0]
+            A = A.transpose()
+            Q = copy.deepcopy(A)
+            I = eye(size(A))
+            # projection orthogonal to column
+            for col in range(size(Q)[0]-1):
+                Col = copy.deepcopy(Mat([Q.data[col]]))
+                P, _ = Col.transpose().projection()
+                P = I.subtract(P)
+                # project and put into matrix Q
+                for col2 in range(col+1, size(Q)[0]):
+                    Col = copy.deepcopy(Mat([Q.data[col2]]))
+                    q = P.multiply(Col.transpose()).transpose()
+                    Q.data[col2] = q.data[0]
 
-            # normalise to unit length
-            for x, q in enumerate(Q.data):
-                q = Mat([q])
-                qn = q.length()
-                q = q.norm()
-                Q.data[x] = q.data[0]
+                # normalise to unit length
+                for x, q in enumerate(Q.data):
+                    q = Mat([q])
+                    q = q.norm()
+                    Q.data[x] = q.data[0]
 
-        A = A.transpose()
-        R = Q.multiply(A)
-        Q = Q.transpose()
-        A = Q.multiply(R)
+            A = A.transpose()
+            R = Q.multiply(A)
+            Q = Q.transpose()
+            A = Q.multiply(R)
 
-        return A, Q, R
+            return A, Q, R
 
     def eig(self, epsilon = 0.0001):
         A = copy.deepcopy(self)

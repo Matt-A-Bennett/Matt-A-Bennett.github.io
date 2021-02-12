@@ -87,12 +87,9 @@ and the matrix that multiplies $b$ to give \(\hat x\):</p>
 def projection(self):
     # P = A((A'A)^-1)A'
     A = copy.deepcopy(self)
-    At = A.transpose()
-    AtA = At.multiply(A)
-    AtAinv = AtA.inverse()
-    AtAinvAt = AtAinv.multiply(At)
-    for_x = copy.deepcopy(AtAinvAt)
-    Projection = A.multiply(AtAinvAt)
+    AtAinv = (A.transpose().multiply(A)).inverse()
+    for_x = AtAinv.multiply(A.transpose())
+    Projection = A.multiply(for_x)
     return Projection, for_x
 
 {% endhighlight %}
@@ -132,10 +129,7 @@ a more descriptive method to call:</p>
 {% highlight python %}
 
 def linfit(self):
-    b = copy.deepcopy(self)
-    # create a model
-    fit = b.polyfit()
-    return fit
+    return self.polyfit()
 
 {% endhighlight %}
 

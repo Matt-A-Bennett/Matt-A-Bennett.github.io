@@ -85,8 +85,7 @@ of the vector with itself: \(\sqrt{u \cdot u}\).</p>
 
 def length(self):
     A = copy.deepcopy(self)
-    dotted = A.dot(A)
-    v_length = sqrt(dotted)
+    v_length = sqrt(A.dot(A))
     return v_length
 
 {% endhighlight %}
@@ -117,7 +116,7 @@ Outputs:
 
 ## Norm
 <div style="text-align: justify">
-<p></p>
+<p>To normalise a vector we just divide by the length:</p>
 </div>
 
 ### Code implementation
@@ -126,8 +125,7 @@ Outputs:
 
 def norm(self):
     A = copy.deepcopy(self)
-    A_len = A.length()
-    A_norm = A.scale(1/A_len)
+    A_norm = A.scale(1/A.length())
     return A_norm
 
 {% endhighlight %}
@@ -212,10 +210,8 @@ def multiply(self, new_mat):
     for row_idx, row in enumerate(A.data):
         tmp_row = Mat([row])
         for col_idx, col in enumerate(B.data):
-            tmp_col = Mat([col])
-            tmp_dot = tmp_row.dot(tmp_col)
             # enter the dot product into our final matrix
-            multiplied.data[row_idx][col_idx] = tmp_dot
+            multiplied.data[row_idx][col_idx] = tmp_row.dot(Mat([col]))
     return multiplied
 
 {% endhighlight %}

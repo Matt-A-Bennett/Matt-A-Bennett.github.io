@@ -68,8 +68,7 @@ pivots:</p>
 
 def rank(self):
     A = copy.deepcopy(self)
-    pivot_info = A.pivots()
-    return len(pivot_info)
+    return len(A.pivots())
 
 {% endhighlight %}
 
