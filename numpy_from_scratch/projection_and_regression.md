@@ -145,7 +145,7 @@ polynomial:</p>
 # regression
 def quick_plot(b, orders=[1]):
     fig = plt.figure()
-    Xs = [i for i in range(len(b.data[0]))]
+    Xs = [i/10 for i in range(len(b.data[0])*10)]
     for idx, order in enumerate(orders):
         fit = b.transpose().polyfit(order=order)
         Ys = []
@@ -156,8 +156,8 @@ def quick_plot(b, orders=[1]):
             Ys.append(y)
 
         ax = plt.subplot(1,len(orders),idx+1)
+        d = ax.plot(Xs[0::10], b.data[0], '.k')
         f = ax.plot(Xs, Ys, '-r')
-        d = ax.plot(Xs, b.data[0], '.k')
         ax.set_ylim([0, max(b.data[0])+1])
     return fig
 
