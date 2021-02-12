@@ -153,9 +153,7 @@ def quick_plot(b, orders=[1]):
     fig = plt.figure()
     Xs = [i for i in range(len(b.data[0]))]
     for idx, order in enumerate(orders):
-        b = b.transpose()
-        fit = b.polyfit(order=order)
-        b = b.transpose()
+        fit = b.transpose().polyfit(order=order)
         Ys = []
         for x in Xs:
             y = 0
