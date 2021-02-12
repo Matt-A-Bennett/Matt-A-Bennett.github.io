@@ -185,8 +185,7 @@ def lu(self):
     A = copy.deepcopy(self)
     P, E, A, U, _, _ = A.elimination()
     E = P.multiply(E)
-    L = E.inverse()
-    L = P.multiply(L)
+    L = P.multiply(E.inverse())
     return A, P, L, U
 
 {% endhighlight %}
