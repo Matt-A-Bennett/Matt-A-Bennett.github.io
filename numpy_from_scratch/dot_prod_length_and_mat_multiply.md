@@ -33,9 +33,9 @@ def dot(self, new_mat):
     A = copy.deepcopy(self)
     B = copy.deepcopy(new_mat)
     # make both vectors rows with transpose
-    if len(A.data) != 1:
+    if size(A)[0] != 1:
         A = A.transpose()
-    if len(B.data) != 1:
+    if size(B)[0] != 1:
         B = B.transpose()
     # compute dot product
     dot_prod = []
@@ -93,7 +93,7 @@ def length(self):
 
 ### Demo
 <div style="text-align: justify">
-<p>We create a matrix, call the length method and print the result:</p>
+<p>We create a vector, call the length method and print the result:</p>
 </div>
 
 {% highlight python %}
@@ -112,6 +112,55 @@ Outputs:
 
 >>> print(u_length)
 11
+
+{% endhighlight %}
+
+## Norm
+<div style="text-align: justify">
+<p></p>
+</div>
+
+### Code implementation
+
+{% highlight python %}
+
+def norm(self):
+    A = copy.deepcopy(self)
+    A_len = A.length()
+    A_norm = A.scale(1/A_len)
+    return A_norm
+
+{% endhighlight %}
+
+### Demo
+<div style="text-align: justify">
+<p>We create a vector, call the norm method and print the result. We also
+confirm that the length of the normalised vector is 1 (ignoring rounding errors
+after 15 decimal places):</p>
+</div>
+
+{% highlight python %}
+
+u = Mat([[1, 0, 1]])
+
+u_normalised = u.norm()
+
+print_mat(u_normalised)
+
+print(round(u_normalised.length(),15))
+
+{% endhighlight %}
+
+Outputs:
+
+{% highlight shell %}
+
+>>> print(u_length)
+>>> print_mat(u_normalised)
+[0.7071067811865475, 0.0, 0.7071067811865475]
+
+>>> print(round(u_normalised.length(),15))
+1.0
 
 {% endhighlight %}
 
@@ -157,7 +206,7 @@ def multiply(self, new_mat):
     A = copy.deepcopy(self)
     B = copy.deepcopy(new_mat)
     # preallocate empty matrix
-    multiplied = gen_mat([len(A.data), len(B.data[0])])
+    multiplied = gen_mat([size(A)[0], size(B)[1]])
     # transpose one matrix, take a bunch of dot products
     B = B.transpose()
     for row_idx, row in enumerate(A.data):

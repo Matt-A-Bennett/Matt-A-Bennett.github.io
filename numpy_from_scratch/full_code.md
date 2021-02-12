@@ -35,6 +35,10 @@ def print_mat(self, round_dp=99):
         print(rounded)
     print()
 
+def size(self):
+    A = copy.deepcopy(self)
+    return [len(A.data), len(A.data[0])]
+
 class Mat:
     def __init__(self, data):
         self.data = data
@@ -85,9 +89,9 @@ class Mat:
         A = copy.deepcopy(self)
         B = copy.deepcopy(new_mat)
         # make both vectors rows with transpose
-        if len(A.data) != 1:
+        if size(A)[0] != 1:
             A = A.transpose()
-        if len(B.data) != 1:
+        if size(B)[0] != 1:
             B = B.transpose()
         # compute dot product
         dot_prod = []
@@ -102,11 +106,17 @@ class Mat:
         v_length = sqrt(dotted)
         return v_length
 
+    def norm(self):
+        A = copy.deepcopy(self)
+        A_len = A.length()
+        A_norm = A.scale(1/A_len)
+        return A_norm
+
     def multiply(self, new_mat):
         A = copy.deepcopy(self)
         B = copy.deepcopy(new_mat)
         # preallocate empty matrix
-        multiplied = gen_mat([len(A.data), len(B.data[0])])
+        multiplied = gen_mat([size(A)[0], size(B)[1]])
         # transpose one matrix, take a bunch of dot products
         B = B.transpose()
         for row_idx, row in enumerate(A.data):
@@ -121,7 +131,7 @@ class Mat:
     def diag(self):
         A = copy.deepcopy(self)
         diag_vals = []
-        for i in range(min(len(A.data), len(A.data[0]))):
+        for i in range(min(size(A))):
             diag_vals.append(A.data[i][i])
         return diag_vals
 
@@ -133,18 +143,18 @@ class Mat:
         singular = 0
 
         # create identity matrix which we'll turn into an E matrix
-        tmpE = eye([len(A.data),len(A.data[0])])
+        tmpE = eye([size(A)[0], size(A)[1]])
 
         # create a permutation matrix for row exchanges
-        tmpP = eye([len(A.data),len(A.data)])
+        tmpP = eye(size(A))
 
         E = copy.deepcopy(tmpE)
         P = copy.deepcopy(tmpP)
         U = copy.deepcopy(A)
         pivot_count = 0
         row_exchange_count = 0
-        for row_idx in range(len(U.data)-1):
-            for sub_row in range(row_idx+1, len(U.data)):
+        for row_idx in range(size(U)[0]-1):
+            for sub_row in range(row_idx+1, size(U)[0]):
                 # create elimination mat
                 nextE = copy.deepcopy(tmpE)
                 nextP = copy.deepcopy(tmpP)
@@ -187,7 +197,7 @@ class Mat:
 
         # If A was a 1x1 matrix, the above loops didn't happen. Take the
         # reciprocal of the number:
-        if len(U.data) == 1 and len(U.data[0]) == 2:
+        if size(U)[0] == 1 and size(U)[1] == 2:
             if U.data[0][0] != 0:
                 U.data[0] = [1/U.data[0][0], 1]
             row_idx = -1
@@ -233,10 +243,10 @@ class Mat:
 
     def inverse(self):
         A = copy.deepcopy(self)
-        size = [len(A.data), len(A.data[0])]
+        mat_size = size(A)
 
         # create [A I]
-        I = eye(size)
+        I = eye(mat_size)
         augmented = cat(A, I)
 
         # perform elimination to get to [U ~inv]
@@ -247,12 +257,12 @@ class Mat:
             return None
 
         # seperate augmented into U and ~inv
-        tmp_fU = Mat([Urow[0:size[1]] for Urow in U.data])
-        tmp_inv = Mat([Urow[size[1]:] for Urow in U.data])
+        tmp_fU = Mat([Urow[0:mat_size[1]] for Urow in U.data])
+        tmp_inv = Mat([Urow[mat_size[1]:] for Urow in U.data])
 
         # creae anti-diag I
-        antiI = gen_mat(size)
-        for i, j in enumerate(reversed(range(size[1]))):
+        antiI = gen_mat(mat_size)
+        for i, j in enumerate(reversed(range(mat_size[1]))):
             antiI.data[i][j] = 1
 
         # multiply U and ~inv on both sides by anti-diag I
@@ -268,15 +278,15 @@ class Mat:
         _, _, _, U, _, _ = augmented.elimination()
 
         # divide each row by c to get [I A^-1]
-        div = gen_mat(size)
-        for i in range(size[0]):
+        div = gen_mat(mat_size)
+        for i in range(mat_size[0]):
             div.data[i][i] = 1/U.data[i][i]
         inv = div.multiply(U)
 
         # flip back
         inv = antiI.multiply(inv)
-        for i in range(size[1]):
-            inv.data[i] = inv.data[i][size[1]:]
+        for i in range(mat_size[1]):
+            inv.data[i] = inv.data[i][mat_size[1]:]
         inv = inv.multiply(antiI)
 
         return inv
@@ -303,9 +313,18 @@ class Mat:
     def linfit(self):
         b = copy.deepcopy(self)
         # create a model
-        A = gen_mat([len(b.data), 1])
-        for i in range(len(b.data)):
-            A.data[i] = [1, i]
+        fit = b.polyfit()
+        return fit
+
+    def polyfit(self, order=1):
+        b = copy.deepcopy(self)
+        # create a model
+        A = gen_mat([size(b)[0], 1])
+        for i in range(size(b)[0]):
+            orders = []
+            for exponent in range(order+1):
+                orders.append(i**exponent)
+            A.data[i] = orders
         # project A onto model with least squares
         _, for_x = A.projection()
         fit = for_x.multiply(b)
@@ -320,16 +339,16 @@ class Mat:
 
         A = A.transpose()
         Q = copy.deepcopy(A)
-        I = eye([len(A.data),len(A.data[0])])
+        I = eye(size(A))
         # projection orthogonal to column
-        for col in range(len(Q.data)-1):
+        for col in range(size(Q)[0]-1):
             Col = copy.deepcopy(Q.data[col])
             Col = Mat([Col])
             Col = Col.transpose()
             P, _ = Col.projection()
             P = I.subtract(P)
             # project and put into matrix Q
-            for col2 in range(col+1, len(Q.data)):
+            for col2 in range(col+1, size(Q)[0]):
                 Col = copy.deepcopy(Q.data[col2])
                 Col = Mat([Col])
                 Col = Col.transpose()
@@ -337,11 +356,11 @@ class Mat:
                 q = q.transpose()
                 Q.data[col2] = q.data[0]
 
-        # normalise to unit length
+            # normalise to unit length
             for x, q in enumerate(Q.data):
                 q = Mat([q])
                 qn = q.length()
-                q = q.scale(1/qn)
+                q = q.norm()
                 Q.data[x] = q.data[0]
 
         A = A.transpose()
@@ -350,6 +369,27 @@ class Mat:
         A = Q.multiply(R)
 
         return A, Q, R
+
+    def eig(self, epsilon = 0.0001):
+        A = copy.deepcopy(self)
+        old_eigs = [0 for _ in range(size(A)[0])]
+        old_eigs = Mat([old_eigs])
+        for its in range(100):
+            _, Q, R = A.qr()
+            QT = Q.transpose()
+            QTA = QT.multiply(A)
+            QTAQ = QTA.multiply(Q)
+            A = QTAQ
+
+            eigs = Mat([A.diag()])
+            diffs = old_eigs.subtract(eigs)
+            diffs = [abs(i) for i in diffs.data[0]]
+            if sum(diffs) < epsilon:
+                return A.diag()
+            old_eigs = eigs
+        else:
+            print('Did not converge!')
+            return None
 
 {% endhighlight %}
 

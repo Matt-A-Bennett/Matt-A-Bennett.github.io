@@ -98,21 +98,25 @@ def projection(self):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>The second method gives the parameters for a straight line through a set of
-data points in $b$. To do so, we create a matrix $A$ with as many rows as $b$
-and two columns - the 1st column is all ones, and is the basis for the
-intercept. The second incrementally increases and forms the basis for the
-slope:</p>
+<p>The second method gives the parameters for a nth degree polynomial curve
+through a set of data points in $b$. To do so, we create a matrix $A$ with as
+many rows as $b$ and one column per term of the polynomial - the 1st column is
+all ones, and is the basis for the intercept ($x^0 = 1$); The second
+incrementally increases and forms the basis for the slope ($x^1 = x$); The
+third column is for the squared terms ($x^2 = x^2$) and so on:</p>
 </div>
 
 {% highlight python %}
 
-def linfit(self):
+def polyfit(self, order=1):
     b = copy.deepcopy(self)
     # create a model
-    A = gen_mat([len(b.data), 1])
-    for i in range(len(b.data)):
-        A.data[i] = [1, i]
+    A = gen_mat([size(b)[0], 1])
+    for i in range(size(b)[0]):
+        orders = []
+        for exponent in range(order+1):
+            orders.append(i**exponent)
+        A.data[i] = orders
     # project A onto model with least squares
     _, for_x = A.projection()
     fit = for_x.multiply(b)
@@ -120,26 +124,55 @@ def linfit(self):
 
 {% endhighlight %}
 
+<div style="text-align: justify">
+<p>The we define a method to do fit a straight line. This is the default of the
+polyfit method, but fitting a straight line is so common that it's nice to have
+a more descriptive method to call:</p>
+</div>
+{% highlight python %}
+
+def linfit(self):
+    b = copy.deepcopy(self)
+    # create a model
+    fit = b.polyfit()
+    return fit
+
+{% endhighlight %}
+
 ## Demo
 <div style="text-align: justify">
-<p>Below we try this method out on a small sample and plot the line:</p>
-<p></p>
+<p>Below, we define a helper function and try this method out on a small
+sample. We fit a straight line, and 2nd degree polynomial, and a 7th degree
+polynomial:</p>
 </div>
 
 {% highlight python %}
 
+# regression
+def quick_plot(b, orders=[1]):
+    fig = plt.figure()
+    for idx, order in enumerate(orders):
+        b = b.transpose()
+        fit = b.polyfit(order=order)
+        b = b.transpose()
+        Xs = [i for i in range(len(b.data[0]))]
+        Ys = []
+        for x in Xs:
+            y = 0
+            for exponent in range(order+1):
+                y += fit.data[exponent][0]*x**exponent
+            Ys.append(y)
+
+        ax = plt.subplot(1,len(orders),idx+1)
+        f = ax.plot(Xs, Ys, '-r')
+        d = ax.plot(Xs, b.data[0], '.k')
+        ax.set_ylim([0, max(b.data[0])+1])
+    return fig
+
 import matplotlib.pyplot as plt
+b = Mat([[2,1,3,5,1,4,6,3,4,7,7,8,7,6,5,7,8,7,9,7,6,6,9]])
 
-b = Mat([[1,3,3,5,6,3,4,6,7,5,7,8,9]])
-b = b.transpose()
-
-fit = b.linfit()
-
-b = b.transpose()
-Xs = [i for i in range(len(b.data[0]))]
-plt.plot([-1, Xs[-1]+1], [b.data[0][0], b.data[0][-1]], '-r')
-plt.plot(Xs, b.data[0], '.k')
-plt.xlim([min(b.data[0])-2,len(b.data[0])])
+fig = quick_plot(b, orders=[1, 2, 7])
 plt.show()
 
 {% endhighlight %}

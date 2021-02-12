@@ -96,9 +96,10 @@ left and stopping after running out of rows or columns.</p>
 {% highlight python %}
 
 def diag(self):
+    A = copy.deepcopy(self)
     diag_vals = []
-    for i in range(min(len(self.data), len(self.data[0]))):
-        diag_vals.append(self.data[i][i])
+    for i in range(min(size(A))):
+        diag_vals.append(A.data[i][i])
     return diag_vals
 
 {% endhighlight %}

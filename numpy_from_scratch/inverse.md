@@ -89,7 +89,7 @@ zero row, then $A$ is singular and has no inverse:</p>
 
 def inverse(self):
     A = copy.deepcopy(self)
-    size = [len(A.data), len(A.data[0])]
+    mat_size = size(A)
 
     # create [A I]
     I = eye(size)

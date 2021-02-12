@@ -113,10 +113,10 @@ def elimination(self):
     singular = 0
 
     # create identity matrix which we'll turn into an E matrix
-    tmpE = eye([len(A.data),len(A.data[0])])
+    tmpE = eye([size(A)[0], size(A)[1]])
 
     # create a permutation matrix for row exchanges
-    tmpP = eye([len(A.data),len(A.data)])
+    tmpP = eye(size(A))
 
 {% endhighlight %}
 
@@ -137,8 +137,8 @@ P = copy.deepcopy(tmpP)
 U = copy.deepcopy(A)
 pivot_count = 0
 row_exchange_count = 0
-for row_idx in range(len(U.data)-1):
-    for sub_row in range(row_idx+1, len(U.data)):
+for row_idx in range(size(U)[0]-1):
+    for sub_row in range(row_idx+1, size(U)[0]):
         # create elimination mat
         nextE = copy.deepcopy(tmpE)
         nextP = copy.deepcopy(tmpP)
@@ -218,10 +218,12 @@ and if so indicate that with a flag on returning the results:</p>
 
 {% highlight python %}
 
-# Deal with 1x1 matrix by taking the reciprocal of the number if possible:
-if len(U.data) == 1 and len(U.data[0]) == 2:
+# If A was a 1x1 matrix, the above loops didn't happen. Take the
+# reciprocal of the number:
+if size(U)[0] == 1 and size(U)[1] == 2:
     if U.data[0][0] != 0:
         U.data[0] = [1/U.data[0][0], 1]
+    row_idx = -1
 
 # check if the permutation avoided a zero in the pivot position
 elif U.data[row_idx+1][row_idx+1] == 0:

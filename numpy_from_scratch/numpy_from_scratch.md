@@ -34,6 +34,7 @@ will attempt to realise in my library.</p>
 - [Addition/Subtraction](./addition_subtraction.md)
 - [Dot Product](./dot_prod_length_and_mat_multiply.md)
 - [Length](./dot_prod_length_and_mat_multiply.md#length)
+- [Norm](./dot_prod_length_and_mat_multiply.md#norm)
 - [Matrix Multiplication](./dot_prod_length_and_mat_multiply.md#matrix-multiplication)
 
 ### Secondary methods 
