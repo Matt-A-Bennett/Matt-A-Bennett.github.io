@@ -95,7 +95,7 @@ def projection(self):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>The second method gives the parameters for a nth degree polynomial curve
+<p>The second method gives the parameters for an nth degree polynomial curve
 through a set of data points in $b$. To do so, we create a matrix $A$ with as
 many rows as $b$ and one column per term of the polynomial - the 1st column is
 all ones, and is the basis for the intercept ($x^0 = 1$); The second
