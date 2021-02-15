@@ -110,7 +110,7 @@ Outputs:
 {% highlight shell %}
 
 >>> print(u_length)
-11
+3.3166247903554
 
 {% endhighlight %}
 
