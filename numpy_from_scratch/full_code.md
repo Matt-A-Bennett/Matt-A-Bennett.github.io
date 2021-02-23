@@ -2,7 +2,7 @@
 Below is all the code that we have written to date.
 
 <div style="text-align: justify">
-<p>The dependencies above among methods are depicted by a weighted graph:</p>
+<p>The dependencies among the methods are depicted by a weighted graph:</p>
 </div>
 ![Code dependency](./images/dependency.png)
 

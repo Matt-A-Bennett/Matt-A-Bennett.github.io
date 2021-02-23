@@ -47,7 +47,7 @@ will attempt to realise in my library.</p>
 
 ### Dependencies between methods
 <div style="text-align: justify">
-<p>The dependencies above among methods are depicted by a weighted graph:</p>
+<p>The dependencies among the above methods are depicted by a weighted graph:</p>
 </div>
 ![Code dependency](./images/dependency.png)
 
