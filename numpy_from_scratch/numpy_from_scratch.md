@@ -45,10 +45,11 @@ will attempt to realise in my library.</p>
 - [Projection and regression](./projection_and_regression.md)
 - [A = QR](./qr_factorisation.md)
 
+### Dependencies between methods
 <div style="text-align: justify">
 <p>The dependencies above among methods are depicted by a weighted graph:</p>
 </div>
-![Code dependecy](./images/dependency.png)
+![Code dependency](./images/dependency.png)
 
 [back to home](../index.md)
 
