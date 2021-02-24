@@ -147,7 +147,7 @@ class Mat:
         tmpE = eye([size(A)[0], size(A)[1]])
 
         # create a permutation matrix for row exchanges
-        tmpP = eye(size(A))
+        tmpP = eye([size(A)[0], size(A)[0]])
 
         E = copy.deepcopy(tmpE)
         P = copy.deepcopy(tmpP)
