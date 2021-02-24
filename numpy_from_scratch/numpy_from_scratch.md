@@ -39,6 +39,7 @@ will attempt to realise in my library.</p>
 
 ### Secondary methods 
 - [EA = U](./elimination.md)
+- [Back substitution](./backsub.md)
 - [Rank, pivots, singularity, determinant](./rank_piv_sing_det.md)
 - [Inverse](./inverse.md)
 - [A = LU](./lu_factorisation.md)
