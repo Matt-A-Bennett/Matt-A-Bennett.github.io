@@ -5,7 +5,6 @@ equations in matrix form as $Ax = b$:</p>
 </div>
 
 $$
-Ax = b =%
   \begin{bmatrix}
     1 & 2 & 3 \\
     2 & 2 & 6 \\
@@ -57,7 +56,7 @@ $$
 <p>Now we can systematically solve for the components of $x$ with ease.
 Clearly, $x_3$ must be $8/-6 = -1.33$.</p>
 
-<p>Solving for $x_2$ is easy for this example, since there is no $x_3$
+<p>Solving for $x_2$ is easy in this example, since there is no $x_3$
 coefficient, but if there was we could multiply $x_3$ by the coefficient to
 arrive at the equation:</p>
 </div>
@@ -80,7 +79,7 @@ $$
 <p>We then have $-2x_2 = something$ and can solve for $x_2$ easily. In our
 actual case, we have $-2x_2 = -2$ and so clearly $x_2 = 1$.</p>
 
-<p>the last row is more interesting:</p>
+<p>The last row is more interesting:</p>
 </div>
 
 $$
@@ -130,7 +129,7 @@ $$
 
 ## Code implementation
 <div style="text-align: justify">
-<p>First we to run elimination on the augmented matrix $[A | b]$:</p>
+<p>First we run elimination on the augmented matrix $[A | b]$:</p>
 </div>
 
 {% highlight python %}
@@ -144,8 +143,8 @@ def backsub(self, b):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Next we create a row or zeros for comparison purposes later in the code. We
-also initiate a list that will contain the coefficients as they are solved.</p>
+<p>Next we create a row of zeros for comparison purposes later. We also
+initiate a list where we will store the coefficients as they are solved.</p>
 </div>
 
 {% highlight python %}
@@ -156,7 +155,7 @@ coeff = []
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>We loop of the row indices in reverse order. For each step (apart from the
+<p>We loop over the row indices in reverse order. For each step (apart from the
 first), we take the previous coefficient and multiply the corresponding column
 of U, then subtract the result from the current $b$. To do this, we use an
 elimination matrix on the <i>right side</i> of $U$ (to manipulate the columns
@@ -177,9 +176,9 @@ for idx in range(-1, -(size(U)[0]+1), -1):
 <p>With the rearranged row we can attempt to solve for the unknown. There are a
 number of possibilities. If we have a singular matrix, elimination will have
 produced a row of zeros and in this case we can't solve for a non-zero in $b$.
-If $b$ happens to contain a zero at this position, then any coefficient will
-multiply to produce a zero and we have an infinite number of solutions. We
-default to picking a coefficient of $1$ in this case. Otherwise, We solve for
+If $b$ happens to also contain a zero at this position, then any coefficient
+will multiply to produce a zero and we have an infinite number of solutions. We
+default to picking a coefficient of $1$ in this case. Otherwise, we solve for
 the coefficient by dividing the $b$ term with term in the row:</p>
 </div>
 
@@ -199,8 +198,8 @@ else:
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Since we solved for the coefficients in reverse order, we reverse our list,
-and return a column vector of the coefficients:</p>
+<p>Since we solved for the coefficients in reverse order, we reverse our
+coefficient list, and return them as a column vector:</p>
 </div>
 
 {% highlight python %}
@@ -223,7 +222,9 @@ A = la.Mat([[1, 2, 3],
             [2, 2, 6],
             [4, 5, 6]])
 
-b = la.Mat([[0],[-2],[5]])
+b = la.Mat([[0],
+            [-2],
+            [5]])
 
 x = A.backsub(b)
 
