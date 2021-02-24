@@ -16,7 +16,7 @@ $$
 x_1 + 2x_2 + 3x_3 = 0 \\
 2x_1 + 2x_2 + 6x_3 = -2 \\
 4x_1 + 5x_2 + 6x_3 = 5
-$x_1
+$$
 
 can be translated, after elimination, into:
 
