@@ -13,17 +13,17 @@ systematically solve for all the unknowns.</p>
 For example, the equations:
 
 $$
-x + 2y + 3z = 0 \\
-2x + 2y + 6z = -2 \\
-4x + 5y + 6z = 5
-$$
+x_1 + 2x_2 + 3x_3 = 0 \\
+2x_1 + 2x_2 + 6x_3 = -2 \\
+4x_1 + 5x_2 + 6x_3 = 5
+$x_1
 
 can be translated, after elimination, into:
 
 $$
-x + 2y + 3z = 0 \\
-0 - 2y + 0 = -2 \\
-0 + 0 - 6z = 8
+x_1 + 2x_2 + 3x_3 = 0 \\
+0 - 2x_2 + 0 = -2 \\
+0 + 0 - 6x_3 = 8
 $$
 
 <div style="text-align: justify">
@@ -43,9 +43,9 @@ Ax = b =%
   \end{bmatrix}
   %
   \begin{bmatrix}
-    x \\
-    y \\
-    z
+    x_1 \\
+    x_2 \\
+    x_3
   \end{bmatrix}
   %
   =%
@@ -71,12 +71,12 @@ Ux = %
   \end{bmatrix}
   %
   \begin{bmatrix}
-    x \\
-    y \\
-    z
+    x_1 \\
+    x_2 \\
+    x_3
   \end{bmatrix}
   %
-  = E%
+  = %
   \begin{bmatrix}
     0 \\
     -2 \\
@@ -288,7 +288,7 @@ Outputs:
 {% endhighlight %}
 
 [< Dot product, length and matrix multiplication](./dot_prod_length_and_mat_multiply.md)\
-[Rank, pivots, singularity, determinant >](./rank_piv_sing_det.md)
+[Back substitution >](./backsub.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

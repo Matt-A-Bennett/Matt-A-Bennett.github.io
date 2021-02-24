@@ -224,7 +224,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< EA = U](./elimination.md)\
+[< Back substitution](./backsub.md)\
 [Inverse >](./inverse.md)
 
 [back to project main page](./numpy_from_scratch.md)\

@@ -208,6 +208,32 @@ class Mat:
 
         return P, E, A, U, singular, row_exchange_count
 
+    def backsub(self, b):
+        A = copy.deepcopy(self)
+        b = copy.deepcopy(b)
+        augmented = cat(A, b)
+        _, _, _, U, _, _ = augmented.elimination()
+        zero_U_row = gen_mat([1,size(U)[1]-1]).data[0]
+        coeff = []
+        for idx in range(-1, -(size(U)[0]+1), -1):
+            if idx < -1:
+                E = eye([size(U)[0]+1, size(U)[1]])
+                E.data[idx][size(U)[1]-1] = -1*(coeff[-1])
+                U = U.multiply(E)
+            row = U.data[idx]
+            # check solution possibilities
+            if row[:-1] == zero_U_row and row[-1] != 0:
+               print('No solution!')
+               return None
+            elif row[:-1] == zero_U_row and row[-1] == 0:
+               print('Infinite solutions!')
+               coeff.append(1)
+            else:
+                coeff.append(row[-1]/row[idx-1])
+            print(coeff)
+        coeffs = list(reversed(coeff))
+        return Mat([coeffs]).transpose()
+
     def pivots(self):
         A = copy.deepcopy(self)
         # find U
