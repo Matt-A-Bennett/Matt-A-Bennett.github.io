@@ -54,7 +54,7 @@ $$
 
 <div style="text-align: justify">
 <p>Now we can systematically solve for the components of $x$ with ease.
-Clearly, $x_3$ must be $8/-6 = -1.33$.</p>
+Clearly, $x_3$ must be $\frac{8}{-6} = -1.33$.</p>
 
 <p>Solving for $x_2$ is easy in this example, since there is no $x_3$
 coefficient, but if there was we could multiply $x_3$ by the coefficient to
