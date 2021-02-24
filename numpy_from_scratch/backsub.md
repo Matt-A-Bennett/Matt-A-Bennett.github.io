@@ -137,7 +137,7 @@ $$
 def backsub(self, b):
     A = copy.deepcopy(self)
     b = copy.deepcopy(b)
-    augmented = cat(A, b)
+    augmented = cat(A, b, axis=1)
     _, _, _, U, _, _ = augmented.elimination()
 
 {% endhighlight %}

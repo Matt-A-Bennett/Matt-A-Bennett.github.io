@@ -28,9 +28,9 @@ def eye(size):
 
 def cat(A, B, axis=0):
     if axis == 0:
-        concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
-    if axis == 1:
         concatenated = Mat(A.data + B.data)
+    elif axis == 1:
+        concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
     return concatenated
 
 def print_mat(self, round_dp=99):
@@ -211,7 +211,7 @@ class Mat:
     def backsub(self, b):
         A = copy.deepcopy(self)
         b = copy.deepcopy(b)
-        augmented = cat(A, b)
+        augmented = cat(A, b, axis=1)
         _, _, _, U, _, _ = augmented.elimination()
         zero_U_row = gen_mat([1,size(U)[1]-1]).data[0]
         coeff = []
@@ -272,7 +272,7 @@ class Mat:
 
         # create [A I]
         I = eye(mat_size)
-        augmented = cat(A, I)
+        augmented = cat(A, I, axis=1)
 
         # perform elimination to get to [U ~inv]
         _, _, _, U, singular, _ = augmented.elimination()
@@ -295,7 +295,7 @@ class Mat:
         f_tmp_inv = antiI.multiply(tmp_inv).multiply(antiI)
 
         # put fU back into [fU  f~inv]
-        augmented = cat(fU, f_tmp_inv)
+        augmented = cat(fU, f_tmp_inv, axis=1)
 
         # perform elimination again to get to [cI cA^-1]
         _, _, _, U, _, _ = augmented.elimination()

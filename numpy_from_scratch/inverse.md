@@ -93,7 +93,7 @@ def inverse(self):
 
     # create [A I]
     I = eye(size)
-    augmented = cat(A, I)
+    augmented = cat(A, I, axis=1)
 
     # perform elimination to get to [U ~inv]
     _, _, _, U, singular, _ = augmented.elimination()
@@ -140,7 +140,7 @@ matrix on the left half and a full matrix on the right:</p>
 {% highlight python %}
 
 # put fU back into [fU  f~inv]
-augmented = cat(fU, f_tmp_inv)
+augmented = cat(fU, f_tmp_inv, axis=1)
 
 # perform elimination again to get to [cI cA^-1]
 _, _, U, _, _ = augmented.elimination()
