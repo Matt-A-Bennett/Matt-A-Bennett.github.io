@@ -55,7 +55,7 @@ $$
 
 <div style="text-align: justify">
 <p>Now we can systematically solve for the components of $x$ with ease.
-Clearly, x_3 must be $8/-6 = -1.33$.</p>
+Clearly, $x_3$ must be $8/-6 = -1.33$.</p>
 
 <p>Solving for $x_2$ is easy for this example, since there is no $x_3$
 coefficient, but if there was we could multiply $x_3$ by the coefficient to
@@ -77,7 +77,7 @@ $$
 $$
 
 <div style="text-align: justify">
-<p>We then have $-2x_2 = some number$ and can solve for $x_2$ easily. In our
+<p>We then have $-2x_2 = something$ and can solve for $x_2$ easily. In our
 actual case, we have $-2x_2 = -2$ and so clearly $x_2 = 1$.</p>
 
 <p>the last row is more interesting:</p>
@@ -248,7 +248,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< EA = U](./elimination.md)
+[< EA = U](./elimination.md)\
 [Rank, pivots, singularity, determinant >](./rank_piv_sing_det.md)
 
 [back to project main page](./numpy_from_scratch.md)\
