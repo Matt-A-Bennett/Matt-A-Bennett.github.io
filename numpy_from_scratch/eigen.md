@@ -17,44 +17,34 @@ eigenvalue (typically denoted with $\lambda$). Typically we think of the
 eigenvalues and eigenvectors as properties of the matrix $A$. You can also look
 at eigenvalues as the roots of a polynomial, which comes from the determinant.
 We have 2 unknowns to find: $x$ and $\lambda$:</p>
-</div>
 
 $$
 Ax = \lambda x
 $$
 
 <p>The first thing we do is rewrite the equation:</p>
-</div>
 
 $$
 Ax = \lambda Ix
 $$
 
-<div style="text-align: justify">
 <p>Then rearrange:</p>
-</div>
 
 $$
 Ax - \lambda Ix = 0
 $$
 
-<div style="text-align: justify">
 <p>Factoring out the $x$:</p>
-</div>
 
 $$ 
 (A - \lambda I)x = 0
 $$
 
-<div style="text-align: justify">
 <p>This tells us that the matrix $(A - \lambda I)$ is singular, which means its
 determinant is zero.</p>
-</div>
 
 
-<div style="text-align: justify">
 <p>In the 2 by 2 case we have:</p>
-</div>
 
 $$ 
   \begin{bmatrix}
@@ -63,39 +53,30 @@ $$
   \end{bmatrix}
 $$
 
-<div style="text-align: justify">
 <p>The determinant of that matrix is:</p>
-</div>
 
 $$
 (a - \lambda)(d - \lambda) - (bc) = 0
 $$
 
-<div style="text-align: justify">
 <p>Expanding, we see the familiar polynomial form:</p>
-</div>
 
 $$
 \lambda^2 -(a + d)\lambda + (ad - bc) = 0
 $$
 
-<div style="text-align: justify">
 <p>Notice the trace and the determinant appearing in the above equation:</p>
-</div>
 
 $$
 \lambda^2 -(trace)\lambda + (determinant) = 0
 $$
 
-<div style="text-align: justify">
 <p>We refactor that equation:</p>
-</div>
 
 $$
 (\lambda - z_1)(\lambda - z_2) = 0
 $$
  
-<div style="text-align: justify">
 <p>Where $z_1$ and $z_2$ are those numbers which bring about the trace and
 determinant in the previous equation. Whatever $z_1$ and $z_2$ are, they must
 be equal to $\lambda$ and therefore are the eigenvalues of the matrix.</p>
