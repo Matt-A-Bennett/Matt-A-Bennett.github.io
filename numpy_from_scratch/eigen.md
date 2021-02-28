@@ -158,7 +158,7 @@ def eigvalues(self, epsilon = 0.0001, max_its=100):
 ### Demo
 
 <div style="text-align: justify">
-<p>We create a matrix, call the <METHOD> method and print the result:</p>
+<p>We create a matrix, call the eigvalues method and print the result:</p>
 </div>
 
 {% highlight python %}
