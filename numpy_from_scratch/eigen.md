@@ -49,7 +49,7 @@ $$
 $$
 
 <div style="text-align: justify">
-<p>This tells us that the matrix $(A - /lambda I)$ is singular, which means its
+<p>This tells us that the matrix $(A - \lambda I)$ is singular, which means its
 determinant is zero.</p>
 </div>
 
@@ -175,7 +175,7 @@ print_mat(evals,2)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print_mat(evals, 2)
 [-0.61, 9.95, 0.65]
@@ -183,9 +183,6 @@ Outputs:
 {% endhighlight %}
 
 ## Eigenvectors
-<div style="text-align: justify">
-<p>Paragraph</p>
-</div>
 
 ### Code implementation
 
@@ -249,7 +246,7 @@ print_mat(evect.scale(evals.data[0][0]),2)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> print_mat(evals, 2)
 [-0.61, 9.95, 0.65]
