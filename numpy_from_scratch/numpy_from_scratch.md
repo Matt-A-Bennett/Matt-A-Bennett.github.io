@@ -45,7 +45,7 @@ will attempt to realise in my library.</p>
 - [A = LU](./lu_factorisation.md)
 - [Projection and regression](./projection_and_regression.md)
 - [A = QR](./qr_factorisation.md)
-- [Eigenvalues and eigenvectors](./qr_factorisation.md)
+- [Eigenvalues and eigenvectors](./eigen.md)
 
 ### Dependencies between methods
 <div style="text-align: justify">
