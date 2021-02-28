@@ -17,6 +17,7 @@ eigenvalue (typically denoted with $\lambda$). Typically we think of the
 eigenvalues and eigenvectors as properties of the matrix $A$. You can also look
 at eigenvalues as the roots of a polynomial, which comes from the determinant.
 We have 2 unknowns to find: $x$ and $\lambda$:</p>
+</div>
 
 $$
 Ax = \lambda x
