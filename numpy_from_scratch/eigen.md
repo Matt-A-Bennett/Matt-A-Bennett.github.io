@@ -5,7 +5,9 @@
 discover them in the context of the determinant (reviewed below) but this
 method is not practical for size >3 matrices. Therefore, I had to skip ahead to
 quickly implement the algorithms for finding eigenvalues (and the corresponding
-eigenvectors). This means I don't have a deep understanding of how these
+eigenvectors). At present the methods cannot handle complex numbers, and so
+should be used for symmetric and triangular real matrices (since they always
+real eigenvalues). This means I don't have a deep understanding of how these
 algorithms work so I'll postpone the usual description of how the code works
 until later, and instead focus on what I understand theoretically.</p>
 
