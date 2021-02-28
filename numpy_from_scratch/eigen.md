@@ -11,19 +11,16 @@ until later, and instead focus on what I understand theoretically.</p>
 
 <p>Thinking of a matrix $A$ as encoding a linear transformation of a vector
 space, any vector $x$ that points in the same direction after the
-transformation (i.e. after the multiplication $Ax$) as they did before it are
-called eigenvectors. The amount by which their length is changed is called the
+transformation (i.e. after the multiplication $Ax$) as before it are called
+eigenvectors. The amount by which their length is changed is called the
 eigenvalue (typically denoted with $\lambda$). Typically we think of the
-eigenvalues and eigenvectors as properties of the matrix $A$:</p>
-</div>
+eigenvalues and eigenvectors as properties of the matrix $A$. You can also look
+at eigenvalues as the roots of a polynomial, which comes from the determinant.
+We have 2 unknowns to find: $x$ and $\lambda$:</p>
 
 $$
 Ax = \lambda x
 $$
-
-<div style="text-align: justify">
-<p>You can also look at eigenvalues as the roots of a polynomial, which comes
-from the determinant. We have 2 unknowns to find: $x$ and $\lambda$.</p>
 
 <p>The first thing we do is rewrite the equation:</p>
 </div>
@@ -222,7 +219,7 @@ def eig(self, epsilon=0.0001, max_its=100):
 
 <div style="text-align: justify">
 <p>We create a matrix, call the eig method and print the results. Then we check
-that an eigenvector multiplied by $A$ gives the same results as the eigenvector
+that an eigenvector multiplied by $A$ gives the same result as the eigenvector
 scaled by the eigenvalue:</p>
 </div>
 
