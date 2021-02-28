@@ -2,7 +2,6 @@
 <div style="text-align: justify">
 <p>Picking up from the last post on elimination, we represented a system of
 equations in matrix form as $Ax = b$:</p>
-</div>
 
 $$
   \begin{bmatrix}
@@ -25,11 +24,9 @@ $$
   \end{bmatrix}
 $$
 
-<div style="text-align: justify">
 <p>We converted this to an equivalent system of equations $Ux = \hat b$ (Note
 that the same elimination steps applied to $A$ are also applied to the rows of
 $b$):</p>
-</div>
 
 $$
   \begin{bmatrix}
@@ -52,59 +49,47 @@ $$
   \end{bmatrix}
 $$
 
-<div style="text-align: justify">
 <p>Now we can systematically solve for the components of $x$ with ease.
 Clearly, $x_3$ must be $\frac{8}{-6} = -1.33$.</p>
 
 <p>Solving for $x_2$ is easy in this example, since there is no $x_3$
 coefficient, but if there was we could multiply $x_3$ by the coefficient to
 arrive at the equation:</p>
-</div>
 
 $$
 0 - 2x_2 + (z \times -1.33) = -2
 $$
 
-<div style="text-align: justify">
 <p>Where $z$ stands for some non-zero coefficient.</p>
 
 <p>Rearranging:</p>
-</div>
 
 $$
 0 - 2x_2 = -2 - (z \times -1.33)
 $$
 
-<div style="text-align: justify">
 <p>We then have $-2x_2 = something$ and can solve for $x_2$ easily. In our
 actual case, we have $-2x_2 = -2$ and so clearly $x_2 = 1$.</p>
 
 <p>The last row is more interesting:</p>
-</div>
 
 $$
 x_1 + 2x_2 + 3x_3 = 0
 $$
 
-<div style="text-align: justify">
 <p>Substituting what we know already:</p>
-</div>
 
 $$
 x_1 + 2 - 4 = 0
 $$
 
-<div style="text-align: justify">
 <p>And so:</p>
-</div>
 
 $$
 x_1 = 2
 $$
 
-<div style="text-align: justify">
 <p>We see that our solutions work for the original system of equations:</p>
-</div>
 
 $$
   \begin{bmatrix}
@@ -126,6 +111,8 @@ $$
     5
   \end{bmatrix}
 $$
+
+</div>
 
 ## Code implementation
 <div style="text-align: justify">

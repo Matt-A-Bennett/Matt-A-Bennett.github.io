@@ -8,7 +8,6 @@ unknown. Having found the value of that unknown, we can move to trivially
 solving any equation involving two unknowns provided one of them is the one we
 have previously solved. Continuing this procedure of 'back substitution' will
 systematically solve for all the unknowns.</p>
-</div>
 
 For example, the equations:
 
@@ -26,11 +25,9 @@ x_1 + 2x_2 + 3x_3 = 0 \\
 0 + 0 - 6x_3 = 8
 $$
 
-<div style="text-align: justify">
 <p>In linear algebra, the procedure of elimination can be carried out by
 multiplying a matrix $A$ of coefficients with an elimination matrix $E$. The
 result is an upper triangular matrix $U$.</p>
-</div>
 
 The initial problem looks like:
 
@@ -84,7 +81,6 @@ Ux = %
   \end{bmatrix}
 $$
 
-<div style="text-align: justify">
 <p>In the case that we find a zero sitting in a column above an unknown that we
 want to eliminate, we can exchange the row with the zero with some row below
 that doesn't have a zero in that column.</p>

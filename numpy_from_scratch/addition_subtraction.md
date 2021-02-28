@@ -2,7 +2,6 @@
 <div style="text-align: justify">
 <p>Addition and subtraction is valid between two same-shaped matrices and is
 done element-wise:</p>
-</div>
 
 $$
 A + B =%
@@ -21,6 +20,8 @@ A + B =%
     4 & 8 & 7
   \end{bmatrix}
 $$
+
+</div>
    
 ## Code implementation
 <div style="text-align: justify">

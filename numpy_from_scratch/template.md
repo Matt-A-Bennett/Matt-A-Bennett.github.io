@@ -12,7 +12,7 @@ print('some python code')
 ## Demo
 
 <div style="text-align: justify">
-<p>We create a matrix, call the <METHOD> method and print the result:</p>
+<p>We create a matrix, call the METHOD method and print the result:</p>
 </div>
 
 {% highlight python %}
@@ -28,9 +28,9 @@ A = Mat([[1, 2],
         [3, 4],
         [5, 6]])
 
-<METHODED> = A.<METHOD>()
+METHODED = A.METHOD()
 
-print_mat(<METHOD>)
+print_mat(METHOD)
 
 {% endhighlight %}
 
