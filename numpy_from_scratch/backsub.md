@@ -143,27 +143,17 @@ def backsub(self, b):
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>Next we create a row of zeros for comparison purposes later. We also
-initiate a list where we will store the coefficients as they are solved.</p>
+<p>Next we initiate a list where we will store the coefficients as they are
+solved. We loop over the row indices in reverse order. For each step (apart
+from the first), we take the previous coefficient and multiply the
+corresponding column of U, then subtract the result from the current $b$. To do
+this, we use an elimination matrix on the <i>right side</i> of $U$ (to
+manipulate the columns rather than the rows):</p>
 </div>
 
 {% highlight python %}
 
-zero_U_row = gen_mat([1,size(U)[1]-1]).data[0]
 coeff = []
-
-{% endhighlight %}
-
-<div style="text-align: justify">
-<p>We loop over the row indices in reverse order. For each step (apart from the
-first), we take the previous coefficient and multiply the corresponding column
-of U, then subtract the result from the current $b$. To do this, we use an
-elimination matrix on the <i>right side</i> of $U$ (to manipulate the columns
-rather than the rows):</p>
-</div>
-
-{% highlight python %}
-
 for idx in range(-1, -(size(U)[0]+1), -1):
     if idx < -1:
         E = eye([size(U)[0]+1, size(U)[1]])
@@ -186,10 +176,10 @@ the coefficient by dividing the $b$ term with term in the row:</p>
 
 row = U.data[idx]
 # check solution possibilities
-if row[:-1] == zero_U_row and row[-1] != 0:
+if row[idx-1] == 0 and row[-1] != 0:
    print('No solution!')
    return None
-elif row[:-1] == zero_U_row and row[-1] == 0:
+elif row[idx-1] == 0 and row[-1] == 0:
    print('Infinite solutions!')
    coeff.append(1)
 else:

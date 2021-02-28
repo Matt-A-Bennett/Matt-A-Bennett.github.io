@@ -11,8 +11,7 @@ elimination!</p>
 
 <p>Thus, it is useful to be able to express a matrix $A$ in terms of $QR$. We
 do that by 'orthogonalising' the columns of $A$. The 'Gram-Schmidt' procedure
-involves projecting columns of $A$ onto the nullspace of other columns of
-$A$.</p>
+involves projecting columns of $A$ onto the nullspace of columns of $A^T$.</p>
 
 <p>Projecting onto $N(A^T)$, will yield a vector that we called the 'error' in
 the last post. It was the difference between an initial vector $b$ and the
@@ -37,10 +36,10 @@ b(I - P)
 $$
 
 <div style="text-align: justify">
-<p>So to project onto the nullspace, we use the projection matrix $I - P$. We
-start by projecting the 2nd column onto the nullspace of the 1st. This new
-vector is orthogonal to the 1st, which is what we want. We do the same with the
-rest of the columns, so that now the 1st column is orthogonal to every other
+<p>So to project onto $N(A^T)$, we use the projection matrix $I - P$. We start
+by projecting the 2nd column onto $N(A^T)$ of the 1st. This new vector is
+orthogonal to the 1st, which is what we want. We do the same with the rest of
+the columns, so that now the 1st column is orthogonal to every other
 column.</p>
 
 <p>Next we repeat the procedure with our partially orthogonalised matrix,
@@ -170,7 +169,8 @@ Outputs:
 
 {% endhighlight %}
 
-[< Projection and regression](./projection_and_regression.md)
+[< Projection and regression](./projection_and_regression.md)\
+[Eigenvalues and eigenvectors >](./eigen.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
