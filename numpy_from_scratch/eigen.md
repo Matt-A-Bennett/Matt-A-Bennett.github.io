@@ -221,7 +221,9 @@ def eig(self, epsilon=0.0001, max_its=100):
 ### Demo
 
 <div style="text-align: justify">
-<p>We create a matrix, call the <METHOD> method and print the result:</p>
+<p>We create a matrix, call the eig method and print the results. Then we check
+that an eigenvector multiplied by $A$ gives the same results as the eigenvector
+scaled by the eigenvalue:</p>
 </div>
 
 {% highlight python %}
