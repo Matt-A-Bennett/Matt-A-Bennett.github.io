@@ -97,7 +97,7 @@ $$
 (\lambda - z_1)(\lambda - z_2) = 0
 $$
  
-<div style="text-align: justify">
+<div> style="text-align: justify">
 <p>Where $z_1$ and $z_2$ are those numbers which bring about the trace and
 determinant in the previous equation. Whatever $z_1$ and $z_2$ are, they must
 be equal to $\lambda$ and therefore are the eigenvalues of the matrix.</p>
