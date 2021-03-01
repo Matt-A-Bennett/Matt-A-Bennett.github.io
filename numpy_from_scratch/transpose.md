@@ -73,7 +73,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< The Mat(rix) Class and standalone functions](./class_and_standalone_functions.md)\
+[< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_-_tri_diag_sym.md)\
 [Scalar Multiplication >](./scalar_multiplication.md)
 
 [back to project main page](./numpy_from_scratch.md)\

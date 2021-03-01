@@ -25,9 +25,9 @@ will attempt to realise in my library.</p>
 - [Mat(rix) Class](./class_and_standalone_functions_-_class_gen_print.md)
 - [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
 - [Printing matrices](./class_and_standalone_functions_-_class_gen_print.md#printing-matrices)
-- [Is matrix triangular?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-upper-tringular)
-- [Is matrix diagonal?](./class_and_standalone_function_-_tri_diag_syms.md#is-matrix-diagonal)
-- [Is matrix is_symmetric?](./class_and_standalone_function_-_tri_diag_syms.md#is-matrix-symmetric)
+- [Is matrix triangular?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-upper-tringular?)
+- [Is matrix diagonal?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-diagonal?)
+- [Is matrix symmetric?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-symmetric?)
 - [Combining matrices](./class_and_standalone_functions_-_comb_diag.md#combining-matrices)
 - [Get the diagonal of a matrix](./class_and_standalone_functions_-_comb_diag.md#get-the-diagonal-of-a-matrix)
 
