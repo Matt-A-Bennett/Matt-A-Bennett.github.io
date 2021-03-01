@@ -73,7 +73,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_-_tri_diag_sym.md)\
+[< Combining matrices and getting the diagonal](./class_and_standalone_functions_-_comb_diag.md)\
 [Scalar Multiplication >](./scalar_multiplication.md)
 
 [back to project main page](./numpy_from_scratch.md)\
