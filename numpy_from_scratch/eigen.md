@@ -7,16 +7,16 @@ method is not practical for size >3 matrices. Therefore, I had to skip ahead to
 quickly implement the algorithms for finding eigenvalues (and the corresponding
 eigenvectors). At present the methods cannot handle complex numbers, and so
 should be used for symmetric and triangular real matrices (since they always
-real eigenvalues). This means I don't have a deep understanding of how these
-algorithms work so I'll postpone the usual description of how the code works
-until later, and instead focus on what I understand theoretically.</p>
+have real eigenvalues). This means I don't have a deep understanding of how
+these algorithms work so I'll postpone the usual description of how the code
+works until later, and instead focus on what I understand theoretically.</p>
 
 <p>Thinking of a matrix $A$ as encoding a linear transformation of a vector
 space, any vector $x$ that points in the same direction after the
-transformation (i.e. after the multiplication $Ax$) as before it are called
-eigenvectors. The amount by which their length is changed is called the
+transformation (i.e. after the multiplication $Ax$) as before it is called an
+eigenvector. The amount by which their length is changed is called the
 eigenvalue (typically denoted with $\lambda$). Typically we think of the
-eigenvalues and eigenvectors as properties of the matrix $A$. You can also look
+eigenvalues and eigenvectors as properties of the matrix $A$. You can also view
 at eigenvalues as the roots of a polynomial, which comes from the determinant.
 We have 2 unknowns to find: $x$ and $\lambda$:</p>
 
