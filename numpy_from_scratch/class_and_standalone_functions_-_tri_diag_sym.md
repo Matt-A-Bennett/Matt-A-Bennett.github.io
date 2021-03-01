@@ -2,7 +2,7 @@
 ## Miscellaneous methods 
 ### Is matrix upper triangular?
 <div style="text-align: justify">
-<p>A matrix is upper triangular if all the entries with column indices greater
+<p>A matrix is 'upper triangular' if all the entries with column indices greater
 than row indices are zero:</p>
 
 $$
@@ -10,7 +10,7 @@ $$
   1 & 0 & 0 \\
   0 & 5 & 0 \\
   7 & 8 & 0
-  \end{bmatrix};
+  \end{bmatrix}
 $$
 
 </div>
@@ -36,7 +36,7 @@ def is_upper_tri(self):
 
 ### Is matrix lower triangular?
 <div style="text-align: justify">
-<p>Similary, a matrix is lower triangular if all the entries with row
+<p>Similary, a matrix is 'lower triangular' if all the entries with row
 indices greater than column indices are zero:</p>
 
 $$
@@ -44,7 +44,7 @@ $$
   1 & 3 & 0 \\
   0 & 5 & -4 \\
   0 & 0 & 1 
-  \end{bmatrix};
+  \end{bmatrix}
 $$
 
 </div>
@@ -65,15 +65,15 @@ def is_lower_tri(self):
 
 ### Is matrix diagonal?
 <div style="text-align: justify">
-<p>If a matrix has zeros in where ever the row and column indices are not
-equal, then the matrix is 'diagonal':</p>
+<p>If a matrix has zeros wherever the row and column indices are not equal,
+then the matrix is 'diagonal':</p>
 
 $$
   \begin{bmatrix}
   1 & 0 & 0 \\
   0 & 5 & 0 \\
   0 & 0 & 1
-  \end{bmatrix};
+  \end{bmatrix}
 $$
 
 </div>
@@ -105,7 +105,7 @@ $$
   2 & 9 & 3 \\
   9 & 5 & -2 \\
   3 & -2 & 1
-  \end{bmatrix};
+  \end{bmatrix}
 $$
 
 </div>
