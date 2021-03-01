@@ -14,19 +14,22 @@ Strang's Introduction to linear algebra. As much as possible, I will use
 Python's standard library.</p>
 </div>
 
-## Classes, methods and functions to implement
+## Class, methods and functions to implement
 
 <div style="text-align: justify">
 <p>Below is a list of the topics I've covered in my studies so far, and which I
 will attempt to realise in my library.</p>
 </div>
 
-### Classes, standalone functions and miscellaneous methods 
-- [Mat(rix) Class](./class_and_standalone_functions.md)
-- [Generate matrices](./class_and_standalone_functions.md#generate-matrices)
-- [Combining matrices](./class_and_standalone_functions.md#combining-matrices)
-- [Printing matrices](./class_and_standalone_functions.md#printing-matrices)
-- [Get the diagonal of a matrix](./class_and_standalone_functions.md#get-the-diagonal-of-a-matrix)
+### Class, standalone functions and miscellaneous methods 
+- [Mat(rix) Class](./class_and_standalone_functions_-_class_gen_print.md)
+- [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
+- [Printing matrices](./class_and_standalone_functions_-_class_gen_print.md#printing-matrices)
+- [Is matrix triangular?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-upper-tringular?)
+- [Is matrix diagonal?](./class_and_standalone_function_-_tri_diag_syms.md#is-matrix-diagonal?)
+- [Is matrix is_symmetric?](./class_and_standalone_function_-_tri_diag_syms.md#is-matrix-symmetric?)
+- [Combining matrices](./class_and_standalone_functions_-_comb_diag.md#combining-matrices)
+- [Get the diagonal of a matrix](./class_and_standalone_functions_-_comb_diag.md#get-the-diagonal-of-a-matrix)
 
 ### Fundamental methods
 - [Transpose](./transpose.md)

@@ -62,6 +62,36 @@ class Mat:
             A.data = transposed
         return A
 
+    def is_upper_tri(self):
+        A = copy.deepcopy(self)
+        for idx, row in enumerate(A.data):
+            for col in range(idx+1,len(row)):
+                if row[col] != 0:
+                    return = False
+        else:
+            return True
+
+    def is_lower_tri(self):
+        A = copy.deepcopy(self)
+        lowertri = A.transpose().is_upper_tri()
+        return lowertri
+
+    def is_diag(self):
+        A = copy.deepcopy(self)
+        if A.is_upper_tri() and A.is_lower_tri():
+            return True
+        else:
+            return False
+
+    def is_symmetric(self):
+        A = copy.deepcopy(self)
+        for idx1 in range(size(A)[0]):
+            for idx2 in range(idx1+1, size(A)[0]):
+                if A.data[idx1][idx2] != A.data[idx2][idx1]:
+                    return False
+        else:
+            return True
+
     def scale(self, scalar):
         A = copy.deepcopy(self)
         for row_idx, row in enumerate(A.data):
@@ -112,8 +142,9 @@ class Mat:
 
     def norm(self):
         A = copy.deepcopy(self)
-        A_norm = A.scale(1/A.length())
-        return A_norm
+        if A.length() != 0:
+            A = A.scale(1/A.length())
+        return A
 
     def multiply(self, new_mat):
         A = copy.deepcopy(self)
@@ -345,59 +376,121 @@ class Mat:
         return self.polyfit()
 
     def qr(self):
-            A = copy.deepcopy(self)
-
-            if A.is_singular():
-                print('Matrix is singular!')
-                return A, None, None
-
-            A = A.transpose()
-            Q = copy.deepcopy(A)
-            I = eye(size(A))
-            # projection orthogonal to column
-            for col in range(size(Q)[0]-1):
-                Col = copy.deepcopy(Mat([Q.data[col]]))
-                P, _ = Col.transpose().projection()
-                P = I.subtract(P)
-                # project and put into matrix Q
-                for col2 in range(col+1, size(Q)[0]):
-                    Col = copy.deepcopy(Mat([Q.data[col2]]))
-                    q = P.multiply(Col.transpose()).transpose()
-                    Q.data[col2] = q.data[0]
-
-                # normalise to unit length
-                for x, q in enumerate(Q.data):
-                    q = Mat([q])
-                    q = q.norm()
-                    Q.data[x] = q.data[0]
-
-            A = A.transpose()
-            R = Q.multiply(A)
-            Q = Q.transpose()
-            A = Q.multiply(R)
-
-            return A, Q, R
-
-    def eig(self, epsilon = 0.0001):
         A = copy.deepcopy(self)
-        old_eigs = [0 for _ in range(size(A)[0])]
-        old_eigs = Mat([old_eigs])
-        for its in range(100):
-            _, Q, R = A.qr()
-            QT = Q.transpose()
-            QTA = QT.multiply(A)
-            QTAQ = QTA.multiply(Q)
-            A = QTAQ
 
-            eigs = Mat([A.diag()])
-            diffs = old_eigs.subtract(eigs)
-            diffs = [abs(i) for i in diffs.data[0]]
-            if sum(diffs) < epsilon:
-                return A.diag()
-            old_eigs = eigs
+        if A.is_singular():
+            print('Matrix is singular!')
+            return A, None, None
+
+        A = A.transpose()
+        Q = copy.deepcopy(A)
+        I = eye(size(A))
+        # projection orthogonal to column
+        for col in range(size(Q)[0]-1):
+            Col = copy.deepcopy(Mat([Q.data[col]]))
+            P, _ = Col.transpose().projection()
+            P = I.subtract(P)
+            # project and put into matrix Q
+            for col2 in range(col+1, size(Q)[0]):
+                Col = copy.deepcopy(Mat([Q.data[col2]]))
+                q = P.multiply(Col.transpose()).transpose()
+                Q.data[col2] = q.data[0]
+
+            # normalise to unit length
+            for x, q in enumerate(Q.data):
+                q = Mat([q])
+                q = q.norm()
+                Q.data[x] = q.data[0]
+
+        A = A.transpose()
+        R = Q.multiply(A)
+        Q = Q.transpose()
+        A = Q.multiply(R)
+
+        return A, Q, R
+
+    def eigvalues(self, epsilon = 0.0001, max_its=100):
+        A = copy.deepcopy(self)
+        if not (A.is_symmetric() or A.is_lower_tri() or A.is_upper_tri()):
+            print('Matrix is not symmetric or triangular and may therefore have complex eigenvalues which this method cannot handle. Interpret results with care!')
+
+        if A.is_upper_tri() or A.is_lower_tri():
+            return Mat([A.diag()])
+        if A.is_singular():
+            print('Matrix is singular!')
+            return None
+
+        old_eig = 0
+        final_eigs = []
+        for its in range(max_its):
+
+            # obtain off diagonal zeros
+            _, E, _, _, _, _ = A.elimination()
+            Einv = E.inverse()
+            A = E.multiply(A).multiply(Einv)
+
+            # shift A by -cI, where c is last diag
+            shift = eye(size(A)).scale(old_eig)
+
+            # QR factorisation
+            A = A.subtract(shift)
+            _, Q, R = A.qr()
+            A = R.multiply(Q)
+            A = A.add(shift)
+
+            current_eig = A.diag()[-1]
+            diff = old_eig - current_eig
+            old_eig = current_eig
+            if abs(diff) < epsilon:
+                if min(size(A)) == 2:
+                    final_eigs += A.diag()
+                    return Mat([final_eigs])
+                else:
+                    final_eigs.append(current_eig)
+                    A = A.data[:-1]
+                    A = [row[:-1] for row in A]
+                    A = Mat(A)
+                    old_eig = A.diag()[-1]
         else:
             print('Did not converge!')
             return None
+
+    def eig(self, epsilon=0.0001, max_its=100):
+        A = copy.deepcopy(self)
+        if A.is_singular():
+            print('Matrix is singular!')
+            return None, None
+        evals = A.eigvalues()
+        evects = []
+        for evalue in evals.data[0]:
+            # ensure we don't destroy the diagonal completely
+            if evalue in A.diag():
+                evalue -= 1e-12
+            A_shifted = A.subtract(eye(size(A)).scale(evalue))
+            # A_shifted_inv = A_shifted.inverse()
+            b = gen_mat([size(A)[0],1],1)
+            b = b.norm()
+            for its in range(max_its):
+                old_b = copy.deepcopy(b)
+                b = A_shifted.backsub(b)
+                # b = A_shifted_inv.multiply(b)
+                b = b.norm()
+                diff1 = b.subtract(old_b)
+                diff2 = b.subtract(old_b.scale(-1))
+                if diff2.length() or diff2.length() < epsilon:
+                    evects.append(b.transpose().data[0])
+                    break
+        evects = Mat(evects).transpose()
+        return evects, evals
+
+    def eigdiag(self):
+        A = copy.deepcopy(self)
+        eigval_mat = eye(size(A))
+        evects, evals = A.eig()
+        for idx, eigval in enumerate(evals.data[0]):
+            eigval_mat.data[idx][idx] = eigval
+        evectsinv = evects.inverse()
+        return evects, eigval_mat, evectsinv
 
 {% endhighlight %}
 
