@@ -34,14 +34,14 @@ def cat(A, B, axis=0):
     return concatenated
 
 def print_mat(self, round_dp=99):
-    A = copy.deepcopy(self)
+    A = dc(self)
     for row in A.data:
         rounded = [round(i,round_dp) for i in row]
         print(rounded)
     print()
 
 def size(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     return [len(A.data), len(A.data[0])]
 
 class Mat:
@@ -49,7 +49,7 @@ class Mat:
         self.data = data
 
     def transpose(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         transposed = []
         for row_idx, row in enumerate(A.data):
             for col_idx, col in enumerate(row):
@@ -63,7 +63,7 @@ class Mat:
         return A
 
     def is_lower_tri(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         for idx, row in enumerate(A.data):
             for col in range(idx+1,len(row)):
                 if row[col] != 0:
@@ -72,18 +72,18 @@ class Mat:
             return True
 
     def is_upper_tri(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         return A.transpose().is_lower_tri()
 
     def is_diag(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         if A.is_lower_tri() and A.is_upper_tri():
             return True
         else:
             return False
 
     def is_symmetric(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         for idx1 in range(size(A)[0]):
             for idx2 in range(idx1+1, size(A)[0]):
                 if A.data[idx1][idx2] != A.data[idx2][idx1]:
@@ -92,15 +92,15 @@ class Mat:
             return True
 
     def scale(self, scalar):
-        A = copy.deepcopy(self)
+        A = dc(self)
         for row_idx, row in enumerate(A.data):
             for col_idx in range(len(row)):
                 A.data[row_idx][col_idx] *= scalar
         return A
 
     def add(self, new_mat):
-        A = copy.deepcopy(self)
-        B = copy.deepcopy(new_mat)
+        A = dc(self)
+        B = dc(new_mat)
         added_rows = []
         for rows in zip(A.data, B.data):
             added_cols = []
@@ -111,8 +111,8 @@ class Mat:
         return A
 
     def subtract(self, new_mat):
-        A = copy.deepcopy(self)
-        B = copy.deepcopy(new_mat)
+        A = dc(self)
+        B = dc(new_mat)
         # reverse sign of second matrix
         B = B.scale(-1)
         # use add function
@@ -120,8 +120,8 @@ class Mat:
         return A
 
     def dot(self, new_mat):
-        A = copy.deepcopy(self)
-        B = copy.deepcopy(new_mat)
+        A = dc(self)
+        B = dc(new_mat)
         # make both vectors rows with transpose
         if size(A)[0] != 1:
             A = A.transpose()
@@ -135,19 +135,19 @@ class Mat:
         return dot_prod
 
     def length(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         v_length = sqrt(A.dot(A))
         return v_length
 
     def norm(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         if A.length() != 0:
             A = A.scale(1/A.length())
         return A
 
     def multiply(self, new_mat):
-        A = copy.deepcopy(self)
-        B = copy.deepcopy(new_mat)
+        A = dc(self)
+        B = dc(new_mat)
         # preallocate empty matrix
         multiplied = gen_mat([size(A)[0], size(B)[1]])
         # transpose one matrix, take a bunch of dot products
@@ -160,14 +160,14 @@ class Mat:
         return multiplied
 
     def diag(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         diag_vals = []
         for i in range(min(size(A))):
             diag_vals.append(A.data[i][i])
         return diag_vals
 
     def elimination(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         # should do some row exchanges for numerical stability...
 
         # we assume the matrix is invertible
@@ -179,16 +179,16 @@ class Mat:
         # create a permutation matrix for row exchanges
         tmpP = eye([size(A)[0], size(A)[0]])
 
-        E = copy.deepcopy(tmpE)
-        P = copy.deepcopy(tmpP)
-        U = copy.deepcopy(A)
+        E = dc(tmpE)
+        P = dc(tmpP)
+        U = dc(A)
         pivot_count = 0
         row_exchange_count = 0
         for row_idx in range(size(U)[0]-1):
             for sub_row in range(row_idx+1, size(U)[0]):
                 # create elimination mat
-                nextE = copy.deepcopy(tmpE)
-                nextP = copy.deepcopy(tmpP)
+                nextE = dc(tmpE)
+                nextP = dc(tmpP)
 
                 # handle a zero in the pivot position
                 if U.data[row_idx][pivot_count] == 0:
@@ -239,8 +239,8 @@ class Mat:
         return P, E, A, U, singular, row_exchange_count
 
     def backsub(self, b):
-        A = copy.deepcopy(self)
-        b = copy.deepcopy(b)
+        A = dc(self)
+        b = dc(b)
         augmented = cat(A, b, axis=1)
         _, _, _, U, _, _ = augmented.elimination()
         coeff = []
@@ -263,7 +263,7 @@ class Mat:
         return Mat([coeffs]).transpose()
 
     def pivots(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         # find U
         _, _, _, U, _, _ = A.elimination()
         # extract the non-zeros on the diagonal
@@ -272,16 +272,16 @@ class Mat:
         return pivot_info
 
     def rank(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         return len(A.pivots())
 
     def is_singular(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         _, _, _, _, singular, _ = A.elimination()
         return singular
 
     def determinant(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         # find U
         _, _, _, U, _, row_exchange_count = A.elimination()
         # muliply the pivots
@@ -295,7 +295,7 @@ class Mat:
         return det
 
     def inverse(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         mat_size = size(A)
 
         # create [A I]
@@ -343,7 +343,7 @@ class Mat:
         return inv
 
     def lu(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         P, E, A, U, _, _ = A.elimination()
         E = P.multiply(E)
         L = P.multiply(E.inverse())
@@ -351,14 +351,14 @@ class Mat:
 
     def projection(self):
         # P = A((A'A)^-1)A'
-        A = copy.deepcopy(self)
+        A = dc(self)
         AtAinv = (A.transpose().multiply(A)).inverse()
         for_x = AtAinv.multiply(A.transpose())
         Projection = A.multiply(for_x)
         return Projection, for_x
 
     def polyfit(self, order=1):
-        b = copy.deepcopy(self)
+        b = dc(self)
         # create a model
         A = gen_mat([size(b)[0], 1])
         for i in range(size(b)[0]):
@@ -375,23 +375,23 @@ class Mat:
         return self.polyfit()
 
     def qr(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
 
         if A.is_singular():
             print('Matrix is singular!')
             return A, None, None
 
         A = A.transpose()
-        Q = copy.deepcopy(A)
+        Q = dc(A)
         I = eye(size(A))
         # projection orthogonal to column
         for col in range(size(Q)[0]-1):
-            Col = copy.deepcopy(Mat([Q.data[col]]))
+            Col = dc(Mat([Q.data[col]]))
             P, _ = Col.transpose().projection()
             P = I.subtract(P)
             # project and put into matrix Q
             for col2 in range(col+1, size(Q)[0]):
-                Col = copy.deepcopy(Mat([Q.data[col2]]))
+                Col = dc(Mat([Q.data[col2]]))
                 q = P.multiply(Col.transpose()).transpose()
                 Q.data[col2] = q.data[0]
 
@@ -409,7 +409,7 @@ class Mat:
         return A, Q, R
 
     def eigvalues(self, epsilon = 0.0001, max_its=100):
-        A = copy.deepcopy(self)
+        A = dc(self)
         if not (A.is_symmetric() or A.is_lower_tri() or A.is_upper_tri()):
             print('Matrix is not symmetric or triangular and may therefore have complex eigenvalues which this method cannot handle. Interpret results with care!')
 
@@ -455,7 +455,7 @@ class Mat:
             return None
 
     def eig(self, epsilon=0.0001, max_its=100):
-        A = copy.deepcopy(self)
+        A = dc(self)
         if A.is_singular():
             print('Matrix is singular!')
             return None, None
@@ -470,7 +470,7 @@ class Mat:
             b = gen_mat([size(A)[0],1],1)
             b = b.norm()
             for its in range(max_its):
-                old_b = copy.deepcopy(b)
+                old_b = dc(b)
                 b = A_shifted.backsub(b)
                 # b = A_shifted_inv.multiply(b)
                 b = b.norm()
@@ -483,7 +483,7 @@ class Mat:
         return evects, evals
 
     def eigdiag(self):
-        A = copy.deepcopy(self)
+        A = dc(self)
         eigval_mat = eye(size(A))
         evects, evals = A.eig()
         for idx, eigval in enumerate(evals.data[0]):
