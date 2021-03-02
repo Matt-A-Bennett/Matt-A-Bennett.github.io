@@ -34,8 +34,8 @@ summing them and appending them to an added_rows variable.</p>
 {% highlight python %}
 
 def add(self, new_mat):
-    A = copy.deepcopy(self)
-    B = copy.deepcopy(new_mat)
+    A = dc(self)
+    B = dc(new_mat)
     added_rows = []
     for rows in zip(A.data, B.data):
         added_cols = []
@@ -56,8 +56,8 @@ method, thus achieving a subtraction.</p>
 {% highlight python %}
 
 def subtract(self, new_mat):
-    A = copy.deepcopy(self)
-    B = copy.deepcopy(new_mat)
+    A = dc(self)
+    B = dc(new_mat)
     # reverse sign of second matrix
     B = B.scale(-1)
     # use add function

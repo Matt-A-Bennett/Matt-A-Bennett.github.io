@@ -102,7 +102,7 @@ exchange the rows of a matrix through multiplication:</p>
 {% highlight python %}
 
 def elimination(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     # should do some row exchanges for numerical stability...
 
     # we assume the matrix is invertible
@@ -128,16 +128,16 @@ carry out a row exchange if we find a zero:</p>
 
 {% highlight python %}
 
-E = copy.deepcopy(tmpE)
-P = copy.deepcopy(tmpP)
-U = copy.deepcopy(A)
+E = dc(tmpE)
+P = dc(tmpP)
+U = dc(A)
 pivot_count = 0
 row_exchange_count = 0
 for row_idx in range(size(U)[0]-1):
     for sub_row in range(row_idx+1, size(U)[0]):
         # create elimination mat
-        nextE = copy.deepcopy(tmpE)
-        nextP = copy.deepcopy(tmpP)
+        nextE = dc(tmpE)
+        nextP = dc(tmpP)
 
         # handle a zero in the pivot position
         if U.data[row_idx][pivot_count] == 0:

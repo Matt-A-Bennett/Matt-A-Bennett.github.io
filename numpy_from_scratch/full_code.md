@@ -11,7 +11,7 @@ Below is all the code that we have written to date.
 
 {% highlight python %}
 
-import copy
+from copy import deepcopy as dc
 from math import sqrt
 
 def gen_mat(size, value=0):

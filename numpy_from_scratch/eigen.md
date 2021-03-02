@@ -89,7 +89,7 @@ be equal to $\lambda$ and therefore are the eigenvalues of the matrix.</p>
 {% highlight python %}
 
 def eigvalues(self, epsilon = 0.0001, max_its=100):
-    A = copy.deepcopy(self)
+    A = dc(self)
     if not (A.is_symmetric() or A.is_lower_tri() or A.is_upper_tri()):
         print('Matrix is not symmetric or triangular and may therefore have complex eigenvalues which this method cannot handle. Interpret results with care!')
 
@@ -170,7 +170,7 @@ Outputs:
 {% highlight python %}
 
 def eig(self, epsilon=0.0001, max_its=100):
-    A = copy.deepcopy(self)
+    A = dc(self)
     if A.is_singular():
         print('Matrix is singular!')
         return None, None
@@ -185,7 +185,7 @@ def eig(self, epsilon=0.0001, max_its=100):
         b = gen_mat([size(A)[0],1],1)
         b = b.norm()
         for its in range(max_its):
-            old_b = copy.deepcopy(b)
+            old_b = dc(b)
             b = A_shifted.backsub(b)
             # b = A_shifted_inv.multiply(b)
             b = b.norm()

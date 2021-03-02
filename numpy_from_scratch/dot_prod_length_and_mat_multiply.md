@@ -31,8 +31,8 @@ sum operations.</p>
 {% highlight python %}
 
 def dot(self, new_mat):
-    A = copy.deepcopy(self)
-    B = copy.deepcopy(new_mat)
+    A = dc(self)
+    B = dc(new_mat)
     # make both vectors rows with transpose
     if size(A)[0] != 1:
         A = A.transpose()
@@ -85,7 +85,7 @@ of the vector with itself: \(\sqrt{u \cdot u}\).</p>
 {% highlight python %}
 
 def length(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     v_length = sqrt(A.dot(A))
     return v_length
 
@@ -125,7 +125,7 @@ Outputs:
 {% highlight python %}
 
 def norm(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     A_norm = A.scale(1/A.length())
     return A_norm
 
@@ -202,8 +202,8 @@ matrix we take the dot product with every 'row' of the transposed second matrix
 {% highlight python %}
 
 def multiply(self, new_mat):
-    A = copy.deepcopy(self)
-    B = copy.deepcopy(new_mat)
+    A = dc(self)
+    B = dc(new_mat)
     # preallocate empty matrix
     multiplied = gen_mat([size(A)[0], size(B)[1]])
     # transpose one matrix, take a bunch of dot products

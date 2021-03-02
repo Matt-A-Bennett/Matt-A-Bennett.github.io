@@ -24,7 +24,7 @@ non-zero we return False, otherwise we return True:</p>
 {% highlight python %}
 
 def is_lower_tri(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     for idx, row in enumerate(A.data):
         for col in range(idx+1,len(row)):
             if row[col] != 0:
@@ -57,7 +57,7 @@ $$
 {% highlight python %}
 
 def is_upper_tri(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     return A.transpose().is_lower_tri()
 
 {% endhighlight %}
@@ -86,7 +86,7 @@ Therefore we use the previous two methods like so:</p>
 {% highlight python %}
 
 def is_diag(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     if A.is_lower_tri() and A.is_upper_tri():
         return True
     else:
@@ -120,7 +120,7 @@ True:</p>
 {% highlight python %}
 
 def is_symmetric(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     for i in range(size(A)[0]):
         for j in range(i+1, size(A)[0]):
             if A.data[i][j] != A.data[j][i]:

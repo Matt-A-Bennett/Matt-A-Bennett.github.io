@@ -78,7 +78,7 @@ what would otherwise be integer numbers:</p>
 {% highlight python %}
 
 def print_mat(self, round_dp=99):
-    A = copy.deepcopy(self)
+    A = dc(self)
     for row in A.data:
         rounded = [round(i,round_dp) for i in row]
         print(rounded)
@@ -96,7 +96,7 @@ left and stopping after running out of rows or columns.</p>
 {% highlight python %}
 
 def diag(self):
-    A = copy.deepcopy(self)
+    A = dc(self)
     diag_vals = []
     for i in range(min(size(A))):
         diag_vals.append(A.data[i][i])

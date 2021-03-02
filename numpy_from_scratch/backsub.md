@@ -122,8 +122,8 @@ $$
 {% highlight python %}
 
 def backsub(self, b):
-    A = copy.deepcopy(self)
-    b = copy.deepcopy(b)
+    A = dc(self)
+    b = dc(b)
     augmented = cat(A, b, axis=1)
     _, _, _, U, _, _ = augmented.elimination()
 
