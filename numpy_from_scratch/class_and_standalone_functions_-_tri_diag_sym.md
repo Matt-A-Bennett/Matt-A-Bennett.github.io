@@ -1,8 +1,8 @@
 # Class, standalone functions and miscellaneous methods (2/3)
 ## Miscellaneous methods 
-### Is matrix upper triangular?
+### Is matrix lower triangular?
 <div style="text-align: justify">
-<p>A matrix is 'upper triangular' if all the entries with column indices greater
+<p>A matrix is 'lower triangular' if all the entries with column indices greater
 than row indices are zero:</p>
 
 $$
@@ -23,7 +23,7 @@ non-zero we return False, otherwise we return True:</p>
 
 {% highlight python %}
 
-def is_upper_tri(self):
+def is_lower_tri(self):
     A = copy.deepcopy(self)
     for idx, row in enumerate(A.data):
         for col in range(idx+1,len(row)):
@@ -34,9 +34,9 @@ def is_upper_tri(self):
 
 {% endhighlight %}
 
-### Is matrix lower triangular?
+### Is matrix upper triangular?
 <div style="text-align: justify">
-<p>Similary, a matrix is 'lower triangular' if all the entries with row
+<p>Similary, a matrix is 'upper triangular' if all the entries with row
 indices greater than column indices are zero:</p>
 
 $$
@@ -51,15 +51,14 @@ $$
 
 #### Code implementation
 <div style="text-align: justify">
-<p>Here we simply call the is_upper_tri method on the transposed matrix:</p>
+<p>Here we simply call the is_lower_tri method on the transposed matrix:</p>
 </div>
 
 {% highlight python %}
 
-def is_lower_tri(self):
+def is_upper_tri(self):
     A = copy.deepcopy(self)
-    lowertri = A.transpose().is_upper_tri()
-    return lowertri
+    return A.transpose().is_lower_tri()
 
 {% endhighlight %}
 
@@ -80,7 +79,7 @@ $$
 
 #### Code implementation
 <div style="text-align: justify">
-<p>If the matrix qualifies as both upper and lower, then it must be diagonal.
+<p>If the matrix qualifies as both lower and upper, then it must be diagonal.
 Therefore we use the previous two methods like so:</p>
 </div>
 
@@ -88,7 +87,7 @@ Therefore we use the previous two methods like so:</p>
 
 def is_diag(self):
     A = copy.deepcopy(self)
-    if A.is_upper_tri() and A.is_lower_tri():
+    if A.is_lower_tri() and A.is_upper_tri():
         return True
     else:
         return False

@@ -62,7 +62,7 @@ class Mat:
             A.data = transposed
         return A
 
-    def is_upper_tri(self):
+    def is_lower_tri(self):
         A = copy.deepcopy(self)
         for idx, row in enumerate(A.data):
             for col in range(idx+1,len(row)):
@@ -71,14 +71,13 @@ class Mat:
         else:
             return True
 
-    def is_lower_tri(self):
+    def is_upper_tri(self):
         A = copy.deepcopy(self)
-        lowertri = A.transpose().is_upper_tri()
-        return lowertri
+        return A.transpose().is_lower_tri()
 
     def is_diag(self):
         A = copy.deepcopy(self)
-        if A.is_upper_tri() and A.is_lower_tri():
+        if A.is_lower_tri() and A.is_upper_tri():
             return True
         else:
             return False
