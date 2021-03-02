@@ -174,7 +174,7 @@ class Mat:
         singular = 0
 
         # create identity matrix which we'll turn into an E matrix
-        tmpE = eye([size(A)[0], size(A)[1]])
+        tmpE = eye(size(A))
 
         # create a permutation matrix for row exchanges
         tmpP = eye([size(A)[0], size(A)[0]])
