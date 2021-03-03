@@ -195,13 +195,13 @@ print the result of the multiplication $Ax$ to confirm that we get $b$:</p>
 
 {% highlight python %}
 
-A = la.Mat([[1, 2, 3],
-            [2, 2, 6],
-            [4, 5, 6]])
+A = Mat([[1, 2, 3],
+         [2, 2, 6],
+         [4, 5, 6]])
 
-b = la.Mat([[0],
-            [-2],
-            [5]])
+b = Mat([[0],
+         [-2],
+         [5]])
 
 x = A.backsub(b)
 
