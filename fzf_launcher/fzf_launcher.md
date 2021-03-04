@@ -81,10 +81,10 @@ f() {
 
 <div style="text-align: justify">
 <p>The command typed into the terminal could for example be 'f vlc'. The
-function will expand that into 'vlc file1.mp3 file2.mp3 &' and We want
+function will expand that into 'vlc file1.mp3 file2.mp3 &' and we want
 <i>that</i> command to show up in our bash history, rather than just seeing 'f
 vlc'. So we first write the shell's active history to the ~/.bash_history file,
-then later we'll add this 'vlc file1.mp3 file2.mp3 & command to the end of
+then later we'll add this 'vlc file1.mp3 file2.mp3 &' command to the end of
 ~/.bash_history. Once we're all done, we'll load the ~/.bash_history file as
 our active history.</p> 
 </div>
@@ -96,7 +96,7 @@ history -w
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>In general, we want to launch programs as background jobs so that we can
+<p>In general, we want to launch GUI programs as background jobs so that we can
 still enter other commands into the terminal as they run. Non-GUI commands that
 run in the terminal such as 'vim', 'cat', 'head' etc should be run as
 foreground jobs (otherwise we won't see them). In these cases, we can bring
