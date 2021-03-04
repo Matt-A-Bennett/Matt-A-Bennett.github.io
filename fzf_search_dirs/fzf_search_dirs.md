@@ -22,10 +22,10 @@ real burden in that case.</p>
 
 <p>The problem with doing this is that you end up searching a lot of
 directories which you know don't have the file you want. The main offenders
-were directories you like end up with if you install say, anaconda3. The
-results would be swamped with thousands of internal files, with very long
-paths. The long paths tended to 'soak up' any letters I entered in the search,
-so it was difficult for fzf to filter them out.</p>
+were directories you end up with if you install say, anaconda3. The results
+would be swamped with thousands of internal files, with very long paths. The
+long paths tended to 'soak up' any letters I entered in the search, so it was
+difficult for fzf to filter them out.</p>
 </div>
 
 ## The Solution
@@ -78,7 +78,7 @@ export FZF_DEFAULT_COMMAND="fd . $HOME"
 
 <div style="text-align: justify">
 <p>Now fzf will always search recursively from the home directory, and respect
-any .gitignore files in any git repository. fzf detects if git repositories by
+any .gitignore files in any git repository. fzf detects git repositories by
 looking for a .git directory. We can trigger this behaviour in our home
 directory by making a .git directory. To achieve this, your home directory must
 not already be a git repository, but I don't think anyone does that... Then we
@@ -139,6 +139,11 @@ search in a set of predefined directories and find it with ease. This
 completely removes the barrier of thinking where a file might be and how
 precisely it was named.</p>
 
+<div style="text-align: justify">
+<p>N.B. I have noticed that, for some reason, a couple of subdirectories were
+not showing up in the fzf search, and so I explicitly created some
+'!path/to/missed/directory/' lines in this section...</p>
+
 <p>N.B. You may be wondering "What if I find myself in an usual directory not
 on the list, and want to use fzf?". I had the same concern so I put a couple of
 aliases in my .bashrc that can toggle the above configuration on and off at
@@ -152,11 +157,6 @@ alias fzfcl="export FZF_DEFAULT_COMMAND=''"
 # reinstate fzf custom options ('fzf-' as in 'cd -' as in 'back to where I was')
 alias fzf-="export FZF_DEFAULT_COMMAND='fd . $HOME'"
 {% endhighlight %}
-
-<div style="text-align: justify">
-<p>N.B. I have noticed that, for some reason, a couple of subdirectories were
-not showing up in the fzf search, and so I explicitly created some
-'!path/to/missed/directory/' lines in this section...</p>
 
 <p>If you're using Vim to create the .gitignore file, an easy way to get a list
 of all the directories in your home directory is the following command:</p>
