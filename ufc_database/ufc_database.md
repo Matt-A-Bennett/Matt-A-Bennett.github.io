@@ -95,12 +95,19 @@ list of events page and determine if it is a link to an individual UFC event.
 This is done with a simple regular expression whereby we search each link for
 the string 'UFC_' followed by some number of digits. There can be more than one
 link to the same page, and so we make sure not to retry the same link twice. If
-we find the string, and we've not yet tried the link we go ahead and read the
+we find the string, and we've not yet tried the link we check if the event is
+later than existing entries in the database ('latest') and that it's not a
+future scheduled event ('future'). I that's the case we go ahead and read the
 page html and pull the 3rd table, which contains the information we want, into
 a pandas dataframe:
 </div>
 
 {% highlight python %}
+
+# latest event already in the database will not be pulled in again
+latest = 255
+# future events will not be pulled in either
+future = 259
 
 # avoid visiting the same page more that once
 tried = []
@@ -111,13 +118,16 @@ with open("~/videos/ufc/ufc_database.txt", "a") as f:
             # if the link looks like a ufc event that we've not tried yet
             if bool(re.search('UFC_\d+$', url)) and (url not in tried):
                 tried.append(url)
+                # get the even number
+                event = int(re.findall('\d+$', url)[0])
+                if event > latest and event < future:
 
-                print(url)
+                    print(url)
 
-                # read the page
-                html = wp.page(url[6:], auto_suggest=False).html().encode("UTF-8")
-                # pull 3rd table
-                df = pd.read_html(html)[2]
+                    # read the page
+                    html = wp.page(url[6:], auto_suggest=False).html().encode("UTF-8")
+                    # pull 3rd table
+                    df = pd.read_html(html)[2]
 
 {% endhighlight %}
 
@@ -171,9 +181,11 @@ for line in data:
 {% endhighlight %}
 
 <div style="text-align: justify">
-Last, I note that a couple of links give me an error, so in those cases we just
-move on to the next link. Then I sort the list by the event number and write
-the data to a txt file:
+I noticed that a couple of links give me an error, so in those cases we just
+move on to the next link. If we are just adding in some recent events to an
+existing database, then we remove the header from the table since we already
+have that. Then we sort the list by the event number and write the data to a
+txt file:
 </div>
 
 {% highlight python %}
@@ -182,6 +194,10 @@ the data to a txt file:
     except:
         print('error')
         pass
+
+# if we're just adding to an existing database, the header already exists
+if latest > 0:
+    t.header = False
 
 # sort into chronological order and save
 f.write(str(t.get_string(sortby=('Event'))))
