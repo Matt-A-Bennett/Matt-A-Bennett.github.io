@@ -201,6 +201,7 @@ if latest > 0:
 
 # sort into chronological order and save
 f.write(str(t.get_string(sortby=('Event'))))
+f.write('\n')
 
 {% endhighlight %}
 

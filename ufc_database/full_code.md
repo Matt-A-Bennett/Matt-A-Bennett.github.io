@@ -83,6 +83,7 @@ with open("/home/mattb/videos/ufc/ufc_database.txt", "a") as f:
 
     # sort into chronological order and save
     f.write(str(t.get_string(sortby=('Event'))))
+    f.write('\n')
 
 {% endhighlight %}
 
