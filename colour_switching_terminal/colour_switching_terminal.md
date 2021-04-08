@@ -251,3 +251,12 @@ fi; done
 
 [back to home](../index.md)
 
+---
+<script src="https://utteranc.es/client.js"
+        repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
+        issue-term="https://matt-a-bennett.github.io/colour_switching_terminal/colour_switching_terminal.html"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
