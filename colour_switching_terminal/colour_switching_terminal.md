@@ -1,20 +1,20 @@
-# One command to switch between light and dark mode in Vim and Tmux
+# Switch between light and dark mode in Vim and Tmux with one command 
 <div style="text-align: justify">
 <p>I always have one of my monitors taken up with Vim and/or Tmux as I work,
-and have up until now used dark themes. Here I implement a way to switch from a
-light to dark colour scheme for both Vim and Tmux in one with a simple shortcut
-entered into either.</p>
+and have up until now used dark themes. Here I implement a way to toggle
+between a light to dark colour scheme for both Vim and Tmux in one go with a
+simple shortcut (entered into either Vim or Tmux).</p>
 
 <p>In my case I can do either:</p>
 
 <p>
-From a Tmux pane:
-1a) The alias 'ol' switches <b>both</b> Vim and Tmux to light mode.
-1b) The alias 'od' switches <b>both</b> Vim and Tmux to dark mode.
+From a Tmux pane:<br>
+1a) The alias 'ol' switches <b>both</b> Vim and Tmux to light mode.<br>
+1b) The alias 'od' switches <b>both</b> Vim and Tmux to dark mode.<br>
 </p>
 
 <p>
-From Vim:
+From Vim:<br>
 2) 'Leader-o' toggles <b>both</b> Vim and Tmux between light and dark colour
 schemes.
 </p>
@@ -26,7 +26,7 @@ schemes.
 <div style="text-align: justify">
 <p>The way it works is that I define an Tmux environmental variable that keeps
 track of whether we have a light or dark colour scheme. Anytime I switch, be it
-from Vim of a Tmux pan, the variable will be updated. Existing and new Tmux
+from Vim of a Tmux pane, the variable will be updated. Existing and new Tmux
 panes and existing and new instances of Vim will check this variable and follow
 the scheme.
 </p>
@@ -204,7 +204,6 @@ colour scheme will update automatically.</p>
 {% endhighlight %}
 
 ![light theme](./images/all_light.png)
-
 
 <div style="text-align: justify">
 <p>It would probably be easy to coerce Vim to constantly check that the Tmux

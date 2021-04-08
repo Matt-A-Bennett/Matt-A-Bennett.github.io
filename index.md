@@ -23,5 +23,5 @@ and find useful to have on my pc.</p>
 
 [Using FZF to select files for any program or command](./fzf_launcher/fzf_launcher.md)
 
-[One command to switch between light and dark mode in Vim and Tmux](./colour_switching_terminal/colour_switching_terminal.md)
+[Switch between light and dark mode in Vim and Tmux with one command ](./colour_switching_terminal/colour_switching_terminal.md)
 
