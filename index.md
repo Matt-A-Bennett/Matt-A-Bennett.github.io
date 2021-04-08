@@ -22,3 +22,6 @@ and find useful to have on my pc.</p>
 [Configuring FZF to search useful directories beyond the working directory](./fzf_search_dirs/fzf_search_dirs.md)
 
 [Using FZF to select files for any program or command](./fzf_launcher/fzf_launcher.md)
+
+[One command to switch between light and dark mode in Vim and Tmux](./colour_switching_terminal/colour_switching_terminal.md)
+
