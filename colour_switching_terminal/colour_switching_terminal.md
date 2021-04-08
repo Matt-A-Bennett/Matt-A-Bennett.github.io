@@ -39,7 +39,7 @@ the scheme.
 home directory. In reality I keep them all in a single git repository with
 symbolic links from the home directory to allow me to keep my working
 environment synchronised across machines as described on this <a
-href="https://github.com/Matt-A-Bennett/linux_config_files">git repo</a></p>
+href="https://github.com/Matt-A-Bennett/linux_config_files">git repo</a>.</p>
 
 <p>First, I've configured my ~/.bashrc such that it will automatically launch
 Tmux and attempt to connect to a session called 'main', or create it if it
