@@ -15,8 +15,8 @@ From a Tmux pane:
 
 <p>
 From Vim:
-2) '<Leader>o' toggles <b>both</b> Vim and Tmux between light and dark colour
-schemes .
+2) 'Leader-o' toggles <b>both</b> Vim and Tmux between light and dark colour
+schemes.
 </p>
 </div>
 
