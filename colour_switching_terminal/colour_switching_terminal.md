@@ -24,25 +24,32 @@ schemes.
 ![light theme](./images/all_light.png)
 
 <div style="text-align: justify">
-<p>The way it works is that I define an Tmux environmental variable that keeps
+<p>The way it works is that I define a Tmux environmental variable that keeps
 track of whether we have a light or dark colour scheme. Anytime I switch, be it
-from Vim of a Tmux pane, the variable will be updated. Existing and new Tmux
+from Vim or a Tmux pane, the variable will be updated. Existing and new Tmux
 panes and existing and new instances of Vim will check this variable and follow
 the scheme.
 </p>
 </div>
 
 ## Code implementation
-### Step 1: Tmux
+### Step 1: Switching from Tmux pane
 <div style="text-align: justify">
-<p>First, I've configured my bashrc such that it will automatically launch Tmux
-and attempt to connect to a session called 'main', or create it if it doesn't
-exist. I find this works for me, but you may want to alter this step.</p>
+<p>For the purpose of this guide, I'll assume my various dot files are in my
+home directory. In reality I keep them all in a single git repository with
+symbolic links from the home directory to allow me to keep my working
+environment synchronised across machines as described on this <a
+href="https://github.com/Matt-A-Bennett/linux_config_files">git repo</a></p>
 
-<p>Once I've launch Tmux, I query the environment variable called 'THEME', if
+<p>First, I've configured my ~/.bashrc such that it will automatically launch
+Tmux and attempt to connect to a session called 'main', or create it if it
+doesn't exist. I find this works for me, but you may want to alter this
+step.</p>
+
+<p>Once I've launched Tmux, I query the environment variable called 'THEME', if
 it's not equal to 'THEME=light' (or just doesn't exist), then we go with the
 dark theme. This means that when we first launch a Tmux session, we will
-default to a dark theme.</p>
+default to a dark theme:</p>
 </div>
 
 {% highlight bash %}
@@ -58,7 +65,7 @@ fi
 <div style="text-align: justify">
 <p>At the beginning of my ~/tmux.conf file, I start by sourcing a secondary
 Tmux file that contains the dark colours I've chosen. These values may get
-overridden later.</p>
+overridden by a light scheme later:</p>
 </div>
 
 {% highlight bash %}
@@ -68,7 +75,7 @@ source-file ~/.tmux_dark.conf
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>This is the dark theme colours I have:</p>
+<p>These are the dark theme colours I have:</p>
 </div>
 
 {% highlight bash %}
@@ -114,16 +121,18 @@ alias ol="tmux source-file ~/.tmux_light.conf; tmux set-environment THEME 'light
 alias od="tmux source-file ~/.tmux.conf; tmux set-environment THEME 'dark'"
 {% endhighlight %}
 
-### Step 2: Vim
+### Step 2: Switching from Vim
 <div style="text-align: justify">
-<p>In my ~/.vimrc, I defined two functions, one to set the colour scheme and
+<p>In my ~/.vimrc, I've defined two functions, one to set the colour scheme and
 another to handle the reading and updating of the Tmux THEME variable. The
 colour scheme we pick is dictated by the Tmux THEME variable, which we read
 with a system call to Tmux. This returns the  THEME variable, as well as a
 message saying 'Press ENTER or type a command to continue'. Obviously we're
 only interested in the variable. If the variable indicates we should be dark,
 we choose a dark colour scheme (in my case zenburn), otherwise we go with a
-light on (in my case seoul256-light).</p>
+light one (in my case seoul256-light). Importantly, since I'm checking a match
+with 'THEME=dark', we must take only the first 10 characters of message
+returned by the system call:</p>
 </div>
 
 {% highlight vim %}
@@ -138,10 +147,10 @@ endfunction
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>If we are in Vim, and want to toggle the colour scheme between light and
-dark, we do it with a function. The function also re-sources the appropriate
-Tmux colour scheme and updates the THEME variable. Once the THEME variable is
-updated, we call the SetColorScheme function above to change Vim's colours:</p>
+<p> Toggling the colour scheme between light and dark is done with a call to
+another function. The function also re-sources the appropriate Tmux colour
+scheme and updates the THEME variable. Once the THEME variable is updated, we
+call the SetColorScheme function above to change Vim's colours:</p>
 </div>
 
 {% highlight vim %}
@@ -167,8 +176,10 @@ like so:</p>
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>When we open a new instance of Vim, the Tmux THEME variable with already be
-sent, and so we choose the colour scheme using the SetColorScheme function:</p>
+<p>When we open a new instance of Vim, the Tmux THEME variable will have
+already been sent, and so we choose the colour scheme using the SetColorScheme
+function (note that this must come after the SetColorScheme function in your
+~/.vimrc):</p>
 </div>
 
 {% highlight vim %}
@@ -176,17 +187,18 @@ call SetColorScheme()
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>We could stop there, but in the case where we have a Vim open, and change
-the scheme from one of our aliases from withing in a Tmux pane, Vim won't
-automatically re-run the SetColorScheme function.</p>
+<p>We could stop there, but in the case where we have an instance of Vim
+running, and change the scheme using one of our aliases from withing in a Tmux
+pane, Vim won't automatically re-run the SetColorScheme function.</p>
 </div>
 
 ![toggle in tmux, with vim open](./images/dark_to_light_tmux.png)
 
 <div style="text-align: justify">
-We can use an autocmd to
-check reset the colour scheme when ever Vim is re-focuesed. Unfortunately, this
-doesn't work for Vim in the terminal, but luckily there is a plugin that
+We can use an autocmd to check and reset the colour scheme whenever Vim is
+re-focused. Unfortunately, this doesn't work for Vim in the terminal, but
+luckily there is a <a
+href="https://github.com/tmux-plugins/vim-tmux-focus-events">plugin </a> that
 resolves it for us:
 </div>
 
@@ -196,7 +208,7 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 <div style="text-align: justify">
 <p>This will mean that as soon as you return to vim from the Tmux pane, Vim's
-colour scheme will update automatically.</p>
+colour scheme will update automatically:</p>
 </div> 
 
 {% highlight vim %}
@@ -206,10 +218,10 @@ colour scheme will update automatically.</p>
 ![light theme](./images/all_light.png)
 
 <div style="text-align: justify">
-<p>It would probably be easy to coerce Vim to constantly check that the Tmux
-THEME variable, but I only switch from light to dark in the evening (i.e. once
-a day) so I don't want to make Vim do a million checks in the background for
-such a rare event: </p>
+<p>It would probably be easy to coerce Vim to constantly check the Tmux THEME
+variable, but I only switch from light to dark in the evening (i.e. once a day)
+so I don't want to make Vim do a million checks in the background for such a
+rare event: </p>
 </div>
 
 <div style="text-align: justify">
@@ -224,9 +236,9 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[0
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>However, choosing colours in the ~/.tmux.conf file is easy with this which
-can be pasted into the terminal to display a colour grid of the 0-255
-range.</p>
+<p>However, choosing colours in the ~/.tmux.conf file is easy with this code
+which can be pasted into the terminal to display a colour grid of the 0-255
+range:</p>
 </div>
 
 {% highlight bash %}
