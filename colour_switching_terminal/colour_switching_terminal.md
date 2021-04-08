@@ -172,7 +172,7 @@ like so:</p>
 </div>
 
 {% highlight vim %}
-    nnoremap <Leader>o :call Toggle_Light_Dark_Colorscheme()<cr>
+nnoremap <Leader>o :call Toggle_Light_Dark_Colorscheme()<cr>
 {% endhighlight %}
 
 <div style="text-align: justify">
@@ -212,7 +212,7 @@ colour scheme will update automatically:</p>
 </div> 
 
 {% highlight vim %}
-    autocmd FocusGained * :call SetColorScheme()
+autocmd FocusGained * :call SetColorScheme()
 {% endhighlight %}
 
 ![light theme](./images/all_light.png)
