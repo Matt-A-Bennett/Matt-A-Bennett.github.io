@@ -203,10 +203,14 @@ colour scheme will update automatically.</p>
     autocmd FocusGained * :call SetColorScheme()
 {% endhighlight %}
 
+![light theme](./images/all_light.png)
+
+
 <div style="text-align: justify">
-<p> that constantly checks that the Tmux THEME variable, but I only switch from
-light to dark in the evening (i.e. once a day) so I don't want to make Vim do a
-million checks in the background for such a rare event: </p>
+<p>It would probably be easy to coerce Vim to constantly check that the Tmux
+THEME variable, but I only switch from light to dark in the evening (i.e. once
+a day) so I don't want to make Vim do a million checks in the background for
+such a rare event: </p>
 </div>
 
 <div style="text-align: justify">
