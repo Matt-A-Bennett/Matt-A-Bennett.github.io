@@ -178,7 +178,7 @@ nnoremap <Leader>o :call Toggle_Light_Dark_Colorscheme()<cr>
 
 <div style="text-align: justify">
 <p>When we open a new instance of Vim, the Tmux THEME variable will have
-already been sent, and so we choose the colour scheme using the SetColorScheme
+already been defined, and so we choose the colour scheme using the SetColorScheme
 function (note that this must come after the SetColorScheme function in your
 ~/.vimrc):</p>
 </div>
