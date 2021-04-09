@@ -9,11 +9,12 @@ simple shortcut (entered into either Vim or a Tmux pane).</p>
 
 <p>From a Tmux pane:<br>
 <b>1a)</b> The alias 'ol' switches <b>both</b> Vim and Tmux to light mode.<br>
-<b>1b)</b> The alias 'od' switches <b>both</b> Vim and Tmux to dark mode.<br></p>
+<b>1b)</b> The alias 'od' switches <b>both</b> Vim and Tmux to dark
+mode.<br></p>
 
 <p>From Vim:<br>
-<b>2)</b> 'Leader-o' toggles <b>both</b> Vim and Tmux between light and dark colour
-schemes.</p>
+<b>2)</b> 'Leader-o' toggles <b>both</b> Vim and Tmux between light and dark
+colour schemes.</p>
 </div>
 
 ![dark theme](./images/all_dark.png)
