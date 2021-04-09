@@ -123,16 +123,37 @@ alias od="tmux source-file ~/.tmux_dark.conf; tmux set-environment THEME 'dark'"
 
 ### Step 2: Switching colours from inside Vim
 <div style="text-align: justify">
-<p>In my ~/.vimrc, I've defined two functions, one to set the colour scheme and
-another to handle the reading and updating of the Tmux THEME variable. The
-colour scheme we pick is dictated by the Tmux THEME variable, which we read
-with a system call to Tmux. This returns the  THEME variable, as well as a
-message saying 'Press ENTER or type a command to continue'. Obviously we're
-only interested in the variable. If the variable indicates we should be dark,
-we choose a dark colour scheme (in my case zenburn), otherwise we go with a
-light one (in my case seoul256-light). Importantly, since I'm checking a match
-with 'THEME=dark', we must take only the first 10 characters of message
-returned by the system call:</p>
+<p>In my ~/.vimrc, I've defined two functions, the first handles the updating
+of the Tmux THEME variable and toggles the Tmux colours, and the second sets
+Vim's colours.</p>
+
+<p>We read the Tmux THEME with a system call to Tmux. This returns the THEME
+variable, as well as a message saying 'Press ENTER or type a command to
+continue'. Obviously we're only interested in the variable. Importantly, since
+I'm checking a match with 'THEME=dark', we must take only the first 10
+characters of message returned by the system call. Whichever scheme the
+variable indicates that we're using, we source the alternate theme and update
+the THEME variable. Once the THEME variable is updated, we call the
+SetColorScheme function above to change Vim's colours:</p>
+</div>
+
+{% highlight vim %}
+function! Toggle_Light_Dark_Colorscheme()
+    if system('tmux show-environment THEME')[0:9] == 'THEME=dark'
+        :silent :!tmux set-environment THEME 'light'
+        :silent :!tmux source-file ~/.tmux_light.conf
+    else
+        :silent :!tmux set-environment THEME 'dark'
+        :silent :!tmux source-file ~/.tmux_dark.conf
+    endif
+    :call SetColorScheme()
+endfunction
+{% endhighlight %}
+
+<div style="text-align: justify">
+<p>The colour scheme we pick is dictated by the Tmux THEME variable. If the
+THEME is 'THEME='dark', we choose a dark colour scheme (in my case zenburn),
+otherwise we go with a light one (in my case seoul256-light):<p/>
 </div>
 
 {% highlight vim %}
@@ -143,26 +164,6 @@ function! SetColorScheme()
     else
         colorscheme seoul256-light
     endif
-endfunction
-{% endhighlight %}
-
-<div style="text-align: justify">
-<p> Toggling the colour scheme between light and dark is done with a call to
-another function. The function also re-sources the appropriate Tmux colour
-scheme and updates the THEME variable. Once the THEME variable is updated, we
-call the SetColorScheme function above to change Vim's colours:</p>
-</div>
-
-{% highlight vim %}
-function! Toggle_Light_Dark_Colorscheme()
-    if system('tmux show-environment THEME')[0:9] == 'THEME=dark'
-        :silent :!tmux source-file ~/.tmux_light.conf
-        :silent :!tmux set-environment THEME 'light'
-    else
-        :silent :!tmux source-file ~/.tmux_dark.conf
-        :silent :!tmux set-environment THEME 'dark'
-    endif
-    :call SetColorScheme()
 endfunction
 {% endhighlight %}
 
