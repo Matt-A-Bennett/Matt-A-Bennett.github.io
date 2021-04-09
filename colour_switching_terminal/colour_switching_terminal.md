@@ -48,8 +48,8 @@ step.</p>
 
 <p>Once I've launched Tmux, I query the environment variable called 'THEME', if
 it's not equal to 'THEME=light' (or just doesn't exist), then we go with the
-dark theme. This means that when we first launch a Tmux session, we will
-default to a dark theme:</p>
+dark theme and set the THEME variable accordingly. This means that when we
+first launch a Tmux session, we will default to a dark theme:</p>
 </div>
 
 {% highlight bash %}
