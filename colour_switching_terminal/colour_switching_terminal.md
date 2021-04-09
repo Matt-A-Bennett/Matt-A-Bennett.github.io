@@ -2,7 +2,7 @@
 <div style="text-align: justify">
 <p>I always have one of my monitors taken up with Vim and/or Tmux as I work,
 and have up until now used dark themes. Here I implement a way to toggle
-between a light to dark colour scheme for both Vim and Tmux in one go with a
+between a light and dark colour scheme for both Vim and Tmux in one go with a
 simple shortcut (entered into either Vim or Tmux).</p>
 
 <p>In my case I can do either:</p>
