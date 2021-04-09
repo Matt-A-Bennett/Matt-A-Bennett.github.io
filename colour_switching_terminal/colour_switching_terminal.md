@@ -188,7 +188,7 @@ call SetColorScheme()
 
 <div style="text-align: justify">
 <p>We could stop there, but in the case where we have an instance of Vim
-running, and change the scheme using one of our aliases from withing in a Tmux
+running, and change the scheme using one of our aliases from within in a Tmux
 pane, Vim won't automatically re-run the SetColorScheme function.</p>
 </div>
 
