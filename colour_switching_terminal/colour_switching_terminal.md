@@ -189,7 +189,7 @@ call SetColorScheme()
 <div style="text-align: justify">
 <p>We could stop there, but in the case where we have an instance of Vim
 running, and change the scheme using one of our aliases from within in a Tmux
-pane, Vim won't automatically re-run the SetColorScheme function.</p>
+pane, Vim won't automatically re-run the SetColorScheme function:</p>
 </div>
 
 ![toggle in tmux, with vim open](./images/dark_to_light_tmux.png)
@@ -207,13 +207,29 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>This will mean that as soon as you return to vim from the Tmux pane, Vim's
-colour scheme will update automatically:</p>
-</div> 
+<p>This plugin requires the following line in you ~/.tmux.conf (or that you've
+installed the <a
+href="https://github.com/tmux-plugins/tmux-sensible">tmux-sensible</a>
+plugin):</p>
+</div>
+
+{% highlight bash %}
+set -g focus-events on
+{% endhighlight %}
+
+<div style="text-align: justify">
+<p>With one of the above options (I just have the line in my ~/.tmux.conf), we
+can use the FocusGained event in ~/.vimrc:</p>
+</div>
 
 {% highlight vim %}
 autocmd FocusGained * :call SetColorScheme()
 {% endhighlight %}
+
+<div style="text-align: justify">
+<p>This will mean that as soon as you return to vim from the Tmux pane, Vim's
+colour scheme will update automatically:</p>
+</div> 
 
 ![light theme](./images/all_light.png)
 
