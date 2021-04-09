@@ -118,7 +118,7 @@ relevant file, and update the THEME variable. I have two aliases in my
 {% highlight vim %}
 # switch between light and dark themes
 alias ol="tmux source-file ~/.tmux_light.conf; tmux set-environment THEME 'light'"
-alias od="tmux source-file ~/.tmux.conf; tmux set-environment THEME 'dark'"
+alias od="tmux source-file ~/.tmux_dark.conf; tmux set-environment THEME 'dark'"
 {% endhighlight %}
 
 ### Step 2: Switching from Vim
