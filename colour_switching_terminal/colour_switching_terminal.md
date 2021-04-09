@@ -7,17 +7,13 @@ simple shortcut (entered into either Vim or a Tmux pane).</p>
 
 <p>In my case I can do either:</p>
 
-<p>
-From a Tmux pane:<br>
+<p>From a Tmux pane:<br>
 <b>1a)</b> The alias 'ol' switches <b>both</b> Vim and Tmux to light mode.<br>
-<b>1b)</b> The alias 'od' switches <b>both</b> Vim and Tmux to dark mode.<br>
-</p>
+<b>1b)</b> The alias 'od' switches <b>both</b> Vim and Tmux to dark mode.<br></p>
 
-<p>
-From Vim:<br>
+<p>From Vim:<br>
 <b>2)</b> 'Leader-o' toggles <b>both</b> Vim and Tmux between light and dark colour
-schemes.
-</p>
+schemes.</p>
 </div>
 
 ![dark theme](./images/all_dark.png)
@@ -28,8 +24,7 @@ schemes.
 track of whether we have a light or dark colour scheme. Anytime I switch, be it
 from Vim or a Tmux pane, the variable will be updated. Existing and new Tmux
 panes and existing and new instances of Vim will check this variable and follow
-the scheme.
-</p>
+the scheme.</p>
 </div>
 
 ## Code implementation
