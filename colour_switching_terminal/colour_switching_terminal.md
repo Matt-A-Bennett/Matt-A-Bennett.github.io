@@ -155,12 +155,12 @@ call the SetColorScheme function above to change Vim's colours:</p>
 
 {% highlight vim %}
 function! Toggle_Light_Dark_Colorscheme()
-    if system('tmux show-environment THEME')[0:9] != 'THEME=dark'
-        :silent :!tmux source-file ~/.tmux_dark.conf
-        :silent :!tmux set-environment THEME 'dark'
-    else
+    if system('tmux show-environment THEME')[0:9] == 'THEME=dark'
         :silent :!tmux source-file ~/.tmux_light.conf
         :silent :!tmux set-environment THEME 'light'
+    else
+        :silent :!tmux source-file ~/.tmux_dark.conf
+        :silent :!tmux set-environment THEME 'dark'
     endif
     :call SetColorScheme()
 endfunction
