@@ -3,7 +3,7 @@
 <p>I always have one of my monitors taken up with Vim and/or Tmux as I work,
 and have up until now used dark themes. Here I implement a way to toggle
 between a light and dark colour scheme for both Vim and Tmux in one go with a
-simple shortcut (entered into either Vim or Tmux).</p>
+simple shortcut (entered into either Vim or a Tmux pane).</p>
 
 <p>In my case I can do either:</p>
 
@@ -33,7 +33,7 @@ the scheme.
 </div>
 
 ## Code implementation
-### Step 1: Switching from Tmux pane
+### Step 1: Switching colours from inside a Tmux pane
 <div style="text-align: justify">
 <p>For the purpose of this guide, I'll assume my various dot files are in my
 home directory. In reality I keep them all in a single git repository with
@@ -121,7 +121,7 @@ alias ol="tmux source-file ~/.tmux_light.conf; tmux set-environment THEME 'light
 alias od="tmux source-file ~/.tmux_dark.conf; tmux set-environment THEME 'dark'"
 {% endhighlight %}
 
-### Step 2: Switching from Vim
+### Step 2: Switching colours from inside Vim
 <div style="text-align: justify">
 <p>In my ~/.vimrc, I've defined two functions, one to set the colour scheme and
 another to handle the reading and updating of the Tmux THEME variable. The
