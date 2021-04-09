@@ -153,7 +153,7 @@ endfunction
 <div style="text-align: justify">
 <p>The colour scheme we pick is dictated by the Tmux THEME variable. If the
 THEME is 'THEME='dark', we choose a dark colour scheme (in my case zenburn),
-otherwise we go with a light one (in my case seoul256-light):<p/>
+otherwise we go with a light one (in my case seoul256-light):</p>
 </div>
 
 {% highlight vim %}
@@ -178,9 +178,9 @@ nnoremap <Leader>o :call Toggle_Light_Dark_Colorscheme()<cr>
 
 <div style="text-align: justify">
 <p>When we open a new instance of Vim, the Tmux THEME variable will have
-already been defined, and so we choose the colour scheme using the SetColorScheme
-function (note that this must come after the SetColorScheme function in your
-~/.vimrc):</p>
+already been defined, and so we choose the colour scheme using the
+SetColorScheme function (note that this must come after the SetColorScheme
+function in your ~/.vimrc):</p>
 </div>
 
 {% highlight vim %}
