@@ -114,14 +114,14 @@ alias od="tmux source-file ~/.tmux_dark.conf; tmux set-environment THEME 'dark'"
 of the Tmux THEME variable and toggles the Tmux colours, and the second sets
 Vim's colours.</p>
 
-<p>We read the Tmux THEME with a system call to Tmux. This returns the THEME
-variable, as well as a message saying 'Press ENTER or type a command to
+<p>We read the Tmux THEME variable with a system call to Tmux. This returns the
+THEME variable, as well as a message saying 'Press ENTER or type a command to
 continue'. Obviously we're only interested in the variable. Importantly, since
 I'm checking a match with 'THEME=dark', we must take only the first 10
-characters of message returned by the system call. Whichever scheme the
+characters of the message returned by the system call. Whichever scheme the
 variable indicates that we're using, we source the alternate theme and update
 the THEME variable. Once the THEME variable is updated, we call the
-SetColorScheme function above to change Vim's colours:</p>
+SetColorScheme function to change Vim's colours:</p>
 
 {% highlight vim %}
 function! Toggle_Light_Dark_Colorscheme()
@@ -137,7 +137,7 @@ endfunction
 {% endhighlight %}
 
 <p>The colour scheme we pick is dictated by the Tmux THEME variable. If the
-THEME is 'THEME='dark', we choose a dark colour scheme (in my case zenburn),
+THEME is 'THEME=dark', we choose a dark colour scheme (in my case zenburn),
 otherwise we go with a light one (in my case seoul256-light):</p>
 
 {% highlight vim %}
