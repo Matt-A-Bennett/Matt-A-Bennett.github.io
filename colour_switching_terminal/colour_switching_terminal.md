@@ -207,7 +207,7 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 {% endhighlight %}
 
 <div style="text-align: justify">
-<p>This plugin requires the following line in you ~/.tmux.conf (or that you've
+<p>This plugin requires the following line in your ~/.tmux.conf (or that you've
 installed the <a
 href="https://github.com/tmux-plugins/tmux-sensible">tmux-sensible</a>
 plugin):</p>
