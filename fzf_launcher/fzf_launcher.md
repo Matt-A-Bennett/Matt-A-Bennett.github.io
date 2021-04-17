@@ -20,9 +20,7 @@ command/program. Apart from being a little easier to type than 'vlc $(fzf)',
 the function returns control of the terminal to user (e.g. when opening GUIs).
 The full command that was run will appear in your history just like any other:
 </p>
-</div>
 
-<div style="text-align: justify">
 <p>Here we open a couple of python files in vim (the two marked with red
 circles), from two separate directories, and neither of which is in the current
 working directory. Note how few characters is needed to locate the files with
@@ -50,19 +48,18 @@ file system: </p>
 
 <div style="text-align: justify">
 <p>The usage is like this:<br/>
-f cd [OPTIONS] (hit enter, choose path)<br/>
-f cat [OPTIONS] (hit enter, choose files)<br/>
-f vim [OPTIONS] (hit enter, choose files)<br/>
-f vlc [OPTIONS] (hit enter, choose files)</p>
+f cd [OPTION]... (hit enter, choose path)<br/>
+f cat [OPTION]... (hit enter, choose files)<br/>
+f vim [OPTION]... (hit enter, choose files)<br/>
+f vlc [OPTION]... (hit enter, choose files)</p>
 </div>
 
 ## The Code Implementation
 <div style="text-align: justify">
-<p>First we launch fzf with the possibility of selecting multiple items and
-pass the 2nd argument to f(). This makes sense because the 1st argument to f()
-is the command/program. Everything coming after that is what's being submitted
-to fzf. The files that are selected are stored in a variable.</p>
-</div>
+<p>First we store the first argument as the program and shift it off the
+argument list. Any remaining arguments are taken as options to the program,
+which we pad with spaces, or if none were given simply use a single space (to
+act as the separator between program and arguments).</p>
 
 {% highlight bash %}
 
@@ -75,7 +72,7 @@ f() {
     # Remove first argument off the list
     shift
 
-    # Store option flags
+    # Store option flags with separating spaces, or just set as single space
     options="$@"
     if [ -z "${options}" ]; then
         options=" "
@@ -83,10 +80,21 @@ f() {
         options=" $options "
     fi
 
-    # If no arguments passed (e.g. if Esc pressed), return to terminal
-    if [ -z "${arguments}" ]; then
-        return 1
-    fi
+{% endhighlight %}
+
+<p>We launch fzf with the possibility of selecting multiple items and
+collect the arguments and store them in a variable:</p>
+</div>
+
+{% highlight bash %}
+
+# Store the arguments from fzf
+arguments=($(fzf --multi))
+
+# If no arguments passed (e.g. if Esc pressed), return to terminal
+if [ -z "${arguments}" ]; then
+    return 1
+fi
 
 {% endhighlight %}
 
