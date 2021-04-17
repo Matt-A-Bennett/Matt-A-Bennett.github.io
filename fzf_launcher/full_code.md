@@ -15,14 +15,20 @@ Below is all the code that we have written to date.
 # ~/.bash_history)
 #
 # Usage:
-# f cd (hit enter, choose path)
-# f cat (hit enter, choose files)
-# f vim (hit enter, choose files)
-# f vlc (hit enter, choose files)
+# f cd [OPTIONS] (hit enter, choose path)
+# f cat [OPTIONS] (hit enter, choose files)
+# f vim [OPTIONS] (hit enter, choose files)
+# f vlc [OPTIONS] (hit enter, choose files)
 
 f() {
-    # Store the arguments from fzf
-    IFS=$'\n' arguments=($(fzf --query="$2" --multi))
+    # store the program
+    program="$1"
+
+    shift # remove first argument off the list
+    options="$@"
+
+    # store the arguments from fzf
+    arguments=($(fzf --multi))
 
     # If no arguments passed (e.g. if Esc pressed), return to terminal
     if [ -z "${arguments}" ]; then
@@ -38,16 +44,16 @@ f() {
     # The cd command has no effect when run as background, and doesn't show up
     # as a job the can be brought to the foreground. So we make sure not to add
     # a '&' (more programs can be added separated by a '|')
-    if ! [[ $1 =~ ^(cd)$ ]]; then
-        $1 "${arguments[@]}" &
+    if ! [[ $program =~ ^(cd)$ ]]; then
+        "$program" "$options" "${arguments[@]}" &
     else
-        $1 "${arguments[@]}"
+        "$program" "$options" "${arguments[@]}"
     fi
 
     # If the program is not on the list of GUIs (e.g. vim, cat, etc.) bring it
     # to foreground so we can see the output. Also put cd on this list
     # otherwise there will be errors)
-    if ! [[ $1 =~ ^(cd|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
+    if ! [[ "$program" =~ ^(cd|nautilus|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
         fg %%
     fi
 
@@ -55,8 +61,8 @@ f() {
     # Store the arguments in a temporary file for sanitising before being
     # entered into bash history
     : > /tmp/fzf_tmp
-    for file in ${arguments[@]}; do
-        echo $file >> /tmp/fzf_tmp
+    for file in "${arguments[@]}"; do
+        echo "$file" >> /tmp/fzf_tmp
     done
 
     # Put all input arguments on one line and sanitise the command by putting
@@ -65,15 +71,15 @@ f() {
     sed -i "s/'/''/g; s/.*/'&'/g; s/\n//g" /tmp/fzf_tmp
 
     # If the program is on the GUI list add a '&' to the command history
-    if [[ $1 =~ ^(zathura|evince|vlc|eog|kolourpaint)$ ]]; then
+    if [[ "$program" =~ ^(nautilus|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
         sed -i '${s/$/ \&/}' /tmp/fzf_tmp
     fi
 
     # Grab the sanitised arguments
-    arguments=$(cat /tmp/fzf_tmp)
+    arguments="$(cat /tmp/fzf_tmp)"
 
     # Add the command with the sanitised arguments to our .bash_history
-    echo ${1} ${arguments} >> ~/.bash_history
+    echo "$program" "$options" "$arguments" >> ~/.bash_history
 
     # Reload the ~/.bash_history into the shell's active history
     history -r

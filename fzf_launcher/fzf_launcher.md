@@ -50,10 +50,10 @@ file system: </p>
 
 <div style="text-align: justify">
 <p>The usage is like this:<br/>
-f cd (hit enter, choose path)<br/>
-f cat (hit enter, choose files)<br/>
-f vim (hit enter, choose files)<br/>
-f vlc (hit enter, choose files)</p>
+f cd [OPTIONS] (hit enter, choose path)<br/>
+f cat [OPTIONS] (hit enter, choose files)<br/>
+f vim [OPTIONS] (hit enter, choose files)<br/>
+f vlc [OPTIONS] (hit enter, choose files)</p>
 </div>
 
 ## The Code Implementation
@@ -69,8 +69,15 @@ to fzf. The files that are selected are stored in a variable.</p>
 #!/bin/bash
 
 f() {
+    # store the program
+    program="$1"
+
+    shift # remove first argument off the list
+    options="$@"
+
     # Store the arguments from fzf
-    IFS=$'\n' arguments=($(fzf --query="$2" --multi))
+    arguments=($(fzf --multi))
+
 
     # If no arguments passed (e.g. if Esc pressed), return to terminal
     if [ -z "${arguments}" ]; then
@@ -108,13 +115,13 @@ not to add a '&' in this case.</p>
 
 {% highlight bash %}
 
-if ! [[ $1 =~ ^(cd)$ ]]; then
-    $1 "${arguments[@]}" &
+if ! [[ $program =~ ^(cd)$ ]]; then
+    "$program" "$options" "${arguments[@]}" &
 else
-    $1 "${arguments[@]}"
+    "$program" "$options" "${arguments[@]}"
 fi
 
-if ! [[ $1 =~ ^(cd|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
+if ! [[ "$program" =~ ^(cd|nautilus|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
     fg %%
 fi
 
@@ -136,13 +143,13 @@ sanitised history command.</p>
 {% highlight bash %}
 
 : > /tmp/fzf_tmp
-for file in ${arguments[@]}; do
-    echo $file >> /tmp/fzf_tmp
+for file in "${arguments[@]}"; do
+    echo "$file" >> /tmp/fzf_tmp
 done
 
 sed -i "s/'/''/g; s/.*/'&'/g; s/\n//g" /tmp/fzf_tmp
 
-if [[ $1 =~ ^(zathura|evince|vlc|eog|kolourpaint)$ ]]; then
+if [[ "$program" =~ ^(nautilus|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
     sed -i '${s/$/ \&/}' /tmp/fzf_tmp
 fi
 
