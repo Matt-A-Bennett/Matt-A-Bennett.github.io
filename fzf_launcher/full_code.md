@@ -30,6 +30,9 @@ f() {
     # Store option flags
     options="$@"
 
+    # Store the arguments from fzf
+    arguments=($(fzf --multi))
+
     # If no arguments passed (e.g. if Esc pressed), return to terminal
     if [ -z "${arguments}" ]; then
         return 1
@@ -45,9 +48,17 @@ f() {
     # as a job the can be brought to the foreground. So we make sure not to add
     # a '&' (more programs can be added separated by a '|')
     if ! [[ $program =~ ^(cd)$ ]]; then
-        "$program" "$options" "${arguments[@]}" &
+        if [ -z "$options" ]; then
+            "$program" "${arguments[@]}" &
+        else
+            "$program" "$options" "${arguments[@]}" &
+        fi
     else
-        "$program" "$options" "${arguments[@]}"
+        if [ -z "$options" ]; then
+            "$program" "${arguments[@]}"
+        else
+            "$program" "$options" "${arguments[@]}"
+        fi
     fi
 
     # If the program is not on the list of GUIs (e.g. vim, cat, etc.) bring it
@@ -79,7 +90,11 @@ f() {
     arguments="$(cat /tmp/fzf_tmp)"
 
     # Add the command with the sanitised arguments to our .bash_history
-    echo "$program" "$options" "$arguments" >> ~/.bash_history
+    if [ -z "$options" ]; then
+        echo $program $arguments >> ~/.bash_history
+    else
+        echo $program $options $arguments >> ~/.bash_history
+    fi
 
     # Reload the ~/.bash_history into the shell's active history
     history -r

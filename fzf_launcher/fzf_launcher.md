@@ -115,13 +115,17 @@ not to add a '&' in this case.</p>
 {% highlight bash %}
 
 if ! [[ $program =~ ^(cd)$ ]]; then
-    "$program" "$options" "${arguments[@]}" &
+    if [ -z "$options" ]; then
+        "$program" "${arguments[@]}" &
+    else
+        "$program" "$options" "${arguments[@]}" &
+    fi
 else
-    "$program" "$options" "${arguments[@]}"
-fi
-
-if ! [[ "$program" =~ ^(cd|nautilus|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
-    fg %%
+    if [ -z "$options" ]; then
+        "$program" "${arguments[@]}"
+    else
+        "$program" "$options" "${arguments[@]}"
+    fi
 fi
 
 {% endhighlight %}
@@ -164,7 +168,11 @@ history. Finally, we can delete the temporary file we created.</p>
 
 arguments=$(cat /tmp/fzf_tmp)
 
-echo ${1} ${arguments} >> ~/.bash_history
+if [ -z "$options" ]; then
+    echo $program $arguments >> ~/.bash_history
+else
+    echo $program $options $arguments >> ~/.bash_history
+fi
 
 history -r
 
