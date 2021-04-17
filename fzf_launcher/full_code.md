@@ -21,14 +21,14 @@ Below is all the code that we have written to date.
 # f vlc [OPTIONS] (hit enter, choose files)
 
 f() {
-    # store the program
+    # Store the program
     program="$1"
 
-    shift # remove first argument off the list
-    options="$@"
+    # Remove first argument off the list
+    shift
 
-    # store the arguments from fzf
-    arguments=($(fzf --multi))
+    # Store option flags
+    options="$@"
 
     # If no arguments passed (e.g. if Esc pressed), return to terminal
     if [ -z "${arguments}" ]; then

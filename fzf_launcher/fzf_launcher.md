@@ -69,15 +69,14 @@ to fzf. The files that are selected are stored in a variable.</p>
 #!/bin/bash
 
 f() {
-    # store the program
+    # Store the program
     program="$1"
 
-    shift # remove first argument off the list
+    # Remove first argument off the list
+    shift
+
+    # Store option flags
     options="$@"
-
-    # Store the arguments from fzf
-    arguments=($(fzf --multi))
-
 
     # If no arguments passed (e.g. if Esc pressed), return to terminal
     if [ -z "${arguments}" ]; then
