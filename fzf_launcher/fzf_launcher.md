@@ -77,6 +77,11 @@ f() {
 
     # Store option flags
     options="$@"
+    if [ -z "${options}" ]; then
+        options=" "
+    else
+        options=" $options "
+    fi
 
     # If no arguments passed (e.g. if Esc pressed), return to terminal
     if [ -z "${arguments}" ]; then
@@ -115,17 +120,9 @@ not to add a '&' in this case.</p>
 {% highlight bash %}
 
 if ! [[ $program =~ ^(cd)$ ]]; then
-    if [ -z "$options" ]; then
-        "$program" "${arguments[@]}" &
-    else
-        "$program" "$options" "${arguments[@]}" &
-    fi
+    $program$options${arguments[@]} &
 else
-    if [ -z "$options" ]; then
-        "$program" "${arguments[@]}"
-    else
-        "$program" "$options" "${arguments[@]}"
-    fi
+    $program$options${arguments[@]}
 fi
 
 {% endhighlight %}
@@ -168,11 +165,7 @@ history. Finally, we can delete the temporary file we created.</p>
 
 arguments=$(cat /tmp/fzf_tmp)
 
-if [ -z "$options" ]; then
-    echo $program $arguments >> ~/.bash_history
-else
-    echo $program $options $arguments >> ~/.bash_history
-fi
+echo $program$options$arguments >> ~/.bash_history
 
 history -r
 

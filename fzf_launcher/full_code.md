@@ -15,10 +15,10 @@ Below is all the code that we have written to date.
 # ~/.bash_history)
 #
 # Usage:
-# f cd [OPTIONS] (hit enter, choose path)
-# f cat [OPTIONS] (hit enter, choose files)
-# f vim [OPTIONS] (hit enter, choose files)
-# f vlc [OPTIONS] (hit enter, choose files)
+# f cd [OPTION]... (hit enter, choose path)
+# f cat [OPTION]... (hit enter, choose files)
+# f vim [OPTION]... (hit enter, choose files)
+# f vlc [OPTION]... (hit enter, choose files)
 
 f() {
     # Store the program
@@ -29,6 +29,11 @@ f() {
 
     # Store option flags
     options="$@"
+    if [ -z "${options}" ]; then
+        options=" "
+    else
+        options=" $options "
+    fi
 
     # Store the arguments from fzf
     arguments=($(fzf --multi))
@@ -48,17 +53,9 @@ f() {
     # as a job the can be brought to the foreground. So we make sure not to add
     # a '&' (more programs can be added separated by a '|')
     if ! [[ $program =~ ^(cd)$ ]]; then
-        if [ -z "$options" ]; then
-            "$program" "${arguments[@]}" &
-        else
-            "$program" "$options" "${arguments[@]}" &
-        fi
+        $program$options${arguments[@]} &
     else
-        if [ -z "$options" ]; then
-            "$program" "${arguments[@]}"
-        else
-            "$program" "$options" "${arguments[@]}"
-        fi
+        $program$options${arguments[@]}
     fi
 
     # If the program is not on the list of GUIs (e.g. vim, cat, etc.) bring it
@@ -90,11 +87,7 @@ f() {
     arguments="$(cat /tmp/fzf_tmp)"
 
     # Add the command with the sanitised arguments to our .bash_history
-    if [ -z "$options" ]; then
-        echo $program $arguments >> ~/.bash_history
-    else
-        echo $program $options $arguments >> ~/.bash_history
-    fi
+    echo $program$options$arguments >> ~/.bash_history
 
     # Reload the ~/.bash_history into the shell's active history
     history -r
