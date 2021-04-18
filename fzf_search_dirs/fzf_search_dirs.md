@@ -152,7 +152,7 @@ will (be sure to use 'fdfind' for Ubuntu 19.10+, as disused above):</p>
 
 {% highlight bash %}
 # restore fzf default options ('fzf clear')
-alias fzfcl="export FZF_DEFAULT_COMMAND=''"
+alias fzfcl="export FZF_DEFAULT_COMMAND='fd .'"
 
 # reinstate fzf custom options ('fzf-' as in 'cd -' as in 'back to where I was')
 alias fzf-="export FZF_DEFAULT_COMMAND='fd . $HOME'"
