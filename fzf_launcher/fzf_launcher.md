@@ -57,8 +57,8 @@ f vlc [OPTION]... (hit enter, choose files)</p>
 ## The Code Implementation
 <div style="text-align: justify">
 <p>The general method is to construct a command in ~/.bash_history taking the
-form: program + options + arguments. We use fzf to collect supply the file
-names which we'll use as arguments. Then we simply execute that command.</p>
+form: program + options + arguments. We use fzf to supply the file names which
+we'll use as arguments. Then we simply execute that command.</p>
 
 <p>First we store the first argument as the program and shift it off the
 argument list. Any remaining arguments are taken as options to the program,
@@ -92,7 +92,7 @@ collect the arguments and store them in a variable:</p>
 {% highlight bash %}
 
 # Store the arguments from fzf
-arguments=($(fzf --multi))
+arguments=$(fzf --multi)
 
 # If no arguments passed (e.g. if Esc pressed), return to terminal
 if [ -z "${arguments}" ]; then

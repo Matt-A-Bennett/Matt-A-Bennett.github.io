@@ -36,7 +36,7 @@ f() {
     fi
 
     # Store the arguments from fzf
-    arguments=($(fzf --multi))
+    arguments=$(fzf --multi)
 
     # If no arguments passed (e.g. if Esc pressed), return to terminal
     if [ -z "${arguments}" ]; then
