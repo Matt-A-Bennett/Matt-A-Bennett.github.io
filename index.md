@@ -2,7 +2,9 @@
 <div style="text-align: justify">
 <p>I earned my PhD in cognitive neuroscience at the University of Glasgow and I
 currently work as a postdoc at UCLouvain, Belgium. I work with fmri data and
-neural networks. I mainly use python and matlab programming languages.</p>
+neural networks. I mainly use python and matlab programming languages. I favour
+linux machines, and working in the terminal with Vim as my editor of
+choice.</p>
 </div>
 
 ## About this site
