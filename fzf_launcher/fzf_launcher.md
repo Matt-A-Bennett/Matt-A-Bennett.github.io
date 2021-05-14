@@ -62,8 +62,7 @@ we'll use as arguments. Then we simply execute that command.</p>
 
 <p>First we store the first argument as the program and shift it off the
 argument list. Any remaining arguments are taken as options to the program,
-which we pad with spaces, or if none were given simply use a single space (to
-act as the separator between program and arguments).</p>
+which we pad with spaces. </p>
 
 {% highlight bash %}
 
@@ -76,13 +75,8 @@ f() {
     # Remove first argument off the list
     shift
 
-    # Store option flags with separating spaces, or just set as single space
-    options="$@"
-    if [ -z "${options}" ]; then
-        options=" "
-    else
-        options=" $options "
-    fi
+    # Store any option flags with separating spaces
+    options=" $@ "
 
 {% endhighlight %}
 
@@ -115,21 +109,18 @@ history -w
 
 {% endhighlight %}
 
-<p>Next we store the arguments passed to our program in a temporary file for
-sanitising before being entered into ~/.bash_history. Then we use sed to put
-all input arguments on one line and sanitise the command by putting single
-quotes around all the arguments, also we put an extra single quote next to any
-pre-existing single quotes in the raw argument (e.g. badly named files). This
-has the effect that the quote in the argument itself is respected as such.</p>
+<p>Next we store the arguments passed to our program in a temporary variable
+and sanitise them for entry into ~/.bash_history. Specifically, we use sed to
+put all input arguments on one line wrap the command by single quotes each the
+argument, also we put an extra single quote next to any pre-existing single
+quotes in the raw argument (e.g. badly named files). This has the effect that
+the quote in the argument itself is respected as such.</p>
 
 {% highlight bash %}
 
-: > /tmp/fzf_tmp
-for file in "${arguments[@]}"; do
-    echo "$file" >> /tmp/fzf_tmp
-done
-
-sed -i "s/'/''/g; s/.*/'&'/g; s/\n//g" /tmp/fzf_tmp
+    for arg in "${arguments[@]}"; do
+        arguments=$(echo "$arg" | sed "s/'/''/g; s/.*/'&'/g; s/\n//g")
+    done
 
 {% endhighlight %}
 
@@ -142,18 +133,15 @@ GUI programs, we append '&' on the end of the command.</p>
 {% highlight bash %}
 
 if [[ "$program" =~ ^(nautilus|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
-    sed -i '${s/$/ \&/}' /tmp/fzf_tmp
+    arguments="$arguments &"
 fi
 
 {% endhighlight %}
 
-<p>Now we just load the sanitised commands and append them to the
-~/.bash_history, then reload the contents of the ~/.bash_history as our active
-history.</p>
+<p>Now we just append the sanitised commands to the ~/.bash_history, then
+reload the contents of the ~/.bash_history as our active history.</p>
 
 {% highlight bash %}
-
-arguments=$(cat /tmp/fzf_tmp)
 
 echo $program$options$arguments >> ~/.bash_history
 
@@ -161,14 +149,11 @@ history -r
 
 {% endhighlight %}
 
-<p>Finally, we execute the command that we placed in ~/.bash_history and delete
-the temporary file we created.</p>
+<p>Finally, we execute the command that we placed in ~/.bash_history:</p>
 
 {% highlight bash %}
 
 fc -s -1
-
-rm /tmp/fzf_tmp
 }
 
 {% endhighlight %}

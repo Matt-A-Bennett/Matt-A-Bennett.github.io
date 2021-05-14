@@ -21,19 +21,21 @@ Below is all the code that we have written to date.
 # f vlc [OPTION]... (hit enter, choose files)
 
 f() {
+    # if no arguments passed, just lauch fzf
+    if [ $# -eq 0 ]
+    then
+        fzf
+        return 0
+    fi
+
     # Store the program
     program="$1"
 
     # Remove first argument off the list
     shift
 
-    # Store option flags with separating spaces, or just set as single space
-    options="$@"
-    if [ -z "${options}" ]; then
-        options=" "
-    else
-        options=" $options "
-    fi
+    # Store any option flags with separating spaces
+    options=" $@ "
 
     # Store the arguments from fzf
     arguments=$(fzf --multi)
@@ -48,26 +50,18 @@ f() {
     # fzf, then we'll load it all back into the shell's active history
     history -w
 
-    # ADD A REPEATABLE COMMAND TO THE BASH HISTORY ############################
-    # Store the arguments in a temporary file for sanitising before being
-    # entered into bash history
-    : > /tmp/fzf_tmp
-    for file in "${arguments[@]}"; do
-        echo "$file" >> /tmp/fzf_tmp
-    done
-
     # Put all input arguments on one line and sanitise the command by putting
     # single quotes around each argument, also first put an extra single quote
-    # next to any pre-existing single quotes in the raw argument
-    sed -i "s/'/''/g; s/.*/'&'/g; s/\n//g" /tmp/fzf_tmp
+    # next to any pre-existing single quotes in the raw argument, put them all
+    # on one line
+    for arg in "${arguments[@]}"; do
+        arguments=$(echo "$arg" | sed "s/'/''/g; s/.*/'&'/g; s/\n//g")
+    done
 
-    # If the program is on the GUI list, add a '&' to the command history
+    # If the program is on the GUI list, add a '&'
     if [[ "$program" =~ ^(nautilus|zathura|evince|vlc|eog|kolourpaint)$ ]]; then
-        sed -i '${s/$/ \&/}' /tmp/fzf_tmp
+        arguments="$arguments &"
     fi
-
-    # Grab the sanitised arguments
-    arguments="$(cat /tmp/fzf_tmp)"
 
     # Add the command with the sanitised arguments to our .bash_history
     echo $program$options$arguments >> ~/.bash_history
@@ -75,12 +69,9 @@ f() {
     # Reload the ~/.bash_history into the shell's active history
     history -r
 
-    # EXECUTE THE LAST COMMAND IN ~/.bash_history #############################
+    # execute the last command in ~/.bash_history
     fc -s -1
-
-    # Clean up temporary variables
-    rm /tmp/fzf_tmp
-}
+    }
 
 {% endhighlight %}
 
