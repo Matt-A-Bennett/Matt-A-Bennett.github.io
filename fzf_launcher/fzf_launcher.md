@@ -61,8 +61,7 @@ form: program + options + arguments. We use fzf to supply the file names which
 we'll use as arguments. Then we simply execute that command.</p>
 
 <p>First we store the first argument as the program and shift it off the
-argument list. Any remaining arguments are taken as options to the program,
-which we pad with spaces:</p>
+argument list. Any remaining arguments are taken as options to the program:</p>
 
 {% highlight bash %}
 
@@ -73,7 +72,7 @@ f() {
 
     shift
 
-    options=" $@ "
+    options="$@"
 
 {% endhighlight %}
 
@@ -131,7 +130,7 @@ contents of the ~/.bash_history as our active history:</p>
 
 history -w
 
-echo $program$options$arguments >> ~/.bash_history
+echo $program $options $arguments >> ~/.bash_history
 
 history -r
 

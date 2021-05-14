@@ -34,8 +34,8 @@ f() {
     # Remove first argument off the list
     shift
 
-    # Store any option flags with separating spaces
-    options=" $@ "
+    # Store any option flags
+    options="$@"
 
     # Store the arguments from fzf
     arguments=$(fzf --multi)
@@ -45,10 +45,9 @@ f() {
         return 1
     fi
 
-    # Put all input arguments on one line and sanitise the command by putting
-    # single quotes around each argument, also first put an extra single quote
-    # next to any pre-existing single quotes in the raw argument, put them all
-    # on one line
+    # Sanitise the command by putting single quotes around each argument, also
+    # first put an extra single quote next to any pre-existing single quotes in
+    # the raw argument. Put them all on one line.
     for arg in "${arguments[@]}"; do
         arguments=$(echo "$arg" | sed "s/'/''/g; s/.*/'&'/g; s/\n//g")
     done
@@ -62,7 +61,7 @@ f() {
     history -w
 
     # Add the command with the sanitised arguments to .bash_history
-    echo $program$options$arguments >> ~/.bash_history
+    echo $program $options $arguments >> ~/.bash_history
 
     # Reload the ~/.bash_history into the shell's active history
     history -r
