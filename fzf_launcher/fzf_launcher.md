@@ -62,7 +62,7 @@ we'll use as arguments. Then we simply execute that command.</p>
 
 <p>First we store the first argument as the program and shift it off the
 argument list. Any remaining arguments are taken as options to the program,
-which we pad with spaces. </p>
+which we pad with spaces:</p>
 
 {% highlight bash %}
 
@@ -95,26 +95,12 @@ fi
 
 {% endhighlight %}
 
-<p>The command typed into the terminal could for example be 'f vlc'. The
-function will expand that into 'vlc file1.mp3 file2.mp3 &' and we want
-<i>that</i> command to show up in our bash history, rather than just seeing 'f
-vlc'. So we first write the shell's active history to the ~/.bash_history file,
-then later we'll add this 'vlc file1.mp3 file2.mp3 &' command to the end of
-~/.bash_history. Once we're all done, we'll load the ~/.bash_history file as
-our active history.</p> 
-
-{% highlight bash %}
-
-history -w
-
-{% endhighlight %}
-
 <p>Next we store the arguments passed to our program in a temporary variable
 and sanitise them for entry into ~/.bash_history. Specifically, we use sed to
 put all input arguments on one line wrap the command by single quotes each the
 argument, also we put an extra single quote next to any pre-existing single
 quotes in the raw argument (e.g. badly named files). This has the effect that
-the quote in the argument itself is respected as such.</p>
+the quote in the argument itself is respected as such:</p>
 
 {% highlight bash %}
 
@@ -128,7 +114,7 @@ the quote in the argument itself is respected as such.</p>
 still enter other commands into the terminal as they run. Non-GUI commands that
 run in the terminal such as 'vim', 'cat', 'head' etc should be run as
 foreground jobs (otherwise we won't see them). If the program is on the list of
-GUI programs, we append '&' on the end of the command.</p> 
+GUI programs, we append '&' on the end of the command:</p> 
 
 {% highlight bash %}
 
@@ -138,10 +124,16 @@ fi
 
 {% endhighlight %}
 
-<p>Now we just append the sanitised commands to the ~/.bash_history, then
-reload the contents of the ~/.bash_history as our active history.</p>
+<p>The command typed into the terminal could for example be 'f vlc'. The
+function will expand that into 'vlc file1.mp3 file2.mp3 &' and we want
+<i>that</i> command to show up in our bash history, rather than just seeing 'f
+vlc'. So we first write the shell's active history to the ~/.bash_history file.
+Then we append the sanitised commands to the ~/.bash_history, then reload the
+contents of the ~/.bash_history as our active history:</p>
 
 {% highlight bash %}
+
+history -w
 
 echo $program$options$arguments >> ~/.bash_history
 
