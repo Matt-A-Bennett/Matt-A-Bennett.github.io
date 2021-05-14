@@ -69,26 +69,22 @@ which we pad with spaces:</p>
 #!/bin/bash
 
 f() {
-    # Store the program
     program="$1"
 
-    # Remove first argument off the list
     shift
 
-    # Store any option flags with separating spaces
     options=" $@ "
 
 {% endhighlight %}
 
-<p>We launch fzf with the possibility of selecting multiple items and
-collect the arguments and store them in a variable:</p>
+<p>We launch fzf with the possibility of selecting multiple items and collect
+the arguments and store them in a variable. If no arguments are passed (e.g. if
+Esc pressed), we just return to terminal:</p>
 
 {% highlight bash %}
 
-# Store the arguments from fzf
 arguments=$(fzf --multi)
 
-# If no arguments passed (e.g. if Esc pressed), return to terminal
 if [ -z "${arguments}" ]; then
     return 1
 fi
@@ -104,9 +100,9 @@ the quote in the argument itself is respected as such:</p>
 
 {% highlight bash %}
 
-    for arg in "${arguments[@]}"; do
-        arguments=$(echo "$arg" | sed "s/'/''/g; s/.*/'&'/g; s/\n//g")
-    done
+for arg in "${arguments[@]}"; do
+    arguments=$(echo "$arg" | sed "s/'/''/g; s/.*/'&'/g; s/\n//g")
+done
 
 {% endhighlight %}
 
