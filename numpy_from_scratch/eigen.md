@@ -17,8 +17,8 @@ transformation (i.e. after the multiplication $Ax$) as before it is called an
 eigenvector. The amount by which their length is changed is called the
 eigenvalue (typically denoted with $\lambda$). Typically we think of the
 eigenvalues and eigenvectors as properties of the matrix $A$. You can also view
-at eigenvalues as the roots of a polynomial, which comes from the determinant.
-We have 2 unknowns to find: $x$ and $\lambda$:</p>
+eigenvalues as the roots of a polynomial, which comes from the determinant. We
+have 2 unknowns to find: $x$ and $\lambda$:</p>
 
 $$
 Ax = \lambda x
