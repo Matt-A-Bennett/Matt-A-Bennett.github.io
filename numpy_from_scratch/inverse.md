@@ -111,7 +111,7 @@ steps to the right half, formerly $I$). In order to do this using our method
 'elimination', which is only capable of eliminating the lower triangular
 region, we have to rearrange both the matrix $U$ and the right half such that
 the rows are flipped upside down, and the columns are flipped left to right. We
-do this rearrangement by separately multiplying $U$ and the right half with an
+do this rearrangement by separately multiplying $U$ on the right half with an
 anti-diagonal identity matrix on the left and right sides:</p>
 </div>
 
