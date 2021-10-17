@@ -324,7 +324,7 @@ class Mat:
         tmp_fU = Mat([Urow[0:mat_size[1]] for Urow in U.data])
         tmp_inv = Mat([Urow[mat_size[1]:] for Urow in U.data])
 
-        # creae anti-diag I
+        # create anti-diag I
         antiI = gen_mat(mat_size)
         for i, j in enumerate(reversed(range(mat_size[1]))):
             antiI.data[i][j] = 1

@@ -121,7 +121,7 @@ anti-diagonal identity matrix on the left and right sides:</p>
 tmp_fU = Mat([Urow[0:size[1]] for Urow in U.data])
 tmp_inv = Mat([Urow[size[1]:] for Urow in U.data])
 
-# creae anti-diag I
+# create anti-diag I
 antiI = gen_mat(size)
 for i, j in enumerate(reversed(range(size[1]))):
     antiI.data[i][j] = 1
