@@ -1,4 +1,4 @@
-# A = LU
+# $A = LU$
 <div style="text-align: justify">
 <p>Having the inverse method allows to revisit $EA = U$ and move to a better
 formulation of the same idea: $A = LU$. The matrix $L$ is lower triangular and

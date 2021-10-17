@@ -252,6 +252,7 @@ Outputs:
 {% endhighlight %}
 
 [< A = QR](./qr_factorisation.md)
+[Diagonalisation: $A = X\Lambda X^{-1}$ >](./diagonalisation.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
@@ -259,7 +260,7 @@ Outputs:
 ---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
-        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/eigen.html"
+        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/diagonalisation.html"
         theme="github-light"
         crossorigin="anonymous"
         async>

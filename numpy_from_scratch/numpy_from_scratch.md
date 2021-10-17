@@ -46,10 +46,11 @@ will attempt to realise in my library.</p>
 - [Back substitution](./backsub.md)
 - [Rank, pivots, singularity, determinant](./rank_piv_sing_det.md)
 - [Inverse](./inverse.md)
-- [A = LU](./lu_factorisation.md)
+- [$A = LU$](./lu_factorisation.md)
 - [Projection and regression](./projection_and_regression.md)
-- [A = QR](./qr_factorisation.md)
+- [$A = QR$](./qr_factorisation.md)
 - [Eigenvalues and eigenvectors](./eigen.md)
+- [Diagonalisation: $A = X\Lambda X^{-1}$](./diagonalisation.md)
 
 ### Dependencies between methods
 <div style="text-align: justify">

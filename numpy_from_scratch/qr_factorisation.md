@@ -1,4 +1,4 @@
-# A = QR
+# $A = QR$
 <div style="text-align: justify">
 <p>There are many benefits to working with set of vectors that span some space
 and are all 'orthonormal' - meaning each vector has a dot product of zero with
