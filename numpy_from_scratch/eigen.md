@@ -182,7 +182,7 @@ def eig(self, epsilon=0.0001, max_its=100):
             evalue -= 1e-12
         A_shifted = A.subtract(eye(size(A)).scale(evalue))
         # A_shifted_inv = A_shifted.inverse()
-        b = gen_mat([size(A)[0],1],1)
+        b = gen_mat([size(A)[0],1], values=[1])
         b = b.norm()
         for its in range(max_its):
             old_b = dc(b)
@@ -251,7 +251,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< A = QR](./qr_factorisation.md)
+[< A = QR](./qr_factorisation.md)\
 [Diagonalisation: $A = X\Lambda X^{-1}$ >](./diagonalisation.md)
 
 [back to project main page](./numpy_from_scratch.md)\

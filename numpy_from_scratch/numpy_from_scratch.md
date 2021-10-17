@@ -42,7 +42,7 @@ will attempt to realise in my library.</p>
 - [Matrix Multiplication](./dot_prod_length_and_mat_multiply.md#matrix-multiplication)
 
 ### Secondary methods 
-- [EA = U](./elimination.md)
+- [$EA = U$](./elimination.md)
 - [Back substitution](./backsub.md)
 - [Rank, pivots, singularity, determinant](./rank_piv_sing_det.md)
 - [Inverse](./inverse.md)

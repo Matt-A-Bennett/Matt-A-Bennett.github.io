@@ -14,17 +14,28 @@ Below is all the code that we have written to date.
 from copy import deepcopy as dc
 from math import sqrt
 
-def gen_mat(size, value=0):
+def gen_mat(size, values=[0], type='full'):
+    if len(values) == 1:
+        values = [values[0] for val in range(max(size))]
+    elif len(values) < max(size):
+        values += [0 for val in range(max(size)-len(values))]
     generated_mat = []
     for i in range(size[0]):
-        generated_mat.append([value for j in range(size[1])])
+        row = []
+        for j in range(size[1]):
+            if (type == 'diag' and j!=i) or (type == 'upper' and j<=i) or (type == 'lower' and j>=i):
+                row.append(0)
+            elif type == 'diag':
+                row.append(values[j])
+            elif j>=i:
+                row.append(values[j-i])
+            elif j<=i:
+                row.append(values[i-j])
+        generated_mat.append(row)
     return Mat(generated_mat)
 
 def eye(size):
-    eye = gen_mat(size)
-    for i in range(min(size)):
-        eye.data[i][i] = 1
-    return eye
+    return gen_mat(size, values=[1], type='diag')
 
 def cat(A, B, axis=0):
     if axis == 0:
@@ -467,7 +478,7 @@ class Mat:
                 evalue -= 1e-12
             A_shifted = A.subtract(eye(size(A)).scale(evalue))
             # A_shifted_inv = A_shifted.inverse()
-            b = gen_mat([size(A)[0],1],1)
+            b = gen_mat([size(A)[0],1], values=[1])
             b = b.norm()
             for its in range(max_its):
                 old_b = dc(b)
@@ -484,11 +495,12 @@ class Mat:
 
     def eigdiag(self):
         A = dc(self)
-        eigval_mat = eye(size(A))
         evects, evals = A.eig()
-        for idx, eigval in enumerate(evals.data[0]):
-            eigval_mat.data[idx][idx] = eigval
-        evectsinv = evects.inverse()
+        eigval_mat = gen_mat(size(A), values=evals.data[0], type='diag')
+        if A.is_symmetric():
+            evectsinv = evects.transpose()
+        else:
+            evectsinv = evects.inverse()
         return evects, eigval_mat, evectsinv
 
 {% endhighlight %}
