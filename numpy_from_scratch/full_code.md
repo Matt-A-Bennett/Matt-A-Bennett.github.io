@@ -29,7 +29,7 @@ def gen_mat(size, values=[0], type='full'):
                 row.append(values[j])
             elif j>=i:
                 row.append(values[j-i])
-            elif j<=i:
+            elif j<i:
                 row.append(values[i-j])
         generated_mat.append(row)
     return Mat(generated_mat)

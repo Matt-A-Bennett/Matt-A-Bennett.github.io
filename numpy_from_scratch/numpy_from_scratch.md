@@ -24,8 +24,8 @@ will attempt to realise in my library.</p>
 
 ### Class, standalone functions and miscellaneous methods 
 - [Mat(rix) Class](./class_and_standalone_functions_-_class_gen_print.md)
-- [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
 - [Printing matrices](./class_and_standalone_functions_-_class_gen_print.md#printing-matrices)
+- [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
 - [Is matrix triangular?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-upper-tringular)
 - [Is matrix diagonal?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-diagonal)
 - [Is matrix symmetric?](./class_and_standalone_functions_-_tri_diag_sym.md#is-matrix-symmetric)
