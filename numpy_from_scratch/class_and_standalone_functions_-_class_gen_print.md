@@ -51,6 +51,7 @@ a single value is passed, then we repeat that value. If more than one value is
 passed, but is less than the largest row/column dimension of the matrix, then
 we pad the value list with zeros. This scheme will allow us to make some quite
 useful types of matrices such as tri-diagonal etc.</p>
+</div>
 
 {% highlight python %}
 
@@ -62,6 +63,7 @@ def gen_mat(size, values=[0], type='full'):
 
 {% endhighlight %}
 
+<div style="text-align: justify">
 <p>Now that we have our list of values, we loop over each row/column of the
 matrix and decide whether to put a value from the list of a zero (in the case
 of diagonal/upper/lower matrices, we know some parts of the matrix will be
@@ -78,6 +80,7 @@ have been padded with zeros, and the result will be a matrix with some
 recurring number along each diagonal (see demos below). If only a single value
 was supplied then this value will have been repeated and the result will be a
 uniformly populated matrix</p>
+</div>
 
 {% highlight python %}
 
@@ -154,8 +157,10 @@ Outputs:
 
 {% endhighlight %}
 
+<div style="text-align: justify">
 <p>A very common matrix to generate immediately is the identity matrix. We use
 the previous function and populate the diagonal with 1's.</p>
+</div>
 
 {% highlight python %}
 
@@ -163,8 +168,6 @@ def eye(size):
     return gen_mat(size, values=[1], type='diag')
 
 {% endhighlight %}
-
-</div>
 
 [Is matrix triangular, diagonal, symmetric? >](./class_and_standalone_functions_-_tri_diag_sym.md)
 
