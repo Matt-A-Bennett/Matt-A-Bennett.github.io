@@ -123,7 +123,7 @@ Outputs:
 ---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
-        issue-term="https://matt-a-bennett.github.io/stats_from_scratch/sum_mean_and_zero_center.html"
+        issue-term="https://matt-a-bennett.github.io/stats_from_scratch/sum_and_mean.html"
         theme="github-light"
         crossorigin="anonymous"
         async>

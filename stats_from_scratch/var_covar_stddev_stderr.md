@@ -104,7 +104,7 @@ Outputs:
 ---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
-        issue-term="https://matt-a-bennett.github.io/stats_from_scratch/template.html"
+        issue-term="https://matt-a-bennett.github.io/stats_from_scratch/var_covar_stddev_stderr.html"
         theme="github-light"
         crossorigin="anonymous"
         async>
