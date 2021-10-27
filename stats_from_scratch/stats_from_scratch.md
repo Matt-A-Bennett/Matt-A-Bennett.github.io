@@ -14,7 +14,8 @@ Everything I do here will be implemented using the existing methods in the
 </div>
 
 ## Fundamental building blocks
-- [Sum, mean, zero-center and z-score](./sum_mean_and_zero_center_zscore.md)
+- [Sum and mean](./sum_and_mean.md)
+- [Zero-center and z-score](./zero_center_zscore.md)
 - [Variance, covariance, standard deviation and standard error](./var_covar_stddev_stderr.md)
 
 ## Statistical tests

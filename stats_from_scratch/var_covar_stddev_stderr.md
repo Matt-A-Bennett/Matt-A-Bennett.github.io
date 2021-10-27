@@ -96,8 +96,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Sum, mean and zero-center](./sum_mean_and_zero_center.md)\
-[Z-scoring >](./zscore.md)
+[< Zero center and z-scoring](./zero_center_and_zscore.md)
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)
