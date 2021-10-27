@@ -1,16 +1,21 @@
-# Building a Python 3 statistics module
+# Adding a statistics sub-package to my 'numpy from scratch' package
 
 The full code I've written so far can be found [here](./full_code.md).
 
 <div style="text-align: justify">
-<p></p>
+<p>Now that I've learned the basics of linear algebra and implemented a few of
+the methods in my [linalg](../numpy_from_scratch/numpy_from_scratch.md)
+package, I'm going back over my understanding of statistics and model building
+to see it from a linear algebra perspective. Therefore I'm going to add a
+sub-package called 'stats' to the 'linalg' package, in order to learn about how
+packages work in Python 3 and to help cement my understanding as I go.
+Everything I do here will be implemented using the existing methods in the
+'linalg' package. Here is what I've done so far:</p>
 </div>
 
 ## Fundamental building blocks
-- [Element-wise matrix manipulations](./element_wise_matrix.md)
-- [Sum, mean and zero-center](./sum_mean_and_zero_center.md)
+- [Sum, mean, zero-center and z-score](./sum_mean_and_zero_center_zscore.md)
 - [Variance, covariance, standard deviation and standard error](./var_covar_stddev_stderr.md)
-- [Z-scoring](./zscore.md)
 
 ## Statistical tests
 - [Pearson's Correlation](./pearson_correlation.md)
