@@ -1,4 +1,4 @@
-# Pivots, rank, singularity, determinant
+# Pivots, rank, singularity, determinant, positive definite
 ## Pivots
 <div style="text-align: justify">
 <p>Now that we have the method of elimination, we can get a lot of information

@@ -65,7 +65,7 @@ def gen_mat(size, values=[0], type='full'):
 
 <div style="text-align: justify">
 <p>Now that we have our list of values, we loop over each row/column of the
-matrix and decide whether to put a value from the list of a zero (in the case
+matrix and decide whether to put a value from the list or a zero (in the case
 of diagonal/upper/lower matrices, we know some parts of the matrix will be
 zero).</p>
 
