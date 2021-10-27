@@ -115,7 +115,7 @@ Outputs:
 
 {% endhighlight %}
 
-[Zero-center and z-score >](./zero_center_zscore.md)
+[Zero-center and z-score >](./zero_center_and_zscore.md)
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)
