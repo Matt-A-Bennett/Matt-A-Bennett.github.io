@@ -2,24 +2,28 @@
 ## Pivots
 <div style="text-align: justify">
 <p>Now that we have the method of elimination, we can get a lot of information
-about a matrix easily. The pivots of a matrix are the non-zero numbers sitting
-along the diagonal of $U$ after elimination. Here we return those pivots along
+about a matrix easily. The pivots of a matrix are the first non-zero numbers
+sitting in each row of $U$ after elimination. Here we return those pivots along
 with the columns in which they were found:</p>
 </div>
 
 {% highlight python %}
 
 def pivots(self):
-    A = copy.deepcopy(self)
-    # find U
-    _, _, _, U, _, _ = A.elimination()
-    # extract the non-zeros on the diagonal
-    diag_vals = U.diag()
-    pivot_info = [(i, val) for i, val in enumerate(diag_vals) if val]
-    return pivot_info
-
+    _, _, _, U, _, _ = self.elimination()
+    # extract the first non-zero from each row - track the column number
+    U = U.transpose()
+    pivots = {}
+    found = []
+    for j, col in enumerate(U.data):
+        piv_pos = sum(list(map(bool, col)))
+        if piv_pos not in found:
+            found.append(piv_pos)
+            pivots[j] = col[piv_pos-1]
+    return pivots
 
 {% endhighlight %}
+
 
 ### Demo
 <div style="text-align: justify">
@@ -68,7 +72,6 @@ pivots:</p>
 {% highlight python %}
 
 def rank(self):
-    A = copy.deepcopy(self)
     return len(A.pivots())
 
 {% endhighlight %}
@@ -121,8 +124,7 @@ accessing that variable:</p>
 {% highlight python %}
 
 def is_singular(self):
-    A = copy.deepcopy(self)
-    _, _, _, _, singular, _ = A.elimination()
+    _, _, _, _, singular, _ = self.elimination()
     return singular
 
 {% endhighlight %}

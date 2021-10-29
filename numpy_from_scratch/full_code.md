@@ -10,6 +10,7 @@ Below is all the code that we have written to date.
 [back to home](../index.md)
 
 {% highlight python %}
+# Known bugs:
 
 from copy import deepcopy as dc
 from math import sqrt
@@ -45,24 +46,21 @@ def cat(A, B, axis=0):
     return concatenated
 
 def print_mat(self, round_dp=99):
-    A = dc(self)
-    for row in A.data:
+    for row in self.data:
         rounded = [round(i,round_dp) for i in row]
         print(rounded)
     print()
 
 def size(self):
-    A = dc(self)
-    return [len(A.data), len(A.data[0])]
+    return [len(self.data), len(self.data[0])]
 
 class Mat:
     def __init__(self, data):
         self.data = data
 
     def transpose(self):
-        A = dc(self)
         transposed = []
-        for row_idx, row in enumerate(A.data):
+        for row_idx, row in enumerate(self.data):
             for col_idx, col in enumerate(row):
                 # first time through, make new row for each old column
                 if row_idx == 0:
@@ -70,136 +68,123 @@ class Mat:
                 else:
                     # append to newly created rows
                     transposed[col_idx].append(col)
-            A.data = transposed
-        return A
+        return Mat(transposed)
+
+    def is_square(self):
+        sizes = size(self)
+        return sizes[0] == sizes[1]
 
     def is_lower_tri(self):
-        A = dc(self)
-        for idx, row in enumerate(A.data):
+        for idx, row in enumerate(self.data):
             for col in range(idx+1,len(row)):
                 if row[col] != 0:
-                    return = False
+                    return False
         else:
             return True
 
     def is_upper_tri(self):
-        A = dc(self)
-        return A.transpose().is_lower_tri()
+        return self.transpose().is_lower_tri()
 
     def is_diag(self):
-        A = dc(self)
-        if A.is_lower_tri() and A.is_upper_tri():
+        if self.is_lower_tri() and self.is_upper_tri():
             return True
         else:
             return False
 
     def is_symmetric(self):
-        A = dc(self)
-        for idx1 in range(size(A)[0]):
-            for idx2 in range(idx1+1, size(A)[0]):
-                if A.data[idx1][idx2] != A.data[idx2][idx1]:
+        for i in range(size(self)[0]):
+            for j in range(i+1, size(self)[0]):
+                if self.data[i][j] != self.data[j][i]:
                     return False
         else:
             return True
 
-    def scale(self, scalar):
-        A = dc(self)
-        for row_idx, row in enumerate(A.data):
-            for col_idx in range(len(row)):
-                A.data[row_idx][col_idx] *= scalar
-        return A
+    def function_elwise(self, function, B=None):
+        C = gen_mat(size(self))
+        for i in range(size(self)[0]):
+            for j in range(size(self)[1]):
+                if B:
+                    C.data[i][j] = function(self.data[i][j], B.data[i][j])
+                else:
+                    C.data[i][j] = function(self.data[i][j])
+        return C
 
-    def add(self, new_mat):
-        A = dc(self)
-        B = dc(new_mat)
-        added_rows = []
-        for rows in zip(A.data, B.data):
-            added_cols = []
-            for cols in zip(rows[0],rows[1]):
-                added_cols.append(sum(list(cols)))
-            added_rows.append(added_cols)
-        A.data = added_rows
-        return A
+    def function_choice(self, B, functions):
+        if isinstance(B, Mat) == False:
+            return self.function_elwise(functions[0])
+        return self.function_elwise(functions[1], B)
 
-    def subtract(self, new_mat):
-        A = dc(self)
-        B = dc(new_mat)
-        # reverse sign of second matrix
-        B = B.scale(-1)
-        # use add function
-        A = A.add(B)
-        return A
+    def add(self, B):
+        return self.function_choice(B, [lambda x: x+B, lambda x, y: x+y])
+
+    def subtract(self, B):
+        return self.function_choice(B, [lambda x: x-B, lambda x, y: x-y])
+
+    def multiply_elwise(self, B):
+        return self.function_choice(B, [lambda x: x*B, lambda x, y: x*y])
+
+    def div_elwise(self, B):
+        return self.function_choice(B, [lambda x: x/B, lambda x, y: x/y])
 
     def dot(self, new_mat):
-        A = dc(self)
-        B = dc(new_mat)
         # make both vectors rows with transpose
-        if size(A)[0] != 1:
-            A = A.transpose()
-        if size(B)[0] != 1:
-            B = B.transpose()
+        if size(self)[0] != 1:
+            self = self.transpose()
+        if size(new_mat)[0] != 1:
+            self = new_mat.transpose()
         # compute dot product
         dot_prod = []
-        for cols in zip(A.data[0], B.data[0]):
+        for cols in zip(self.data[0], new_mat.data[0]):
             dot_prod.append(cols[0]*cols[1])
         dot_prod = sum(dot_prod)
         return dot_prod
 
     def length(self):
-        A = dc(self)
-        v_length = sqrt(A.dot(A))
-        return v_length
+        return sqrt(self.dot(self))
 
     def norm(self):
-        A = dc(self)
-        if A.length() != 0:
-            A = A.scale(1/A.length())
-        return A
+        if self.length() != 0:
+            self = self.multiply_elwise(1/self.length())
+        return self
 
     def multiply(self, new_mat):
-        A = dc(self)
-        B = dc(new_mat)
         # preallocate empty matrix
-        multiplied = gen_mat([size(A)[0], size(B)[1]])
+        multiplied = gen_mat([size(self)[0], size(new_mat)[1]])
         # transpose one matrix, take a bunch of dot products
-        B = B.transpose()
-        for row_idx, row in enumerate(A.data):
+        new_mat = new_mat.transpose()
+        for row_idx, row in enumerate(self.data):
             tmp_row = Mat([row])
-            for col_idx, col in enumerate(B.data):
+            for col_idx, col in enumerate(new_mat.data):
                 # enter the dot product into our final matrix
                 multiplied.data[row_idx][col_idx] = tmp_row.dot(Mat([col]))
         return multiplied
 
     def diag(self):
-        A = dc(self)
         diag_vals = []
-        for i in range(min(size(A))):
-            diag_vals.append(A.data[i][i])
+        for i in range(min(size(self))):
+            diag_vals.append(self.data[i][i])
         return diag_vals
 
     def elimination(self):
-        A = dc(self)
         # should do some row exchanges for numerical stability...
 
         # we assume the matrix is invertible
-        singular = 0
+        singular = False
 
         # create identity matrix which we'll turn into an E matrix
-        tmpE = eye(size(A))
+        E = eye(size(self))
 
         # create a permutation matrix for row exchanges
-        tmpP = eye([size(A)[0], size(A)[0]])
+        P = eye([size(self)[0], size(self)[0]])
 
-        E = dc(tmpE)
-        P = dc(tmpP)
-        U = dc(A)
+        U = dc(self)
         pivot_count = 0
         row_exchange_count = 0
         for row_idx in range(size(U)[0]-1):
             for sub_row in range(row_idx+1, size(U)[0]):
                 # create elimination mat
-                nextE = dc(tmpE)
-                nextP = dc(tmpP)
+                nextE = eye(size(self))
+                nextP = eye([size(self)[0], size(self)[0]])
 
                 # handle a zero in the pivot position
                 if U.data[row_idx][pivot_count] == 0:
@@ -218,7 +203,7 @@ class Mat:
 
                 # check if the permutation avoided a zero in the pivot position
                 if U.data[row_idx][row_idx] == 0:
-                    singular = 1
+                    singular = True
                     # undo the row exchanges that failed
                     row_exchange_count -= 1
                     U = nextP.transpose().multiply(U)
@@ -236,23 +221,23 @@ class Mat:
                 E = nextE.multiply(E)
             pivot_count += 1
 
-        # If A was a 1x1 matrix, the above loops didn't happen. Take the
+        # If self was a 1x1 matrix, the above loops didn't happen. Take the
         # reciprocal of the number:
         if size(U)[0] == 1 and size(U)[1] == 2:
             if U.data[0][0] != 0:
                 U.data[0] = [1/U.data[0][0], 1]
             row_idx = -1
 
-        # check if the permutation avoided a zero in the pivot position
-        if U.data[row_idx+1][row_idx+1] == 0:
-            singular = 1
+        # check if the matrix is square
+        if size(U)[1] == size(U)[0]:
+            # check if the permutation avoided a zero in the pivot position
+            if U.data[row_idx+1][row_idx+1] == 0:
+                singular = True
 
-        return P, E, A, U, singular, row_exchange_count
+        return P, E, self, U, singular, row_exchange_count
 
     def backsub(self, b):
-        A = dc(self)
-        b = dc(b)
-        augmented = cat(A, b, axis=1)
+        augmented = cat(self, b, axis=1)
         _, _, _, U, _, _ = augmented.elimination()
         coeff = []
         for idx in range(-1, -(size(U)[0]+1), -1):
@@ -274,27 +259,28 @@ class Mat:
         return Mat([coeffs]).transpose()
 
     def pivots(self):
-        A = dc(self)
-        # find U
-        _, _, _, U, _, _ = A.elimination()
-        # extract the non-zeros on the diagonal
-        diag_vals = U.diag()
-        pivot_info = [(i, val) for i, val in enumerate(diag_vals) if val]
-        return pivot_info
+        _, _, _, U, _, _ = self.elimination()
+        # extract the first non-zero from each row - track the column number
+        U = U.transpose()
+        pivots = {}
+        found = []
+        for j, col in enumerate(U.data):
+            piv_pos = sum(list(map(bool, col)))
+            if piv_pos not in found:
+                found.append(piv_pos)
+                pivots[j] = col[piv_pos-1]
+        return pivots
 
     def rank(self):
-        A = dc(self)
         return len(A.pivots())
 
     def is_singular(self):
-        A = dc(self)
-        _, _, _, _, singular, _ = A.elimination()
+        _, _, _, _, singular, _ = self.elimination()
         return singular
 
     def determinant(self):
-        A = dc(self)
         # find U
-        _, _, _, U, _, row_exchange_count = A.elimination()
+        _, _, _, U, _, row_exchange_count = self.elimination()
         # muliply the pivots
         det = 1
         diag_vals = U.diag()
@@ -306,12 +292,11 @@ class Mat:
         return det
 
     def inverse(self):
-        A = dc(self)
-        mat_size = size(A)
+        mat_size = size(self)
 
         # create [A I]
         I = eye(mat_size)
-        augmented = cat(A, I, axis=1)
+        augmented = cat(self, I, axis=1)
 
         # perform elimination to get to [U ~inv]
         _, _, _, U, singular, _ = augmented.elimination()
@@ -354,18 +339,16 @@ class Mat:
         return inv
 
     def lu(self):
-        A = dc(self)
-        P, E, A, U, _, _ = A.elimination()
+        P, E, A, U, _, _ = self.elimination()
         E = P.multiply(E)
         L = P.multiply(E.inverse())
         return A, P, L, U
 
     def projection(self):
         # P = A((A'A)^-1)A'
-        A = dc(self)
-        AtAinv = (A.transpose().multiply(A)).inverse()
-        for_x = AtAinv.multiply(A.transpose())
-        Projection = A.multiply(for_x)
+        AtA_inv = (self.transpose().multiply(self)).inverse()
+        for_x = AtA_inv.multiply(self.transpose())
+        Projection = self.multiply(for_x)
         return Projection, for_x
 
     def polyfit(self, order=1):
@@ -386,13 +369,11 @@ class Mat:
         return self.polyfit()
 
     def qr(self):
-        A = dc(self)
-
-        if A.is_singular():
+        if self.is_singular():
             print('Matrix is singular!')
-            return A, None, None
+            return self, None, None
 
-        A = A.transpose()
+        A = self.transpose()
         Q = dc(A)
         I = eye(size(A))
         # projection orthogonal to column
@@ -420,13 +401,12 @@ class Mat:
         return A, Q, R
 
     def eigvalues(self, epsilon = 0.0001, max_its=100):
-        A = dc(self)
-        if not (A.is_symmetric() or A.is_lower_tri() or A.is_upper_tri()):
+        if not (self.is_symmetric() or self.is_lower_tri() or self.is_upper_tri()):
             print('Matrix is not symmetric or triangular and may therefore have complex eigenvalues which this method cannot handle. Interpret results with care!')
 
-        if A.is_upper_tri() or A.is_lower_tri():
-            return Mat([A.diag()])
-        if A.is_singular():
+        if self.is_upper_tri() or self.is_lower_tri():
+            return Mat([self.diag()])
+        if self.is_singular():
             print('Matrix is singular!')
             return None
 
@@ -435,12 +415,12 @@ class Mat:
         for its in range(max_its):
 
             # obtain off diagonal zeros
-            _, E, _, _, _, _ = A.elimination()
+            _, E, _, _, _, _ = self.elimination()
             Einv = E.inverse()
-            A = E.multiply(A).multiply(Einv)
+            A = E.multiply(self).multiply(Einv)
 
             # shift A by -cI, where c is last diag
-            shift = eye(size(A)).scale(old_eig)
+            shift = eye(size(A)).multiply_elwise(old_eig)
 
             # QR factorisation
             A = A.subtract(shift)
@@ -466,19 +446,18 @@ class Mat:
             return None
 
     def eig(self, epsilon=0.0001, max_its=100):
-        A = dc(self)
-        if A.is_singular():
+        if self.is_singular():
             print('Matrix is singular!')
             return None, None
-        evals = A.eigvalues()
+        evals = self.eigvalues()
         evects = []
         for evalue in evals.data[0]:
             # ensure we don't destroy the diagonal completely
-            if evalue in A.diag():
+            if evalue in self.diag():
                 evalue -= 1e-12
-            A_shifted = A.subtract(eye(size(A)).scale(evalue))
+            A_shifted = self.subtract(eye(size(self)).multiply_elwise(evalue))
             # A_shifted_inv = A_shifted.inverse()
-            b = gen_mat([size(A)[0],1], values=[1])
+            b = gen_mat([size(self)[0],1], values=[1])
             b = b.norm()
             for its in range(max_its):
                 old_b = dc(b)
@@ -486,7 +465,7 @@ class Mat:
                 # b = A_shifted_inv.multiply(b)
                 b = b.norm()
                 diff1 = b.subtract(old_b)
-                diff2 = b.subtract(old_b.scale(-1))
+                diff2 = b.subtract(old_b.multiply_elwise(-1))
                 if diff2.length() or diff2.length() < epsilon:
                     evects.append(b.transpose().data[0])
                     break
@@ -494,10 +473,9 @@ class Mat:
         return evects, evals
 
     def eigdiag(self):
-        A = dc(self)
-        evects, evals = A.eig()
-        eigval_mat = gen_mat(size(A), values=evals.data[0], type='diag')
-        if A.is_symmetric():
+        evects, evals = self.eig()
+        eigval_mat = gen_mat(size(self), values=evals.data[0], type='diag')
+        if self.is_symmetric():
             evectsinv = evects.transpose()
         else:
             evectsinv = evects.inverse()

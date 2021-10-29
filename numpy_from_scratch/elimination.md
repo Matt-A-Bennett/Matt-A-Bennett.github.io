@@ -220,9 +220,11 @@ if size(U)[0] == 1 and size(U)[1] == 2:
         U.data[0] = [1/U.data[0][0], 1]
     row_idx = -1
 
-# check if the permutation avoided a zero in the pivot position
-elif U.data[row_idx+1][row_idx+1] == 0:
-    singular = 1
+# check if the matrix is square
+if size(U)[1] == size(U)[0]:
+    # check if the permutation avoided a zero in the pivot position
+    if U.data[row_idx+1][row_idx+1] == 0:
+        singular = True
 
 return P, E, self, U, singular, row_exchange_count
 
