@@ -216,7 +216,7 @@ Matrix is singular!
 
 {% endhighlight %}
 
-[< Rank, pivots, singularity, determinants](./rank_piv_sing_det.md)\
+[< Pivots, rank, singularity, determinants](./rank_piv_sing_det.md)\
 [A = LU >](./lu_factorisation.md)
 
 [back to project main page](./numpy_from_scratch.md)\
