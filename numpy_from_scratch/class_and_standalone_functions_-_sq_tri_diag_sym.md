@@ -1,5 +1,33 @@
 # Class, standalone functions and miscellaneous methods (2/3)
 ## Miscellaneous methods 
+### Is matrix square?
+<div style="text-align: justify">
+<p>A matrix is 'square' if it has the same number of rows as it does columns:</p>
+
+$$
+  \begin{bmatrix}
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9
+  \end{bmatrix}
+$$
+
+</div>
+
+#### Code implementation
+<div style="text-align: justify">
+<p>This is extremely simple:</p>
+</div>
+
+{% highlight python %}
+
+def is_square(self):
+    sizes = size(self)
+    return sizes[0] == sizes[1]
+
+
+{% endhighlight %}
+
 ### Is matrix lower triangular?
 <div style="text-align: justify">
 <p>A matrix is 'lower triangular' if all the entries with column indices greater
