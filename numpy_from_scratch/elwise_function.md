@@ -34,6 +34,24 @@ def function_elwise(self, function, B=None):
 
 {% endhighlight %}
 
+<div style="text-align: justify">
+<p>We also define a method to check choose which of a list of supplied
+functions to apply, given the argument B. If the argument B was not an instance
+of the class 'Mat' we assume an integer or float was passed and that the user
+wants to use the first listed function, and otherwise wants to apply the second
+function. Thus the appropriate function is passed, along with the argument B
+into function_elwise:</p>
+</div>
+
+{% highlight python %}
+
+def function_choice(self, B, functions):
+    if isinstance(B, Mat) == False:
+        return self.function_elwise(functions[0])
+    return self.function_elwise(functions[1], B)
+
+{% endhighlight %}
+
 # Addition and subtraction
 <div style="text-align: justify">
 <p>Addition and subtraction is valid between two same-shaped matrices and is
@@ -91,26 +109,22 @@ $$
 ## Code implemetation
 
 <div style="text-align: justify">
-<p>To add and subtract, we first check if the B argument was not an instance of
-the class 'Mat'. In this case we assume an integer or float was passed and that
-the user wants to add/subtract the same scaler from each element. This is a
-simple function of each element of the original matrix and we use a lambda
-function to specify it. On the other hand, if the B argument was a matrix, we
-define a lambda function of two variables (x and y) and pass the matrix B into
-function_elwise:</p>
-</div>
+<p>Here we call the function_choice method with a list of two lambda functions.
+In the case that B was no a matrix, we assume that the user wants to
+add/subtract the same scaler from each element. element. This is a simple
+function of each element of the original matrix and this is reflect in the
+first lambda function in the list. On the other hand, if the B
+argument was a matrix, the second lambda function of two variables (x and y)
+will be applied: 
+:</p>
 
 {% highlight python %}
 
 def add(self, B):
-    if isinstance(B, Mat) == False:
-        return self.function_elwise(lambda x: x+B)
-    return self.function_elwise(lambda x, y: x+y, B)
+    return self.function_choice(B, [lambda x: x+B, lambda x, y: x+y])
 
 def subtract(self, B):
-    if isinstance(B, Mat) == False:
-        return self.function_elwise(lambda x: x-B)
-    return self.function_elwise(lambda x, y: x-y, B)
+    return self.function_choice(B, [lambda x: x-B, lambda x, y: x-y])
 
 {% endhighlight %}
 
@@ -191,14 +205,10 @@ two variables:</p>
 {% highlight python %}
 
 def multiply_elwise(self, B):
-    if isinstance(B, Mat) == False:
-        return self.function_elwise(lambda x: x*B)
-    return self.function_elwise(lambda x, y: x*y, B)
+    return self.function_choice(B, [lambda x: x*B, lambda x, y: x*y])
 
 def div_elwise(self, B):
-    if isinstance(B, Mat) == False:
-        return self.function_elwise(lambda x: x/B)
-    return self.function_elwise(lambda x, y: x/y, B)
+    return self.function_choice(B, [lambda x: x/B, lambda x, y: x/y])
 
 {% endhighlight %}
 
