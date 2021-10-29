@@ -169,7 +169,7 @@ def eye(size):
 
 {% endhighlight %}
 
-[Is matrix triangular, diagonal, symmetric? >](./class_and_standalone_functions_-_class_gen_print.md-_sq_tri_diag_sym.md)
+[Is matrix triangular, diagonal, symmetric? >](./class_and_standalone_functions_-_sq_tri_diag_sym.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
