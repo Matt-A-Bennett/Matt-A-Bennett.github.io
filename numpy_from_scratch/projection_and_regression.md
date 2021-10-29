@@ -86,10 +86,9 @@ and the matrix that multiplies $b$ to give \(\hat x\):</p>
 
 def projection(self):
     # P = A((A'A)^-1)A'
-    A = copy.deepcopy(self)
-    AtAinv = (A.transpose().multiply(A)).inverse()
-    for_x = AtAinv.multiply(A.transpose())
-    Projection = A.multiply(for_x)
+    AtA_inv = (self.transpose().multiply(self)).inverse()
+    for_x = AtA_inv.multiply(self.transpose())
+    Projection = self.multiply(for_x)
     return Projection, for_x
 
 {% endhighlight %}
@@ -106,7 +105,6 @@ third column is for the squared terms ($x^2 = x^2$) and so on:</p>
 {% highlight python %}
 
 def polyfit(self, order=1):
-    b = copy.deepcopy(self)
     # create a model
     A = gen_mat([size(b)[0], 1])
     for i in range(size(b)[0]):

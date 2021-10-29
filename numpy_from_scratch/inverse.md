@@ -88,7 +88,6 @@ zero row, then $A$ is singular and has no inverse:</p>
 {% highlight python %}
 
 def inverse(self):
-    A = copy.deepcopy(self)
     mat_size = size(A)
 
     # create [A I]

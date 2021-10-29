@@ -66,23 +66,21 @@ onto the next column and repeat:</p>
 {% highlight python %}
 
 def qr(self):
-    A = copy.deepcopy(self)
-
     if A.is_singular():
         print('Matrix is singular!')
         return A, None, None
 
     A = A.transpose()
-    Q = copy.deepcopy(A)
+    Q = dc(A)
     I = eye(size(A))
     # projection orthogonal to column
     for col in range(size(Q)[0]-1):
-        Col = copy.deepcopy(Mat([Q.data[col]]))
+        Col = dc(Mat([Q.data[col]]))
         P, _ = Col.transpose().projection()
         P = I.subtract(P)
         # project and put into matrix Q
         for col2 in range(col+1, size(Q)[0]):
-            Col = copy.deepcopy(Mat([Q.data[col2]]))
+            Col = dc(Mat([Q.data[col2]]))
             q = P.multiply(Col.transpose()).transpose()
             Q.data[col2] = q.data[0]
 

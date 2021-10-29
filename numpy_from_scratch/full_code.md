@@ -352,7 +352,6 @@ class Mat:
         return Projection, for_x
 
     def polyfit(self, order=1):
-        b = dc(self)
         # create a model
         A = gen_mat([size(b)[0], 1])
         for i in range(size(b)[0]):

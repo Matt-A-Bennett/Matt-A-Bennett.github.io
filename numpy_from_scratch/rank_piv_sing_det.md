@@ -175,7 +175,6 @@ the pivot method we wrote, as we also need the number of row exchanges:</p>
 {% highlight python %}
 
 def determinant(self):
-    A = copy.deepcopy(self)
     # find U
     _, _, _, U, _, row_exchange_count = A.elimination()
     # muliply the pivots
