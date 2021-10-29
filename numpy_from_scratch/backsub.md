@@ -228,7 +228,7 @@ Outputs:
 {% endhighlight %}
 
 [< EA = U](./elimination.md)\
-[Rank, pivots, singularity, determinant >](./rank_piv_sing_det.md)
+[Pivots, rank, singularity, determinant >](./rank_piv_sing_det.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
