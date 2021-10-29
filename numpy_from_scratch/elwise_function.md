@@ -3,8 +3,8 @@
 <p>We define a useful method for applying any function to each element of a
 matrix (e.g. scaling, raising to any power) and for applying any function to
 the elements in two matrices to produce a third matrix (e.g. adding, Hadamard
-products). The function_elwise method forms the basis for several
-operations</p>
+products). The 'function_elwise' method forms the basis for several
+operations.</p>
 </div>
 
 ## Code implemetation
@@ -12,7 +12,7 @@ operations</p>
 <div style="text-align: justify">
 <p> The method requires an arbitrary function as an argument, and can also take
 an optional second matrix, B. If B is supplied, then the function must be a
-function of two variables (these will be the elements in the i,j positions of
+function of two variables (these will be the elements in the $i,j$ positions of
 the two matrices).</p>
 
 <p>We loop over the row and column indices of the matrix and, depending on the
@@ -93,7 +93,7 @@ $$
 <div style="text-align: justify">
 <p>To add and subtract, we first check if the B argument was not an instance of
 the class 'Mat'. In this case we assume an integer or float was passed and that
-the use wants to add/subtract the same scaler from each element. This is a
+the user wants to add/subtract the same scaler from each element. This is a
 simple function of each element of the original matrix and we use a lambda
 function to specify it. On the other hand, if the B argument was a matrix, we
 define a lambda function of two variables (x and y) and pass the matrix B into
@@ -116,7 +116,7 @@ def subtract(self, B):
 
 # Element-wise multiplication/division and scalar multiplication
 <div style="text-align: justify">
-<p>Just what it sounds like. We will use $\odot$ and $\slash$ to denote these
+<p>Just what it sounds like. We will use $\odot$ and $\oslash$ to denote these
 two operations:</p>
 </div>
 
@@ -143,19 +143,19 @@ $$
 $$
 A \oslash B = 
   \begin{bmatrix}
-    1 & 2 & 3 \\[6pt]
-    2 & 0 & 0 \\[6pt]
+    1 & 2 & 3 \\[5pt]
+    2 & 0 & 0 \\[5pt]
     4 & -2 & -1
   \end{bmatrix}
   \oslash
   \begin{bmatrix}
-    2 & 2 & 3 \\[6pt]
-    4 & 2 & 1 \\[6pt]
+    2 & 2 & 3 \\[5pt]
+    4 & 2 & 1 \\[5pt]
     1 & 3 & 2
   \end{bmatrix} =
   \begin{bmatrix}
-    \frac{1}{2} & 1 & 1 \\[6pt]
-    \frac{1}{2} & 0 & 0 \\[6pt]
+    \frac{1}{2} & 1 & 1 \\[5pt]
+    \frac{1}{2} & 0 & 0 \\[5pt]
     4 & -\frac{2}{3} & -\frac{1}{2}
   \end{bmatrix}
 $$
