@@ -116,6 +116,7 @@ each element and is reflected in the first lambda function in the list. On the
 other hand, if the B argument was a matrix, the second lambda function of two
 variables (x and y: the $i,j$ elements from the original matrix and matrix B)
 will be applied:</p>
+</div>
 
 {% highlight python %}
 
