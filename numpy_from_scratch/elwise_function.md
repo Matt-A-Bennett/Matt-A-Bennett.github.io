@@ -114,7 +114,7 @@ def subtract(self, B):
 
 {% endhighlight %}
 
-# Element-wise multiplication and division and scalar multiplication
+# Element-wise multiplication/division and scalar multiplication
 <div style="text-align: justify">
 <p>Just what it sounds like. We will use $\odot$ and $\oslash$ to denote these
 two operations:</p>
