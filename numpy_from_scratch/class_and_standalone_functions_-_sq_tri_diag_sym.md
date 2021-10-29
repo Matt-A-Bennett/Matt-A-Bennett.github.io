@@ -157,15 +157,15 @@ def is_symmetric(self):
 ### Is matrix positive definite?
 <div style="text-align: justify">
 <p>If all the pivots of a matrix are strictly greater than zero, then the
-matrix is positive definite. If they are greater than and in some cases equal
-to zero, then the matrix is positive semi-definite. Similary, strictly less
-than zero means the matrix is negative definite and if there are some zeros
-then the matrix is negative semi-definite.</p>
+matrix is positive definite. If they are greater than or equal to zero, then
+the matrix is positive semi-definite. Similary, strictly less than zero means
+the matrix is negative definite and if there are also some zeros then the
+matrix is negative semi-definite.</p>
 </div>
 
 #### Code implementation
 <div style="text-align: justify">
-<p>We creat a method that returns the base-10 integer representation of a
+<p>We create a method that returns the base-10 integer representation of a
 base-2 (i.e. binary) number. The binary number is constructed from the
 TRUE/FALSE answers to 3 queries: whether the matrix contains any negative,
 zero, or positive pivots. The answers to these 3 queries uniquely determine
@@ -177,7 +177,7 @@ used as a unique identifier of the 'definiteness':</p>
 {% highlight python %}
 
 def pivot_sign_code(self):
-    ''' Returns number between 1 and 8 according to signs of pivots. We do
+    ''' Returns number between 1 and 7 according to signs of pivots. We do
     this by constructing a 3-bit binary number, where each bit represents
     the presence/absence of negative, zero, or positive pivots, and then
     converting from binary to a base 10 integer. '''
