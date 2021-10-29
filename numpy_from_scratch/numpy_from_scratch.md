@@ -11,8 +11,9 @@ Numpy module, but of course much smaller in scope. As a bonus, it will allow me
 to consolidate my recent studies of linear algebra. I will attempt to implement
 all the linear algebra operations, methods and algorithms covered in Gilbert
 Strang's Introduction to linear algebra. As much as possible, I will use
-Python's standard library. N.B. I do use copy.deepcopy (imported as dc) in
-nearly all methods to avoid altering objects passed as arguments.</p>
+Python's standard library. N.B. I do use copy.deepcopy (imported as dc) in a
+few places to avoid side effects (altering mutable objects passed as
+arguments.)</p>
 </div>
 
 ## Class, methods and functions to implement
