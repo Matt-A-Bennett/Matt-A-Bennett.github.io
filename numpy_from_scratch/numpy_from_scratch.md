@@ -36,8 +36,8 @@ will attempt to realise in my library.</p>
 ### Fundamental methods
 - [Transpose](./transpose.md)
 - [Element-wise functions of one or more matrices](./elwise_function.md)
-- [Addition/Subtraction](./elwise_function#additionsubtraction.md)
-- [Element-wise multiplication/division and scalar multiplication](./elwise_function#element-wise-multiplicationdivision-and-scalar-multiplication.md)
+- [Addition/Subtraction](./elwise_function.md#additionsubtraction.md)
+- [Element-wise multiplication/division and scalar multiplication](./elwise_function.md#elementwise-multiplicationdivision-and-scalar-multiplication.md)
 - [Dot Product](./dot_prod_length_and_mat_multiply.md)
 - [Length](./dot_prod_length_and_mat_multiply.md#length)
 - [Norm](./dot_prod_length_and_mat_multiply.md#norm)
