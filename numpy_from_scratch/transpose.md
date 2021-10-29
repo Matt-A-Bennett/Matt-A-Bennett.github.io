@@ -74,7 +74,7 @@ Outputs:
 {% endhighlight %}
 
 [< Combining matrices and getting the diagonal](./class_and_standalone_functions_-_comb_diag.md)\
-[Scalar Multiplication >](./scalar_multiplication.md)
+[Element-wise functions of one or more matrices >](./elwise_function.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
