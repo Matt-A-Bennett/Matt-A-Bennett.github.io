@@ -27,7 +27,7 @@ will attempt to realise in my library.</p>
 - [Printing matrices](./class_and_standalone_functions_-_class_gen_print.md#printing-matrices)
 - [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
 - [Is matrix square?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-square)
-- [Is matrix triangular?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-upper-tringular)
+- [Is matrix triangular?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-lower-tringular)
 - [Is matrix diagonal?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-diagonal)
 - [Is matrix symmetric?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-symmetric)
 - [Combining matrices](./class_and_standalone_functions_-_comb_diag.md#combining-matrices)
