@@ -32,8 +32,7 @@ what would otherwise be integer numbers:</p>
 {% highlight python %}
 
 def print_mat(self, round_dp=99):
-    A = dc(self)
-    for row in A.data:
+    for row in self.data:
         rounded = [round(i,round_dp) for i in row]
         print(rounded)
     print()
@@ -169,7 +168,7 @@ def eye(size):
 
 {% endhighlight %}
 
-[Is matrix triangular, diagonal, symmetric? >](./class_and_standalone_functions_-_tri_diag_sym.md)
+[Is matrix triangular, diagonal, symmetric? >](./class_and_standalone_functions_-_sq_tri_diag_sym.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

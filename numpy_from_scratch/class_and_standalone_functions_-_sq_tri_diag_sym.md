@@ -52,11 +52,10 @@ non-zero we return False, otherwise we return True:</p>
 {% highlight python %}
 
 def is_lower_tri(self):
-    A = dc(self)
-    for idx, row in enumerate(A.data):
+    for idx, row in enumerate(self.data):
         for col in range(idx+1,len(row)):
             if row[col] != 0:
-                return = False
+                return False
     else:
         return True
 
@@ -85,8 +84,7 @@ $$
 {% highlight python %}
 
 def is_upper_tri(self):
-    A = dc(self)
-    return A.transpose().is_lower_tri()
+    return self.transpose().is_lower_tri()
 
 {% endhighlight %}
 
@@ -114,8 +112,7 @@ Therefore we use the previous two methods like so:</p>
 {% highlight python %}
 
 def is_diag(self):
-    A = dc(self)
-    if A.is_lower_tri() and A.is_upper_tri():
+    if self.is_lower_tri() and self.is_upper_tri():
         return True
     else:
         return False
@@ -148,10 +145,9 @@ True:</p>
 {% highlight python %}
 
 def is_symmetric(self):
-    A = dc(self)
-    for i in range(size(A)[0]):
-        for j in range(i+1, size(A)[0]):
-            if A.data[i][j] != A.data[j][i]:
+    for i in range(size(self)[0]):
+        for j in range(i+1, size(self)[0]):
+            if self.data[i][j] != self.data[j][i]:
                 return False
     else:
         return True
