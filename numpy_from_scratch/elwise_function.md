@@ -34,7 +34,7 @@ def function_elwise(self, function, B=None):
 
 {% endhighlight %}
 
-# Addition/Subtraction
+# Addition/subtraction
 <div style="text-align: justify">
 <p>Addition and subtraction is valid between two same-shaped matrices and is
 done element-wise:</p>
@@ -249,7 +249,8 @@ Outputs:
 
 {% endhighlight %}
 
-[< Previous_page](./previous_page_filename.md)
+[< Transpose](./transpose.md) \
+[Dot Product >](./dot_prod_length_and_mat_multiply.md)
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
