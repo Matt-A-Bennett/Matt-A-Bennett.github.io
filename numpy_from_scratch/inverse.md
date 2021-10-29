@@ -178,26 +178,27 @@ return inv
 </div>
 
 {% highlight python %}
+import linalg as la
 
-A = Mat([[1, 2, 3],
-         [4, 5, 6],
-         [5, 8, 9]])
+A = la.Mat([[1, 2, 3],
+            [4, 5, 6],
+            [5, 8, 9]])
 
-B = Mat([[1, 2, 3],
-         [4, 5, 6],
-         [5, 7, 9]])
+B = la.Mat([[1, 2, 3],
+            [4, 5, 6],
+            [5, 7, 9]])
 
 print('Inverting matrix A...')
 A_inverse = A.inverse()
 
 if A_inverse:
-    print_mat(A_inverse)
+    la.print_mat(A_inverse)
 
 print('Inverting matrix B...')
 B_inverse = B.inverse()
 
 if B_inverse:
-    print_mat(B_inverse)
+    la.print_mat(B_inverse)
 
 {% endhighlight %}
 

@@ -27,12 +27,13 @@ def pivots(self):
 </div>
 
 {% highlight python %}
+import linalg as la
 
-A = Mat([[1, 2, 3],
+A = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 8, 9]])
 
-B = Mat([[1, 2, 3],
+B = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 7, 9]])
 
@@ -79,11 +80,11 @@ def rank(self):
 
 {% highlight python %}
 
-A = Mat([[1, 2, 3],
+A = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 8, 9]])
 
-B = Mat([[1, 2, 3],
+B = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 7, 9]])
 
@@ -133,11 +134,11 @@ def is_singular(self):
 
 {% highlight python %}
 
-A = Mat([[1, 2, 3],
+A = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 8, 9]])
 
-B = Mat([[1, 2, 3],
+B = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 7, 9]])
 
@@ -194,11 +195,11 @@ def determinant(self):
 
 {% highlight python %}
 
-A = Mat([[1, 2, 3],
+A = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 8, 9]])
 
-B = Mat([[1, 2, 3],
+B = la.Mat([[1, 2, 3],
          [4, 5, 6],
          [5, 7, 9]])
 

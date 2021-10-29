@@ -194,19 +194,20 @@ print the result of the multiplication $Ax$ to confirm that we get $b$:</p>
 </div>
 
 {% highlight python %}
+import linalg as la
 
-A = Mat([[1, 2, 3],
+A = la.Mat([[1, 2, 3],
          [2, 2, 6],
          [4, 5, 6]])
 
-b = Mat([[0],
+b = la.Mat([[0],
          [-2],
          [5]])
 
 x = A.backsub(b)
 
-print_mat(x, 2)
-print_mat(A.multiply(x))
+la.print_mat(x, 2)
+la.print_mat(A.multiply(x))
 
 {% endhighlight %}
 
@@ -214,12 +215,12 @@ Outputs:
 
 {% highlight shell %}
 
->>> print_mat(x, 2)
+>>> la.print_mat(x, 2)
 [2.0]
 [1.0]
 [-1.33]
 
->>> print_mat(A.multiply(x))
+>>> la.print_mat(A.multiply(x))
 [0.0]
 [-2.0]
 [5.0]

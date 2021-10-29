@@ -143,14 +143,15 @@ def eigvalues(self, epsilon = 0.0001, max_its=100):
 </div>
 
 {% highlight python %}
+import linalg as la
 
-A = Mat([[1, 2, 3],
-         [2, 4, 4],
-         [3, 4, 5]])
+A = la.Mat([[1, 2, 3],
+            [2, 4, 4],
+            [3, 4, 5]])
 
 evals = A.eigvalues()
 
-print_mat(evals,2)
+la.print_mat(evals,2)
 
 {% endhighlight %}
 
@@ -158,7 +159,7 @@ Outputs:
 
 {% highlight console %}
 
->>> print_mat(evals, 2)
+>>> la.print_mat(evals, 2)
 [-0.61, 9.95, 0.65]
 
 {% endhighlight %}
@@ -209,21 +210,21 @@ scaled by the eigenvalue:</p>
 
 {% highlight python %}
 
-A = Mat([[1, 2, 3],
-         [2, 4, 4],
-         [3, 4, 5]])
+A = la.Mat([[1, 2, 3],
+            [2, 4, 4],
+            [3, 4, 5]])
 
 evects, evals = A.eig()
 
-print_mat(evals, 2)
-print_mat(evects,2)
+la.print_mat(evals, 2)
+la.print_mat(evects,2)
 
 # extract the first eigenvector
 evect = Mat([evects.transpose().data[0]]).transpose()
 # multiply eigenvector by A and print result
-print_mat(A.multiply(evect),2)
+la.print_mat(A.multiply(evect),2)
 # scale eigenvector by eigenvalue and print result
-print_mat(evect.scale(evals.data[0][0]),2)
+la.print_mat(evect.scale(evals.data[0][0]),2)
 
 {% endhighlight %}
 
@@ -231,20 +232,20 @@ Outputs:
 
 {% highlight console %}
 
->>> print_mat(evals, 2)
+>>> la.print_mat(evals, 2)
 [-0.61, 9.95, 0.65]
 
->>> print_mat(evects,2)
+>>> la.print_mat(evects,2)
 [-0.86, 0.37, 0.35]
 [-0.07, 0.6, -0.8]
 [0.51, 0.71, 0.49]
 
->>> print_mat(A.multiply(evect),2)
+>>> la.print_mat(A.multiply(evect),2)
 [0.53]
 [0.04]
 [-0.31]
 
->>> print_mat(evect.scale(evals.data[0][0]),2)
+>>> la.print_mat(evect.scale(evals.data[0][0]),2)
 [0.53]
 [0.04]
 [-0.31]

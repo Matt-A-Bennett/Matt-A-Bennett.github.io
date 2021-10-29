@@ -54,10 +54,11 @@ def dot(self, new_mat):
 </div>
 
 {% highlight python %}
+import linalg as la
 
-u = Mat([[1, 2, 2]])
+u = la.Mat([[1, 2, 2]])
 
-v = Mat([[1, 1, 3]])
+v = la.Mat([[1, 1, 3]])
 
 dotted = u.dot(v)
 
@@ -98,7 +99,7 @@ def length(self):
 
 {% highlight python %}
 
-u = Mat([[1, 1, 3]])
+u = la.Mat([[1, 1, 3]])
 
 u_length = u.length()
 
@@ -140,7 +141,7 @@ after 15 decimal places):</p>
 
 {% highlight python %}
 
-u = Mat([[1, 0, 1]])
+u = la.Mat([[1, 0, 1]])
 
 u_normalised = u.norm()
 
@@ -225,16 +226,16 @@ def multiply(self, new_mat):
 
 {% highlight python %}
 
-A = Mat([[1, 1, 3],
+A = la.Mat([[1, 1, 3],
          [2, 5, 4]])
 
-B = Mat([[1, 1],
+B = la.Mat([[1, 1],
          [1, 3],
          [-1, 3]])
 
 C = A.multiply(B)
 
-print_mat(C)
+la.print_mat(C)
 
 {% endhighlight %}
 
@@ -242,7 +243,7 @@ Outputs:
 
 {% highlight console %}
 
->>> print_mat(C)
+>>> la.print_mat(C)
 [-1, 13]
 [3, 29]
 

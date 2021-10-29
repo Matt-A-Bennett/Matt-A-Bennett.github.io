@@ -235,8 +235,9 @@ return P, E, self, U, singular, row_exchange_count
 </div>
 
 {% highlight python %}
+import linalg as la
 
-A = Mat([[1, 2, 3],
+A = la.Mat([[1, 2, 3],
          [4, 8, 6],
          [7, 8, 9]])
 
@@ -246,10 +247,10 @@ print(singular)
 print()
 print(row_exchange_count)
 print()
-print_mat(P)
-print_mat(E)
-print_mat(A)
-print_mat(U)
+la.print_mat(P)
+la.print_mat(E)
+la.print_mat(A)
+la.print_mat(U)
 
 {% endhighlight %}
 
@@ -261,22 +262,22 @@ Outputs:
 0
 >>> print(row_exchange_count)
 1
->>> print_mat(P)
+>>> la.print_mat(P)
 [1, 0, 0]
 [0, 0, 1]
 [0, 1, 0]
 
->>> print_mat(E)
+>>> la.print_mat(E)
 [1.0, 0.0, 0.0]
 [-4.0, 1.0, 0.0]
 [-7.0, 0.0, 1.0]
 
->>> print_mat(A)
+>>> la.print_mat(A)
 [1, 2, 3]
 [4, 8, 6]
 [7, 8, 9]
 
->>> print_mat(U)
+>>> la.print_mat(U)
 [1.0, 2.0, 3.0]
 [0.0, -6.0, -12.0]
 [0.0, 0.0, -6.0]

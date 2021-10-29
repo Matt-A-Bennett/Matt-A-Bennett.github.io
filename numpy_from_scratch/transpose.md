@@ -30,9 +30,8 @@ corresponding column):</p>
 {% highlight python %}
 
 def transpose(self):
-    A = copy.deepcopy(self)
     transposed = []
-    for row_idx, row in enumerate(A.data):
+    for row_idx, row in enumerate(self.data):
         for col_idx, col in enumerate(row):
             # first time through, make new row for each old column
             if row_idx == 0:
@@ -40,8 +39,7 @@ def transpose(self):
             else:
                 # append to newly created rows
                 transposed[col_idx].append(col)
-        A.data = transposed
-    return A
+    return Mat(transposed)
 
 {% endhighlight %}
 
@@ -52,13 +50,14 @@ def transpose(self):
 </div>
 
 {% highlight python %}
+import linalg as la
 
-A = Mat([[1, 2, 3],
-         [4, 5, 6]])
+A = la.Mat([[1, 2, 3],
+            [4, 5, 6]])
 
 transposed = A.transpose()
 
-print_mat(transposed)
+la.print_mat(transposed)
 
 {% endhighlight %}
 
@@ -66,7 +65,7 @@ Outputs:
 
 {% highlight console %}
 
->>> print_mat(transposed)
+>>> la.print_mat(transposed)
 [1, 4]
 [2, 5]
 [3, 6]

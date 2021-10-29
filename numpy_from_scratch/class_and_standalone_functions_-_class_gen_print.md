@@ -103,11 +103,12 @@ return Mat(generated_mat)
 ### Demo
 
 {% highlight python %}
+import linalg as la
 
-print_mat(gen_mat([7,7], values=[1], type='full'))
-print_mat(gen_mat([7,7], values=[1], type='upper'))
-print_mat(gen_mat([7,7], values=[1,2,0,4,5], type='diag'))
-print_mat(gen_mat([7,7], values=[2,-1], type='full'))
+la.print_mat(la.gen_mat([7,7], values=[1], type='full'))
+la.print_mat(la.gen_mat([7,7], values=[1], type='upper'))
+la.print_mat(la.gen_mat([7,7], values=[1,2,0,4,5], type='diag'))
+la.print_mat(la.gen_mat([7,7], values=[2,-1], type='full'))
 
 {% endhighlight %}
 
@@ -115,7 +116,7 @@ Outputs:
 
 {% highlight console %}
 
->>> print_mat(gen_mat([7,7], values=[1], type='full'))
+>>> la.print_mat(la.gen_mat([7,7], values=[1], type='full'))
 [1, 1, 1, 1, 1, 1, 1]
 [1, 1, 1, 1, 1, 1, 1]
 [1, 1, 1, 1, 1, 1, 1]
@@ -124,7 +125,7 @@ Outputs:
 [1, 1, 1, 1, 1, 1, 1]
 [1, 1, 1, 1, 1, 1, 1]
 
->>> print_mat(gen_mat([7,7], values=[1], type='upper'))
+>>> la.print_mat(la.gen_mat([7,7], values=[1], type='upper'))
 
 [0, 1, 1, 1, 1, 1, 1]
 [0, 0, 1, 1, 1, 1, 1]
@@ -134,7 +135,7 @@ Outputs:
 [0, 0, 0, 0, 0, 0, 1]
 [0, 0, 0, 0, 0, 0, 0]
 
->>> print_mat(gen_mat([7,7], values=[1,2,0,4,5], type='diag'))
+>>> la.print_mat(la.gen_mat([7,7], values=[1,2,0,4,5], type='diag'))
 
 [1, 0, 0, 0, 0, 0, 0]
 [0, 2, 0, 0, 0, 0, 0]
@@ -144,7 +145,7 @@ Outputs:
 [0, 0, 0, 0, 0, 0, 0]
 [0, 0, 0, 0, 0, 0, 0]
 
->>> print_mat(gen_mat([7,7], values=[2,-1], type='full'))
+>>> la.print_mat(la.gen_mat([7,7], values=[2,-1], type='full'))
 
 [2, -1, 0, 0, 0, 0, 0]
 [-1, 2, -1, 0, 0, 0, 0]

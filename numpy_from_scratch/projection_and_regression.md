@@ -141,6 +141,7 @@ polynomial:</p>
 </div>
 
 {% highlight python %}
+import linalg as la
 
 # regression
 def quick_plot(b, orders=[1]):
@@ -162,7 +163,7 @@ def quick_plot(b, orders=[1]):
     return fig
 
 import matplotlib.pyplot as plt
-b = Mat([[2,1,3,5,1,4,6,3,4,7,7,8,7,6,5,7,8,7,9,7,6,6,9]])
+b = la.Mat([[2,1,3,5,1,4,6,3,4,7,7,8,7,6,5,7,8,7,9,7,6,6,9]])
 
 fig = quick_plot(b, orders=[1, 2, 7])
 plt.show()

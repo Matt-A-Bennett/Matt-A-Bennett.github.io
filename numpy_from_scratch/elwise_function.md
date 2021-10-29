@@ -220,6 +220,7 @@ results:</p>
 </div>
 
 {% highlight python %}
+import linalg as la
 
 A = la.Mat([[1, 2, 3],
          [4, 5, 6]])

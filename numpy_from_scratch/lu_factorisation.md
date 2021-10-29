@@ -197,20 +197,21 @@ def lu(self):
 </div>
 
 {% highlight python %}
+import linalg as la
 
-A = Mat([[1, 2, 3],
-         [4, 8, 6],
-         [7, 8, 9]])
+A = la.Mat([[1, 2, 3],
+            [4, 8, 6],
+            [7, 8, 9]])
 
 A, P, L, U = A.lu()
-print_mat(A)
-print_mat(P)
-print_mat(L)
-print_mat(U)
+la.print_mat(A)
+la.print_mat(P)
+la.print_mat(L)
+la.print_mat(U)
 PL = P.multiply(L)
 PLU = PL.multiply(U)
-print_mat(PL)
-print_mat(PLU)
+la.print_mat(PL)
+la.print_mat(PLU)
 
 {% endhighlight %}
 
@@ -218,32 +219,32 @@ Outputs:
 
 {% highlight console %}
 
->>> print_mat(A)
+>>> la.print_mat(A)
 [1, 2, 3]
 [4, 8, 6]
 [7, 8, 9]
 
->>> print_mat(P)
+>>> la.print_mat(P)
 [1, 0, 0]
 [0, 0, 1]
 [0, 1, 0]
 
->>> print_mat(L)
+>>> la.print_mat(L)
 [1.0, 0.0, 0.0]
 [7.0, 1.0, 0.0]
 [4.0, 0.0, 1.0]
 
->>> print_mat(U)
+>>> la.print_mat(U)
 [1.0, 2.0, 3.0]
 [0.0, -6.0, -12.0]
 [0.0, 0.0, -6.0]
 
->>> print_mat(PL)
+>>> la.print_mat(PL)
 [1.0, 0.0, 0.0]
 [4.0, 0.0, 1.0]
 [7.0, 1.0, 0.0]
 
->>> print_mat(PLU)
+>>> la.print_mat(PLU)
 [1.0, 2.0, 3.0]
 [4.0, 8.0, 6.0]
 [7.0, 8.0, 9.0]
