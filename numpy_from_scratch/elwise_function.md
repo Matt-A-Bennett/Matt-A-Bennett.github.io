@@ -110,13 +110,12 @@ $$
 
 <div style="text-align: justify">
 <p>Here we call the function_choice method with a list of two lambda functions.
-In the case that B was no a matrix, we assume that the user wants to
-add/subtract the same scaler from each element. element. This is a simple
-function of each element of the original matrix and this is reflect in the
-first lambda function in the list. On the other hand, if the B
-argument was a matrix, the second lambda function of two variables (x and y)
-will be applied: 
-:</p>
+In the case that B was not a matrix, we assume that the user wants to
+add/subtract the same scaler from each element. This is a simple function of
+each element and is reflected in the first lambda function in the list. On the
+other hand, if the B argument was a matrix, the second lambda function of two
+variables (x and y: the $i,j$ elements from the original matrix and matrix B)
+will be applied:</p>
 
 {% highlight python %}
 
