@@ -2,11 +2,14 @@
 ## Miscellaneous methods 
 ###  Size of a matrix
 <div style="text-align: justify">
-<p>The size of a matrix is simply its number of rows and columns. Here we
-return those values as a list:</p>
+<p>The size of a matrix is simply its number of rows and columns.</p>
 </div>
 
 #### Code implementation
+<div style="text-align: justify">
+<p>Here we return those values as a list:</p>
+</div>
+
 {% highlight python %}
 
 def size(A):
