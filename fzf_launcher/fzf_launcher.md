@@ -60,14 +60,30 @@ f vlc [OPTION]... (hit enter, choose files)</p>
 form: program + options + arguments. We use fzf to supply the file names which
 we'll use as arguments. Then we simply execute that command.</p>
 
-<p>First we store the first argument as the program and shift it off the
-argument list. Any remaining arguments are taken as options to the program:</p>
+<p>First we deal with the case of no arguments by just launching fzf and
+sorting any files that are selected:</p>
 
 {% highlight bash %}
 
 #!/bin/bash
 
 f() {
+
+    # if no arguments passed, just lauch fzf
+    if [ $# -eq 0 ]
+    then
+        fzf | sort
+        return 0
+    fi
+
+{% endhighlight %}
+
+<p>Second we store the first argument as the program and shift it off the
+argument list. Any remaining arguments are taken as options to the program:</p>
+
+{% highlight bash %}
+
+
     program="$1"
 
     shift
@@ -77,7 +93,7 @@ f() {
 {% endhighlight %}
 
 <p>We launch fzf with the possibility of selecting multiple items and collect
-the arguments and store them in a variable. If no arguments are passed (e.g. if
+the arguments and store them in a variable. If no files are selected (e.g. if
 Esc pressed), we just return to terminal:</p>
 
 {% highlight bash %}
@@ -92,10 +108,10 @@ fi
 
 <p>Next we store the arguments passed to our program in a temporary variable
 and sanitise them for entry into ~/.bash_history. Specifically, we use sed to
-put all input arguments on one line wrap the command by single quotes each the
-argument, also we put an extra single quote next to any pre-existing single
-quotes in the raw argument (e.g. badly named files). This has the effect that
-the quote in the argument itself is respected as such:</p>
+put all input arguments on one line and wrap each one with single quotes, also
+we put an extra single quote next to any pre-existing single quotes in the raw
+arguments (e.g. badly named files). This has the effect that the quote in the
+argument itself is respected as such:</p>
 
 {% highlight bash %}
 

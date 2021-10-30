@@ -24,7 +24,7 @@ f() {
     # if no arguments passed, just lauch fzf
     if [ $# -eq 0 ]
     then
-        fzf
+        fzf | sort
         return 0
     fi
 
