@@ -31,8 +31,8 @@ what would otherwise be integer numbers:</p>
 #### Code implementation
 {% highlight python %}
 
-def print_mat(self, round_dp=99):
-    for row in self.data:
+def print_mat(A, round_dp=99):
+    for row in A.data:
         rounded = [round(i,round_dp) for i in row]
         print(rounded)
     print()
@@ -97,6 +97,21 @@ for i in range(size[0]):
             row.append(values[i-j])
     generated_mat.append(row)
 return Mat(generated_mat)
+
+{% endhighlight %}
+
+<div style="text-align: justify">
+<p> A useful matrix to generate immediately is the identity matrix. We use the
+previous function and populate the diagonal with 1's.</p>
+</div>
+
+{% highlight python %}
+
+def eye(size):
+    eye = gen_mat(size)
+    for i in range(size[0]):
+        eye.data[i][i] = 1
+    return eye
 
 {% endhighlight %}
 
