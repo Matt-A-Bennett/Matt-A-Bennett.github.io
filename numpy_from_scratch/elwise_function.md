@@ -15,8 +15,8 @@ an optional second matrix, B. If B is supplied, then the function must be a
 function of two variables (these will be the elements in the $i,j$ positions of
 the two matrices).</p>
 
-<p>We loop over the row and column indices of the matrix and, depending on the
-if a second matrix, B, was supplied, apply the function to yield the new
+<p>We loop over the row and column indices of the matrix and, depending on if a
+second matrix, B, was supplied, apply the function to yield the new
 element:</p>
 </div>
 
@@ -111,9 +111,9 @@ $$
 <div style="text-align: justify">
 <p>Here we call the function_choice method with a list of two lambda functions.
 In the case that B was not a matrix, we assume that the user wants to
-add/subtract the same scaler from each element. This is a simple function of
-each element and is reflected in the first lambda function in the list. On the
-other hand, if the B argument was a matrix, the second lambda function of two
+add/subtract the same scaler to each element. This is a simple function of each
+element and is reflected in the first lambda function in the list. On the other
+hand, if the B argument was a matrix, the second lambda function of two
 variables (x and y: the $i,j$ elements from the original matrix and matrix B)
 will be applied:</p>
 </div>
@@ -223,10 +223,10 @@ results:</p>
 import linalg as la
 
 A = la.Mat([[1, 2, 3],
-         [4, 5, 6]])
+            [4, 5, 6]])
 
 B = la.Mat([[0, 2, 1],
-         [3, 6, -1]])
+            [3, 6, -1]])
 
 la.print_mat(A.add(B))
 
