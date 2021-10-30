@@ -1,38 +1,6 @@
 # Class, standalone functions and miscellaneous methods (3/3)
 ## Standalone functions
-### Generate matrices
-<div style="text-align: justify">
-<p>We make a method to generate a matrix of a given size, uniformly populated
-with a particular value (default 0):</p>
-</div>
-
-{% highlight python %}
-
-def gen_mat(size, value=0):
-    generated_mat = []
-    for i in range(size[0]):
-        generated_mat.append([value for j in range(size[1])])
-    return Mat(generated_mat)
-
-{% endhighlight %}
-
-<div style="text-align: justify">
-<p>Another useful matrix to generate immediately is the identity matrix. We
-use the previous function and populate the diagonal with 1's.</p>
-</div>
-
-{% highlight python %}
-
-def eye(size):
-    eye = gen_mat(size)
-    for i in range(size[0]):
-        eye.data[i][i] = 1
-    return eye
-
-{% endhighlight %}
-
-## Combining matrices
-
+### Combining matrices
 <div style="text-align: justify">
 <p>This method concatenates two matrices along a dimension.</p>
 </div>

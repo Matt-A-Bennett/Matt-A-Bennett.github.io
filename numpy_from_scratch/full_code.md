@@ -45,14 +45,14 @@ def cat(A, B, axis=0):
         concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
     return concatenated
 
-def print_mat(self, round_dp=99):
-    for row in self.data:
+def print_mat(A, round_dp=99):
+    for row in A.data:
         rounded = [round(i,round_dp) for i in row]
         print(rounded)
     print()
 
-def size(self):
-    return [len(self.data), len(self.data[0])]
+def size(A):
+    return [len(A.data), len(A.data[0])]
 
 class Mat:
     def __init__(self, data):
