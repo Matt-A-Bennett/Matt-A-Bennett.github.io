@@ -177,7 +177,7 @@ used as a unique identifier of the 'definiteness':</p>
 {% highlight python %}
 
 def pivot_sign_code(self):
-    ''' Returns number between 1 and 7 according to signs of pivots. We do
+    ''' Returns number between 0 and 7 according to signs of pivots. We do
     this by constructing a 3-bit binary number, where each bit represents
     the presence/absence of negative, zero, or positive pivots, and then
     converting from binary to a base 10 integer. '''
