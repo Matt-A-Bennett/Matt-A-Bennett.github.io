@@ -271,6 +271,19 @@ class Mat:
                 pivots[j] = col[piv_pos-1]
         return pivots
 
+    def pivot_sign_code(self):
+        ''' Returns number between 0 and 7 according to signs of pivots. We do
+        this by constructing a 3-bit binary number, where each bit represents
+        the presence/absence of negative, zero, or positive pivots, and then
+        converting from binary to a base 10 integer.'''
+        pivot_info = self.pivots().items()
+
+        neg = any(piv[1] < 0 for piv in pivot_info)
+        semi = any(piv[1] == 0 for piv in pivot_info)
+        pos = any(piv[1] > 0 for piv in pivot_info)
+
+        return int(str(int(neg)) + str(int(semi)) + str(int(pos)), 2)
+
     def rank(self):
         return len(A.pivots())
 
@@ -290,6 +303,18 @@ class Mat:
         if row_exchange_count % 2:
             det *= -1
         return det
+
+    def is_negdef(self):
+        return self.pivot_sign_code() == 4
+
+    def is_negsemidef(self):
+        return self.pivot_sign_code() == 6
+
+    def is_possemidef(self):
+        return self.pivot_sign_code() == 3
+
+    def is_posdef(self):
+        return self.pivot_sign_code() == 1
 
     def inverse(self):
         mat_size = size(self)
