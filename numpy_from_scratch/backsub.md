@@ -197,12 +197,12 @@ print the result of the multiplication $Ax$ to confirm that we get $b$:</p>
 import linalg as la
 
 A = la.Mat([[1, 2, 3],
-         [2, 2, 6],
-         [4, 5, 6]])
+            [2, 2, 6],
+            [4, 5, 6]])
 
 b = la.Mat([[0],
-         [-2],
-         [5]])
+            [-2],
+            [5]])
 
 x = A.backsub(b)
 
