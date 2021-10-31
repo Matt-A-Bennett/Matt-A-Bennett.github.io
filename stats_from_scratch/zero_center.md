@@ -22,9 +22,9 @@ C = %
     %
     -%
   \begin{bmatrix}
-    -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3} \\[5pt]
-    -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3} \\[5pt]
-    -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3}
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} \\[5pt]
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} \\[5pt]
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3}
   \end{bmatrix}
   %
   =%
