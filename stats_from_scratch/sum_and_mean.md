@@ -35,16 +35,15 @@ argument and print the results:</p>
 {% highlight python %}
 
 import linalg as la
-import stats as st
 A = la.Mat([[1, 2, 3],
             [-2, 1, 4],
             [0, 1, 2],
             [3, 6, 1]])
 
-result = st.sum(A)
+result = la.stats.sum(A)
 la.print_mat(result)
 
-result = st.sum(A, axis=1)
+result = la.stats.sum(A, axis=1)
 la.print_mat(result)
 
 Outputs:
@@ -89,16 +88,15 @@ make it look pretty):</p>
 {% highlight python %}
 
 import linalg as la
-import stats as st
 A = la.Mat([[1, 2, 3],
             [-2, 1, 4],
             [0, 1, 2],
             [3, 6, 1]])
 
-result = st.mean(A)
+result = la.stats.mean(A)
 la.print_mat(result)
 
-result = st.mean(A, axis=1)
+result = la.stats.mean(A, axis=1)
 la.print_mat(result, 2)
 
 {% endhighlight %}
@@ -115,7 +113,7 @@ Outputs:
 
 {% endhighlight %}
 
-[Zero-center and z-score >](./zero_center_and_zscore.md)
+[Zero-center >](./zero_center.md)
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)

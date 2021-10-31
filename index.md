@@ -19,6 +19,8 @@ and find useful to have on my pc.</p>
 ## Projects
 [Building Numpy from scratch](./numpy_from_scratch/numpy_from_scratch.md)
 
+[Adding a statistics sub-package to my 'numpy from scratch' package](./stats_from_scratch/stats_from_scratch.md)
+
 [Creating a searchable database using web-scraping in Python 3](./ufc_database/ufc_database.md)
 
 [Configuring FZF to search useful directories beyond the working directory](./fzf_search_dirs/fzf_search_dirs.md)

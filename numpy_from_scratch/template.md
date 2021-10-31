@@ -23,20 +23,22 @@ print('some python code')
 
 {% highlight python %}
 
-A = Mat([[1, 2, 3],
+import linalg as la
+
+A = la.Mat([[1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]])
 
-A = Mat([[1, 2, 3],
+A = la.Mat([[1, 2, 3],
         [4, 5, 6]])
 
-A = Mat([[1, 2],
+A = la.Mat([[1, 2],
         [3, 4],
         [5, 6]])
 
-METHODED = A.METHOD()
+<METHODED> = A.<METHOD>()
 
-print_mat(METHOD)
+la.print_mat(<METHOD>)
 
 {% endhighlight %}
 
