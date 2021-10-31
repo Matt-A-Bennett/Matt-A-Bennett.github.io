@@ -50,7 +50,7 @@ A^T C A$ (since C is symmetric and idempotent) and divide this by one less than
 the number of observations yields the 'covariance matrix':</p>
 </div>
 
-$$ \text{covariance\_matrix} = \frac{1}{m-1} A^T CA $$ 
+$$ \text{covariance_matrix} = \frac{1}{m-1} A^T CA $$ 
 
 $$
 \frac{1}{4}
