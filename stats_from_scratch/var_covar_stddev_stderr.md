@@ -49,7 +49,7 @@ between each column is just what happens with $A^T A$. So if we use the
 centering matrix to remove the mean of each set of observations with</p>
 </div>
 
-$ (CA)^T C A = A^T C^T C A = A^T C A $
+$$ (CA)^T C A = A^T C^T C A = A^T C A $$
 
 <div style="text-align: justify">
 <p>(since C is symmetric and idempotent) and
