@@ -54,10 +54,9 @@ $$
 
 <p>Here the matrix $C$ had the effect of subtracting $1/3$ from the first
 column, subtracting $2/3$ from the second column, and adding $1$ to the last
-column - ensures that all columns sum to zero.</p>
+column - ensuring that all columns sum to zero.</p>
 
-<p>We create a function to build the centering matrix according to: $C = I -
-\frac{1}{N}$:</p>
+<p>We create a function to build the centering matrix:
 
 {% highlight python %}
 

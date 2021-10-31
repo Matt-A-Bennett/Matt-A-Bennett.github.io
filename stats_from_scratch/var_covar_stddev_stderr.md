@@ -24,13 +24,14 @@ $$ \sigma^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar x)(x_i - \bar x) $$
 <p>In matrix notation:</p>
 </div>
 
-$$ \text{covariance} = \frac{1}{m-1}(x - \bar x) \cdot (x - \bar x)$$
+$$ \text{covariance} = \frac{1}{m-1}(x - \bar x)^T (x - \bar x)$$
 
 <div style="text-align: justify">
 <p>We can compare the variation between two different variables and see if they
-'covary' or not. This is called the covariance computed just like the variance,
-only it's between two sets of observations $x$ and $y$. In essence this is the
-average 'agreement' in the deviations from each variable's mean:</p>
+'covary' or not. This is called the covariance and is computed just like the
+variance, only it's between two sets of observations $x$ and $y$. In essence
+this is the average 'agreement' in the deviations from each variable's
+mean:</p>
 </div>
 
 $$ \text{covariance} = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y) $$
@@ -39,15 +40,19 @@ $$ \text{covariance} = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y) $$
 <p>In matrix notation:</p>
 </div>
 
-$$ \text{covariance} = \frac{1}{m-1}(x - \bar x) \cdot (y - \bar x) $$
+$$ \text{covariance} = \frac{1}{m-1}(x - \bar x)^T (y - \bar x) $$
 
 <div style="text-align: justify">
-<p>If we have observations of several variables, with each set forming the
-column of a matrix $A$, then computing all of the dot products between each
-column is just what happens with $A^T A$. So if we use the centering matrix to
-remove the mean of each set of observations with $(CA)^T C A = A^T C^T C A =
-A^T C A$ (since C is symmetric and idempotent) and divide this by one less than
-the number of observations yields the 'covariance matrix':</p>
+<p>If we have observations of several variables, with each set of observations
+forming the column of a matrix $A$, then computing all of the dot products
+between each column is just what happens with $A^T A$. So if we use the
+centering matrix to remove the mean of each set of observations with </div>
+
+$ (CA)^T C A = A^T C^T C A = A^T C A $
+
+<div style="text-align: justify"> (since C is symmetric and idempotent) and
+divide this by one less than the number of observations we get the 'covariance
+matrix':</p>
 </div>
 
 $$ \text{covariance_matrix} = \frac{1}{m-1} A^T CA $$ 
@@ -99,13 +104,12 @@ diagonal.</p>
 ## Code implementation
 <div style="text-align: justify">
 <p>We define a method that by default computes the covariance among the columns
-of an input matrix A, yielding the sample covariance (i.e. using the n-1
+of an input matrix A, yielding the sample covariance (i.e. using the $n-1$
 correction).</p>
 
 <p>First we transpose the matrix if the user wants to take rows was variables.
 Then we zero center the matrix, perform the $A^T A$ step and normalise by the
-number of observations (subtracting 1 by default, unless sample is False
-which evaluates to 0 in the subtraction):</p>
+number of observations (subtracting 1 by default, unless sample is False):</p>
 </div>
 
 {% highlight python %}
@@ -115,7 +119,9 @@ def covar(A, axis=0, sample=True):
         A = A.transpose()
     A_zc = zero_center(A)
     A_cov = A_zc.transpose().multiply(A_zc)
-    N = la.size(A)[0] - sample
+    N = la.size(A)[0]
+    if sample:
+        N -= 1
     A_cov = A_cov.div_elwise(N)
     return A_cov
 
