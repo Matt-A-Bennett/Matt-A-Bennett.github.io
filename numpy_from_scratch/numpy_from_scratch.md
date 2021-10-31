@@ -2,7 +2,7 @@
 
 The full code I've written so far can be found [here](./full_code.md).
 
-Also see my related project: [Building a statistics sub-package](../stats_from_scratch/stats_from_scratch.md)
+Also see my related project: [Adding a statistics sub-package](../stats_from_scratch/stats_from_scratch.md)
 
 <div style="text-align: justify">
 <p>I want to improve my knowledge of classes, objects, functions and methods in

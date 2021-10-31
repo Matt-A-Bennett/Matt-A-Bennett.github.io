@@ -1,4 +1,4 @@
-# Add a statistics sub-package
+# Adding a statistics sub-package
 
 The full code I've written so far can be found [here](./full_code.md).
 
