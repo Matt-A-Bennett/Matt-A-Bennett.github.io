@@ -52,7 +52,7 @@ centering matrix to remove the mean of each set of observations with</p>
 $ (CA)^T C A = A^T C^T C A = A^T C A $
 
 <div style="text-align: justify">
-(since C is symmetric and idempotent) and
+<p>(since C is symmetric and idempotent) and
 divide this by one less than the number of observations we get the 'covariance
 matrix':</p>
 </div>
