@@ -143,7 +143,7 @@ Therefore a useful measure when reasoning about the data is the square root of
 the variance. This is called the standard deviation:</p>
 </div>
 
-$$ \sigma = \sqrt{variance} $$
+$$ \sigma = \sqrt{\sigma^2} $$
 
 <div style="text-align: justify">
 <p>If we divide the standard deviation by the square root of the number of
