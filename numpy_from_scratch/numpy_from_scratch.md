@@ -1,4 +1,4 @@
-# Building a Python 3 Numpy-like module from scratch
+# Building a Python 3 Numpy-like library from scratch
 
 The full code I've written so far can be found [here](./full_code.md).
 

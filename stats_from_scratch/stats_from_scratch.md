@@ -1,4 +1,4 @@
-# Building a statistics sub-package for my 'numpy from scratch' package
+# Building a statistics sub-package for my Numpy from scratch library
 
 The full code I've written so far can be found [here](./full_code.md).
 
