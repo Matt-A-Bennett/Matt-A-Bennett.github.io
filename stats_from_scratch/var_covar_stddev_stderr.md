@@ -46,11 +46,13 @@ $$ \text{covariance} = \frac{1}{m-1}(x - \bar x)^T (y - \bar x) $$
 <p>If we have observations of several variables, with each set of observations
 forming the column of a matrix $A$, then computing all of the dot products
 between each column is just what happens with $A^T A$. So if we use the
-centering matrix to remove the mean of each set of observations with </div>
+centering matrix to remove the mean of each set of observations with</p>
+</div>
 
 $ (CA)^T C A = A^T C^T C A = A^T C A $
 
-<div style="text-align: justify"> (since C is symmetric and idempotent) and
+<div style="text-align: justify">
+(since C is symmetric and idempotent) and
 divide this by one less than the number of observations we get the 'covariance
 matrix':</p>
 </div>
