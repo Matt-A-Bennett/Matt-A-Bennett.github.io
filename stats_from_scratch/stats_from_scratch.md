@@ -4,7 +4,7 @@ The full code I've written so far can be found [here](./full_code.md).
 
 <div style="text-align: justify">
 <p>Now that I've learned the basics of linear algebra and implemented a few of
-the methods in my [linalg](../numpy_from_scratch/numpy_from_scratch.md)
+the methods in my [linalg](/numpy_from_scratch/numpy_from_scratch.md)
 package, I'm going back over my understanding of statistics and model building
 to see it from a linear algebra perspective. Therefore I'm going to add a
 sub-package called 'stats' to the 'linalg' package, in order to learn about how
