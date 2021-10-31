@@ -6,6 +6,7 @@ center' the data by subtracting it's mean. This will yield data with a new mean
 of zero. Often we want to do this separately for each column or row of a
 matrix. Also it's often the case that we want to perform this operation on a
 square matrix. In that case, we can multiply by a 'centering matrix':</p> 
+</div>
 
 $$ C = I - \frac{1}{N} $$
 
@@ -58,6 +59,7 @@ column, subtracting $2/3$ from the second column, and adding $1$ to the last
 column - ensuring that all columns sum to zero.</p>
 
 We create a function to build the centering matrix:
+</div>
 
 {% highlight python %}
 
@@ -67,6 +69,7 @@ def gen_centering(size):
 
 {% endhighlight %}
 
+<div style="text-align: justify">
 <p>We then define a function that can zero center each column, each row, or
 that matrix as a whole (if axis=2). If the matrix is square, then we use the
 centering matrix approach above. Otherwise, after taking the mean across the
