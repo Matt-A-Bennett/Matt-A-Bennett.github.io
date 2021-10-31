@@ -8,7 +8,9 @@ matrix. Also it's often the case that we want to perform this operation on a
 square matrix. In that case, we can multiply by a 'centering matrix':</p> 
 </div>
 
-$$ C = I - \frac{1}{N} $$
+$$
+C = I - \frac{1}{N}
+$$
 
 $$
 C = %
@@ -32,6 +34,7 @@ C = %
     -\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
   \end{bmatrix}
 $$
+
 $$
 CA =%
   \begin{bmatrix}
