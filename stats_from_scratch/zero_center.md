@@ -5,8 +5,9 @@
 center' the data by subtracting it's mean. This will yield data with a new mean
 of zero. Often we want to do this separately for each column or row of a
 matrix. Also it's often the case that we want to perform this operation on a
-square matrix. In that case, we can multiply by a 'centering matrix' $C = I -
-\frac{1}{N}A$:</p>
+square matrix. In that case, we can multiply by a 'centering matrix':</p> 
+
+$$ C = I - \frac{1}{N}A$ $$
 
 $$
 C = %
@@ -55,7 +56,7 @@ $$
 column, subtracting $2/3$ from the second column, and adding $1$ to the last
 column - ensures that all columns sum to zero.</p>
 
-<p>We create a function to build the centering matrix according to $C = I -
+<p>We create a function to build the centering matrix according to: $C = I -
 \frac{1}{N}$:</p>
 
 {% highlight python %}
