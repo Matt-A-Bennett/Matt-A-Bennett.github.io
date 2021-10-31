@@ -52,11 +52,12 @@ CA =%
   \end{bmatrix}
 $$
 
+<div style="text-align: justify">
 <p>Here the matrix $C$ had the effect of subtracting $1/3$ from the first
 column, subtracting $2/3$ from the second column, and adding $1$ to the last
 column - ensuring that all columns sum to zero.</p>
 
-<p>We create a function to build the centering matrix:
+We create a function to build the centering matrix:
 
 {% highlight python %}
 
