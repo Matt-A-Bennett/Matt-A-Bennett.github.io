@@ -1,16 +1,16 @@
-# Adding a statistics sub-package to my 'numpy from scratch' package
+# Building a statistics sub-package for my 'numpy from scratch' package
 
 The full code I've written so far can be found [here](./full_code.md).
 
 <div style="text-align: justify">
 <p>Now that I've learned the basics of linear algebra and implemented a few of
 the methods in my <a href="https://matt-a-bennett.github.io/numpy_from_scratch/numpy_from_scratch.html">linalg</a>
-package, I'm going back over my understanding of statistics and model building to see it from a linear
-algebra perspective. Therefore I'm going to add a sub-package called 'stats' to
-the 'linalg' package, in order to learn about how packages work in Python 3 and
-to help cement my understanding as I go. Everything I do here will be
-implemented using the existing methods in the 'linalg' package. Here is what
-I've done so far:</p>
+package, I'm going back over my understanding of statistics and model building
+to see it from a linear algebra perspective. Therefore I'm going to add a
+sub-package called 'stats' to the 'linalg' package, in order to learn about how
+packages work in Python 3 and to help cement my understanding as I go.
+Everything I do here will be implemented using the existing methods in the
+'linalg' package. Here is what I've done so far:</p>
 </div>
 
 ## Fundamental building blocks
