@@ -75,6 +75,7 @@ $$
   \end{bmatrix}
   =%
 $$
+
 $$
   \frac{1}{4}
   \begin{bmatrix}
