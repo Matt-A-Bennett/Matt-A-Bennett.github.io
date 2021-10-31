@@ -7,7 +7,7 @@ of zero. Often we want to do this separately for each column or row of a
 matrix. Also it's often the case that we want to perform this operation on a
 square matrix. In that case, we can multiply by a 'centering matrix':</p> 
 
-$$ C = (I - \frac{1}{N})A $$
+$$ C = I - \frac{1}{N} $$
 
 $$
 C = %
