@@ -132,7 +132,8 @@ def covar(A, axis=0, sample=True):
 <div style="text-align: justify">
 <p>A method for the variances of the columns of a matrix, rather than the full
 covariance matrix, is achieved by extracting the values from the diagonal of
-the covariance matrix:</p>
+the covariance matrix. We transpose the vector from a row to a column in the
+case that we computed the variance across the rows of the matrix:</p>
 </div>
 
 {% highlight python %}
@@ -140,6 +141,8 @@ the covariance matrix:</p>
 def var(A, axis=0, sample=True):
     A_covar = covar(A, axis, sample)
     A_var = la.Mat([A_covar.diag()])
+    if axis == 1:
+        return A_var.transpose()
     return A_var
 
 {% endhighlight %}
