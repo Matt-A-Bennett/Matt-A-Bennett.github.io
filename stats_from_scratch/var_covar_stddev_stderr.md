@@ -44,7 +44,7 @@ $$ \text{covariance} = \frac{1}{m-1}(x - \bar x)^T (y - \bar x) $$
 
 <div style="text-align: justify">
 <p>If we have observations of several variables, with each set of observations
-forming the column of a matrix $A$, then computing all of the dot products
+forming a column of a matrix $A$, then computing all of the dot products
 between each column is just what happens with $A^T A$. So if we use the
 centering matrix to remove the mean of each set of observations with</p>
 </div>
