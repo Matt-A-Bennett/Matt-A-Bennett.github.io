@@ -92,16 +92,15 @@ make it look pretty):</p>
 {% highlight python %}
 
 import linalg as la
+
 A = la.Mat([[1, 2, 3],
             [-2, 1, 4],
             [0, 1, 2],
             [3, 6, 1]])
 
-result = la.stats.mean(A)
-la.print_mat(result)
+la.print_mat(la.stats.mean(A))
 
-result = la.stats.mean(A, axis=1)
-la.print_mat(result, 2)
+la.print_mat(la.stats.mean(A, axis=1), 2)
 
 {% endhighlight %}
 
@@ -109,11 +108,14 @@ Outputs:
 
 {% highlight console %}
 
->>> la.print_mat(result)
+>>> la.print_mat(la.stats.mean(A))
 [0.5, 2.5, 2.5]
 
->>> la.print_mat(result, 2)
-[2.0, 1.0, 1.0, 3.33]
+>>> la.print_mat(la.stats.mean(A, axis=1), 2)
+[2.0]
+[1.0]
+[1.0]
+[3.33]
 
 {% endhighlight %}
 
