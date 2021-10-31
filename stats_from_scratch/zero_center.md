@@ -11,42 +11,42 @@ square matrix. In that case, we can multiply by a 'centering matrix' $C = I -
 $$
 C = %
   \begin{bmatrix}
-    1 & 0 & 0 \\[6pt]
-    0 & 1 & 0 \\[6pt]
+    1 & 0 & 0 \\[5pt]
+    0 & 1 & 0 \\[5pt]
     0 & 0 & 1 \\
   \end{bmatrix}
     %
     -%
   \begin{bmatrix}
-    -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3} \\[6pt]
-    -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3} \\[6pt]
+    -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3} \\[5pt]
+    -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3} \\[5pt]
     -\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3}
   \end{bmatrix}
   %
   =%
   \begin{bmatrix}
-    \frac{2}{3} & -\frac{1}{3} & -\frac{1}{3} \\[6pt]
-    -\frac{1}{3} & \frac{2}{3} & -\frac{1}{3} \\[6pt]
+    \frac{2}{3} & -\frac{1}{3} & -\frac{1}{3} \\[5pt]
+    -\frac{1}{3} & \frac{2}{3} & -\frac{1}{3} \\[5pt]
     -\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
   \end{bmatrix}
 $$
 $$
 CA =%
   \begin{bmatrix}
-    \frac{2}{3} & -\frac{1}{3} & -\frac{1}{3} \\[6pt]
-    -\frac{1}{3} & \frac{2}{3} & -\frac{1}{3} \\[6pt]
+    \frac{2}{3} & -\frac{1}{3} & -\frac{1}{3} \\[5pt]
+    -\frac{1}{3} & \frac{2}{3} & -\frac{1}{3} \\[5pt]
     -\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
   \end{bmatrix}
   \begin{bmatrix}
-    1 & 1 & 1\\[6pt]
-    0 & 2 & 0\\[6pt]
+    1 & 1 & 1\\[5pt]
+    0 & 2 & 0\\[5pt]
     0 & 3 & -4
   \end{bmatrix}
   %
   =%
   \begin{bmatrix}
-     \frac{2}{3} & -1 & 2 \\[6pt]
-    -\frac{1}{3} & 0 & 1 \\[6pt]
+     \frac{2}{3} & -1 & 2 \\[5pt]
+    -\frac{1}{3} & 0 & 1 \\[5pt]
     -\frac{1}{3} & 1 & -3
   \end{bmatrix}
 $$
