@@ -30,7 +30,7 @@ def tile(A, axes=[1,1]):
     B = dc(A)
     for j in range(axes[1]-1):
         A = cat(A, B, axis=1)
-    B = Mat(A.data[0:size(A)[0]])
+    B = dc(A)
     for i in range(axes[0]-1):
         A = cat(A, B, axis=0)
     return A
