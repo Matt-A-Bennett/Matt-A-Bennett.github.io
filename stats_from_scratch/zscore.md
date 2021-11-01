@@ -69,8 +69,8 @@ Outputs:
 
 {% endhighlight %}
 
-[Pearson's correlation >](./correlation.md)\
 [< Variance, covariance, standard deviation and standard error](./var_covar_stddev_stderr.md)
+[Pearson's correlation >](./correlation.md)\
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)
