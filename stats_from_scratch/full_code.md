@@ -74,6 +74,15 @@ def se(A, axis=0, sample=True):
     ses = sds.div_elwise(sqrt(N))
     return ses
 
+def zscore(A, axis=0, sample=False):
+    A_zc = zero_center(A, axis)
+    A_sd = sd(A_zc, axis, sample)
+    if axis == 1:
+        A_sd_rep = la.tile(A_sd, axes=[1, la.size(A)[1]])
+    else:
+        A_sd_rep = la.tile(A_sd, axes=[la.size(A)[0], 1])
+    return A_zc.div_elwise(A_sd_rep)
+
 {% endhighlight %}
 
 [back to project main page](./stats_from_scratch.md)\
