@@ -36,6 +36,7 @@ will attempt to realise in my library.</p>
 - [Is matrix symmetric?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-symmetric)
 - [Is matrix positive definite?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-positive-definite)
 - [Combining matrices](./class_and_standalone_functions_-_comb_diag.md#combining-matrices)
+- [Tiling matrices](./class_and_standalone_functions_-_comb_diag.md#tiling-matrices)
 - [Get the diagonal of a matrix](./class_and_standalone_functions_-_comb_diag.md#get-the-diagonal-of-a-matrix)
 
 ### Fundamental methods

@@ -45,6 +45,15 @@ def cat(A, B, axis=0):
         concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
     return concatenated
 
+def tile(A, axes=[1,1]):
+    B = dc(A)
+    for j in range(axes[1]-1):
+        A = cat(A, B, axis=1)
+    B = Mat(A.data[0:size(A)[0]])
+    for i in range(axes[0]-1):
+        A = cat(A, B, axis=0)
+    return A
+
 def print_mat(A, round_dp=99):
     for row in A.data:
         rounded = [round(i,round_dp) for i in row]
