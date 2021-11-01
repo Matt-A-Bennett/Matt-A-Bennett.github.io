@@ -57,7 +57,7 @@ divide this by one less than the number of observations we get the 'covariance
 matrix':</p>
 </div>
 
-$$ \text{covariance_matrix} = \frac{1}{m-1} A^T CA $$ 
+$$ \text{covariance matrix} = \frac{1}{m-1} A^T CA $$ 
 
 $$
 \frac{1}{4}
