@@ -1,6 +1,6 @@
 # Z-score
 <div style="text-align: justify">
-<p>Z-scores are a way of standardising a set of observations such that each
+<p>Z-scores are a way of transforming a set of observations such that each
 represents the number of standard deviations above or below the mean. This is
 useful since it allows you to compare sets of observations measured on
 different scales - when fitting models, using standardised scores can aid the
@@ -14,7 +14,7 @@ model.</p>
 followed by dividing each value by the standard deviation of the column (or
 row). For the division step, use the tile method to produce a matrix the same
 size as the input, with the standard deviation of each column (or row) repeated
-for each row (or column):</p>
+for each row (or column) and perform a element-wise division:</p>
 </div>
 
 {% highlight python %}
