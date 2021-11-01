@@ -77,6 +77,10 @@ Outputs:
 <a href="./correlation.md">Pearson correlation ></a>
 </div>
 
+<div style="text-align: justify">
+<a href="./var_covar_stddev_stderr.md">< Variance, covariance, standard deviation and standard error</a> <a href="./correlation.md">Pearson correlation ></a>
+</div>
+
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)
 
