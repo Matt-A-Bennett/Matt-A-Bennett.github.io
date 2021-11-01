@@ -126,9 +126,9 @@ Outputs:
 {% highlight python %}
 
 def norm(self):
-    A = dc(self)
-    A_norm = A.scale(1/A.length())
-    return A_norm
+    if self.length() != 0:
+        self = self.div_elwise(self.length())
+    return self
 
 {% endhighlight %}
 
