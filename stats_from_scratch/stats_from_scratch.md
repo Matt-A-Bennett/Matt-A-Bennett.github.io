@@ -17,7 +17,7 @@ Everything I do here will be implemented using the existing methods in the
 - [Sum and mean](./sum_and_mean.md)
 - [Zero-center](./zero_center.md)
 - [Variance, covariance, standard deviation and standard error](./var_covar_stddev_stderr.md)
-- Zero-score (Coming soon)
+- Z-score (Coming soon)
 
 ## Statistical tests
 - Pearson's Correlation (Coming soon)
