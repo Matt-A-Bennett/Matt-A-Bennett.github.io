@@ -237,7 +237,8 @@ Outputs:
 [0.85, 1.32, 1.08]
 {% endhighlight %}
 
-[< Zero center](./zero_center.md)
+[< Zero center](./zero_center.md)\
+[Z-score >](./zscore.md)
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)
