@@ -43,7 +43,7 @@ la.print_mat(<METHOD>)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 {% endhighlight %}
 

@@ -135,7 +135,7 @@ la.print_mat(result, 2)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> la.print_mat(result)
 [0.5, -0.5, 0.5]

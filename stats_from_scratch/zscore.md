@@ -53,7 +53,7 @@ la.print_mat(la.stats.zscore(A, axis=1), 3)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> la.print_mat(la.stats.zscore(A, axis=0), 3)
 [-1.342, 0.905, -0.302]

@@ -144,7 +144,7 @@ la.print_mat(la.stats.corr(A), 2)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> la.print_mat(la.stats.corr(A), 2)
 [1.0, 0.96, -0.85]

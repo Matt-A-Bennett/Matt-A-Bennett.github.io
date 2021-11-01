@@ -218,7 +218,7 @@ la.print_mat(la.stats.se(A), 2)
 
 Outputs:
 
-{% highlight shell %}
+{% highlight console %}
 
 >>> la.print_mat(la.stats.covar(A), 2)
 [2.92, 0.5, -2.67]
