@@ -7,10 +7,10 @@ tells us how two variables tend to covary, but in 'standard', rather than
 absolute, units. This is similar to how a z-score abstracts away from the
 absolute scale of the raw scores. </p>
 
-<p> In order the divide each value in the covariance matrix by the standard
-deviation's of the two variables, we can multiply the covariance matrix on the
-left and also on the right by a diagonal matrix containing the standard
-deviations:</p>
+<p> In order the divide each value in the covariance matrix by the product of
+the standard deviation's of the two variables, we can multiply the covariance
+matrix on the left and also on the right by a diagonal matrix containing the
+standard deviations:</p>
 </div>
 
 $$
@@ -40,7 +40,7 @@ $$
 $$
 
 <div style="text-align: justify">
-<p> For instances, with the matrix $A$ containing observations of 3 variables,
+<p> For instance, with the matrix $A$ containing observations of 3 variables,
 we can see by eye that the first column increases row by row, and so does the
 2nd column. These two variables are positively correlated. The third column
 <i>decreases</i> as we descend the rows, although not as linearly. This column
@@ -99,16 +99,16 @@ $$
 
 <div style="text-align: justify">
 <p>Where $V$ is the covariance matrix, and $K$ is a diagonal matrix containing
-the variance of each variable (thus $K^{-\frac{1}{2}}$ takes the square root
-of each element on the diagonal, yielding the standard deviation).</p>
+the variance of each variable (thus $K^{-\frac{1}{2}}$ takes the reciprocal of
+the square root of each element on the diagonal, yielding the reciprocal of the
+standard deviation).</p>
 </div>
-
 
 ## Code implementation
 <div style="text-align: justify">
-<p>We compute the covariance matrix, take the variance's from the diagonal and
-take the reciprocal of the square root and store them on a diagonal matrix K.
-Then we do the multiplications before returning the correlation matrix:</p>
+<p>We compute the covariance matrix, take the variance values from the diagonal
+and take the reciprocal of the square root and store them on a diagonal matrix
+K. Then we do the multiplications before returning the correlation matrix:</p>
 </div>
 
 {% highlight python %}
@@ -125,7 +125,7 @@ def corr(A, axis=0):
 ## Demo
 
 <div style="text-align: justify">
-<p>We create a matrix, call the <METHOD> method and print the result:</p>
+<p>We create a matrix, call the corr method and print the result:</p>
 </div>
 
 {% highlight python %}
