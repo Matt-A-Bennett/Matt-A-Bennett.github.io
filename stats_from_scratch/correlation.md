@@ -7,8 +7,8 @@ tells us how two variables tend to covary, but in 'standard', rather than
 absolute, units. This is similar to how a z-score abstracts away from the
 absolute scale of the raw scores. </p>
 
-<p> In order the divide each value in the covariance matrix by the product of
-the standard deviation's of the two variables, we can multiply the covariance
+<p> In order to divide each value in the covariance matrix by the product of
+the standard deviations of the two variables, we can multiply the covariance
 matrix on the left and also on the right by a diagonal matrix containing the
 standard deviations:</p>
 </div>

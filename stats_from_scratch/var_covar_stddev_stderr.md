@@ -163,7 +163,7 @@ observations, we have the standard error of the mean. This indicates the
 uncertainty around the sample mean as an estimate of the population mean (since
 the sample mean will not match the population mean exactly). The $\sqrt{n}$
 term is like a 'penalty' incurred for making the 'leap' of inference to the
-population and this penalty decreases as you sample size increases:</p>
+population and this penalty decreases as your sample size increases:</p>
 </div>
 
 $$ SE = \frac{\sigma}{\sqrt{n}} $$
