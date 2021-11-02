@@ -15,9 +15,9 @@ standard deviations:</p>
 
 $$
 \begin{bmatrix}
-    \sigma_1 & 0 & 0 \\
-    0 & \sigma_2 & 0 \\
-    0 & 0 & \sigma_3
+    \frac{1}{\sigma_1} & 0 & 0 \\
+    0 & \frac{1}{\sigma_2} & 0 \\
+    0 & 0 & \frac{1}{\sigma_3}
 \end{bmatrix}
 %
 \begin{bmatrix}
@@ -27,9 +27,9 @@ $$
 \end{bmatrix}
 %
 \begin{bmatrix}
-    \sigma_1 & 0 & 0 \\
-    0 & \sigma_2 & 0 \\
-    0 & 0 & \sigma_3
+    \frac{1}{\sigma_1} & 0 & 0 \\
+    0 & \frac{1}{\sigma_2} & 0 \\
+    0 & 0 & \frac{1}{\sigma_3}
 \end{bmatrix}
 =%
 \begin{bmatrix}
