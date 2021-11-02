@@ -289,7 +289,7 @@ Outputs:
 [< Dot product, length and matrix multiplication](./dot_prod_length_and_mat_multiply.md)\
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/backsub.html">Back substitution ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/backsub.html">Back substitution ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\

@@ -171,7 +171,7 @@ Outputs:
 [< Projection and regression](./projection_and_regression.md)\
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/eigen.html">Eigenvalues and eigenvectors ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/eigen.html">Eigenvalues and eigenvectors ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\

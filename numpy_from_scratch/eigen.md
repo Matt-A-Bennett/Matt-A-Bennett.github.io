@@ -255,7 +255,7 @@ Outputs:
 [< A = QR](./qr_factorisation.md)\
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/diagonalisation.html">Diagonalisation: $A = X\Lambda X^{-1}$ ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/diagonalisation.html">Diagonalisation: $A = X\Lambda X^{-1}$ ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\

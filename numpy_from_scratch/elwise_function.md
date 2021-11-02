@@ -263,7 +263,7 @@ Outputs:
 [< Transpose](./transpose.md) \
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/dot_prod_length_and_mat_multiply.html">Dot Product ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/dot_prod_length_and_mat_multiply.html">Dot Product ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\

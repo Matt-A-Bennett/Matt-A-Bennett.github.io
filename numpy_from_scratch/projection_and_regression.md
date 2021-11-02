@@ -173,7 +173,7 @@ plt.show()
 [< A = LU](./lu_factorisation.md)\
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/qr_factorisation.html">A = QR ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/qr_factorisation.html">A = QR ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\

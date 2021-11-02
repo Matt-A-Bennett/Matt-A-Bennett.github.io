@@ -253,7 +253,7 @@ Outputs:
 [< Inverse](./inverse.md)\
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/projection_and_regression.html">Projection and regression ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/projection_and_regression.html">Projection and regression ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\
