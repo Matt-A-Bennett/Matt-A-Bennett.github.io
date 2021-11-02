@@ -10,7 +10,7 @@ absolute scale of the raw scores. </p>
 <p> In order to divide each value in the covariance matrix by the product of
 the standard deviations of the two variables, we can multiply the covariance
 matrix on the left and also on the right by a diagonal matrix containing the
-standard deviations:</p>
+reciprocal of the standard deviations:</p>
 </div>
 
 $$
