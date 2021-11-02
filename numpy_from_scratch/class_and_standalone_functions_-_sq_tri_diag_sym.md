@@ -221,7 +221,10 @@ def is_posdef(self):
 {% endhighlight %}
 
 [< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_-_class_gen_print.md)\
-[Combining matrices and getting the diagonal >](./class_and_standalone_functions_-_comb_diag.md)
+
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/class_and_standalone_functions_-_comb_diag.html">Combining matrices and getting the diagonal ></a>
+</div>
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

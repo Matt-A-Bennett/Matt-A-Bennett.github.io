@@ -73,7 +73,10 @@ Outputs:
 {% endhighlight %}
 
 [< Combining matrices and getting the diagonal](./class_and_standalone_functions_-_comb_diag.md)\
-[Element-wise functions of one or more matrices >](./elwise_function.md)
+
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/elwise_function.html">Element-wise functions of one or more matrices ></a>
+</div>
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

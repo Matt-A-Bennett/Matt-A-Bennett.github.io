@@ -171,7 +171,10 @@ plt.show()
 ![regression plot](./images/regression.png)
 
 [< A = LU](./lu_factorisation.md)\
-[A = QR >](./qr_factorisation.md)
+
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/qr_factorisation.html">A = QR ></a>
+</div>
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

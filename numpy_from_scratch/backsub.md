@@ -228,7 +228,10 @@ Outputs:
 {% endhighlight %}
 
 [< EA = U](./elimination.md)\
-[Pivots, rank, singularity, determinant >](./rank_piv_sing_det.md)
+
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/rank_piv_sing_det.html">Pivots, rank, singularity, determinant ></a>
+</div>
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

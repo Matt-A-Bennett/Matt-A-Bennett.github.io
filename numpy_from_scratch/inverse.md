@@ -216,7 +216,10 @@ Matrix is singular!
 {% endhighlight %}
 
 [< Pivots, rank, singularity, determinants](./rank_piv_sing_det.md)\
-[A = LU >](./lu_factorisation.md)
+
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/lu_factorisation.html">A = LU ></a>
+</div>
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
