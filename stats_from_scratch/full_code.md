@@ -83,6 +83,13 @@ def zscore(A, axis=0, sample=False):
         A_sd_rep = la.tile(A_sd, axes=[la.size(A)[0], 1])
     return A_zc.div_elwise(A_sd_rep)
 
+def corr(A, axis=0):
+    K = covar(A, axis)
+    sds=[1/sqrt(x) for x in K.diag()]
+    K_sqrt = la.gen_mat([len(sds)]*2, values=sds, type='diag')
+    correlations = K_sqrt.multiply(K).multiply(K_sqrt)
+    return correlations
+
 {% endhighlight %}
 
 [back to project main page](./stats_from_scratch.md)\
