@@ -119,7 +119,9 @@ Outputs:
 
 {% endhighlight %}
 
-[Zero-center >](./zero_center.md)
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/zero_center.html">Zero-center ></a>
+</div>
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)

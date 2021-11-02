@@ -239,9 +239,7 @@ Outputs:
 
 
 
-<div style="text-align: left">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/zero_center.html">< Zero center</a>
-</div>
+[< Zero center](./zero_center.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/stats_from_scratch/zscore.html">Z-score ></a>

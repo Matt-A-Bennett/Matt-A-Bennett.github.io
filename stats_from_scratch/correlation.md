@@ -154,9 +154,7 @@ Outputs:
 {% endhighlight %}
 
 
-<div style="text-align: left">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/zscore.html">< Z-score</a>
-</div>
+[< Z-score](./zscore.md)
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)

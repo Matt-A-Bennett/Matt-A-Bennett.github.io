@@ -69,9 +69,7 @@ Outputs:
 
 {% endhighlight %}
 
-<div style="text-align: left">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/var_covar_stddev_stderr.html">< Variance, covariance, standard deviation and standard error</a>
-</div>
+[< Variance, covariance, standard deviation and standard error](./var_covar_stddev_stderr.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/stats_from_scratch/correlation.html">Pearson correlation ></a>
