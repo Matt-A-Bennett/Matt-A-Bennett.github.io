@@ -50,6 +50,10 @@ Outputs:
 
 [< Previous_page](./previous_page_filename.md))
 
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/template.html"> . ></a>
+</div>
+
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
 
