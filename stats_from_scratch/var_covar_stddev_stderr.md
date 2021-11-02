@@ -237,8 +237,15 @@ Outputs:
 [0.85, 1.32, 1.08]
 {% endhighlight %}
 
-[< Zero center](./zero_center.md)\
-[Z-score >](./zscore.md)
+
+
+<div style="text-align: left">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/zero_center.html">< Zero center</a>
+</div>
+
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/zscore.html">Z-score ></a>
+</div>
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)

@@ -156,8 +156,14 @@ Outputs:
 
 {% endhighlight %}
 
-[< Sum and mean](./sum_and_mean.md)\
-[Variance, covariance, standard deviation and standard error >](./var_covar_stddev_stderr.md)
+
+<div style="text-align: left">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/sum_and_mean.html">< Sum and mean</a>
+</div>
+
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/var_covar_stddev_stderr.html">Variance, covariance, standard deviation and standard error ></a>
+</div>
 
 [back to project main page](./stats_from_scratch.md)\
 [back to home](../index.md)
