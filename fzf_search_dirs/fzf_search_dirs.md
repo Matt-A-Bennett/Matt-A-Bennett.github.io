@@ -184,7 +184,10 @@ the first directory in the list and entering the following command:</p>
 :.,$ norm I!
 {% endhighlight %}
 
-[Using FZF to select files for any program or command >](../fzf_launcher/fzf_launcher.md)
+<div style="text-align: right">
+<a href="https://matt-a-bennett.github.io/fzf_launcher/fzf_launcher.html">Using FZF to select files for any program or command ></a>
+</div>
+
 
 [back to home](../index.md)
 
