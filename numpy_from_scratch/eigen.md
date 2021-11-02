@@ -64,13 +64,13 @@ $$
 <p>Expanding, we see the familiar polynomial form:</p>
 
 $$
-\lambda^2 -(a + d)\lambda + (ad - bc) = 0
+\lambda^2 -(a + dlambda + (ad - bc) = 0
 $$
 
 <p>Notice the trace and the determinant appearing in the above equation:</p>
 
 $$
-\lambda^2 -(trace)\lambda + (determinant) = 0
+\lambda^2 -(tracelambda + (determinant) = 0
 $$
 
 <p>We refactor that equation:</p>
@@ -252,7 +252,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< A = QR](./qr_factorisation.md)\
+[< $A = QR$](./qr_factorisation.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/diagonalisation.html">Diagonalisation: $A = X\Lambda X^{-1}$ ></a>

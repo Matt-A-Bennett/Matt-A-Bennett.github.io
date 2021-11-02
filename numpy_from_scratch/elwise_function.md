@@ -260,7 +260,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Transpose](./transpose.md) \
+[< Transpose](./transpose.md) \)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/dot_prod_length_and_mat_multiply.html">Dot Product ></a>

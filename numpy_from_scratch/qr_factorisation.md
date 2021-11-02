@@ -168,7 +168,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Projection and regression](./projection_and_regression.md)\
+[< Projection and regression](./projection_and_regression.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/eigen.html">Eigenvalues and eigenvectors ></a>

@@ -215,7 +215,7 @@ Matrix is singular!
 
 {% endhighlight %}
 
-[< Pivots, rank, singularity, determinants](./rank_piv_sing_det.md)\
+[< Pivots, rank, singularity, determinants](./rank_piv_sing_det.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/lu_factorisation.html">A = LU ></a>

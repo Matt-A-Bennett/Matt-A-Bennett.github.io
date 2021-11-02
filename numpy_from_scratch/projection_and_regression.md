@@ -170,7 +170,7 @@ plt.show()
 
 ![regression plot](./images/regression.png)
 
-[< A = LU](./lu_factorisation.md)\
+[< A = LU](./lu_factorisation.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/qr_factorisation.html">A = QR ></a>

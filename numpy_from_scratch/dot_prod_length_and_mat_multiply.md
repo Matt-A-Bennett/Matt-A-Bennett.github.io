@@ -249,7 +249,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Element-wise functions of one or more matrices >](./elwise_function.md)\
+[< Element-wise functions of one or more matrices >](./elwise_function.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/elimination.html">EA = U ></a>

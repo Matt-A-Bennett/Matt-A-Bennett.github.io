@@ -110,7 +110,7 @@ eigenvalues which this method cannot handle. Interpret results with care!
 
 {% endhighlight %}
 
-[< Eigenvalues and eigenvectors](./eigen.md)
+[< Eigenvalues and eigenvectors](./eigen.md))
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

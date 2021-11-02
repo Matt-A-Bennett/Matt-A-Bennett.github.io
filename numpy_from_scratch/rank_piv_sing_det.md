@@ -226,7 +226,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Back substitution](./backsub.md)\
+[< Back substitution](./backsub.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/inverse.html">Inverse ></a>

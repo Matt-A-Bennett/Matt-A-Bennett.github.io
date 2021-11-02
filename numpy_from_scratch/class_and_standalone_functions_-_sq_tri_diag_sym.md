@@ -220,7 +220,7 @@ def is_posdef(self):
 
 {% endhighlight %}
 
-[< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_-_class_gen_print.md)\
+[< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_-_class_gen_print.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_-_comb_diag.html">Combining matrices and getting the diagonal ></a>

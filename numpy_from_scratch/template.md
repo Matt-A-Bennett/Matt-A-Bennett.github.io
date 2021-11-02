@@ -48,7 +48,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Previous_page](./previous_page_filename.md)
+[< Previous_page](./previous_page_filename.md))
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

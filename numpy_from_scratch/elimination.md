@@ -286,7 +286,7 @@ Outputs:
 
 {% endhighlight %}
 
-[< Dot product, length and matrix multiplication](./dot_prod_length_and_mat_multiply.md)\
+[< Dot product, length and matrix multiplication](./dot_prod_length_and_mat_multiply.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/backsub.html">Back substitution ></a>
