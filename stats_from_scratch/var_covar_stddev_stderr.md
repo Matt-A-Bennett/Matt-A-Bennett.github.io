@@ -108,7 +108,7 @@ $$
 of an input matrix A, yielding the sample covariance (i.e. using the $n-1$
 correction).</p>
 
-<p>First we transpose the matrix if the user wants to take rows was variables.
+<p>First we transpose the matrix if the user wants to take rows as variables.
 Then we zero center the matrix, perform the $A^T A$ step and normalise by the
 number of observations (subtracting 1 by default, unless sample is False):</p>
 </div>
