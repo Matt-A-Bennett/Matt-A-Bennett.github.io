@@ -99,7 +99,7 @@ $$
 $$
 
 <div style="text-align: justify">
-<p>Notice that the variances $\sigma^2$ of each column sit along the
+<p>Notice that the variances $\sigma^2$ of the columns sit along the
 diagonal.</p>
 </div>
 
