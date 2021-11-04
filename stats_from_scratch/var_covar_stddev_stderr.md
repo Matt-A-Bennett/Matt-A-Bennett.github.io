@@ -60,7 +60,7 @@ matrix':</p>
 $$ \text{covariance matrix} = \frac{1}{m-1} A^T CA $$ 
 
 $$
-\frac{1}{4}
+\frac{1}{3}
   \begin{bmatrix}
     1 & 0 & 4 & 2 \\
     2 & -1 & 0 & 5 \\
@@ -84,7 +84,7 @@ $$
 $$
 
 $$
-  \frac{1}{4}
+  \frac{1}{3}
   \begin{bmatrix}
     8.75 & 1.5 & -8 \\
     1.5 & 21 & -13 \\
