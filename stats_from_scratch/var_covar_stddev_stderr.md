@@ -149,9 +149,9 @@ def var(A, axis=0, sample=True):
 ## Standard deviation and standard error
 <div style="text-align: justify">
 <p>While the variance of, and covariance between, a set of variables is useful,
-they are squared values and as such not on the same scale as the measured data.
-Therefore a useful measure when reasoning about the data is the square root of
-the variance. This is called the standard deviation:</p>
+they are squared values and as such are not on the same scale as the measured
+data. Therefore a useful measure when reasoning about the data is the square
+root of the variance. This is called the standard deviation:</p>
 </div>
 
 $$ \sigma = \sqrt{\sigma^2} $$
