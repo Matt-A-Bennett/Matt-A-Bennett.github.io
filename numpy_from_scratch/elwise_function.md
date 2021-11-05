@@ -7,7 +7,7 @@ products). The 'function_elwise' method forms the basis for several
 operations.</p>
 </div>
 
-## Code implemetation
+## Code implementation
 
 <div style="text-align: justify">
 <p> The method requires an arbitrary function as an argument, and can also take
@@ -106,7 +106,7 @@ $$
   \end{bmatrix}
 $$
 
-## Code implemetation
+## Code implementation
 
 <div style="text-align: justify">
 <p>Here we call the function_choice method with a list of two lambda functions.
@@ -195,7 +195,7 @@ $$
   \end{bmatrix}
 $$
 
-## Code implemetation
+## Code implementation
 <div style="text-align: justify">
 <p>Just as with the case in the add and subtract methods, we check if the B
 argument is of class matrix and decide whether to use a function of one or of
