@@ -31,14 +31,14 @@ corresponding column):</p>
 
 def transpose(self):
     transposed = []
-    for row_idx, row in enumerate(self.data):
-        for col_idx, col in enumerate(row):
+    for i, row in enumerate(self.data):
+        for j, col in enumerate(row):
             # first time through, make new row for each old column
-            if row_idx == 0:
+            if i == 0:
                 transposed.append([col])
             else:
                 # append to newly created rows
-                transposed[col_idx].append(col)
+                transposed[j].append(col)
     return Mat(transposed)
 
 {% endhighlight %}
@@ -71,6 +71,9 @@ Outputs:
 [3, 6]
 
 {% endhighlight %}
+
+{% include_relative test1.md %}
+{% include_relative test2.md %}
 
 [< Combining matrices and getting the diagonal](./class_and_standalone_functions_-_comb_diag.md)
 
