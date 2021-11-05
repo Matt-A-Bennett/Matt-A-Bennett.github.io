@@ -1,22 +1,5 @@
 # Class, standalone functions and miscellaneous methods (2/3)
 ## Miscellaneous methods 
-###  Size of a matrix
-<div style="text-align: justify">
-<p>The size of a matrix is simply its number of rows and columns.</p>
-</div>
-
-#### Code implementation
-<div style="text-align: justify">
-<p>Here we return those values as a list:</p>
-</div>
-
-{% highlight python %}
-
-def size(A):
-    return [len(A.data), len(A.data[0])]
-
-{% endhighlight %}
-
 ### Is matrix square?
 <div style="text-align: justify">
 <p>A matrix is 'square' if it has the same number of rows as it does columns:</p>
