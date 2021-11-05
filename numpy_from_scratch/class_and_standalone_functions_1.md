@@ -1,32 +1,32 @@
 # Class, standalone functions and miscellaneous methods (1/3)
 ## The Mat(rix) Class
-{% include_relative Mat.md %}
+{% include_relative snippets/Mat.md %}
 
-## ./snippets/Standalone functions
+## Standalone functions
 ### Printing matrices
-{% include_relative ./snippets/print_mat.md %}
+{% include_relative snippets/print_mat.md %}
 #### Code implementation
-{% include_relative print_mat_code.md %}
+{% include_relative snippets/print_mat_code.md %}
 
-### ./snippets/Generate matrices
-{% include_relative gen_mat.md %}
-{% include_relative eye.md %}
-#### ./snippets/snippets/Demo
-{% include_relative gen_mat_demo.md %}
+### Generate matrices
+{% include_relative snippets/gen_mat.md %}
+{% include_relative snippets/eye.md %}
+#### snippets/Demo
+{% include_relative snippets/gen_mat_demo.md %}
 
 
-## ./snippets/Miscellaneous methods 
+## Miscellaneous methods 
 ### Transpose of a matrix
-{% include_relative ./snippets/transpose.md %}
+{% include_relative snippets/transpose.md %}
 #### Code implementation
-{% include_relative ./snippets/transpose_code.md %}
+{% include_relative snippets/transpose_code.md %}
 #### Demo
-{% include_relative transpose_demo.md %}
+{% include_relative snippets/transpose_demo.md %}
 
-###  ./snippets/Size of a matrix
-{% include_relative ./snippets/size.md %}
+### Size of a matrix
+{% include_relative snippets/size.md %}
 #### Code implementation
-{% include_relative size_code.md %}
+{% include_relative snippets/size_code.md %}
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_2.html">Is matrix triangular, diagonal, symmetric? ></a>

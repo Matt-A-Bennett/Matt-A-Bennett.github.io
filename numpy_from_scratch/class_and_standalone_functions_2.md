@@ -1,34 +1,34 @@
 # Class, standalone functions and miscellaneous methods (2/3)
 ## Miscellaneous methods 
 ### Is matrix square?
-{% include_relative ./snippets/is_square.md %}
+{% include_relative snippets/is_square.md %}
 #### Code implementation
-{% include_relative is_square_code.md %}
+{% include_relative snippets/is_square_code.md %}
 
-### ./snippets/Is matrix lower triangular?
-{% include_relative ./snippets/is_lower_tri.md %}
+### Is matrix lower triangular?
+{% include_relative snippets/is_lower_tri.md %}
 #### Code implementation
-{% include_relative is_lower_tri_code.md %}
+{% include_relative snippets/is_lower_tri_code.md %}
 
-### ./snippets/Is matrix upper triangular?
-{% include_relative ./snippets/is_upper_tri.md %}
+### Is matrix upper triangular?
+{% include_relative snippets/is_upper_tri.md %}
 #### Code implementation
-{% include_relative is_upper_tri_code.md %}
+{% include_relative snippets/is_upper_tri_code.md %}
 
-### ./snippets/Is matrix diagonal?
-{% include_relative ./snippets/is_diag.md %}
+### Is matrix diagonal?
+{% include_relative snippets/is_diag.md %}
 #### Code implementation
-{% include_relative is_diag_code.md %}
+{% include_relative snippets/is_diag_code.md %}
 
-### ./snippets/Is matrix symmetric?
-{% include_relative ./snippets/is_symmetric.md %}
+### Is matrix symmetric?
+{% include_relative snippets/is_symmetric.md %}
 #### Code implementation
-{% include_relative is_symmetric_code.md %}
+{% include_relative snippets/is_symmetric_code.md %}
 
-### ./snippets/Is matrix positive definite?
-{% include_relative ./snippets/posdef_para.md %}
+### Is matrix positive definite?
+{% include_relative snippets/posdef_para.md %}
 #### Code implementation
-{% include_relative pivot_sign_code_code.md %}
+{% include_relative snippets/pivot_sign_code_code.md %}
 
 [< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_1.md)
 
