@@ -3,7 +3,6 @@
 {% include_relative Mat.md %}
 
 ## Standalone functions
-
 ### Printing matrices
 {% include_relative print_mat.md %}
 #### Code implementation
@@ -15,29 +14,12 @@
 #### Demo
 {% include_relative gen_mat_demo.md %}
 
+
 ## Miscellaneous methods 
 ###  Size of a matrix
-<div style="text-align: justify">
-<p>The size of a matrix is simply its number of rows and columns.</p>
-</div>
-
+{% include_relative size.md %}
 #### Code implementation
-<div style="text-align: justify">
-<p>Here we return the number of rows, or columns, or both depending on the axis
-argument:</p>
-</div>
-
-{% highlight python %}
-
-def size(self, axis=2):
-    if axis == 0:
-        return len(self.data)
-    elif axis == 1:
-        return len(self.data[0])
-    elif axis == 2:
-        return [len(self.data), len(self.data[0])]
-
-{% endhighlight %}
+{% include_relative size_demo.md %}
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_-_sq_tri_diag_sym.html">Is matrix triangular, diagonal, symmetric? ></a>
