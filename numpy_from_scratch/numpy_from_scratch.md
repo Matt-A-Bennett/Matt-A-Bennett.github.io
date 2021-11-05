@@ -26,19 +26,19 @@ will attempt to realise in my library.</p>
 </div>
 
 ### Class, standalone functions and miscellaneous methods 
-- [Mat(rix) Class](./class_and_standalone_functions_-_class_gen_print.md)
-- [Printing matrices](./class_and_standalone_functions_-_class_gen_print.md#printing-matrices)
-- [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
-- [Transpose](./class_and_standalone_functions_-_class_gen_print.md#transpose-of-a-matrix)
-- [Size of a matrix](./class_and_standalone_functions_-_sq_tri_diag_sym.md#size-of-a-matrix)
-- [Is matrix square?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-square)
-- [Is matrix triangular?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-lower-triangular)
-- [Is matrix diagonal?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-diagonal)
-- [Is matrix symmetric?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-symmetric)
-- [Is matrix positive definite?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-positive-definite)
-- [Combining matrices](./class_and_standalone_functions_-_comb_diag.md#combining-matrices)
-- [Tiling matrices](./class_and_standalone_functions_-_comb_diag.md#tiling-matrices)
-- [Get the diagonal of a matrix](./class_and_standalone_functions_-_comb_diag.md#get-the-diagonal-of-a-matrix)
+- [Mat(rix) Class](./class_and_standalone_functions_1.md)
+- [Printing matrices](./class_and_standalone_functions_1.md#printing-matrices)
+- [Generate matrices](./class_and_standalone_functions_1.md#generate-matrices)
+- [Transpose](./class_and_standalone_functions_1.md#transpose-of-a-matrix)
+- [Size of a matrix](./class_and_standalone_functions_2.md#size-of-a-matrix)
+- [Is matrix square?](./class_and_standalone_functions_2.md#is-matrix-square)
+- [Is matrix triangular?](./class_and_standalone_functions_2.md#is-matrix-lower-triangular)
+- [Is matrix diagonal?](./class_and_standalone_functions_2.md#is-matrix-diagonal)
+- [Is matrix symmetric?](./class_and_standalone_functions_2.md#is-matrix-symmetric)
+- [Is matrix positive definite?](./class_and_standalone_functions_2.md#is-matrix-positive-definite)
+- [Combining matrices](./class_and_standalone_functions_3.md#combining-matrices)
+- [Tiling matrices](./class_and_standalone_functions_3.md#tiling-matrices)
+- [Get the diagonal of a matrix](./class_and_standalone_functions_3.md#get-the-diagonal-of-a-matrix)
 
 ### Fundamental methods
 - [Element-wise functions of one or more matrices](./elwise_function.md)

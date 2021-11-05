@@ -29,7 +29,7 @@
 {% include_relative size_code.md %}
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_-_sq_tri_diag_sym.html">Is matrix triangular, diagonal, symmetric? ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_2.html">Is matrix triangular, diagonal, symmetric? ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\
@@ -38,7 +38,7 @@
 ---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
-        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions.html"
+        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_1.html"
         theme="github-light"
         crossorigin="anonymous"
         async>

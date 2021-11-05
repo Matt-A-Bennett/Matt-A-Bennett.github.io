@@ -12,7 +12,7 @@
 ### Get the diagonal of a matrix
 {% include_relative diag_code.md %}
 
-[< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_-_sq_tri_diag_sym.md)
+[< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_2.md)
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/elwise_function.html">Element-wise functions of one or more matrices ></a>
@@ -24,7 +24,7 @@
 ---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
-        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions.html"
+        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_3.html"
         theme="github-light"
         crossorigin="anonymous"
         async>

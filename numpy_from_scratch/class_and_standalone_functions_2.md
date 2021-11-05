@@ -30,10 +30,10 @@
 #### Code implementation
 {% include_relative pivot_sign_code_code.md %}
 
-[< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_-_class_gen_print.md)
+[< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_1.md)
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_-_comb_diag.html">Combining matrices and getting the diagonal ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_3.html">Combining matrices and getting the diagonal ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\
@@ -42,7 +42,7 @@
 ---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
-        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions.html"
+        issue-term="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_2.html"
         theme="github-light"
         crossorigin="anonymous"
         async>
