@@ -72,9 +72,6 @@ Outputs:
 
 {% endhighlight %}
 
-{% include_relative test1.md %}
-{% include_relative test2.md %}
-
 [< Combining matrices and getting the diagonal](./class_and_standalone_functions_-_comb_diag.md)
 
 <div style="text-align: right">
