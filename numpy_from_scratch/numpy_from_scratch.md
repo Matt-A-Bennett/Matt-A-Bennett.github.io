@@ -29,7 +29,7 @@ will attempt to realise in my library.</p>
 - [Mat(rix) Class](./class_and_standalone_functions_-_class_gen_print.md)
 - [Printing matrices](./class_and_standalone_functions_-_class_gen_print.md#printing-matrices)
 - [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
-- [Transpose](./class_and_standalone_functions_-_sq_tri_diag_sym.md#transpose-of-a-matrix)
+- [Transpose](./class_and_standalone_functions_-_class_gen_print.md#transpose-of-a-matrix)
 - [Size of a matrix](./class_and_standalone_functions_-_sq_tri_diag_sym.md#size-of-a-matrix)
 - [Is matrix square?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-square)
 - [Is matrix triangular?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-lower-triangular)
