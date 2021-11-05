@@ -1,34 +1,34 @@
 # Class, standalone functions and miscellaneous methods (2/3)
 ## Miscellaneous methods 
 ### Is matrix square?
-{% include_relative ./is_square.md %}
+{% include_relative is_square.md %}
 #### Code implementation
-{% include_relative ./is_square_code.md %}
+{% include_relative is_square_code.md %}
 
 ### Is matrix lower triangular?
-{% include_relative ./is_lower_tri.md %}
+{% include_relative is_lower_tri.md %}
 #### Code implementation
-{% include_relative ./is_lower_tri_code.md %}
+{% include_relative is_lower_tri_code.md %}
 
 ### Is matrix upper triangular?
-{% include_relative ./is_upper_tri.md %}
+{% include_relative is_upper_tri.md %}
 #### Code implementation
-{% include_relative ./is_upper_tri_code.md %}
+{% include_relative is_upper_tri_code.md %}
 
 ### Is matrix diagonal?
-{% include_relative ./is_diag.md %}
+{% include_relative is_diag.md %}
 #### Code implementation
-{% include_relative ./is_diag_code.md %}
+{% include_relative is_diag_code.md %}
 
 ### Is matrix symmetric?
-{% include_relative ./is_symmetric.md %}
+{% include_relative is_symmetric.md %}
 #### Code implementation
-{% include_relative ./is_symmetric_code.md %}
+{% include_relative is_symmetric_code.md %}
 
-### Is matrix positive ./definite?
-{% include_relative ./posdef_para.md %}
+### Is matrix positive definite?
+{% include_relative posdef_para.md %}
 #### Code implementation
-{% include_relative ./pivot_sign_code_code.md %}
+{% include_relative pivot_sign_code_code.md %}
 
 [< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_-_class_gen_print.md)
 
