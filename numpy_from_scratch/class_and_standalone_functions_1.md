@@ -2,29 +2,29 @@
 ## The Mat(rix) Class
 {% include_relative Mat.md %}
 
-## snippets/Standalone functions
+## ./snippets/Standalone functions
 ### Printing matrices
-{% include_relative snippets/print_mat.md %}
+{% include_relative ./snippets/print_mat.md %}
 #### Code implementation
 {% include_relative print_mat_code.md %}
 
-### snippets/Generate matrices
+### ./snippets/Generate matrices
 {% include_relative gen_mat.md %}
 {% include_relative eye.md %}
-#### snippets/snippets/Demo
+#### ./snippets/snippets/Demo
 {% include_relative gen_mat_demo.md %}
 
 
-## snippets/Miscellaneous methods 
+## ./snippets/Miscellaneous methods 
 ### Transpose of a matrix
-{% include_relative snippets/transpose.md %}
+{% include_relative ./snippets/transpose.md %}
 #### Code implementation
-{% include_relative snippets/transpose_code.md %}
+{% include_relative ./snippets/transpose_code.md %}
 #### Demo
 {% include_relative transpose_demo.md %}
 
-###  snippets/Size of a matrix
-{% include_relative snippets/size.md %}
+###  ./snippets/Size of a matrix
+{% include_relative ./snippets/size.md %}
 #### Code implementation
 {% include_relative size_code.md %}
 

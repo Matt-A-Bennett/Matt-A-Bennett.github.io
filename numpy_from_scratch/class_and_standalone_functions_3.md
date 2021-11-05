@@ -3,12 +3,12 @@
 ### Combining matrices
 {% include_relative cat_code.md %}
 
-### snippets/Tiling matrices
-{% include_relative snippets/tile_code.md %}
+### ./snippets/Tiling matrices
+{% include_relative ./snippets/tile_code.md %}
 ### Demo
 {% include_relative tile_demo.md %}
 
-## snippets/Miscellaneous methods
+## ./snippets/Miscellaneous methods
 ### Get the diagonal of a matrix
 {% include_relative diag_code.md %}
 
