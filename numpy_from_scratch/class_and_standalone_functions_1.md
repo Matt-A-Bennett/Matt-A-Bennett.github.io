@@ -11,7 +11,7 @@
 ### Generate matrices
 {% include_relative snippets/gen_mat.md %}
 {% include_relative snippets/eye.md %}
-#### snippets/Demo
+#### Demo
 {% include_relative snippets/gen_mat_demo.md %}
 
 
