@@ -16,6 +16,13 @@
 
 
 ## Miscellaneous methods 
+### Transpose of a matrix
+{% include_relative transpose.md %}
+#### Code implementation
+{% include_relative transpose_code.md %}
+#### Demo
+{% include_relative transpose_demo.md %}
+
 ###  Size of a matrix
 {% include_relative size.md %}
 #### Code implementation
