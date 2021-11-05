@@ -1,32 +1,32 @@
 # Class, standalone functions and miscellaneous methods (2/3)
 ## Miscellaneous methods 
 ### Is matrix square?
-{% include_relative is_square.md %}
+{% include_relative snippets/is_square.md %}
 #### Code implementation
 {% include_relative is_square_code.md %}
 
-### Is matrix lower triangular?
-{% include_relative is_lower_tri.md %}
+### snippets/Is matrix lower triangular?
+{% include_relative snippets/is_lower_tri.md %}
 #### Code implementation
 {% include_relative is_lower_tri_code.md %}
 
-### Is matrix upper triangular?
-{% include_relative is_upper_tri.md %}
+### snippets/Is matrix upper triangular?
+{% include_relative snippets/is_upper_tri.md %}
 #### Code implementation
 {% include_relative is_upper_tri_code.md %}
 
-### Is matrix diagonal?
-{% include_relative is_diag.md %}
+### snippets/Is matrix diagonal?
+{% include_relative snippets/is_diag.md %}
 #### Code implementation
 {% include_relative is_diag_code.md %}
 
-### Is matrix symmetric?
-{% include_relative is_symmetric.md %}
+### snippets/Is matrix symmetric?
+{% include_relative snippets/is_symmetric.md %}
 #### Code implementation
 {% include_relative is_symmetric_code.md %}
 
-### Is matrix positive definite?
-{% include_relative posdef_para.md %}
+### snippets/Is matrix positive definite?
+{% include_relative snippets/posdef_para.md %}
 #### Code implementation
 {% include_relative pivot_sign_code_code.md %}
 
