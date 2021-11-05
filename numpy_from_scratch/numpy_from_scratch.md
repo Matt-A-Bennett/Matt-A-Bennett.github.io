@@ -29,6 +29,7 @@ will attempt to realise in my library.</p>
 - [Mat(rix) Class](./class_and_standalone_functions_-_class_gen_print.md)
 - [Printing matrices](./class_and_standalone_functions_-_class_gen_print.md#printing-matrices)
 - [Generate matrices](./class_and_standalone_functions_-_class_gen_print.md#generate-matrices)
+- [Transpose](./class_and_standalone_functions_-_sq_tri_diag_sym.md#transpose-of-a-matrix)
 - [Size of a matrix](./class_and_standalone_functions_-_sq_tri_diag_sym.md#size-of-a-matrix)
 - [Is matrix square?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-square)
 - [Is matrix triangular?](./class_and_standalone_functions_-_sq_tri_diag_sym.md#is-matrix-lower-triangular)
@@ -40,7 +41,6 @@ will attempt to realise in my library.</p>
 - [Get the diagonal of a matrix](./class_and_standalone_functions_-_comb_diag.md#get-the-diagonal-of-a-matrix)
 
 ### Fundamental methods
-- [Transpose](./transpose.md)
 - [Element-wise functions of one or more matrices](./elwise_function.md)
 - [Addition and subtraction](./elwise_function.md#addition-and-subtraction)
 - [Element-wise multiplication/division and scalar multiplication](./elwise_function.md#elementwise-multiplicationdivision-and-scalar-multiplication)

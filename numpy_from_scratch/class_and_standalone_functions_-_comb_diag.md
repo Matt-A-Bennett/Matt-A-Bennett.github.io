@@ -15,7 +15,7 @@
 [< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_-_sq_tri_diag_sym.md)
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/numpy_from_scratch/transpose.html">Transpose ></a>
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/elwise_function.html">Element-wise functions of one or more matrices ></a>
 </div>
 
 [back to project main page](./numpy_from_scratch.md)\
