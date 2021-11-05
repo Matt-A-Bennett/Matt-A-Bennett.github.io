@@ -1,94 +1,16 @@
 # Class, standalone functions and miscellaneous methods (3/3)
 ## Standalone functions
 ### Combining matrices
-<div style="text-align: justify">
-<p>This method concatenates two matrices along a dimension.</p>
-</div>
-
-{% highlight python %}
-
-def cat(A, B, axis=0):
-    if axis == 0:
-        concatenated = Mat(A.data + B.data)
-    elif axis == 1:
-        concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
-    return concatenated
-
-{% endhighlight %}
+{% include_relative cat_code.md %}
 
 ### Tiling matrices
-<div style="text-align: justify">
-<p>We can easily make a large matrix by repeated 'tiling' a smaller matrix by a
-repeated series of concatenations. We make a copy of the original matrix, and
-in two loops concatenate it to the appropriate axis (starting by adding more
-columns, and then replicating this 'row of matrices' downwards. (The two loops
-are identical apart from the axis being specified, and so it's tempting to
-delete one of them and the loop over the remaining one two times. While this
-saves 2 lines of code and avoids replicating the loop, it's just a little
-harder to grasp what's going on. So we go for clarity/readability over
-brevity):</p>
-</div>
-
-{% highlight python %}
-
-def tile(A, axes=[1,1]):
-    B = dc(A)
-    for j in range(axes[1]-1):
-        A = cat(A, B, axis=1)
-    B = dc(A)
-    for i in range(axes[0]-1):
-        A = cat(A, B, axis=0)
-    return A
-
-{% endhighlight %}
-
+{% include_relative tile_code.md %}
 ### Demo
-<div style="text-align: justify">
-<p>We create a matrix and tile it:</p>
-</div>
-
-{% highlight python %}
-import linalg as la
-
-A = la.Mat([[1, 2],
-            [0, 5],
-            [0, 0]])
-
-la.print_mat(la.tile(A, [2, 5]))
-
-{% endhighlight %}
-
-Outputs:
-
-{% highlight console %}
-
->>> la.print_mat(la.tile(A, [3, 4]))
-[1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
-[0, 5, 0, 5, 0, 5, 0, 5, 0, 5]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-[1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
-[0, 5, 0, 5, 0, 5, 0, 5, 0, 5]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-{% endhighlight %}
+{% include_relative tile_demo.md %}
 
 ## Miscellaneous methods
 ### Get the diagonal of a matrix
-<div style="text-align: justify">
-<p>This function works along the diagonal of the matrix, starting in the top
-left and stopping after running out of rows or columns.</p>
-</div>
-
-{% highlight python %}
-
-def diag(self):
-    A = dc(self)
-    diag_vals = []
-    for i in range(min(size(A))):
-        diag_vals.append(A.data[i][i])
-    return diag_vals
-
-{% endhighlight %}
+{% include_relative diag_code.md %}
 
 [< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_-_sq_tri_diag_sym.md)
 
