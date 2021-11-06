@@ -8,6 +8,11 @@
 ### Demo
 {% include_relative snippets/tile_demo.md %}
 
+### The vandamonde matrix
+{% include_relative snippets/vandermonde_code.md %}
+### Demo
+{% include_relative snippets/vandermonde_demo.md %}
+
 ## Miscellaneous methods
 ### Get the diagonal of a matrix
 {% include_relative snippets/diag_code.md %}

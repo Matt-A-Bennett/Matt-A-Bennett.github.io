@@ -2,7 +2,7 @@
 
 def print_mat(A, round_dp=99):
     for row in A.data:
-        rounded = [round(i,round_dp) for i in row]
+        rounded = [round(j,round_dp) for j in row]
         print(rounded)
     print()
 

@@ -41,12 +41,12 @@ anti-diagonal identity matrix on the left and right sides:</p>
 {% highlight python %}
 
 # seperate augmented into U and ~inv
-tmp_fU = Mat([Urow[0:size[1]] for Urow in U.data])
-tmp_inv = Mat([Urow[size[1]:] for Urow in U.data])
+tmp_fU = Mat([Urow[0:mat_size[1]] for Urow in U.data])
+tmp_inv = Mat([Urow[mat_size[1]:] for Urow in U.data])
 
 # create anti-diag I
-antiI = gen_mat(size)
-for i, j in enumerate(reversed(range(size[1]))):
+antiI = gen_mat(mat_size)
+for i, j in enumerate(reversed(range(mat_size[1]))):
     antiI.data[i][j] = 1
 
 # multiply U and ~inv on both sides by anti-diag I
@@ -66,7 +66,7 @@ matrix on the left half and a full matrix on the right:</p>
 augmented = cat(fU, f_tmp_inv, axis=1)
 
 # perform elimination again to get to [cI cA^-1]
-_, _, U, _, _ = augmented.elimination()
+_, _, _, U, _, _ = augmented.elimination()
 
 {% endhighlight %}
 
@@ -79,15 +79,15 @@ rows of the right side and we have the inverse:</p>
 {% highlight python %}
 
 # divide each row by c to get [I A^-1]
-div = gen_mat(size)
-for i in range(size[0]):
-    div.data[i][i] = 1/U.data[i][i]
+div = gen_mat(mat_size)
+for idx in range(mat_size[0]):
+    div.data[idx][idx] = 1/U.ind(idx,idx)
 inv = div.multiply(U)
 
 # flip back
 inv = antiI.multiply(inv)
-for i in range(size[1]):
-    inv.data[i] = inv.data[i][size[1]:]
+for idx in range(mat_size[1]):
+    inv.data[idx] = inv.data[idx][mat_size[1]:]
 inv = inv.multiply(antiI)
 
 return inv

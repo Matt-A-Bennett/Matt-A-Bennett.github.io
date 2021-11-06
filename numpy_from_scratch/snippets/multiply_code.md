@@ -8,17 +8,15 @@ matrix we take the dot product with every 'row' of the transposed second matrix
 {% highlight python %}
 
 def multiply(self, new_mat):
-    A = dc(self)
-    B = dc(new_mat)
     # preallocate empty matrix
-    multiplied = gen_mat([size(A)[0], size(B)[1]])
+    multiplied = gen_mat([self.size(0), new_mat.size(1)])
     # transpose one matrix, take a bunch of dot products
-    B = B.transpose()
-    for row_idx, row in enumerate(A.data):
+    new_mat = new_mat.transpose()
+    for i, row in enumerate(self.data):
         tmp_row = Mat([row])
-        for col_idx, col in enumerate(B.data):
+        for j, col in enumerate(new_mat.data):
             # enter the dot product into our final matrix
-            multiplied.data[row_idx][col_idx] = tmp_row.dot(Mat([col]))
+            multiplied.data[i][j] = tmp_row.dot(Mat([col]))
     return multiplied
 
 {% endhighlight %}

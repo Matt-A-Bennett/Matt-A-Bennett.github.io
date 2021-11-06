@@ -14,8 +14,14 @@
 #### Demo
 {% include_relative snippets/gen_mat_demo.md %}
 
-
 ## Miscellaneous methods 
+### Indexing a matrix
+{% include_relative snippets/ind.md %}
+#### Code implementation
+{% include_relative snippets/ind_code.md %}
+#### Demo
+{% include_relative snippets/ind_demo.md %}
+
 ### Transpose of a matrix
 {% include_relative snippets/transpose.md %}
 #### Code implementation

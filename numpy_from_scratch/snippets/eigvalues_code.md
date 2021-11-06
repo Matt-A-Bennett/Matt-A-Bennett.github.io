@@ -1,13 +1,12 @@
 {% highlight python %}
 
 def eigvalues(self, epsilon = 0.0001, max_its=100):
-    A = dc(self)
-    if not (A.is_symmetric() or A.is_lower_tri() or A.is_upper_tri()):
+    if not (self.is_symmetric() or self.is_lower_tri() or self.is_upper_tri()):
         print('Matrix is not symmetric or triangular and may therefore have complex eigenvalues which this method cannot handle. Interpret results with care!')
 
-    if A.is_upper_tri() or A.is_lower_tri():
-        return Mat([A.diag()])
-    if A.is_singular():
+    if self.is_upper_tri() or self.is_lower_tri():
+        return Mat([self.diag()])
+    if self.is_singular():
         print('Matrix is singular!')
         return None
 
@@ -16,12 +15,12 @@ def eigvalues(self, epsilon = 0.0001, max_its=100):
     for its in range(max_its):
 
         # obtain off diagonal zeros
-        _, E, _, _, _, _ = A.elimination()
+        _, E, _, _, _, _ = self.elimination()
         Einv = E.inverse()
-        A = E.multiply(A).multiply(Einv)
+        A = E.multiply(self).multiply(Einv)
 
         # shift A by -cI, where c is last diag
-        shift = eye(size(A)).scale(old_eig)
+        shift = eye(A.size()).multiply_elwise(old_eig)
 
         # QR factorisation
         A = A.subtract(shift)
@@ -33,7 +32,7 @@ def eigvalues(self, epsilon = 0.0001, max_its=100):
         diff = old_eig - current_eig
         old_eig = current_eig
         if abs(diff) < epsilon:
-            if min(size(A)) == 2:
+            if min(A.size()) == 2:
                 final_eigs += A.diag()
                 return Mat([final_eigs])
             else:

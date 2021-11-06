@@ -12,13 +12,13 @@ brevity):</p>
 
 {% highlight python %}
 
-def tile(A, axes=[1,1]):
-    B = dc(A)
+def tile(self, axes=[1,1]):
+    B = dc(self)
     for j in range(axes[1]-1):
-        A = cat(A, B, axis=1)
-    B = dc(A)
+        self = cat(self, B, axis=1)
+    B = dc(self)
     for i in range(axes[0]-1):
-        A = cat(A, B, axis=0)
-    return A
+        self = cat(self, B, axis=0)
+    return self
 
 {% endhighlight %}

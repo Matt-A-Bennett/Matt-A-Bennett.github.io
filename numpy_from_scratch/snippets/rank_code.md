@@ -6,6 +6,6 @@ pivots:</p>
 {% highlight python %}
 
 def rank(self):
-    return len(A.pivots())
+    return len(self.pivots())
 
 {% endhighlight %}

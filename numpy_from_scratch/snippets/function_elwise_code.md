@@ -12,13 +12,13 @@ element:</p>
 {% highlight python %}
 
 def function_elwise(self, function, B=None):
-    C = gen_mat(size(self))
-    for i in range(size(self)[0]):
-        for j in range(size(self)[1]):
+    C = gen_mat(self.size())
+    for i in range(self.size(0)):
+        for j in range(self.size(1)):
             if B:
-                C.data[i][j] = function(self.data[i][j], B.data[i][j])
+                C.data[i][j] = function(self.ind(i,j), B.ind(i,j))
             else:
-                C.data[i][j] = function(self.data[i][j])
+                C.data[i][j] = function(self.ind(i,j))
     return C
 
 {% endhighlight %}

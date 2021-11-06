@@ -5,9 +5,7 @@
 {% highlight python %}
 
 def backsub(self, b):
-    A = dc(self)
-    b = dc(b)
-    augmented = cat(A, b, axis=1)
+    augmented = cat(self, b, axis=1)
     _, _, _, U, _, _ = augmented.elimination()
 
 {% endhighlight %}
@@ -24,10 +22,10 @@ manipulate the columns rather than the rows):</p>
 {% highlight python %}
 
 coeff = []
-for idx in range(-1, -(size(U)[0]+1), -1):
+for idx in range(-1, -(U.size(0)+1), -1):
     if idx < -1:
-        E = eye([size(U)[0]+1, size(U)[1]])
-        E.data[idx][size(U)[1]-1] = -1*(coeff[-1])
+        E = eye([U.size(0)+1, U.size(1)])
+        E.data[idx][U.size(1)-1] = -1*(coeff[-1])
         U = U.multiply(E)
 
 {% endhighlight %}

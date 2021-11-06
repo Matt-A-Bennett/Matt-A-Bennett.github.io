@@ -10,10 +10,9 @@ inverse from scratch.</p>
 {% highlight python %}
 
 def eigdiag(self):
-    A = dc(self)
-    evects, evals = A.eig()
-    eigval_mat = gen_mat(size(A), values=evals.data[0], type='diag')
-    if A.is_symmetric():
+    evects, evals = self.eig()
+    eigval_mat = gen_mat(self.size(), values=evals.data[0], type='diag')
+    if self.is_symmetric():
         evectsinv = evects.transpose()
     else:
         evectsinv = evects.inverse()

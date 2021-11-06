@@ -45,23 +45,20 @@ def cat(A, B, axis=0):
         concatenated = Mat([rows[0]+rows[1] for rows in zip(A.data, B.data)])
     return concatenated
 
-def tile(A, axes=[1,1]):
-    B = dc(A)
-    for j in range(axes[1]-1):
-        A = cat(A, B, axis=1)
-    B = dc(A)
-    for i in range(axes[0]-1):
-        A = cat(A, B, axis=0)
-    return A
-
 def print_mat(A, round_dp=99):
     for row in A.data:
-        rounded = [round(i,round_dp) for i in row]
+        rounded = [round(j,round_dp) for j in row]
         print(rounded)
     print()
 
-def size(A):
-    return [len(A.data), len(A.data[0])]
+def vandermonde(n_rows, order=1):
+    A = gen_mat([n_rows, 1])
+    for i in range(n_rows):
+        orders = []
+        for exponent in range(order+1):
+            orders.append(i**exponent)
+        A.data[i] = orders
+    return A
 
 class Mat:
     def __init__(self, data):
@@ -69,23 +66,48 @@ class Mat:
 
     def transpose(self):
         transposed = []
-        for row_idx, row in enumerate(self.data):
-            for col_idx, col in enumerate(row):
+        for i, row in enumerate(self.data):
+            for j, col in enumerate(row):
                 # first time through, make new row for each old column
-                if row_idx == 0:
+                if i == 0:
                     transposed.append([col])
                 else:
                     # append to newly created rows
-                    transposed[col_idx].append(col)
+                    transposed[j].append(col)
         return Mat(transposed)
 
+    def ind(self, i=None, j=None):
+        if isinstance(i, int) and not isinstance(j, int):
+            return Mat([self.data[i]])
+        elif isinstance(j, int) and not isinstance(i, int):
+            return Mat([self.transpose().data[j]]).transpose()
+        elif isinstance(i, int) and isinstance(j, int):
+            return self.data[i][j]
+
+    def size(self, axis=2):
+        if axis == 0:
+            return len(self.data)
+        elif axis == 1:
+            return len(self.data[0])
+        elif axis == 2:
+            return [len(self.data), len(self.data[0])]
+
+    def make_scalar(self):
+        if max(self.size()) == 1:
+            return self.ind(0,0)
+
     def is_square(self):
-        sizes = size(self)
-        return sizes[0] == sizes[1]
+        return self.size(0) == self.size(1)
+
+    def is_wide(self):
+        return self.size(0) < self.size(1)
+
+    def is_tall(self):
+        return self.size(0) > self.size(1)
 
     def is_lower_tri(self):
-        for idx, row in enumerate(self.data):
-            for col in range(idx+1,len(row)):
+        for i, row in enumerate(self.data):
+            for col in range(i+1,len(row)):
                 if row[col] != 0:
                     return False
         else:
@@ -101,21 +123,30 @@ class Mat:
             return False
 
     def is_symmetric(self):
-        for i in range(size(self)[0]):
-            for j in range(i+1, size(self)[0]):
-                if self.data[i][j] != self.data[j][i]:
+        for i in range(self.size(0)):
+            for j in range(i+1, self.size(0)):
+                if self.ind(i,j) != self.ind(i,j):
                     return False
         else:
             return True
 
+    def tile(self, axes=[1,1]):
+        B = dc(self)
+        for j in range(axes[1]-1):
+            self = cat(self, B, axis=1)
+        B = dc(self)
+        for i in range(axes[0]-1):
+            self = cat(self, B, axis=0)
+        return self
+
     def function_elwise(self, function, B=None):
-        C = gen_mat(size(self))
-        for i in range(size(self)[0]):
-            for j in range(size(self)[1]):
+        C = gen_mat(self.size())
+        for i in range(self.size(0)):
+            for j in range(self.size(1)):
                 if B:
-                    C.data[i][j] = function(self.data[i][j], B.data[i][j])
+                    C.data[i][j] = function(self.ind(i,j), B.ind(i,j))
                 else:
-                    C.data[i][j] = function(self.data[i][j])
+                    C.data[i][j] = function(self.ind(i,j))
         return C
 
     def function_choice(self, B, functions):
@@ -137,11 +168,10 @@ class Mat:
 
     def dot(self, new_mat):
         # make both vectors rows with transpose
-        if size(self)[0] != 1:
+        if self.size(0) != 1:
             self = self.transpose()
-        if size(new_mat)[0] != 1:
-            self = new_mat.transpose()
-        # compute dot product
+        if new_mat.size(0) != 1:
+            new_mat = new_mat.transpose()
         dot_prod = []
         for cols in zip(self.data[0], new_mat.data[0]):
             dot_prod.append(cols[0]*cols[1])
@@ -158,20 +188,20 @@ class Mat:
 
     def multiply(self, new_mat):
         # preallocate empty matrix
-        multiplied = gen_mat([size(self)[0], size(new_mat)[1]])
+        multiplied = gen_mat([self.size(0), new_mat.size(1)])
         # transpose one matrix, take a bunch of dot products
         new_mat = new_mat.transpose()
-        for row_idx, row in enumerate(self.data):
+        for i, row in enumerate(self.data):
             tmp_row = Mat([row])
-            for col_idx, col in enumerate(new_mat.data):
+            for j, col in enumerate(new_mat.data):
                 # enter the dot product into our final matrix
-                multiplied.data[row_idx][col_idx] = tmp_row.dot(Mat([col]))
+                multiplied.data[i][j] = tmp_row.dot(Mat([col]))
         return multiplied
 
     def diag(self):
         diag_vals = []
-        for i in range(min(size(self))):
-            diag_vals.append(self.data[i][i])
+        for idx in range(min(self.size())):
+            diag_vals.append(self.ind(idx,idx))
         return diag_vals
 
     def elimination(self):
@@ -180,38 +210,41 @@ class Mat:
         # we assume the matrix is invertible
         singular = False
 
+        # size of elimination and perumtation matrices
+        mat_size = [self.size(0)]*2
+
         # create identity matrix which we'll turn into an E matrix
-        E = eye(size(self))
+        E = eye(mat_size)
 
         # create a permutation matrix for row exchanges
-        P = eye([size(self)[0], size(self)[0]])
+        P = eye(mat_size)
 
         U = dc(self)
         pivot_count = 0
         row_exchange_count = 0
-        for row_idx in range(size(U)[0]-1):
-            for sub_row in range(row_idx+1, size(U)[0]):
+        for idx in range(U.size(0)-1):
+            for sub_row in range(idx+1, U.size(0)):
                 # create elimination mat
-                nextE = eye(size(self))
-                nextP = eye([size(self)[0], size(self)[0]])
+                nextE = eye(mat_size)
+                nextP = eye(mat_size)
 
                 # handle a zero in the pivot position
-                if U.data[row_idx][pivot_count] == 0:
+                if U.data[idx][pivot_count] == 0:
                     row_exchange_count += 1
                     # look for a non-zero value to use as the pivot
                     options = [row[pivot_count] for row in U.data[sub_row:]]
                     exchange = sub_row + options.index(max(options, key=abs))
 
                     # build and apply a purmutation matrix
-                    nextP.data[row_idx][pivot_count] = 0
-                    nextP.data[row_idx][exchange] = 1
+                    nextP.data[idx][pivot_count] = 0
+                    nextP.data[idx][exchange] = 1
                     nextP.data[exchange][exchange] = 0
                     nextP.data[exchange][pivot_count] = 1
                     U = nextP.multiply(U)
                     P = nextP.multiply(P)
 
                 # check if the permutation avoided a zero in the pivot position
-                if U.data[row_idx][row_idx] == 0:
+                if U.data[idx][idx] == 0:
                     singular = True
                     # undo the row exchanges that failed
                     row_exchange_count -= 1
@@ -221,9 +254,9 @@ class Mat:
                     break
 
                 # determine how much to subtract to create a zero
-                ratio = U.data[sub_row][pivot_count]/U.data[row_idx][pivot_count]
+                ratio = U.data[sub_row][pivot_count]/U.data[idx][pivot_count]
                 # create the elimination matrix for this step
-                nextE.data[sub_row][row_idx] = -ratio
+                nextE.data[sub_row][idx] = -ratio
                 # apply the elimination step to U
                 U = nextE.multiply(U)
                 # update the overall E
@@ -232,15 +265,15 @@ class Mat:
 
         # If self was a 1x1 matrix, the above loops didn't happen. Take the
         # reciprocal of the number:
-        if size(U)[0] == 1 and size(U)[1] == 2:
-            if U.data[0][0] != 0:
-                U.data[0] = [1/U.data[0][0], 1]
-            row_idx = -1
+        if U.size(0) == 1 and U.size(1) == 2:
+            if U.ind(0,0) != 0:
+                U.data[0] = [1/U.ind(0,0), 1]
+            i = -1
 
         # check if the matrix is square
-        if size(U)[1] == size(U)[0]:
+        if U.size(1) == U.size(0):
             # check if the permutation avoided a zero in the pivot position
-            if U.data[row_idx+1][row_idx+1] == 0:
+            if U.data[idx+1][idx+1] == 0:
                 singular = True
 
         return P, E, self, U, singular, row_exchange_count
@@ -249,10 +282,10 @@ class Mat:
         augmented = cat(self, b, axis=1)
         _, _, _, U, _, _ = augmented.elimination()
         coeff = []
-        for idx in range(-1, -(size(U)[0]+1), -1):
+        for idx in range(-1, -(U.size(0)+1), -1):
             if idx < -1:
-                E = eye([size(U)[0]+1, size(U)[1]])
-                E.data[idx][size(U)[1]-1] = -1*(coeff[-1])
+                E = eye([U.size(0)+1, U.size(1)])
+                E.data[idx][U.size(1)-1] = -1*(coeff[-1])
                 U = U.multiply(E)
             row = U.data[idx]
             # check solution possibilities
@@ -281,7 +314,7 @@ class Mat:
         return pivots
 
     def rank(self):
-        return len(A.pivots())
+        return len(self.pivots())
 
     def is_singular(self):
         _, _, _, _, singular, _ = self.elimination()
@@ -326,7 +359,7 @@ class Mat:
         return self.pivot_sign_code() == 1
 
     def inverse(self):
-        mat_size = size(self)
+        mat_size = self.size()
 
         # create [A I]
         I = eye(mat_size)
@@ -360,14 +393,14 @@ class Mat:
 
         # divide each row by c to get [I A^-1]
         div = gen_mat(mat_size)
-        for i in range(mat_size[0]):
-            div.data[i][i] = 1/U.data[i][i]
+        for idx in range(mat_size[0]):
+            div.data[idx][idx] = 1/U.ind(idx,idx)
         inv = div.multiply(U)
 
         # flip back
         inv = antiI.multiply(inv)
-        for i in range(mat_size[1]):
-            inv.data[i] = inv.data[i][mat_size[1]:]
+        for idx in range(mat_size[1]):
+            inv.data[idx] = inv.data[idx][mat_size[1]:]
         inv = inv.multiply(antiI)
 
         return inv
@@ -385,18 +418,15 @@ class Mat:
         Projection = self.multiply(for_x)
         return Projection, for_x
 
-    def polyfit(self, order=1):
-        # create a model
-        A = gen_mat([size(b)[0], 1])
-        for i in range(size(b)[0]):
-            orders = []
-            for exponent in range(order+1):
-                orders.append(i**exponent)
-            A.data[i] = orders
-        # fit model to b
+    def project_onto_A(self, A):
         _, for_x = A.projection()
-        fit = for_x.multiply(b)
-        return fit
+        projected = for_x.multiply(self)
+        return projected
+
+    def polyfit(self, order=1):
+        V = vandermonde(self.size(0), order=order)
+        # fit model to b
+        return self.project_onto_V(V)
 
     def linfit(self):
         return self.polyfit()
@@ -408,14 +438,14 @@ class Mat:
 
         A = self.transpose()
         Q = dc(A)
-        I = eye(size(A))
+        I = eye(A.size())
         # projection orthogonal to column
-        for col in range(size(Q)[0]-1):
+        for col in range(Q.size(0)-1):
             Col = dc(Mat([Q.data[col]]))
             P, _ = Col.transpose().projection()
             P = I.subtract(P)
             # project and put into matrix Q
-            for col2 in range(col+1, size(Q)[0]):
+            for col2 in range(col+1, Q.size(0)):
                 Col = dc(Mat([Q.data[col2]]))
                 q = P.multiply(Col.transpose()).transpose()
                 Q.data[col2] = q.data[0]
@@ -453,7 +483,7 @@ class Mat:
             A = E.multiply(self).multiply(Einv)
 
             # shift A by -cI, where c is last diag
-            shift = eye(size(A)).multiply_elwise(old_eig)
+            shift = eye(A.size()).multiply_elwise(old_eig)
 
             # QR factorisation
             A = A.subtract(shift)
@@ -465,7 +495,7 @@ class Mat:
             diff = old_eig - current_eig
             old_eig = current_eig
             if abs(diff) < epsilon:
-                if min(size(A)) == 2:
+                if min(A.size()) == 2:
                     final_eigs += A.diag()
                     return Mat([final_eigs])
                 else:
@@ -488,9 +518,9 @@ class Mat:
             # ensure we don't destroy the diagonal completely
             if evalue in self.diag():
                 evalue -= 1e-12
-            A_shifted = self.subtract(eye(size(self)).multiply_elwise(evalue))
+            A_shifted = self.subtract(eye(self.size()).multiply_elwise(evalue))
             # A_shifted_inv = A_shifted.inverse()
-            b = gen_mat([size(self)[0],1], values=[1])
+            b = gen_mat([self.size(0),1], values=[1])
             b = b.norm()
             for its in range(max_its):
                 old_b = dc(b)
@@ -507,14 +537,12 @@ class Mat:
 
     def eigdiag(self):
         evects, evals = self.eig()
-        eigval_mat = gen_mat(size(self), values=evals.data[0], type='diag')
+        eigval_mat = gen_mat(self.size(), values=evals.data[0], type='diag')
         if self.is_symmetric():
             evectsinv = evects.transpose()
         else:
             evectsinv = evects.inverse()
         return evects, eigval_mat, evectsinv
-
-{% endhighlight %}
 
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)

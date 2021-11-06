@@ -6,10 +6,9 @@ left and stopping after running out of rows or columns.</p>
 {% highlight python %}
 
 def diag(self):
-    A = dc(self)
     diag_vals = []
-    for i in range(min(size(A))):
-        diag_vals.append(A.data[i][i])
+    for idx in range(min(self.size())):
+        diag_vals.append(self.ind(idx,idx))
     return diag_vals
 
 {% endhighlight %}

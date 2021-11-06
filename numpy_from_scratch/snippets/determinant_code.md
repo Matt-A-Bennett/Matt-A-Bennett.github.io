@@ -8,7 +8,7 @@ the pivot method we wrote, as we also need the number of row exchanges:</p>
 
 def determinant(self):
     # find U
-    _, _, _, U, _, row_exchange_count = A.elimination()
+    _, _, _, U, _, row_exchange_count = self.elimination()
     # muliply the pivots
     det = 1
     diag_vals = U.diag()

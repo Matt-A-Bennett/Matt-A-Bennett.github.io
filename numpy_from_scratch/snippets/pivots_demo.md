@@ -28,9 +28,9 @@ Outputs:
 {% highlight console %}
 
 >>> print(A_pivots)
-[(0, 1), (1, -3.0), (2, -2.0)]
+{0: 1.0, 1: -3.0, 2: -2.0}
 
 >>> print(B_pivots)
-[(0, 1), (1, -3.0)]
+{0: 1.0, 1: -3.0}
 
 {% endhighlight %}

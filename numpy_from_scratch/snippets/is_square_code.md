@@ -5,8 +5,6 @@
 {% highlight python %}
 
 def is_square(self):
-    sizes = size(self)
-    return sizes[0] == sizes[1]
-
+    return self.size(0) == self.size(1)
 
 {% endhighlight %}

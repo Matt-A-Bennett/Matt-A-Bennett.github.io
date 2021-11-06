@@ -5,6 +5,8 @@
 #### Code implementation
 {% include_relative snippets/is_square_code.md %}
 
+### Is matrix lower wide or tall?
+{% include_relative snippets/is_wide_tall_code.md %}
 ### Is matrix lower triangular?
 {% include_relative snippets/is_lower_tri.md %}
 #### Code implementation

@@ -9,17 +9,17 @@ exchange the rows of a matrix through multiplication:</p>
 {% highlight python %}
 
 def elimination(self):
-    A = dc(self)
-    # should do some row exchanges for numerical stability...
-
     # we assume the matrix is invertible
-    singular = 0
+    singular = False
+
+    # size of elimination and perumtation matrices
+    mat_size = [self.size(0)]*2
 
     # create identity matrix which we'll turn into an E matrix
-    tmpE = eye(size(A))
+    E = eye(mat_size)
 
     # create a permutation matrix for row exchanges
-    tmpP = eye([size(A)[0], size(A)[0]])
+    P = eye(mat_size)
 
 {% endhighlight %}
 
@@ -35,27 +35,25 @@ carry out a row exchange if we find a zero:</p>
 
 {% highlight python %}
 
-E = dc(tmpE)
-P = dc(tmpP)
-U = dc(A)
+U = dc(self)
 pivot_count = 0
 row_exchange_count = 0
-for row_idx in range(size(U)[0]-1):
-    for sub_row in range(row_idx+1, size(U)[0]):
+for idx in range(U.size(0)-1):
+    for sub_row in range(idx+1, U.size(0)):
         # create elimination mat
-        nextE = dc(tmpE)
-        nextP = dc(tmpP)
+        nextE = eye(mat_size)
+        nextP = eye(mat_size)
 
         # handle a zero in the pivot position
-        if U.data[row_idx][pivot_count] == 0:
+        if U.data[idx][pivot_count] == 0:
             row_exchange_count += 1
             # look for a non-zero value to use as the pivot
             options = [row[pivot_count] for row in U.data[sub_row:]]
             exchange = sub_row + options.index(max(options, key=abs))
 
             # build and apply a purmutation matrix
-            nextP.data[row_idx][pivot_count] = 0
-            nextP.data[row_idx][exchange] = 1
+            nextP.data[idx][pivot_count] = 0
+            nextP.data[idx][exchange] = 1
             nextP.data[exchange][exchange] = 0
             nextP.data[exchange][pivot_count] = 1
             U = nextP.multiply(U)
@@ -72,8 +70,8 @@ permutation and carry on with elimination in the next column.</p>
 {% highlight python %}
 
 # check if the permutation avoided a zero in the pivot position
-if U.data[row_idx][row_idx] == 0:
-    singular = 1
+if U.data[idx][idx] == 0:
+    singular = True
     # undo the row exchanges that failed
     row_exchange_count -= 1
     U = nextP.transpose().multiply(U)
@@ -91,12 +89,12 @@ multiple goes into our nextE matrix and is applied to $U$:</p>
 
 {% highlight python %}
 
-# determine how much to subtract to create a zero
-ratio = U.data[sub_row][pivot_count]/U.data[row_idx][pivot_count]
-# create the elimination matrix for this step
-nextE.data[sub_row][row_idx] = -ratio
-# apply the elimination step to U
-U = nextE.multiply(U)
+    # determine how much to subtract to create a zero
+    ratio = U.data[sub_row][pivot_count]/U.data[idx][pivot_count]
+    # create the elimination matrix for this step
+    nextE.data[sub_row][idx] = -ratio
+    # apply the elimination step to U
+    U = nextE.multiply(U)
 
 {% endhighlight %}
 
@@ -120,17 +118,17 @@ and if so indicate that with a flag on returning the results:</p>
 
 {% highlight python %}
 
-# If A was a 1x1 matrix, the above loops didn't happen. Take the
+# If self was a 1x1 matrix, the above loops didn't happen. Take the
 # reciprocal of the number:
-if size(U)[0] == 1 and size(U)[1] == 2:
-    if U.data[0][0] != 0:
-        U.data[0] = [1/U.data[0][0], 1]
-    row_idx = -1
+if U.size(0) == 1 and U.size(1) == 2:
+    if U.ind(0,0) != 0:
+        U.data[0] = [1/U.ind(0,0), 1]
+    i = -1
 
 # check if the matrix is square
-if size(U)[1] == size(U)[0]:
+if U.size(1) == U.size(0):
     # check if the permutation avoided a zero in the pivot position
-    if U.data[row_idx+1][row_idx+1] == 0:
+    if U.data[idx+1][idx+1] == 0:
         singular = True
 
 return P, E, self, U, singular, row_exchange_count

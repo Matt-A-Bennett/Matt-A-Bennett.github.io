@@ -7,8 +7,8 @@ non-zero we return False, otherwise we return True:</p>
 {% highlight python %}
 
 def is_lower_tri(self):
-    for idx, row in enumerate(self.data):
-        for col in range(idx+1,len(row)):
+    for i, row in enumerate(self.data):
+        for col in range(i+1,len(row)):
             if row[col] != 0:
                 return False
     else:

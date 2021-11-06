@@ -6,6 +6,7 @@ argument and print the results:</p>
 {% highlight python %}
 
 import linalg as la
+
 A = la.Mat([[1, 2, 3],
             [-2, 1, 4],
             [0, 1, 2],

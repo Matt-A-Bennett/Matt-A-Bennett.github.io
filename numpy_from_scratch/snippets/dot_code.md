@@ -6,16 +6,13 @@ sum operations.</p>
 {% highlight python %}
 
 def dot(self, new_mat):
-    A = dc(self)
-    B = dc(new_mat)
     # make both vectors rows with transpose
-    if size(A)[0] != 1:
-        A = A.transpose()
-    if size(B)[0] != 1:
-        B = B.transpose()
-    # compute dot product
+    if self.size(0) != 1:
+        self = self.transpose()
+    if new_mat.size(0) != 1:
+        new_mat = new_mat.transpose()
     dot_prod = []
-    for cols in zip(A.data[0], B.data[0]):
+    for cols in zip(self.data[0], new_mat.data[0]):
         dot_prod.append(cols[0]*cols[1])
     dot_prod = sum(dot_prod)
     return dot_prod

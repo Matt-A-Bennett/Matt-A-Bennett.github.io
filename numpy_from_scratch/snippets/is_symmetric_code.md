@@ -8,9 +8,9 @@ True:</p>
 {% highlight python %}
 
 def is_symmetric(self):
-    for i in range(size(self)[0]):
-        for j in range(i+1, size(self)[0]):
-            if self.data[i][j] != self.data[j][i]:
+    for i in range(self.size(0)):
+        for j in range(i+1, self.size(0)):
+            if self.ind(i,j) != self.ind(i,j):
                 return False
     else:
         return True
