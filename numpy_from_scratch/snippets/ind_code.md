@@ -1,9 +1,9 @@
 <div style="text-align: justify">
 <p>We check to see if a row index 'i' and if a column index 'j' were passed. If
-If only a row index was passed, we return that entire row. If only a column
-index was passed, we return the entire column (by transposing the matrix to
-make indexing a column easy) and if both were passed we return the value (as an
-integer) in the 'ith' and 'jth' column:</p>
+only a row index was passed, we return that entire row. If only a column index
+was passed, we return the entire column (by transposing the matrix to make
+indexing a column easy) and if both were passed we return the value in the
+'ith' and 'jth' column (as an integer):</p>
 </div>
 
 {% highlight python %}
