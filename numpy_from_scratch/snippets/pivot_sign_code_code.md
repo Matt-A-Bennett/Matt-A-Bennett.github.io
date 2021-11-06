@@ -1,5 +1,5 @@
 <div style="text-align: justify">
-<p>We create a method that returns the base-10 integer representation of a
+<p>We also create a method that returns the base-10 integer representation of a
 base-2 (i.e. binary) number. The binary number is constructed from the
 TRUE/FALSE answers to 3 queries: whether the matrix contains any negative,
 zero, or positive pivots. The answers to these 3 queries uniquely determine

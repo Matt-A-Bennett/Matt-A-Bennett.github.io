@@ -1,7 +1,7 @@
 # Pivots, rank, singularity, determinant
 ## Pivots
 {% include_relative snippets/pivots_code.md %}
-
+{% include_relative snippets/pivot_sign_code_code.md %}
 ### Demo
 {% include_relative snippets/pivots_demo.md %}
 
