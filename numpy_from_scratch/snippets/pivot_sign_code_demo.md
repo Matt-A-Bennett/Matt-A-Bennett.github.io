@@ -1,6 +1,6 @@
 We use the same matrices as in the [Pivots
 section](../class_and_standalone_functions_2.md#pivots), and call the pivots
-method and check if they positive definite:
+method and check if they're positive definite:
 
 {% highlight python %}
 import linalg as la
