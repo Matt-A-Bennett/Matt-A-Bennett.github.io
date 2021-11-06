@@ -33,3 +33,6 @@ fig = quick_plot(b, orders=[1, 2, 7])
 plt.show()
 
 {% endhighlight %}
+
+![regression plot](./images/regression.png)
+

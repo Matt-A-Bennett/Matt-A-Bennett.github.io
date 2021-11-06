@@ -8,9 +8,6 @@
 ## Demo
 {% include_relative snippets/regression_demo.md %}
 
-
-![regression plot](./images/regression.png)
-
 [< $A = LU$](./lu_factorisation.md)
 
 <div style="text-align: right">
