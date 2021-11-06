@@ -1,6 +1,8 @@
-We use the same matrices as in the [Pivots
-section](./class_and_standalone_functions_2.md#pivots), and call the pivots
-method and check if they're positive definite:
+<div style="text-align: justify">
+<p>We use the same matrices as in the 
+<a href="https://matt-a-bennett.github.io/numpy_from_scratch/rank_piv_sing_det.html">Pivots section above</a>
+, and call the pivots method and check if they positive definite:</p>
+</div>
 
 {% highlight python %}
 import linalg as la
