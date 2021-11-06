@@ -31,7 +31,7 @@ will attempt to realise in my library.</p>
 - [Generate matrices](./class_and_standalone_functions_1.md#generate-matrices)
 - [Indexing a matrix](./class_and_standalone_functions_1.md#indexing-a-matrix)
 - [Transpose](./class_and_standalone_functions_1.md#transpose-of-a-matrix)
-- [Size of a matrix](./class_and_standalone_functions_2.md#size-of-a-matrix)
+- [Size of a matrix](./class_and_standalone_functions_1.md#size-of-a-matrix)
 - [Is matrix wide?](./class_and_standalone_functions_2.md#is-matrix-wide-or-tall)
 - [Is matrix tall?](./class_and_standalone_functions_2.md#is-matrix-wide-or-tall)
 - [Is matrix square?](./class_and_standalone_functions_2.md#is-matrix-square)
