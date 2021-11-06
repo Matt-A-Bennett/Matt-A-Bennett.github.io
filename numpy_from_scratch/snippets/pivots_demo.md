@@ -15,10 +15,8 @@ B = la.Mat([[1, 2, 3],
             [5, 7, 9]])
 
 print(A.pivots())
-A.is_posdef()
 
 print(B.pivots())
-B.is_posdef()
 
 {% endhighlight %}
 
@@ -29,13 +27,7 @@ Outputs:
 >>> print(A_pivots)
 {0: 4.0, 1: 3.0, 2: 1.0}
 
->>> A.is_posdef()
-True
-
 >>> print(B_pivots)
 {0: 1.0, 1: -3.0}
-
->>> B.is_posdef()
-False
 
 {% endhighlight %}

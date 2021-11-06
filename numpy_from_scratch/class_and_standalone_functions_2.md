@@ -27,10 +27,6 @@
 #### Code implementation
 {% include_relative snippets/is_symmetric_code.md %}
 
-### Is matrix positive definite?
-{% include_relative snippets/posdef_para.md %}
-#### Code implementation
-{% include_relative snippets/pivot_sign_code_code.md %}
 
 [< The Mat(rix) Class, generation, and printing](./class_and_standalone_functions_1.md)
 

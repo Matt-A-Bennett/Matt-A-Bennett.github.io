@@ -38,7 +38,6 @@ will attempt to realise in my library.</p>
 - [Is matrix triangular?](./class_and_standalone_functions_2.md#is-matrix-lower-triangular)
 - [Is matrix diagonal?](./class_and_standalone_functions_2.md#is-matrix-diagonal)
 - [Is matrix symmetric?](./class_and_standalone_functions_2.md#is-matrix-symmetric)
-- [Is matrix positive definite?](./class_and_standalone_functions_2.md#is-matrix-positive-definite)
 - [Combining matrices](./class_and_standalone_functions_3.md#combining-matrices)
 - [Tiling matrices](./class_and_standalone_functions_3.md#tiling-matrices)
 - [Get the diagonal of a matrix](./class_and_standalone_functions_3.md#get-the-diagonal-of-a-matrix)
@@ -55,7 +54,7 @@ will attempt to realise in my library.</p>
 ### Secondary methods 
 - [$EA = U$](./elimination.md)
 - [Back substitution](./backsub.md)
-- [Pivots, rank, singularity, determinant](./rank_piv_sing_det.md)
+- [Pivots, rank, singularity, determinant, positive definiteness](./rank_piv_sing_det.md)
 - [Inverse](./inverse.md)
 - [$A = LU$](./lu_factorisation.md)
 - [Projection and regression](./projection_and_regression.md)

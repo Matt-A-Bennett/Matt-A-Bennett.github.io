@@ -1,23 +1,21 @@
-# Pivots, rank, singularity, determinant
+# Pivots, rank, singularity, determinant, positive definiteness
 ## Pivots
 {% include_relative snippets/pivots_code.md %}
-{% include_relative snippets/pivot_sign_code_code.md %}
 ### Demo
 {% include_relative snippets/pivots_demo.md %}
-
 ## Rank
 {% include_relative snippets/rank_code.md %}
 
 ### Demo
 {% include_relative snippets/rank_demo.md %}
 
-### Singularity
+## Singularity
 {% include_relative snippets/is_singular_code.md %}
 
 ### Demo
 {% include_relative snippets/is_singular_demo.md %}
 
-### Determinant
+## Determinant
 {% include_relative snippets/determinant_code.md %}
 
 ### Demo
@@ -42,3 +40,9 @@
         async>
 </script>
 
+## Is matrix positive definite?
+{% include_relative snippets/posdef_para.md %}
+### Code implementation
+{% include_relative snippets/pivot_sign_code_code.md %}
+### Demo
+{% include_relative snippets/pivot_sign_code_demo.md %}
