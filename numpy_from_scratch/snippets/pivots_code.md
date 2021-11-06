@@ -1,4 +1,4 @@
-<div style="text-align: justify">k
+<div style="text-align: justify">
 <p>Now that we have the method of elimination, we can get a lot of information
 about a matrix easily. The pivots of a matrix are the first non-zero numbers
 sitting in each row of U after elimination. Here we return those pivots along
