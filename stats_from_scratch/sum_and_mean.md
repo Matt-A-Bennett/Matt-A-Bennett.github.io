@@ -1,123 +1,15 @@
 # Sum and mean
 ## Sum
-<div style="text-align: justify">
-<p>Summing all the values in each column, or in each row, of a matrix is a
-common operation. We can achieve it my multiplying the matrix with a vector of
-ones: multiplying on the left side will sum the columns, multiplying on the
-right will sum the rows.</p>
-
-<p>In our function, we will always multiply on the left, and therefore
-transpose the matrix in the case that we want the sum the rows. If a vector is
-passed, we always sum the elements:</p>
-</div>
-
-{% highlight python %}
-
-def sum(A, axis=0):
-    # if we have a vector, we sum along it's length
-    if min(la.size(A)) == 1:
-        axis = la.size(A).index(max(la.size(A)))
-    if axis == 1:
-        A = A.transpose()
-    ones = la.gen_mat([1,la.size(A)[0]],1)
-    A_sum = ones.multiply(A)
-    return A_sum
-
-{% endhighlight %}
-
+{% include_relative snippets/sum.md %}
+### Code implementation
+{% include_relative snippets/sum_code.md %}
 ### Demo
-
-<div style="text-align: justify">
-<p>We create a matrix, call the sum method twice with a different axis as an
-argument and print the results:</p>
-</div>
-
-{% highlight python %}
-
-import linalg as la
-A = la.Mat([[1, 2, 3],
-            [-2, 1, 4],
-            [0, 1, 2],
-            [3, 6, 1]])
-
-result = la.stats.sum(A)
-la.print_mat(result)
-
-result = la.stats.sum(A, axis=1)
-la.print_mat(result)
-
-Outputs:
-
-{% endhighlight %}
-
-{% highlight console %}
->>> la.print_mat(result)
-[2, 10, 10]
-
->>> la.print_mat(result)
-[6, 3, 3, 10]
-
-{% endhighlight %}
+{% include_relative snippets/sum_demo.md %}
 
 ## Mean
-<div style="text-align: justify">
-<p>Now that we have a function to sum, we can divide the result by the number
-of elements that went into the sum to obtain the mean. We transpose the vector
-from a row to a column in the case that we computed the mean across the rows of
-the matrix:</p>
-</div>
-
-{% highlight python %}
-
-def mean(A, axis=0):
-    # if we have a vector, we take the mean along it's length
-    if min(la.size(A)) == 1:
-        axis = la.size(A).index(max(la.size(A)))
-    A_sum = sum(A, axis)
-    A_mean = A_sum.div_elwise(la.size(A)[axis])
-    if axis == 1:
-        A_mean = A_mean.transpose()
-    return A_mean
-
-{% endhighlight %}
-
+{% include_relative snippets/mean_code.md %}
 ### Demo
-
-<div style="text-align: justify">
-<p>We create a matrix, call the mean method twice with a different axis as an
-argument and print the results (we only print 2 decimal places in one case to
-make it look pretty):</p>
-</div>
-
-{% highlight python %}
-
-import linalg as la
-
-A = la.Mat([[1, 2, 3],
-            [-2, 1, 4],
-            [0, 1, 2],
-            [3, 6, 1]])
-
-la.print_mat(la.stats.mean(A))
-
-la.print_mat(la.stats.mean(A, axis=1), 2)
-
-{% endhighlight %}
-
-Outputs:
-
-{% highlight console %}
-
->>> la.print_mat(la.stats.mean(A))
-[0.5, 2.5, 2.5]
-
->>> la.print_mat(la.stats.mean(A, axis=1), 2)
-[2.0]
-[1.0]
-[1.0]
-[3.33]
-
-{% endhighlight %}
+{% include_relative snippets/mean_demo.md %}
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/stats_from_scratch/zero_center.html">Zero-center ></a>
