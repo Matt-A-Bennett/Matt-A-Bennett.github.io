@@ -6,8 +6,8 @@
 import linalg as la
 
 A = la.Mat([[1, 2, 3],
-         [4, 8, 6],
-         [7, 8, 9]])
+            [4, 8, 6],
+            [7, 8, 9]])
 
 P, E, A, U, singular, row_exchange_count = A.elimination()
 
