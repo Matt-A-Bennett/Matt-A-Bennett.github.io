@@ -341,7 +341,7 @@ class Mat:
         pivot_info = self.pivots().items()
 
         neg = int(any(piv[1] < 0 for piv in pivot_info))
-        semi = int(any(piv[1] == 0 for piv in pivot_info))
+        semi = int(len(pivot_info) < self.size(1))
         pos = int(any(piv[1] > 0 for piv in pivot_info))
 
         return int(str(neg) + str(semi) + str(pos), 2)

@@ -3,23 +3,22 @@
 </div>
 
 {% highlight python %}
+
 import linalg as la
 
-A = la.Mat([[1, 2, 3],
-            [4, 5, 6],
-            [5, 8, 9]])
+A = la.Mat([[4, 2, 4],
+            [0, 3, 3],
+            [0, 1, 2]])
 
 B = la.Mat([[1, 2, 3],
             [4, 5, 6],
             [5, 7, 9]])
 
-A_pivots = A.pivots()
+print(A.pivots())
+A.is_posdef()
 
-B_pivots = B.pivots()
-
-print(A_pivots)
-print()
-print(B_pivots)
+print(B.pivots())
+B.is_posdef()
 
 {% endhighlight %}
 
@@ -28,9 +27,15 @@ Outputs:
 {% highlight console %}
 
 >>> print(A_pivots)
-{0: 1.0, 1: -3.0, 2: -2.0}
+{0: 4.0, 1: 3.0, 2: 1.0}
+
+>>> A.is_posdef()
+True
 
 >>> print(B_pivots)
 {0: 1.0, 1: -3.0}
+
+>>> B.is_posdef()
+False
 
 {% endhighlight %}
