@@ -13,6 +13,10 @@
 {% include_relative snippets/eye.md %}
 #### Demo
 {% include_relative snippets/gen_mat_demo.md %}
+#### The vandamonde matrix
+{% include_relative snippets/vandermonde_code.md %}
+#### Demo
+{% include_relative snippets/vandermonde_demo.md %}
 
 ## Miscellaneous methods 
 ### Indexing a matrix
