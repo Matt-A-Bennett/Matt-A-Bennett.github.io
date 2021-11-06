@@ -544,6 +544,8 @@ class Mat:
             evectsinv = evects.inverse()
         return evects, eigval_mat, evectsinv
 
+{% endhighlight %}
+
 [back to project main page](./numpy_from_scratch.md)\
 [back to home](../index.md)
 
