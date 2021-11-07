@@ -12,6 +12,9 @@
 ### Get the diagonal of a matrix
 {% include_relative snippets/diag_code.md %}
 
+### Make 1x1 matrix a scalar
+{% include_relative snippets/make_scalar_code.md %}
+
 [< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_2.md)
 
 <div style="text-align: right">

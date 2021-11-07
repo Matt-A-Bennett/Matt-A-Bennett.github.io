@@ -1,0 +1,13 @@
+<div style="text-align: right">
+<p>In case we end up with a 1x1 matrix, we probably want to use it as a scalar
+(that's all a 1x1 matrix is...) and so we make a method that indexes the
+element for us (since the intent is understandable than `A.ind(0,0)`):</p>
+</div>
+
+{% highlight python %}
+
+def make_scalar(self):
+    if max(self.size()) == 1:
+        return self.ind(0,0)
+
+{% endhighlight %}

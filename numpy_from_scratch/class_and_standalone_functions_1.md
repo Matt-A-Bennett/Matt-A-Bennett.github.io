@@ -26,6 +26,9 @@
 #### Demo
 {% include_relative snippets/ind_demo.md %}
 
+### Make 1x1 matrix a scalar
+{% include_relative snippets/make_scalar_code.md %}
+
 ### Transpose of a matrix
 {% include_relative snippets/transpose.md %}
 #### Code implementation
