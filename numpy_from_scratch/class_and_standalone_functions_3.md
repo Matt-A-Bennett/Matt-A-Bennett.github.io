@@ -1,16 +1,11 @@
 # Class, standalone functions and miscellaneous methods (3/3)
-## Standalone functions
-### Combining matrices
+## Combining matrices
 {% include_relative snippets/cat_code.md %}
 
-### Tiling matrices
+## Tiling matrices
 {% include_relative snippets/tile_code.md %}
-### Demo
+## Demo
 {% include_relative snippets/tile_demo.md %}
-
-## Miscellaneous methods
-### Get the diagonal of a matrix
-{% include_relative snippets/diag_code.md %}
 
 [< Is matrix triangular, diagonal, symmetric?](./class_and_standalone_functions_2.md)
 

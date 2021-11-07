@@ -37,6 +37,9 @@
 {% include_relative snippets/ind_code.md %}
 ### Make 1x1 matrix a scalar
 {% include_relative snippets/make_scalar_code.md %}
+### Get the diagonal of a matrix
+{% include_relative snippets/diag_code.md %}
+
 #### Demo
 {% include_relative snippets/ind_demo.md %}
 

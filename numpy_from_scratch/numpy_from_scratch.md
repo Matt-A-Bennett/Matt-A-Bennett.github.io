@@ -26,6 +26,7 @@ will attempt to realise in my library.</p>
 </div>
 
 ### Class, standalone functions and miscellaneous methods 
+
 - [Mat(rix) Class](./class_and_standalone_functions_1.md)
 - [Printing matrices](./class_and_standalone_functions_1.md#printing-matrices)
 - [Generate matrices](./class_and_standalone_functions_1.md#generate-matrices)
@@ -33,6 +34,7 @@ will attempt to realise in my library.</p>
 - [Transpose](./class_and_standalone_functions_1.md#transpose-of-a-matrix)
 - [Indexing a matrix](./class_and_standalone_functions_1.md#indexing-a-matrix)
 - [Make 1x1 matrix a scalar](./class_and_standalone_functions_1.md#make-1x1-matrix-a-scalar)
+- [Get the diagonal of a matrix](./class_and_standalone_functions_1.md#get-the-diagonal-of-a-matrix)
 - [Is matrix square?](./class_and_standalone_functions_2.md#is-matrix-square)
 - [Is matrix wide?](./class_and_standalone_functions_2.md#is-matrix-wide-or-tall)
 - [Is matrix tall?](./class_and_standalone_functions_2.md#is-matrix-wide-or-tall)
@@ -41,7 +43,6 @@ will attempt to realise in my library.</p>
 - [Is matrix symmetric?](./class_and_standalone_functions_2.md#is-matrix-symmetric)
 - [Combining matrices](./class_and_standalone_functions_3.md#combining-matrices)
 - [Tiling matrices](./class_and_standalone_functions_3.md#tiling-matrices)
-- [Get the diagonal of a matrix](./class_and_standalone_functions_3.md#get-the-diagonal-of-a-matrix)
 
 ### Fundamental methods
 - [Element-wise functions of one or more matrices](./elwise_function.md)
