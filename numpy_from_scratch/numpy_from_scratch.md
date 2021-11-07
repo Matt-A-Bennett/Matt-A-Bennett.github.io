@@ -30,6 +30,7 @@ will attempt to realise in my library.</p>
 - [Printing matrices](./class_and_standalone_functions_1.md#printing-matrices)
 - [Generate matrices](./class_and_standalone_functions_1.md#generate-matrices)
 - [Indexing a matrix](./class_and_standalone_functions_1.md#indexing-a-matrix)
+- [Make 1x1 matrix a scalar](./class_and_standalone_functions_1.md#make-1x1-matrix-a-scalar)
 - [Transpose](./class_and_standalone_functions_1.md#transpose-of-a-matrix)
 - [Size of a matrix](./class_and_standalone_functions_2.md#size-of-a-matrix)
 - [Is matrix square?](./class_and_standalone_functions_2.md#is-matrix-square)
@@ -41,7 +42,6 @@ will attempt to realise in my library.</p>
 - [Combining matrices](./class_and_standalone_functions_3.md#combining-matrices)
 - [Tiling matrices](./class_and_standalone_functions_3.md#tiling-matrices)
 - [Get the diagonal of a matrix](./class_and_standalone_functions_3.md#get-the-diagonal-of-a-matrix)
-- [Make 1x1 matrix a scalar](./class_and_standalone_functions_1.md#make-1x1-matrix-a-scalar)
 
 ### Fundamental methods
 - [Element-wise functions of one or more matrices](./elwise_function.md)
