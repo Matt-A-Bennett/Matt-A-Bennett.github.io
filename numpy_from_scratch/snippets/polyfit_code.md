@@ -9,7 +9,7 @@ $V$, we defined earlier and project onto it to give \(\hat b\):</p>
 def polyfit(self, order=1):
     V = vandermonde(self.size(0), order=order)
     # fit model to b
-    return self.project_onto_V(V)
+    return self.project_onto_A(V)
 
 {% endhighlight %}
 
