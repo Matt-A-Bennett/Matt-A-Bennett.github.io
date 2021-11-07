@@ -17,7 +17,7 @@ Outputs:
 
 {% highlight console %}
 
->>> la.print_mat(la.tile(A, [3, 4]))
+>>> la.print_mat(la.tile(A, [2, 5]))
 [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
 [0, 5, 0, 5, 0, 5, 0, 5, 0, 5]
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
