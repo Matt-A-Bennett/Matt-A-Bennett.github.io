@@ -24,6 +24,13 @@
 #### Code implementation
 {% include_relative snippets/size_code.md %}
 
+### Transpose of a matrix
+{% include_relative snippets/transpose.md %}
+#### Code implementation
+{% include_relative snippets/transpose_code.md %}
+#### Demo
+{% include_relative snippets/transpose_demo.md %}
+
 ### Indexing a matrix
 {% include_relative snippets/ind.md %}
 #### Code implementation
@@ -33,13 +40,6 @@
 
 ### Make 1x1 matrix a scalar
 {% include_relative snippets/make_scalar_code.md %}
-
-### Transpose of a matrix
-{% include_relative snippets/transpose.md %}
-#### Code implementation
-{% include_relative snippets/transpose_code.md %}
-#### Demo
-{% include_relative snippets/transpose_demo.md %}
 
 <div style="text-align: right">
 <a href="https://matt-a-bennett.github.io/numpy_from_scratch/class_and_standalone_functions_2.html">Is matrix triangular, diagonal, symmetric? ></a>
