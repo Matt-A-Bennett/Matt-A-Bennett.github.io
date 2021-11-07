@@ -1,12 +1,14 @@
 # Class, standalone functions and miscellaneous methods (2/3)
 ## Miscellaneous methods 
+
 ### Is matrix square?
 {% include_relative snippets/is_square.md %}
 #### Code implementation
 {% include_relative snippets/is_square_code.md %}
 
-### Is matrix lower wide or tall?
+### Is matrix wide or tall?
 {% include_relative snippets/is_wide_tall_code.md %}
+
 ### Is matrix lower triangular?
 {% include_relative snippets/is_lower_tri.md %}
 #### Code implementation
