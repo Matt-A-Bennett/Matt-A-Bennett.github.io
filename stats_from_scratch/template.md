@@ -1,56 +1,18 @@
-# Page Title
-<div style="text-align: justify">
-<p>Paragraph</p>
-</div>
+# Page title
+## Topic
+{% include_relative snippets/.md %}
 
-## Code implementation
-<div style="text-align: justify">
-<p>Paragraph</p>
-</div>
+### Code implementation
+{% include_relative snippets/.md %}
 
-{% highlight python %}
+### Demo
+{% include_relative snippets/.md %}
 
-print('some python code')
 
-{% endhighlight %}
-
-## Demo
-
-<div style="text-align: justify">
-<p>We create a matrix, call the <METHOD> method and print the result:</p>
-</div>
-
-{% highlight python %}
-
-import linalg as la
-
-A = la.Mat([[1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]])
-
-A = la.Mat([[1, 2, 3],
-        [4, 5, 6]])
-
-A = la.Mat([[1, 2],
-        [3, 4],
-        [5, 6]])
-
-<METHODED> = A.<METHOD>()
-
-la.print_mat(<METHOD>)
-
-{% endhighlight %}
-
-Outputs:
-
-{% highlight console %}
-
-{% endhighlight %}
-
-[< Previous_page](./previous_page_filename.md)
+[< Previous](./previous.md)
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/template.html"> . ></a>
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/next.html">Next ></a>
 </div>
 
 [back to project main page](./stats_from_scratch.md)\
@@ -59,7 +21,7 @@ Outputs:
 ---
 <script src="https://utteranc.es/client.js"
         repo="Matt-A-Bennett/Matt-A-Bennett.github.io"
-        issue-term="https://matt-a-bennett.github.io/stats_from_scratch/template.html"
+        issue-term="https://matt-a-bennett.github.io/stats_from_scratch/this_file_name.html"
         theme="github-light"
         crossorigin="anonymous"
         async>
