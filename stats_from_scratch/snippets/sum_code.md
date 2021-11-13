@@ -10,7 +10,7 @@ def sum(A, axis=0):
     if min(la.size(A)) == 1:
         axis = la.size(A).index(max(la.size(A)))
     if axis == 1:
-        A = A.transpose()
+        A = A.tr()
     ones = la.gen_mat([1,la.size(A)[0]],1)
     A_sum = ones.multiply(A)
     return A_sum

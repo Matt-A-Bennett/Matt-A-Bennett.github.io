@@ -16,7 +16,7 @@ la.print_mat(evals, 2)
 la.print_mat(evects,2)
 
 # extract the first eigenvector
-evect = Mat([evects.transpose().data[0]]).transpose()
+evect = Mat([evects.tr().data[0]]).tr()
 # multiply eigenvector by A and print result
 la.print_mat(A.multiply(evect),2)
 # scale eigenvector by eigenvalue and print result

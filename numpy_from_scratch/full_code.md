@@ -80,7 +80,7 @@ class Mat:
         if isinstance(i, int) and not isinstance(j, int):
             return Mat([self.data[i]])
         elif isinstance(j, int) and not isinstance(i, int):
-            return Mat([self.transpose().data[j]]).transpose()
+            return Mat([self.tr().data[j]]).tr()
         elif isinstance(i, int) and isinstance(j, int):
             return self.data[i][j]
 
@@ -114,7 +114,7 @@ class Mat:
             return True
 
     def is_upper_tri(self):
-        return self.transpose().is_lower_tri()
+        return self.tr().is_lower_tri()
 
     def is_diag(self):
         if self.is_lower_tri() and self.is_upper_tri():
@@ -169,9 +169,9 @@ class Mat:
     def dot(self, new_mat):
         # make both vectors rows with transpose
         if self.size(0) != 1:
-            self = self.transpose()
+            self = self.tr()
         if new_mat.size(0) != 1:
-            new_mat = new_mat.transpose()
+            new_mat = new_mat.tr()
         dot_prod = []
         for cols in zip(self.data[0], new_mat.data[0]):
             dot_prod.append(cols[0]*cols[1])
@@ -190,7 +190,7 @@ class Mat:
         # preallocate empty matrix
         multiplied = gen_mat([self.size(0), new_mat.size(1)])
         # transpose one matrix, take a bunch of dot products
-        new_mat = new_mat.transpose()
+        new_mat = new_mat.tr()
         for i, row in enumerate(self.data):
             tmp_row = Mat([row])
             for j, col in enumerate(new_mat.data):
@@ -248,8 +248,8 @@ class Mat:
                     singular = True
                     # undo the row exchanges that failed
                     row_exchange_count -= 1
-                    U = nextP.transpose().multiply(U)
-                    P = nextP.transpose().multiply(P)
+                    U = nextP.tr().multiply(U)
+                    P = nextP.tr().multiply(P)
                     # move on to the next column
                     break
 
@@ -298,12 +298,12 @@ class Mat:
             else:
                 coeff.append(row[-1]/row[idx-1])
         coeffs = list(reversed(coeff))
-        return Mat([coeffs]).transpose()
+        return Mat([coeffs]).tr()
 
     def pivots(self):
         _, _, _, U, _, _ = self.elimination()
         # extract the first non-zero from each row - track the column number
-        U = U.transpose()
+        U = U.tr()
         pivots = {}
         found = []
         for j, col in enumerate(U.data):
@@ -413,8 +413,8 @@ class Mat:
 
     def projection(self):
         # P = A((A'A)^-1)A'
-        AtA_inv = (self.transpose().multiply(self)).inverse()
-        for_x = AtA_inv.multiply(self.transpose())
+        AtA_inv = (self.tr().multiply(self)).inverse()
+        for_x = AtA_inv.multiply(self.tr())
         Projection = self.multiply(for_x)
         return Projection, for_x
 
@@ -436,18 +436,18 @@ class Mat:
             print('Matrix is singular!')
             return self, None, None
 
-        A = self.transpose()
+        A = self.tr()
         Q = dc(A)
         I = eye(A.size())
         # projection orthogonal to column
         for col in range(Q.size(0)-1):
             Col = dc(Mat([Q.data[col]]))
-            P, _ = Col.transpose().projection()
+            P, _ = Col.tr().projection()
             P = I.subtract(P)
             # project and put into matrix Q
             for col2 in range(col+1, Q.size(0)):
                 Col = dc(Mat([Q.data[col2]]))
-                q = P.multiply(Col.transpose()).transpose()
+                q = P.multiply(Col.tr()).tr()
                 Q.data[col2] = q.data[0]
 
             # normalise to unit length
@@ -456,9 +456,9 @@ class Mat:
                 q = q.norm()
                 Q.data[x] = q.data[0]
 
-        A = A.transpose()
+        A = A.tr()
         R = Q.multiply(A)
-        Q = Q.transpose()
+        Q = Q.tr()
         A = Q.multiply(R)
 
         return A, Q, R
@@ -530,16 +530,16 @@ class Mat:
                 diff1 = b.subtract(old_b)
                 diff2 = b.subtract(old_b.multiply_elwise(-1))
                 if diff2.length() or diff2.length() < epsilon:
-                    evects.append(b.transpose().data[0])
+                    evects.append(b.tr().data[0])
                     break
-        evects = Mat(evects).transpose()
+        evects = Mat(evects).tr()
         return evects, evals
 
     def eigdiag(self):
         evects, evals = self.eig()
         eigval_mat = gen_mat(self.size(), values=evals.data[0], type='diag')
         if self.is_symmetric():
-            evectsinv = evects.transpose()
+            evectsinv = evects.tr()
         else:
             evectsinv = evects.inverse()
         return evects, eigval_mat, evectsinv

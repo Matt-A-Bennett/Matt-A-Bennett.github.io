@@ -22,9 +22,9 @@ def eig(self, epsilon=0.0001, max_its=100):
             diff1 = b.subtract(old_b)
             diff2 = b.subtract(old_b.multiply_elwise(-1))
             if diff2.length() or diff2.length() < epsilon:
-                evects.append(b.transpose().data[0])
+                evects.append(b.tr().data[0])
                 break
-    evects = Mat(evects).transpose()
+    evects = Mat(evects).tr()
     return evects, evals
 
 {% endhighlight %}

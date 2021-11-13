@@ -13,7 +13,7 @@ def eigdiag(self):
     evects, evals = self.eig()
     eigval_mat = gen_mat(self.size(), values=evals.data[0], type='diag')
     if self.is_symmetric():
-        evectsinv = evects.transpose()
+        evectsinv = evects.tr()
     else:
         evectsinv = evects.inverse()
     return evects, eigval_mat, evectsinv

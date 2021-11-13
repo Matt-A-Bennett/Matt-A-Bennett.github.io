@@ -12,7 +12,7 @@ def ind(self, i=None, j=None):
     if isinstance(i, int) and not isinstance(j, int):
         return Mat([self.data[i]])
     elif isinstance(j, int) and not isinstance(i, int):
-        return Mat([self.transpose().data[j]]).transpose()
+        return Mat([self.tr().data[j]]).tr()
     elif isinstance(i, int) and isinstance(j, int):
         return self.data[i][j]
 

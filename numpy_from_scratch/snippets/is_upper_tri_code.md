@@ -5,6 +5,6 @@
 {% highlight python %}
 
 def is_upper_tri(self):
-    return self.transpose().is_lower_tri()
+    return self.tr().is_lower_tri()
 
 {% endhighlight %}

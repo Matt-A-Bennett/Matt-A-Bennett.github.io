@@ -12,9 +12,9 @@ number of observations (subtracting 1 by default, unless sample is False):</p>
 
 def covar(A, axis=0, sample=True):
     if axis == 1:
-        A = A.transpose()
+        A = A.tr()
     A_zc = zero_center(A)
-    A_cov = A_zc.transpose().multiply(A_zc)
+    A_cov = A_zc.tr().multiply(A_zc)
     N = la.size(A)[0]
     if sample:
         N -= 1
@@ -36,7 +36,7 @@ def var(A, axis=0, sample=True):
     A_covar = covar(A, axis, sample)
     A_var = la.Mat([A_covar.diag()])
     if axis == 1:
-        return A_var.transpose()
+        return A_var.tr()
     return A_var
 
 {% endhighlight %}

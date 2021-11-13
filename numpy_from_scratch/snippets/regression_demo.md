@@ -12,7 +12,7 @@ def quick_plot(b, orders=[1]):
     fig = plt.figure()
     Xs = [i/10 for i in range(len(b.data[0])*10)]
     for idx, order in enumerate(orders):
-        fit = b.transpose().polyfit(order=order)
+        fit = b.tr().polyfit(order=order)
         Ys = []
         for x in Xs:
             y = 0

@@ -63,6 +63,6 @@ coefficient list, and return them as a column vector:</p>
 {% highlight python %}
 
 coeffs = list(reversed(coeff))
-return Mat([coeffs]).transpose()
+return Mat([coeffs]).tr()
 
 {% endhighlight %}

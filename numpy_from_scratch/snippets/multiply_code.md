@@ -11,7 +11,7 @@ def multiply(self, new_mat):
     # preallocate empty matrix
     multiplied = gen_mat([self.size(0), new_mat.size(1)])
     # transpose one matrix, take a bunch of dot products
-    new_mat = new_mat.transpose()
+    new_mat = new_mat.tr()
     for i, row in enumerate(self.data):
         tmp_row = Mat([row])
         for j, col in enumerate(new_mat.data):

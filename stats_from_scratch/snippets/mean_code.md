@@ -14,7 +14,7 @@ def mean(A, axis=0):
     A_sum = sum(A, axis)
     A_mean = A_sum.div_elwise(la.size(A)[axis])
     if axis == 1:
-        A_mean = A_mean.transpose()
+        A_mean = A_mean.tr()
     return A_mean
 
 {% endhighlight %}

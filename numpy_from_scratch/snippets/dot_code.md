@@ -8,9 +8,9 @@ sum operations.</p>
 def dot(self, new_mat):
     # make both vectors rows with transpose
     if self.size(0) != 1:
-        self = self.transpose()
+        self = self.tr()
     if new_mat.size(0) != 1:
-        new_mat = new_mat.transpose()
+        new_mat = new_mat.tr()
     dot_prod = []
     for cols in zip(self.data[0], new_mat.data[0]):
         dot_prod.append(cols[0]*cols[1])

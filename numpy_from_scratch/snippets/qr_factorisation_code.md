@@ -12,18 +12,18 @@ def qr(self):
         print('Matrix is singular!')
         return self, None, None
 
-    A = self.transpose()
+    A = self.tr()
     Q = dc(A)
     I = eye(A.size())
     # projection orthogonal to column
     for col in range(Q.size(0)-1):
         Col = dc(Mat([Q.data[col]]))
-        P, _ = Col.transpose().projection()
+        P, _ = Col.tr().projection()
         P = I.subtract(P)
         # project and put into matrix Q
         for col2 in range(col+1, Q.size(0)):
             Col = dc(Mat([Q.data[col2]]))
-            q = P.multiply(Col.transpose()).transpose()
+            q = P.multiply(Col.tr()).tr()
             Q.data[col2] = q.data[0]
 
 {% endhighlight %}
@@ -52,9 +52,9 @@ and then transpose $Q$ before returning:</p>
 
 {% highlight python %}
 
-    A = A.transpose()
+    A = A.tr()
     R = Q.multiply(A)
-    Q = Q.transpose()
+    Q = Q.tr()
     A = Q.multiply(R)
 
     return A, Q, R

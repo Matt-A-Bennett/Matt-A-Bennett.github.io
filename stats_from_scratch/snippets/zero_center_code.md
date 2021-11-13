@@ -14,7 +14,7 @@ def zero_center(A, axis=0):
         global_mean = mean(mean(A)).data[0][0]
         return A.subtract(global_mean)
     elif axis == 1:
-        A = A.transpose()
+        A = A.tr()
     if A.is_square():
         A = gen_centering(la.size(A)).multiply(A)
     else:
@@ -23,6 +23,6 @@ def zero_center(A, axis=0):
         A_mean_mat = ones.multiply(A_mean)
         A = A.subtract(A_mean_mat)
     if axis == 1:
-        A = A.transpose()
+        A = A.tr()
     return A
 {% endhighlight %}

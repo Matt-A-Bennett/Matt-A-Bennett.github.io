@@ -8,7 +8,7 @@ import linalg as la
 A = la.Mat([[1, 2, 3],
             [4, 5, 6]])
 
-transposed = A.transpose()
+transposed = A.tr()
 
 la.print_mat(transposed)
 

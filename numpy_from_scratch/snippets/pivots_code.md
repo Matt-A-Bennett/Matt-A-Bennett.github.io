@@ -10,7 +10,7 @@ with the columns in which they were found:</p>
 def pivots(self):
     _, _, _, U, _, _ = self.elimination()
     # extract the first non-zero from each row - track the column number
-    U = U.transpose()
+    U = U.tr()
     pivots = {}
     found = []
     for j, col in enumerate(U.data):

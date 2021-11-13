@@ -14,7 +14,7 @@ def sum(A, axis=0):
     if min(la.size(A)) == 1:
         axis = la.size(A).index(max(la.size(A)))
     if axis == 1:
-        A = A.transpose()
+        A = A.tr()
     ones = la.gen_mat([1,la.size(A)[0]],values=[1])
     A_sum = ones.multiply(A)
     return A_sum
@@ -37,7 +37,7 @@ def zero_center(A, axis=0):
         global_mean = mean(mean(A)).data[0][0]
         return A.subtract(global_mean)
     elif axis == 1:
-        A = A.transpose()
+        A = A.tr()
     if A.is_square():
         A = gen_centering(la.size(A)).multiply(A)
     else:
@@ -46,14 +46,14 @@ def zero_center(A, axis=0):
         A_mean_mat = ones.multiply(A_mean)
         A = A.subtract(A_mean_mat)
     if axis == 1:
-        A = A.transpose()
+        A = A.tr()
     return A
 
 def covar(A, axis=0, sample=True):
     if axis == 1:
-        A = A.transpose()
+        A = A.tr()
     A_zc = zero_center(A)
-    A_cov = A_zc.transpose().multiply(A_zc)
+    A_cov = A_zc.tr().multiply(A_zc)
     N = la.size(A)[0] - sample
     A_cov = A_cov.div_elwise(N)
     return A_cov

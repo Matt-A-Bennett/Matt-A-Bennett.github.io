@@ -9,8 +9,8 @@ $A$ to yield \(\hat x\):</p>
 
 def projection(self):
     # P = A((A'A)^-1)A'
-    AtA_inv = (self.transpose().multiply(self)).inverse()
-    for_x = AtA_inv.multiply(self.transpose())
+    AtA_inv = (self.tr().multiply(self)).inverse()
+    for_x = AtA_inv.multiply(self.tr())
     Projection = self.multiply(for_x)
     return Projection, for_x
 

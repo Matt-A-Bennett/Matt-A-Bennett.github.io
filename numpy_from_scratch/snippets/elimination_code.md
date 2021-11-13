@@ -74,8 +74,8 @@ if U.data[idx][idx] == 0:
     singular = True
     # undo the row exchanges that failed
     row_exchange_count -= 1
-    U = nextP.transpose().multiply(U)
-    P = nextP.transpose().multiply(P)
+    U = nextP.tr().multiply(U)
+    P = nextP.tr().multiply(P)
     # move on to the next column
     break
 
