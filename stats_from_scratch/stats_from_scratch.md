@@ -20,7 +20,6 @@ Everything I do here will be implemented using the existing methods in the
 - [Z-score](./zscore.md)
 
 ## Statistical tests
-- [Pearson's correlation](./correlation.md#pearsons-correlation)
 
 [back to home](../index.md)
 
