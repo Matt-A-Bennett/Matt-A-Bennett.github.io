@@ -1,4 +1,4 @@
-# Student's t
+# Student's <i>t</i>
 ## One sample t-test
 {% include_relative snippets/ttest_one_sample.md %}
 
