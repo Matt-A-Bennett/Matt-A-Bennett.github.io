@@ -1,12 +1,12 @@
 # Page title
 ## Topic
-{% include_relative snippets/.md %}
+{% include_relative snippets/page.md %}
 
 ### Code implementation
-{% include_relative snippets/.md %}
+{% include_relative snippets/page.md %}
 
 ### Demo
-{% include_relative snippets/.md %}
+{% include_relative snippets/page.md %}
 
 
 [< Previous](./previous.md)
