@@ -10,7 +10,7 @@
 [< Z-score](./zscore.md)
 
 <div style="text-align: right">
-<a href="https://matt-a-bennett.github.io/stats_from_scratch/next.html">t-tests ></a>
+<a href="https://matt-a-bennett.github.io/stats_from_scratch/ttests.html">t-tests ></a>
 </div>
 
 [back to project main page](./stats_from_scratch.md)\
