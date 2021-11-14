@@ -90,6 +90,32 @@ def corr(A, axis=0):
     correlations = K_sqrt.multiply(K).multiply(K_sqrt)
     return correlations
 
+def ttest_one_sample(A, axis=0, H=0):
+    A_diff = mean(A, axis).subtract(H)
+    A_se = se(A, axis, sample=True)
+    ts = A_diff.div_elwise(A_se)
+    df = A.size(axis)-1
+    return ts, df
+
+def ttest_paired(u, v):
+    A_diff = u.subtract(v)
+    t, df = ttest_one_sample(A_diff)
+    return t.make_scalar(), df
+
+def ttest_welchs(u, v):
+    diff = mean(u).subtract(mean(v)).make_scalar()
+    u_se, v_se = se(u).make_scalar(), se(v).make_scalar()
+    t = diff / sqrt(u_se**2 + v_se**2)
+
+    # compute degrees of freedom by Welch–Satterthwaite equation
+    Nu, Nv = u.size(0), v.size(0)
+    u_sd, v_sd = sd(u).make_scalar(), sd(v).make_scalar()
+
+    df =          ( (u_sd**2/Nu + v_sd**2/Nv)**2 /
+    (u_sd**4 / (Nu**2 * (Nu-1)) + v_sd**4 / (Nv**2 * (Nv-1))) )
+
+    return t, df
+
 {% endhighlight %}
 
 [back to project main page](./stats_from_scratch.md)\
