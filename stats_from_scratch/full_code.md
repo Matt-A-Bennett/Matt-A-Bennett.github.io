@@ -116,6 +116,25 @@ def ttest_welchs(u, v):
 
     return t, df
 
+def ttest_unpaired(u, v, assume_equal_vars=False):
+    if not assume_equal_vars:
+        return ttest_welchs(u, v)
+
+    diff = mean(u).subtract(mean(v)).make_scalar()
+    Nu, Nv = u.size(0), v.size(0)
+    u_df, v_df = Nu-1, Nv-1
+    df = u_df + v_df
+    u_var, v_var = var(u).make_scalar(), var(v).make_scalar()
+
+    pooled_var = (( (u_var * u_df) / (u_df + v_df) ) +
+                  ( (v_var * v_df) / (v_df + v_df) ))
+
+    pooled_sd = sqrt(pooled_var)
+
+    t = diff / (pooled_sd * sqrt(1/Nu + 1/Nv))
+
+    return t, df
+
 {% endhighlight %}
 
 [back to project main page](./stats_from_scratch.md)\
