@@ -24,7 +24,7 @@ $$
 <i>z</i> the distribution of the measurement errors are likely not well
 approximated by a normal distribution. Instead, the measurement errors would
 have more extreme values - that is, the distribution would have heavier tails -
-and better approximated by the Student's <i>t<i/> distribution. This aspect of
+and better approximated by the Student's <i>t</i> distribution. This aspect of
 the shape of the t-distribution varies with the sample size (becoming closer to
 the normal distribution as the sample size increases) and thus so does the
 critical value of <i>t</i> that we would require to reject the null
