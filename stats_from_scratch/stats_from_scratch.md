@@ -21,10 +21,7 @@ Everything I do here will be implemented using the existing methods in the
 
 ## Statistical tests
 - [Pearson's correlation](./correlation.md#pearsons-correlation)
-- [One sample t-test](./ttests.md#one-sample-ttest)
-- [Paired samples t-test](./ttests.md#paired-samples-ttest)
-- [Unpaired samples t-test](./ttests.md#unpaired-samples-ttest)
-- [Welch's unpaired samples t-test](./ttests.md#welchs-unpaired-samples-ttest)
+- [One sample t-test](./ttests.md)
 
 [back to home](../index.md)
 
