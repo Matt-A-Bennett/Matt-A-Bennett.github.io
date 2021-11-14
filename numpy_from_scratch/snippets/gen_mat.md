@@ -47,9 +47,9 @@ generated_mat = []
 for i in range(size[0]):
     row = []
     for j in range(size[1]):
-        if (type == 'diag' and j!=i) or (type == 'upper' and j<=i) or (type == 'lower' and j>=i):
+        if (kind == 'diag' and j!=i) or (kind == 'upper' and j<=i) or (kind == 'lower' and j>=i):
             row.append(0)
-        elif type == 'diag':
+        elif kind == 'diag':
             row.append(values[j])
         elif j>=i:
             row.append(values[j-i])
