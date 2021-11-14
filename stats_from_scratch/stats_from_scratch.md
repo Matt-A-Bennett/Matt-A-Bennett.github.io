@@ -21,7 +21,6 @@ Everything I do here will be implemented using the existing methods in the
 
 ## Statistical tests
 - [Pearson's correlation](./correlation.md#pearsons-correlation)
-- [One sample t-test](./ttests.md)
 
 [back to home](../index.md)
 
