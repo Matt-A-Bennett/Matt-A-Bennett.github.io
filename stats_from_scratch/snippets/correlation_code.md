@@ -9,7 +9,7 @@ K. Then we do the multiplications before returning the correlation matrix:</p>
 def corr(A, axis=0):
     V = covar(A, axis)
     sds=[1/sqrt(x) for x in V.diag()]
-    K_sqrt = la.gen_mat([len(sds)]*2, values=sds, type='diag')
+    K_sqrt = la.gen_mat([len(sds)]*2, values=sds, kind='diag')
     correlations = K_sqrt.multiply(K).multiply(K_sqrt)
     return correlations
 

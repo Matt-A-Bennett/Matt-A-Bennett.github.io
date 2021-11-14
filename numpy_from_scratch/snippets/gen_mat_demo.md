@@ -1,10 +1,10 @@
 {% highlight python %}
 import linalg as la
 
-la.print_mat(la.gen_mat([7,7], values=[1], type='full'))
-la.print_mat(la.gen_mat([7,7], values=[1], type='upper'))
-la.print_mat(la.gen_mat([7,7], values=[1,2,0,4,5], type='diag'))
-la.print_mat(la.gen_mat([7,7], values=[2,-1], type='full'))
+la.print_mat(la.gen_mat([7,7], values=[1], kind='full'))
+la.print_mat(la.gen_mat([7,7], values=[1], kind='upper'))
+la.print_mat(la.gen_mat([7,7], values=[1,2,0,4,5], kind='diag'))
+la.print_mat(la.gen_mat([7,7], values=[2,-1], kind='full'))
 
 {% endhighlight %}
 
@@ -12,7 +12,7 @@ Outputs:
 
 {% highlight console %}
 
->>> la.print_mat(la.gen_mat([7,7], values=[1], type='full'))
+>>> la.print_mat(la.gen_mat([7,7], values=[1], kind='full'))
 [1, 1, 1, 1, 1, 1, 1]
 [1, 1, 1, 1, 1, 1, 1]
 [1, 1, 1, 1, 1, 1, 1]
@@ -21,7 +21,7 @@ Outputs:
 [1, 1, 1, 1, 1, 1, 1]
 [1, 1, 1, 1, 1, 1, 1]
 
->>> la.print_mat(la.gen_mat([7,7], values=[1], type='upper'))
+>>> la.print_mat(la.gen_mat([7,7], values=[1], kind='upper'))
 
 [0, 1, 1, 1, 1, 1, 1]
 [0, 0, 1, 1, 1, 1, 1]
@@ -31,7 +31,7 @@ Outputs:
 [0, 0, 0, 0, 0, 0, 1]
 [0, 0, 0, 0, 0, 0, 0]
 
->>> la.print_mat(la.gen_mat([7,7], values=[1,2,0,4,5], type='diag'))
+>>> la.print_mat(la.gen_mat([7,7], values=[1,2,0,4,5], kind='diag'))
 
 [1, 0, 0, 0, 0, 0, 0]
 [0, 2, 0, 0, 0, 0, 0]
@@ -41,7 +41,7 @@ Outputs:
 [0, 0, 0, 0, 0, 0, 0]
 [0, 0, 0, 0, 0, 0, 0]
 
->>> la.print_mat(la.gen_mat([7,7], values=[2,-1], type='full'))
+>>> la.print_mat(la.gen_mat([7,7], values=[2,-1], kind='full'))
 
 [2, -1, 0, 0, 0, 0, 0]
 [-1, 2, -1, 0, 0, 0, 0]

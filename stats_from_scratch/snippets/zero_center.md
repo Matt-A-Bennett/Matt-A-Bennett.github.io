@@ -65,7 +65,8 @@ We create a function to build the centering matrix:
 {% highlight python %}
 
 def gen_centering(size):
-    size_mat = la.gen_mat(size, values=[1/size[0]])
-    return la.eye(size).subtract(size_mat)
+    if type(size) is int:
+        size = [size, size]
+    return la.eye(size).subtract(1/size[0])
 
 {% endhighlight %}

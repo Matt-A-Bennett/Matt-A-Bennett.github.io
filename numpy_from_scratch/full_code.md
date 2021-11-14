@@ -15,7 +15,9 @@ Below is all the code that we have written to date.
 from copy import deepcopy as dc
 from math import sqrt
 
-def gen_mat(size, values=[0], type='full'):
+def gen_mat(size, values=[0], kind='full'):
+    if type(size) is int:
+        size = [size, size]
     if len(values) == 1:
         values = [values[0] for val in range(max(size))]
     elif len(values) < max(size):
@@ -24,9 +26,9 @@ def gen_mat(size, values=[0], type='full'):
     for i in range(size[0]):
         row = []
         for j in range(size[1]):
-            if (type == 'diag' and j!=i) or (type == 'upper' and j<=i) or (type == 'lower' and j>=i):
+            if (kind == 'diag' and j!=i) or (kind == 'upper' and j<=i) or (kind == 'lower' and j>=i):
                 row.append(0)
-            elif type == 'diag':
+            elif kind == 'diag':
                 row.append(values[j])
             elif j>=i:
                 row.append(values[j-i])
@@ -36,7 +38,7 @@ def gen_mat(size, values=[0], type='full'):
     return Mat(generated_mat)
 
 def eye(size):
-    return gen_mat(size, values=[1], type='diag')
+    return gen_mat(size, values=[1], kind='diag')
 
 def cat(A, B, axis=0):
     if axis == 0:
@@ -537,7 +539,7 @@ class Mat:
 
     def eigdiag(self):
         evects, evals = self.eig()
-        eigval_mat = gen_mat(self.size(), values=evals.data[0], type='diag')
+        eigval_mat = gen_mat(self.size(), values=evals.data[0], kind='diag')
         if self.is_symmetric():
             evectsinv = evects.tr()
         else:
