@@ -15,8 +15,8 @@ $$
 
 <div style="text-align: justify">
 <p> And then instead of obtaining the standard error by using $\sqrt{n}$, we
-use $\sqrt{2/n}$ because we have one less degree of freedom due to the second
-sample:</p>
+would use $\sqrt{2/n}$ (because we have one less degree of freedom due to the
+second sample):</p>
 </div>
 
 $$ 
@@ -27,7 +27,7 @@ $$
 <p>When the sample sizes are different, we can take a kind of 'weighted'
 average of the variances - weighted, that is, by the proportion of total
 degrees of freedom each sample accounts for. Thus the 'pooled' standard
-deviation is:</p>
+deviation in that case is:</p>
 </div>
 
 $$ 

@@ -1,8 +1,8 @@
 <div style="text-align: justify">
-<p>In the case that we have a two samples of observations where each
-observation in one sample is 'paired' with an observation in the other sample
-(e.g. if a set of measurements is repeated at two times), then we can compute
-these paired differences and run same test as above:</p>
+<p>In the case where we have two samples of observations where each observation
+in one sample is 'paired' with an observation in the other sample (e.g. if a
+set of measurements is repeated at two times), then we can compute these paired
+differences and run same test as above:</p>
 </div>
 
 {% highlight python %}

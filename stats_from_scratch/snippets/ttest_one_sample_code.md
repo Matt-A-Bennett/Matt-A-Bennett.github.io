@@ -1,8 +1,8 @@
 <div style="text-align: justify">
-<p>Here we define a method that performs a one sample <i>t</i> test on the
-samples in each column (or row) of a matrix. We compute the mean and standard
-error of each column (or row) and perform an element wise division. The vector
-of <i>t</i> values is returned along with the degrees of freedom:</p>
+<p>Here we define a method that performs a one sample <i>t</i> test on each
+column (or row) of a matrix. We compute the mean and standard error of each
+column (or row) and perform an element wise division. The vector of <i>t</i>
+values is returned along with the degrees of freedom:</p>
 </div>
 
 {% highlight python %}
