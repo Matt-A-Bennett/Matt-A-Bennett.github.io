@@ -42,7 +42,7 @@ $$
 
 $$
 \begin{equation}
-  = \sqrt{\frac{\sigma_u^2(n_1-1) + \sigma_v^2(n_2 - 1)}{(n_1 - 1) + (n_2 - 1)} 
+  = \sqrt{\frac{\sigma_u^2(n_1-1) + \sigma_v^2(n_2 - 1)}{(n_1 - 1) + (n_2 - 1)}}
 \end{equation}
 $$
 
