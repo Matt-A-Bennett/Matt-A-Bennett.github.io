@@ -16,7 +16,9 @@ is the standard error):</p>
 </div>
 
 $$
+\begin{equation}
 t = \frac{\bar x - \mu_0}{SE}
+\end{equation}
 $$
 
 <div style="text-align: justify">
