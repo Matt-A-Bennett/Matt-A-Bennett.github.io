@@ -41,7 +41,7 @@ s = \sqrt{\frac{\sigma_u^2(n_1-1)}{(n_1 - 1) + (n_2 - 1)} + \frac{\sigma_v^2(n_2
 $$
 
 <div style="text-align: justify">
-<p>Just like in $equation (3)$ above, we account for having one less degree of
+<p>Just like in equation $(3)$ above, we account for having one less degree of
 freedom when converting our pooled standard deviation to a pooled standard
 error:</p>
 </div>
