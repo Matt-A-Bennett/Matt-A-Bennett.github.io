@@ -10,7 +10,9 @@ variances:</p>
 </div>
 
 $$ 
+\begin{equation}
 s = \sqrt{\frac{\sigma_u^2}{2} + \frac{\sigma_v^2}{2}}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -20,7 +22,9 @@ second sample):</p>
 </div>
 
 $$ 
+\begin{equation}
 t = \frac{\bar u - \bar v}{s \sqrt{\frac{1}{n} + \frac{1}{n}}}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -31,7 +35,9 @@ deviation in that case is:</p>
 </div>
 
 $$ 
+\begin{equation}
 s = \sqrt{\frac{\sigma_u^2(n_1-1)}{(n_1 - 1) + (n_2 - 1)} + \frac{\sigma_v^2(n_2 - 1)}{(n_1 - 1) + (n_2 - 1)}}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -41,6 +47,8 @@ error:</p>
 </div>
 
 $$ 
+\begin{equation}
 t = \frac{\bar u - \bar v}{s \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+\end{equation}
 $$
 
