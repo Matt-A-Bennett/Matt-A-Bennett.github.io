@@ -1,3 +1,12 @@
+<script>
+MathJax = {
+tex: {
+tags: 'ams'  // should be 'ams', 'none', or 'all'
+     }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
 # Variance, covariance, standard deviation and standard error
 <div style="text-align: justify">
 <p>The study of statistics and data is the study of variation. The general

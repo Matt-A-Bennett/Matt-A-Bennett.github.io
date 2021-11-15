@@ -1,3 +1,12 @@
+<script>
+MathJax = {
+tex: {
+tags: 'ams'  // should be 'ams', 'none', or 'all'
+     }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
 # Building a Python 3 Numpy-like library from scratch
 
 The full code I've written so far can be found [here](./full_code.md).
