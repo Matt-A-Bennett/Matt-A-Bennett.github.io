@@ -1,5 +1,6 @@
 <div style="text-align: justify">
 <p>A matrix is 'square' if it has the same number of rows as it does columns:</p>
+</div>
 
 $$
   \begin{bmatrix}
@@ -10,5 +11,3 @@ $$
 \end{equation}
 $$
 
-</div>
-\begin{equation}

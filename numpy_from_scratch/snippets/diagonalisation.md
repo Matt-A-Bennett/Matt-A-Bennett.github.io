@@ -37,4 +37,3 @@ $$
 <p> This shows why $A$ must be square and non-singular - the eigenvectors must
 be independent for $X^{-1}$ to exist.</p>
 </div>
-\begin{equation}

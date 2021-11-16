@@ -20,4 +20,3 @@ u \cdot v =%
 $$
 
 </div>
-\begin{equation}

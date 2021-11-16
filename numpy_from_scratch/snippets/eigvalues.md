@@ -98,4 +98,3 @@ $$
 determinant in the previous equation. Whatever $z_1$ and $z_2$ are, they must
 be equal to $\lambda$ and therefore are the eigenvalues of the matrix.</p>
 </div>
-\begin{equation}
