@@ -87,4 +87,3 @@ $$
 P = A(A^TA)^{-1}A^T
 \end{equation}
 $$
-\begin{equation}

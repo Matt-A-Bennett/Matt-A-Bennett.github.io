@@ -185,4 +185,3 @@ $$
   \end{bmatrix}
 \end{equation}
 $$
-\begin{equation}

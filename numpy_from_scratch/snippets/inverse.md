@@ -79,4 +79,3 @@ $$ \left[
   \right]
 \end{equation}
 $$
-\begin{equation}
