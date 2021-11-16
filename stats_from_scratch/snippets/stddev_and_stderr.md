@@ -5,7 +5,9 @@ data. Therefore a useful measure when reasoning about the data is the square
 root of the variance. This is called the standard deviation:</p>
 </div>
 
-$$ \sigma = \sqrt{\sigma^2} $$
+$$
+\sigma = \sqrt{\sigma^2} 
+$$
 
 <div style="text-align: justify">
 <p>If we divide the standard deviation by the square root of the number of
@@ -16,4 +18,8 @@ term is like a 'penalty' incurred for making the 'leap' of inference to the
 population and this penalty decreases as your sample size increases:</p>
 </div>
 
-$$ SE = \frac{\sigma}{\sqrt{n}} $$
+$$ 
+\end{equation}
+SE = \frac{\sigma}{\sqrt{n}}
+\begin{equation}
+$$

@@ -7,10 +7,13 @@ square matrix. In that case, we can multiply by a 'centering matrix':</p>
 </div>
 
 $$
+\begin{equation}
 C = I - \frac{1}{N}
+\end{equation}
 $$
 
 $$
+\begin{equation}
 C = %
   \begin{bmatrix}
     1 & 0 & 0 \\[5pt]
@@ -31,9 +34,11 @@ C = %
     -\frac{1}{3} & \frac{2}{3} & -\frac{1}{3} \\[5pt]
     -\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
   \end{bmatrix}
+\end{equation}
 $$
 
 $$
+\begin{equation}
 CA =%
   \begin{bmatrix}
     \frac{2}{3} & -\frac{1}{3} & -\frac{1}{3} \\[5pt]
@@ -52,6 +57,7 @@ CA =%
     -\frac{1}{3} & 0 & 1 \\[5pt]
     -\frac{1}{3} & 1 & -3
   \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">

@@ -7,13 +7,21 @@ doesn't particularly matter). In essence it's the average squared deviation
 from the mean in the data:</p>
 </div>
 
-$$ \sigma^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar x)(x_i - \bar x) $$
+$$
+\begin{equation}
+\sigma^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar x)(x_i - \bar x) 
+\end{equation}
+$$
 
 <div style="text-align: justify">
 <p>In matrix notation:</p>
 </div>
 
-$$ \text{covariance} = \frac{1}{m-1}(x - \bar x)^T (x - \bar x)$$
+$$
+\begin{equation}
+\text{covariance} = \frac{1}{m-1}(x - \bar x)^T (x - \bar x)
+$$
+\end{equation}
 
 <div style="text-align: justify">
 <p>We can compare the variation between two different variables and see if they
@@ -23,13 +31,21 @@ this is the average 'agreement' in the deviations from each variable's
 mean:</p>
 </div>
 
-$$ \text{covariance} = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y) $$
+$$
+\begin{equation}
+\text{covariance} = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y) 
+\end{equation}
+$$
 
 <div style="text-align: justify">
 <p>In matrix notation:</p>
 </div>
 
-$$ \text{covariance} = \frac{1}{m-1}(x - \bar x)^T (y - \bar x) $$
+$$
+\begin{equation}
+\text{covariance} = \frac{1}{m-1}(x - \bar x)^T (y - \bar x) 
+\end{equation}
+$$
 
 <div style="text-align: justify">
 <p>If we have observations of several variables, with each set of observations
@@ -38,7 +54,11 @@ between each column is just what happens with $A^T A$. So if we use the
 centering matrix to remove the mean of each set of observations with</p>
 </div>
 
-$$ (CA)^T C A = A^T C^T C A = A^T C A $$
+$$
+\begin{equation}
+(CA)^T C A = A^T C^T C A = A^T C A 
+\end{equation}
+$$
 
 <div style="text-align: justify">
 <p>(since C is symmetric and idempotent) and
@@ -46,9 +66,14 @@ divide this by one less than the number of observations we get the 'covariance
 matrix':</p>
 </div>
 
-$$ \text{covariance matrix} = \frac{1}{m-1} A^T CA $$ 
+$$
+\begin{equation}
+\text{covariance matrix} = \frac{1}{m-1} A^T CA 
+\end{equation}
+$$ 
 
 $$
+\begin{equation}
 \frac{1}{3}
   \begin{bmatrix}
     1 & 0 & 4 & 2 \\
@@ -70,9 +95,11 @@ $$
     2 & 5 & 1
   \end{bmatrix}
   =%
+\end{equation}
 $$
 
 $$
+\begin{equation}
   \frac{1}{3}
   \begin{bmatrix}
     8.75 & 1.5 & -8 \\
@@ -85,6 +112,7 @@ $$
     0.375 & 5.25 & -3.25 \\
     -2 & -3.25 & 3.5
   \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">

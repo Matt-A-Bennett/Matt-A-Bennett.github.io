@@ -13,6 +13,7 @@ reciprocal of the standard deviations:</p>
 </div>
 
 $$
+\begin{equation}
 \begin{bmatrix}
     \frac{1}{\sigma_1} & 0 & 0 \\
     0 & \frac{1}{\sigma_2} & 0 \\
@@ -36,6 +37,7 @@ $$
     \rho_{2,1} & \rho_{2,2} & \rho_{2,3} \\
     \rho_{3,1} & \rho_{3,2} & \rho_{3,3}
 \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -48,6 +50,7 @@ strongly: </p>
 </div>
 
 $$
+\begin{equation}
 A =%
 \begin{bmatrix}
     1 & 2 & 3 \\
@@ -56,6 +59,7 @@ A =%
     4 & 5 & 1 \\
     5 & 6 & -1
 \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -63,6 +67,7 @@ $$
 </div>
 
 $$
+\begin{equation}
 \begin{bmatrix}
     0.63 & 0 & 0 \\
     0 & 0.61 & 0 \\
@@ -86,6 +91,7 @@ $$
     0.96 & 1.0 & -0.74 \\
     -0.85 & -0.74 & 1.0
 \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -93,7 +99,9 @@ $$
 </div>
 
 $$
+\begin{equation}
 K^{-\frac{1}{2}} V K^{-\frac{1}{2}} = \text{correlation matrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">

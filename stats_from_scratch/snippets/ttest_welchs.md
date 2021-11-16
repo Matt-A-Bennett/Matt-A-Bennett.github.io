@@ -14,7 +14,9 @@ standard errors:</p>
 </div>
 
 $$
+\begin{equation}
 t = \frac{\bar u - \bar v}{\sqrt{SE_u^2 + SE_v^2}}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -23,6 +25,8 @@ equation:</p>
 </div>
 
 $$
+\begin{equation}
 df = \frac{\Big(\frac{\sigma_u^2}{n_u} + \frac{\sigma_v^2}{n_v}\Big)^2}{\frac{\sigma_u^4}{n_u^2(n_u-1)}\frac{\sigma_v^4}{n_v^2(n_v-1)}}
+\end{equation}
 $$
 
