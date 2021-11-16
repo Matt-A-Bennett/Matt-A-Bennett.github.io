@@ -4,6 +4,7 @@ two operations:</p>
 </div>
 
 $$
+\begin{equation}
 A \odot B = 
   \begin{bmatrix}
     1 & 2 & 3 \\

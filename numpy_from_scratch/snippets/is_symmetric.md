@@ -3,6 +3,7 @@
 then that matrix is symmetric:</p>
 
 $$
+\begin{equation}
   \begin{bmatrix}
   2 & 9 & 3 \\
   9 & 5 & -2 \\

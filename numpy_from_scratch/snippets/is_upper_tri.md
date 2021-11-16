@@ -3,6 +3,7 @@
 indices greater than column indices are zero:</p>
 
 $$
+\begin{equation}
   \begin{bmatrix}
   1 & 3 & 0 \\
   0 & 5 & -4 \\

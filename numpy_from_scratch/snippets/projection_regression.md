@@ -20,6 +20,7 @@ needed to 'bridge the gap' from $b$ to $C(A)$:</p>
 </div>
 
 $$
+\begin{equation}
 e = b - A\hat x
 \end{equation}
 $$

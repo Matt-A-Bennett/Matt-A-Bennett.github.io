@@ -2,6 +2,7 @@
 <p>A very important factorisation of a square non-singular matrix $A$ is:</p>
 
 $$
+\begin{equation}
 A = X\Lambda X^{-1}
 \end{equation}
 $$

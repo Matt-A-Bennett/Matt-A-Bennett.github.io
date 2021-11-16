@@ -11,6 +11,7 @@ systematically solve for all the unknowns.</p>
 For example, the equations:
 
 $$
+\begin{equation}
 x_1 + 2x_2 + 3x_3 = 0 \\
 2x_1 + 2x_2 + 6x_3 = -2 \\
 4x_1 + 5x_2 + 6x_3 = 5
@@ -98,3 +99,4 @@ the matrix $E$ and to have the result $U$ coming from the multiplication of $E$
 with $A$.</p>
 </div>
 \begin{equation}
+

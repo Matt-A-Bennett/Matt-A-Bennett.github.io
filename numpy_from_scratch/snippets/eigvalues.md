@@ -19,6 +19,7 @@ eigenvalues as the roots of a polynomial, which comes from the determinant. We
 have 2 unknowns to find: $x$ and $\lambda$:</p>
 
 $$
+\begin{equation}
 Ax = \lambda x
 \end{equation}
 $$
@@ -93,6 +94,7 @@ $$
 (\lambda - z_1)(\lambda - z_2) = 0
 \end{equation}
 $$
+\begin{equation}
  
 <p>Where $z_1$ and $z_2$ are those numbers which bring about the trace and
 determinant in the previous equation. Whatever $z_1$ and $z_2$ are, they must

@@ -4,6 +4,7 @@ either side) to give the identity matrix (not all matrices have inverses):</p>
 </div>
 
 $$
+\begin{equation}
 AA^{-1} = I
 \end{equation}
 $$

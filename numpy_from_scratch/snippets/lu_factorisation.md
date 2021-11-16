@@ -7,6 +7,7 @@ mix</i>. In $EA = U$ we see a $-10$ sitting in the (3,1) position of $E$:</p>
 </div>
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 0 & 0 \\
     -2 & 1 & 0 \\

@@ -7,6 +7,7 @@ with the 3rd row of $B$</p>
 </div>
 
 $$
+\begin{equation}
 AB =%
   \begin{bmatrix}
     1 & 2 & 3 \\

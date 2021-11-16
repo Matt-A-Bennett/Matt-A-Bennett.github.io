@@ -3,6 +3,7 @@
 than row indices are zero:</p>
 
 $$
+\begin{equation}
   \begin{bmatrix}
   1 & 0 & 0 \\
   0 & 5 & 0 \\

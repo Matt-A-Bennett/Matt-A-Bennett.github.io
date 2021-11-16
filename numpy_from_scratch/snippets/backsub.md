@@ -3,6 +3,7 @@
 equations in matrix form as $Ax = b$:</p>
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 2 & 3 \\
     2 & 2 & 6 \\

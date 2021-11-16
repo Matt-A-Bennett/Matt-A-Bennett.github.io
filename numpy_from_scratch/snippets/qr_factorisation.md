@@ -19,6 +19,7 @@ projection (\(A\hat x\)) encoded in the projection matrix $P$ onto $C(A)$:
 </div>
 
 $$
+\begin{equation}
 b - Pb
 \end{equation}
 $$

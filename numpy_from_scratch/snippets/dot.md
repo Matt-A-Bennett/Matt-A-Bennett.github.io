@@ -4,6 +4,7 @@ entries). You simply match up each element between the vectors, multiply them
 and add the results:</p>
 
 $$
+\begin{equation}
 u \cdot v =%
   \begin{bmatrix}
     1 \\
