@@ -20,8 +20,8 @@ $$
 $$
 \begin{equation}
 \text{covariance} = \frac{1}{m-1}(x - \bar x)^T (x - \bar x)
-$$
 \end{equation}
+$$
 
 <div style="text-align: justify">
 <p>We can compare the variation between two different variables and see if they
