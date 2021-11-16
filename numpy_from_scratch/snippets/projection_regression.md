@@ -21,6 +21,7 @@ needed to 'bridge the gap' from $b$ to $C(A)$:</p>
 
 $$
 e = b - A\hat x
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -29,7 +30,9 @@ $A^T$ (henceforth $N(A^T)$):</p>
 </div>
 
 $$
+\begin{equation}
 A^T(b - A\hat x) = 0
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -37,7 +40,9 @@ $$
 </div>
 
 $$
+\begin{equation}
 A^Tb - A^TA\hat x = 0
+\end{equation}
 $$
 
 
@@ -46,7 +51,9 @@ $$
 </div>
 
 $$
+\begin{equation}
 A^TA\hat x = A^Tb
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -54,7 +61,9 @@ $$
 </div>
 
 $$
+\begin{equation}
 \hat x = (A^TA)^{-1}A^Tb
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -63,7 +72,9 @@ our model) is:</p>
 </div>
 
 $$
+\begin{equation}
 A\hat x = A(A^TA)^{-1}A^Tb
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -71,5 +82,8 @@ $$
 </div>
 
 $$
+\begin{equation}
 P = A(A^TA)^{-1}A^T
+\end{equation}
 $$
+\begin{equation}

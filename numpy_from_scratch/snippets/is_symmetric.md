@@ -8,6 +8,8 @@ $$
   9 & 5 & -2 \\
   3 & -2 & 1
   \end{bmatrix}
+\end{equation}
 $$
 
 </div>
+\begin{equation}

@@ -4,6 +4,7 @@ done element-wise:</p>
 </div>
 
 $$
+\begin{equation}
 A + B =%
   \begin{bmatrix}
     1 & 2 & 3 \\
@@ -19,6 +20,7 @@ A + B =%
     3 & 3 & 7 \\
     4 & 8 & 7
   \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -28,13 +30,16 @@ ones' matrix that itself has been multiplied by a scalar)</p>
 </div>
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 2 & 3 \\
     4 & 5 & 6
   \end{bmatrix} ``+ 2" =%
+\end{equation}
 $$
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 2 & 3 \\
     4 & 5 & 6
@@ -49,4 +54,5 @@ $$
     3 & 4 & 5 \\
     6 & 7 & 8
   \end{bmatrix}
+\end{equation}
 $$

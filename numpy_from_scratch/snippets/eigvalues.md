@@ -20,24 +20,31 @@ have 2 unknowns to find: $x$ and $\lambda$:</p>
 
 $$
 Ax = \lambda x
+\end{equation}
 $$
 
 <p>The first thing we do is rewrite the equation:</p>
 
 $$
+\begin{equation}
 Ax = \lambda Ix
+\end{equation}
 $$
 
 <p>Then rearrange:</p>
 
 $$
+\begin{equation}
 Ax - \lambda Ix = 0
+\end{equation}
 $$
 
 <p>Factoring out the $x$:</p>
 
 $$ 
+\begin{equation}
 (A - \lambda I)x = 0
+\end{equation}
 $$
 
 <p>This tells us that the matrix $(A - \lambda I)$ is singular, which means its
@@ -47,37 +54,48 @@ determinant is zero.</p>
 <p>In the 2 by 2 case we have:</p>
 
 $$ 
+\begin{equation}
   \begin{bmatrix}
     a - \lambda & b \\
     c & d - \lambda
   \end{bmatrix}
+\end{equation}
 $$
 
 <p>The determinant of that matrix is:</p>
 
 $$
+\begin{equation}
 (a - \lambda)(d - \lambda) - (bc) = 0
+\end{equation}
 $$
 
 <p>Expanding, we see the familiar polynomial form:</p>
 
 $$
+\begin{equation}
 \lambda^2 -(a + dlambda + (ad - bc) = 0
+\end{equation}
 $$
 
 <p>Notice the trace and the determinant appearing in the above equation:</p>
 
 $$
+\begin{equation}
 \lambda^2 -(tracelambda + (determinant) = 0
+\end{equation}
 $$
 
 <p>We refactor that equation:</p>
 
 $$
+\begin{equation}
 (\lambda - z_1)(\lambda - z_2) = 0
+\end{equation}
 $$
  
 <p>Where $z_1$ and $z_2$ are those numbers which bring about the trace and
 determinant in the previous equation. Whatever $z_1$ and $z_2$ are, they must
 be equal to $\lambda$ and therefore are the eigenvalues of the matrix.</p>
 </div>
+\begin{equation}

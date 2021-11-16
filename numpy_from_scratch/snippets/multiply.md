@@ -23,4 +23,6 @@ AB =%
     12 & 10 \\
     27 & 25
   \end{bmatrix}
+\end{equation}
 $$
+\begin{equation}

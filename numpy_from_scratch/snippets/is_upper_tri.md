@@ -8,6 +8,8 @@ $$
   0 & 5 & -4 \\
   0 & 0 & 1 
   \end{bmatrix}
+\end{equation}
 $$
 
 </div>
+\begin{equation}

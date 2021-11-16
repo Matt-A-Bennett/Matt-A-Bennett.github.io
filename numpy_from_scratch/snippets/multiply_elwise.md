@@ -21,9 +21,11 @@ A \odot B =
     8 & 0 & 0 \\
     8 & -6 & -2
   \end{bmatrix}
+\end{equation}
 $$
 
 $$
+\begin{equation}
 A \oslash B = 
   \begin{bmatrix}
     1 & 2 & 3 \\[5pt]
@@ -41,6 +43,7 @@ A \oslash B =
     \frac{1}{2} & 0 & 0 \\[5pt]
     4 & -\frac{2}{3} & -\frac{1}{2}
   \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -50,6 +53,7 @@ multiplying all of its elements by some number (the scalar):</p>
 </div>
 
 $$
+\begin{equation}
 2A = 2
   \begin{bmatrix}
     1 & 2 & 3 \\
@@ -62,4 +66,6 @@ $$
     4 & 4 & 12 \\
     8 & 10 & 12
   \end{bmatrix}
+\end{equation}
 $$
+\begin{equation}

@@ -22,6 +22,7 @@ $$
     0 & 1 & -1 \\
     0 & 0 & -9
   \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -35,6 +36,7 @@ used during elimination show up in $L$:</p>
 </div>
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 2 & 3 \\
     2 & 5 & 5 \\
@@ -50,6 +52,7 @@ $$
     0 & 1 & -1 \\
     0 & 0 & -9
   \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -59,10 +62,13 @@ $E$:</p>
 </div>
 
 $$
+\begin{equation}
 PEA = P\hat U
+\end{equation}
 $$
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 0 & 0 \\
     0 & 0 & 1 \\
@@ -88,13 +94,17 @@ $$
     0 & 0 & -1 \\
     0 & 1 & 0
   \end{bmatrix}
+\end{equation}
 $$
 
 $$
+\begin{equation}
 PEA = U
+\end{equation}
 $$
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 0 & 0 \\
     0 & 0 & 1 \\
@@ -115,13 +125,17 @@ $$
     0 & 1 & 0 \\
     0 & 0 & -1
   \end{bmatrix}
+\end{equation}
 $$
 
 $$
+\begin{equation}
 A = (PE)^{-1}U = \hat LU
+\end{equation}
 $$
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 2 & 3 \\
     2 & 4 & 5 \\
@@ -137,13 +151,17 @@ $$
     0 & 1 & 0 \\
     0 & 0 & -1
   \end{bmatrix}
+\end{equation}
 $$
 
 $$
+\begin{equation}
 A = PLU
+\end{equation}
 $$
 
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 2 & 3 \\
     2 & 4 & 5 \\
@@ -164,4 +182,6 @@ $$
     0 & 1 & 0 \\
     0 & 0 & -1
   \end{bmatrix}
+\end{equation}
 $$
+\begin{equation}

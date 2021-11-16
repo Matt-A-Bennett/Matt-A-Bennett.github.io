@@ -20,18 +20,23 @@ projection (\(A\hat x\)) encoded in the projection matrix $P$ onto $C(A)$:
 
 $$
 b - Pb
+\end{equation}
 $$
 
 We can rewrite that as:
 
 $$
+\begin{equation}
 Ib - Pb
+\end{equation}
 $$
 
 And factor out the vector $b$:
 
 $$
+\begin{equation}
 b(I - P)
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -53,3 +58,4 @@ by a combination of more columns of $Q$ and so need more non-zero rows of $R$
 to provide the combining weights. Since $A = QR$, we can recover $R = Q^TA$
 (since $Q^{-1} = Q^T$) at the end of the Gram-Schmidt procedure.</p>
 </div>
+\begin{equation}

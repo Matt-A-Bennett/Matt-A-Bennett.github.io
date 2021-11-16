@@ -16,6 +16,8 @@ u \cdot v =%
     5 \\
     6
   \end{bmatrix} = 32
+\end{equation}
 $$
 
 </div>
+\begin{equation}

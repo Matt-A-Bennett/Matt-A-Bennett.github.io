@@ -5,6 +5,7 @@ either side) to give the identity matrix (not all matrices have inverses):</p>
 
 $$
 AA^{-1} = I
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -16,7 +17,9 @@ diagonal matrix is more similar to $I$, and by dividing each row appropriately
 </div>
 
 $$ 
+\begin{equation}
 \hat EEA = \hat EU = D\hat D
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -24,6 +27,7 @@ $$
 $I$:</p>
 </div>
 $$
+\begin{equation}
   \begin{bmatrix}
     1 & 2 & 3 \\
     2 & 5 & 4 \\
@@ -44,6 +48,7 @@ $$
     0 & 1 & 0 \\
     0 & 0 & 1
   \end{bmatrix}
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -57,6 +62,7 @@ $A$ side of the matrix will also be applied to the $I$ side:</p>
 </div>
 
 $$ \left[
+\begin{equation}
   \begin{array}{ccc|ccc}
     1 & 2 & 3 & 1 & 0 & 0 \\
     2 & 5 & 4 & 0 & 1 & 0 \\
@@ -70,4 +76,6 @@ $$ \left[
     0 & 0 & 1 & 0.25 & -0.5 & 0.25
   \end{array} 
   \right]
+\end{equation}
 $$
+\begin{equation}

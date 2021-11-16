@@ -14,14 +14,17 @@ $$
 x_1 + 2x_2 + 3x_3 = 0 \\
 2x_1 + 2x_2 + 6x_3 = -2 \\
 4x_1 + 5x_2 + 6x_3 = 5
+\end{equation}
 $$
 
 can be translated, after elimination, into:
 
 $$
+\begin{equation}
 x_1 + 2x_2 + 3x_3 = 0 \\
 0 - 2x_2 + 0 = -2 \\
 0 + 0 - 6x_3 = 8
+\end{equation}
 $$
 
 <p>In linear algebra, the procedure of elimination can be carried out by
@@ -31,6 +34,7 @@ result is an upper triangular matrix $U$.</p>
 The initial problem looks like:
 
 $$
+\begin{equation}
 Ax = b =%
   \begin{bmatrix}
     1 & 2 & 3 \\
@@ -50,15 +54,19 @@ Ax = b =%
     -2 \\
     5
   \end{bmatrix}
+\end{equation}
 $$
 
 The elimination procedure looks like:
 
 $$
+\begin{equation}
 Ux = EAx = Eb
+\end{equation}
 $$
 
 $$
+\begin{equation}
 Ux = %
   \begin{bmatrix}
     1 & 2 & 3 \\
@@ -78,6 +86,7 @@ Ux = %
     -2 \\
     8
   \end{bmatrix}
+\end{equation}
 $$
 
 <p>In the case that we find a zero sitting in a column above an unknown that we
@@ -88,3 +97,4 @@ that doesn't have a zero in that column.</p>
 the matrix $E$ and to have the result $U$ coming from the multiplication of $E$
 with $A$.</p>
 </div>
+\begin{equation}
