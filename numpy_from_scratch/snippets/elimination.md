@@ -98,5 +98,4 @@ that doesn't have a zero in that column.</p>
 the matrix $E$ and to have the result $U$ coming from the multiplication of $E$
 with $A$.</p>
 </div>
-\begin{equation}
 
