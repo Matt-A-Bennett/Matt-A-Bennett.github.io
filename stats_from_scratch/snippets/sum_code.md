@@ -1,3 +1,4 @@
+<div style="text-align: justify">
 <p>In our function, we will always multiply on the left, and therefore
 transpose the matrix in the case that we want the sum the rows. If a vector is
 passed, we always sum the elements:</p>

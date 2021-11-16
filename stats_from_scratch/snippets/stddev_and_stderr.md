@@ -6,7 +6,9 @@ root of the variance. This is called the standard deviation:</p>
 </div>
 
 $$
+\begin{equation}
 \sigma = \sqrt{\sigma^2} 
+\end{equation}
 $$
 
 <div style="text-align: justify">
@@ -19,7 +21,7 @@ population and this penalty decreases as your sample size increases:</p>
 </div>
 
 $$ 
-\end{equation}
-SE = \frac{\sigma}{\sqrt{n}}
 \begin{equation}
+SE = \frac{\sigma}{\sqrt{n}}
+\end{equation}
 $$
