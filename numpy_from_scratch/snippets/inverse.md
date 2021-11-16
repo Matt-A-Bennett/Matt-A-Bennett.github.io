@@ -62,8 +62,9 @@ the matrix with $I$. This means that all row operations applied based on the
 $A$ side of the matrix will also be applied to the $I$ side:</p>
 </div>
 
-$$ \left[
+$$ 
 \begin{equation}
+\left[
   \begin{array}{ccc|ccc}
     1 & 2 & 3 & 1 & 0 & 0 \\
     2 & 5 & 4 & 0 & 1 & 0 \\
