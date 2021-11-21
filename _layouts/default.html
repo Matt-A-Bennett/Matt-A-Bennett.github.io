@@ -46,6 +46,10 @@
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %}
 
+        {% if site.show_stack_flair %}
+        <p class="view"><a href="https://stackexchange.com/users/19757586/mattb"><img src="https://stackexchange.com/users/flair/19757586.png" width="208" height="58" alt="profile for mattb on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for mattb on Stack Exchange, a network of free, community-driven Q&amp;A sites" /></a></p>
+        {% endif %}
+
         {% if site.show_downloads %}
         <ul class="downloads">
           <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
