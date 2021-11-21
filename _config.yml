@@ -2,5 +2,9 @@ theme: jekyll-theme-minimal
 markdown: kramdown
 title: Matthew Bennett
 logo: ./me_circle_cropped_smaller.png
-description: Machine Learning, Data Science, Coding, Linux
+description: About me: I earned my PhD in cognitive neuroscience at the University of Glasgow and I
+currently work as a postdoc at UCLouvain, Belgium. I work with fmri data and
+neural networks. I mainly use python, matlab and R programming languages. I
+favour linux machines, and working in the terminal with Vim as my editor of
+choice.
 show_stack_flair: False
