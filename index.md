@@ -1,6 +1,6 @@
 # Projects
 
----
+<hr style="height:5px color:gray"> 
 
 ### [Building Numpy from scratch](./numpy_from_scratch/numpy_from_scratch.md)
 I write a python package that can do linear algebra operations using python's
