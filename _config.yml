@@ -3,4 +3,4 @@ markdown: kramdown
 title: Matthew Bennett
 logo: ./me_circle_cropped_smaller.png
 description: Machine Learning, Data Science, Coding, Linux
-show_stack_flair: True
+show_stack_flair: False
