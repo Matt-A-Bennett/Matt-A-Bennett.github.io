@@ -4,9 +4,9 @@ The full code I've written so far can be found [here](./full_code.md).
 
 ## The Goal
 <div style="text-align: justify">
-<p>I'm a fan of the UFC, and often I want to watch an old fight of a particular
-fighter but I don't remember all their previous opponents or which UFC events
-they performed in.</p>
+<p>I'm a fan of the Ultimate Fighting Championship (UFC), and often I want to
+watch an old fight of a particular fighter but I don't remember all their
+previous opponents or which UFC events they performed in.</p>
 <p>I decided to create a simple database containing a row for each fight in
 each UFC event, the weight category and fighter names. Then I can simply pipe
 the file contents into fzf and I have an interactive searcher which quickly
