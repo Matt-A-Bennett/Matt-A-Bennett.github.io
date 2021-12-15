@@ -3,7 +3,7 @@
 then the variation of the two samples cannot be considered 'shared' and used to
 normalise the observed difference as before.</p>
 
-<p>Instead, we have to normalise by the 'pooled' standard deviation (which is
+<p>Instead, we have to normalise by the 'pooled' standard deviation (which
 itself gives rise to a kind of 'pooled' standard error). If the number of
 observations in each sample were equal, we could just average the two
 variances:</p>
