@@ -11,7 +11,7 @@ inverse from scratch.</p>
 
 def eigdiag(self):
     evects, evals = self.eig()
-    eigval_mat = gen_mat(self.size(), values=evals.data[0], kind='diag')
+    eigval_mat = gen_mat(self.size(), values=evals.data[0], family='diag')
     if self.is_symmetric():
         evectsinv = evects.tr()
     else:

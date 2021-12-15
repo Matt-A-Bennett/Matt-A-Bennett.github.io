@@ -12,7 +12,7 @@ useful types of matrices such as tri-diagonal etc.</p>
 
 {% highlight python %}
 
-def gen_mat(size, values=[0], kind='full'):
+def gen_mat(size, values=[0], family='full'):
     if type(size) is int:
         size = [size, size]
     if len(values) == 1:
@@ -31,7 +31,7 @@ zero).</p>
 <p>If the matrix is to have a single diagonal, we place a value from the list
 once per row, in the jth column.</p> 
 
-<p>An interesting case is when we provide more than one value with kind='full'.
+<p>An interesting case is when we provide more than one value with family='full'.
 In this case we check which diagonal we're on (i.e. main, 1st off-diagonal, 2nd
 off-diagonal etc.) and pull the corresponding item (0th, 1st, 2nd) from the
 value list. If the original value list contained more than one value it will
@@ -47,9 +47,9 @@ generated_mat = []
 for i in range(size[0]):
     row = []
     for j in range(size[1]):
-        if (kind == 'diag' and j!=i) or (kind == 'upper' and j<=i) or (kind == 'lower' and j>=i):
+        if (family == 'diag' and j!=i) or (family == 'upper' and j<=i) or (family == 'lower' and j>=i):
             row.append(0)
-        elif kind == 'diag':
+        elif family == 'diag':
             row.append(values[j])
         elif j>=i:
             row.append(values[j-i])

@@ -6,7 +6,7 @@ previous function and populate the diagonal with 1's.</p>
 {% highlight python %}
 
 def eye(size):
-    return gen_mat(size, values=[1], kind='diag')
+    return gen_mat(size, values=[1], family='diag')
 
 {% endhighlight %}
 

@@ -4,7 +4,7 @@ then the variation of the two samples cannot be considered 'shared' and used to
 normalise the observed difference as before.</p>
 
 <p>Instead, we have to normalise by the 'pooled' standard deviation (which
-itself gives rise to a kind of 'pooled' standard error). If the number of
+itself gives rise to a family of 'pooled' standard error). If the number of
 observations in each sample were equal, we could just average the two
 variances:</p>
 </div>
@@ -28,7 +28,7 @@ t = \frac{\bar u - \bar v}{s \sqrt{\frac{1}{n} + \frac{1}{n}}}
 $$
 
 <div style="text-align: justify">
-<p>When the sample sizes are different, we can take a kind of 'weighted'
+<p>When the sample sizes are different, we can take a family of 'weighted'
 average of the variances - weighted, that is, by the proportion of total
 degrees of freedom each sample accounts for. Thus the 'pooled' standard
 deviation in that case is:</p>
