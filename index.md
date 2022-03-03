@@ -33,7 +33,7 @@ files as arguments to any command.
 
 ### [Switch between light and dark mode in Vim and Tmux with one command ](./colour_switching_terminal/colour_switching_terminal.md)
 My workflow relies on Vim and Tmux. Here I add a command that causes
-synchronised colorsheme changes between them.
+synchronised colorscheme changes between them.
 
 <hr>
 

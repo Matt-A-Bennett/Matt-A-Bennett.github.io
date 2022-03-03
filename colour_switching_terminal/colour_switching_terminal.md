@@ -143,7 +143,7 @@ otherwise we go with a light one (in my case seoul256-light):</p>
 
 {% highlight vim %}
 function! SetColorScheme()
-    " check if tmux colorsheme is light or dark, and pick for vim accordingly
+    " check if tmux colorscheme is light or dark, and pick for vim accordingly
     if system('tmux show-environment THEME')[0:9] == 'THEME=dark'
         colorscheme zenburn
     else
