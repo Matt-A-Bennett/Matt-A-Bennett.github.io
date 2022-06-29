@@ -1,1 +1,1 @@
-The site can be found [here](https://matt-a-bennett.github.io)
+I have a [blog](https://matt-a-bennett.github.io) where I keep a public record of the projects I do in my spare time. The projects are focused on coding in Python 3 and Bash. The reason for doing a given project falls into two categories: Either I'm trying to learn more about some area of coding, or I am sharing something that I made and find useful to have on my pc.
