@@ -1,15 +1,14 @@
 # Configuring FZF to search useful directories beyond the working directory
-<div style="text-align: justify">
-<p>I use <a href="https://github.com/junegunn/fzf">fzf</a> both as a command
-line tool and from within Vim using the <a
+<div style="text-align: justify"> <p>I use <a
+href="https://github.com/junegunn/fzf">fzf</a> both as a command line tool and
+from within Vim using the <a
 href="https://github.com/junegunn/fzf.vim">fzf.vim</a> plugin. It makes finding
 (and opening) files intuitive, fast, and frees you from needing to remember
 their location or exact name. By default, fzf searches recursively within the
 current directory, which is often just what you want. If you need to search for
 a file in some directory beyond the current working directory you need to
 specify that path as an argument to fzf, after which it's business as usual
-(fzf will recursively search the specified directory).</p> 
-</div>
+(fzf will recursively search the specified directory).</p> </div>
 
 ## The Problem
 <div style="text-align: justify">
@@ -34,9 +33,9 @@ difficult for fzf to filter them out.</p>
 the standard linux find command, but you can also use <a
 href="https://github.com/sharkdp/fd#benchmark">fd</a>, ripgrep or silver
 searcher. Apart from being a lot faster than the default find, these latter
-tools <i>respect .gitignore files</i>. This means that fzf will skip any files
-<b>or directories</b> listed in a .gitignore file. We can turn this feature to
-our advantage.</p>
+tools <i>respect .ignore files</i> (thanks to @timblacktu comment for pointing
+this out!). This means that fzf will skip any files <b>or directories</b>
+listed in a .ignore file. We can turn this feature to our advantage.</p>
 
 <p>First, we install <a href="https://github.com/sharkdp/fd#benchmark">fd</a>.
 If you run Ubuntu 19.04 (Disco Dingo) or newer, you can install the officially
@@ -78,18 +77,12 @@ export FZF_DEFAULT_COMMAND="fd . $HOME"
 
 <div style="text-align: justify">
 <p>Now fzf will always search recursively from the home directory, and respect
-any .gitignore files in any git repository. fzf detects git repositories by
-looking for a .git directory. We can trigger this behaviour in our home
-directory by making a .git directory. To achieve this, your home directory must
-not already be a git repository, but I don't think anyone does that... Then we
-can create a .gitignore file to ignore any directories that we want - i.e the
-ones swamping our searches:</p>
+any .ignore files:</p>
 </div>
 
 {% highlight bash %}
 cd ~/
-mkdir .git
-touch .gitignore
+touch .ignore
 {% endhighlight %}
 
 <div style="text-align: justify">
@@ -98,7 +91,7 @@ recursively search with fzf is shorter that the list of directories that I
 would never want searched. The total number of files in the directories I want
 searched is about 5000 or so - easily handled by fd.</p>
 
-<p>In the .gitignore file, I first list all my home directories, each
+<p>In the .ignore file, I first list all my home directories, each
 followed by a '/':</p>
 </div>
 
@@ -158,7 +151,7 @@ alias fzfcl="export FZF_DEFAULT_COMMAND='fd .'"
 alias fzf-="export FZF_DEFAULT_COMMAND='fd . $HOME'"
 {% endhighlight %}
 
-<p>If you're using Vim to create the .gitignore file, an easy way to get a list
+<p>If you're using Vim to create the .ignore file, an easy way to get a list
 of all the directories in your home directory is the following command:</p>
 </div>
 
