@@ -133,21 +133,32 @@ function! Toggle_Light_Dark_Colorscheme()
         :silent :!tmux set-environment THEME 'dark'
         :silent :!tmux source-file ~/.tmux_dark.conf
     endif
-    :call SetColorScheme()
+    :call SetColorScheme(1)
 endfunction
 {% endhighlight %}
 
 <p>The colour scheme we pick is dictated by the Tmux THEME variable. If the
 THEME is 'THEME=dark', we choose a dark colour scheme (in my case zenburn),
-otherwise we go with a light one (in my case seoul256-light):</p>
+otherwise we go with a light one (in my case seoul256-light). In addition, I
+also tweak the theme's background color depending on whether Vim is the pane
+that I'm 'focused' on (see below):</p>
 
 {% highlight vim %}
-function! SetColorScheme()
+function! SetColorScheme(focus)
     " check if tmux colorscheme is light or dark, and pick for vim accordingly
-    if system('tmux show-environment THEME')[0:9] == 'THEME=dark'
+    if system('tmux show-environment THEME')[0:9] ==# 'THEME=dark'
         colorscheme zenburn
+        let $BAT_THEME=''
+        if a:focus == 0
+            highlight Normal ctermbg=none
+        endif
     else
         colorscheme seoul256-light
+        let $BAT_THEME='Monokai Extended Light'
+        if a:focus == 1
+            highlight Normal ctermbg=white
+            highlight LineNr ctermbg=lightgrey
+        endif
     endif
 endfunction
 {% endhighlight %}
@@ -165,7 +176,7 @@ SetColorScheme function (note that this must come after the SetColorScheme
 function in your ~/.vimrc):</p>
 
 {% highlight vim %}
-call SetColorScheme()
+call SetColorScheme(1)
 {% endhighlight %}
 
 <p>We could stop there, but in the case where we have an instance of Vim
@@ -196,10 +207,12 @@ set -g focus-events on
 {% endhighlight %}
 
 <p>With one of the above options (I just have the line in my ~/.tmux.conf), we
-can use the FocusGained event in ~/.vimrc:</p>
+can use the FocusGained and FocusLost events in ~/.vimrc to make a call to our
+SetColorScheme function and update the colorscheme accordingly:</p>
 
 {% highlight vim %}
-autocmd FocusGained * :call SetColorScheme()
+autocmd FocusGained * :call SetColorScheme(1)
+autocmd FocusLost * :call SetColorScheme(0)
 {% endhighlight %}
 
 <p>This will mean that as soon as you return to vim from the Tmux pane, Vim's
