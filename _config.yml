@@ -2,7 +2,8 @@ theme: jekyll-theme-minimal
 markdown: kramdown
 title: Matthew Bennett
 logo: ./me_circle_cropped_smaller.png
-description: I earned my PhD in cognitive neuroscience at the University of Glasgow and I currently work as a postdoc at UCLouvain, Belgium. I work with fmri data and neural networks. I mainly use python, matlab and R programming languages. I favour linux machines, and working in the terminal with Vim as my editor of choice.
+description: I am a data scientist working on time series forecasting (using R and Python 3) at the London Ambulance Service NHS Trust. I earned my PhD in cognitive neuroscience at the University of Glasgow working with fmri data and neural networks. I favour linux machines, and working in the terminal with Vim as my editor of choice.
+
 link_to_CV: True
 link_to_LinkedIn: True
 show_stack_flair: False
